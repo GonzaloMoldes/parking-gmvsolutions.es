@@ -135,15 +135,18 @@
   /* MAIN */
   main {
     flex: 1;
-    display: flex;
-    align-items: center;
-    padding: 60px 5vw;
-    gap: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    padding: 0;
+    gap: 0;
   }
 
   .main-content {
-    flex: 1;
-    max-width: 680px;
+    padding: 60px 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .eyebrow {
