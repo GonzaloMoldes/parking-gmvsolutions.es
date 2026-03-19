@@ -27,11 +27,38 @@ const year = new Date().getFullYear();
 
       <div class="footer-copy">
         © {year} GMV Solutions
-        &nbsp;·&nbsp;
-        <a href="/precios/" style="color:var(--gray2);text-decoration:none;">Precios</a>
-        &nbsp;·&nbsp;
-        <a href="https://diagnostico.gmvsolutions.es" style="color:var(--gray2);text-decoration:none;">Calculadora de riesgo</a>
       </div>
+    </div>
+
+    <div class="footer-legal">
+      <a href="/legal/aviso-legal/">Aviso legal</a>
+      <a href="/legal/privacidad/">Privacidad</a>
+      <a href="/legal/cookies/">Cookies</a>
     </div>
   </div>
 </footer>
+
+<style>
+  .footer-legal {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+  }
+
+  .footer-legal a {
+    font-size: .72rem;
+    color: var(--gray2);
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: .04em;
+    transition: color .2s;
+  }
+
+  .footer-legal a:hover {
+    color: var(--gray);
+  }
+</style>

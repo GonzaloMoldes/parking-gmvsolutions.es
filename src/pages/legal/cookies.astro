@@ -1,0 +1,213 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Política de cookies — GMV Solutions";
+const description = "Información sobre las cookies utilizadas en gmvsolutions.es. Tipos de cookies, finalidad y cómo gestionarlas.";
+---
+
+<BaseLayout title={title} description={description} activeNav="">
+  <section class="legal-page">
+    <div class="container legal-container">
+      <div class="legal-header fade-up">
+        <div class="eyebrow">Cookies</div>
+        <h1 class="section-title">Política de cookies</h1>
+        <p class="legal-updated">Última actualización: marzo 2026</p>
+      </div>
+
+      <div class="legal-content fade-up delay-1">
+
+        <h2>1. ¿Qué son las cookies?</h2>
+        <p>
+          Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo (ordenador, móvil o tablet) cuando visitas un sitio web. Permiten que el sitio recuerde tus acciones y preferencias durante un periodo de tiempo, de modo que no tengas que reintroducirlas cada vez que vuelvas.
+        </p>
+
+        <h2>2. ¿Qué cookies utilizamos?</h2>
+        <p>
+          En gmvsolutions.es utilizamos los siguientes tipos de cookies:
+        </p>
+
+        <h3>Cookies necesarias</h3>
+        <p>
+          Son imprescindibles para el funcionamiento básico del sitio web. Incluyen la cookie de Cookiebot que almacena tu preferencia de consentimiento. No recogen información personal identificable y no se pueden desactivar.
+        </p>
+        <div class="legal-data">
+          <p><strong>CookieConsent</strong> (Cookiebot) — Almacena el estado de consentimiento del usuario. Duración: 12 meses.</p>
+        </div>
+
+        <h3>Cookies analíticas</h3>
+        <p>
+          Nos ayudan a entender cómo los usuarios interactúan con el sitio web, recopilando información de forma anónima. Solo se instalan si aceptas las cookies analíticas en el banner de consentimiento.
+        </p>
+        <div class="legal-data">
+          <p><strong>_ga, _ga_*</strong> (Google Analytics 4) — Identificador anónimo para distinguir usuarios y sesiones. Duración: hasta 2 años.</p>
+          <p><strong>_gid</strong> (Google Analytics 4) — Identificador de sesión. Duración: 24 horas.</p>
+        </div>
+
+        <h3>Cookies de marketing</h3>
+        <p>
+          Utilizamos cookies de Google Ads para medir la efectividad de nuestras campañas publicitarias. Solo se instalan si aceptas las cookies de marketing en el banner de consentimiento.
+        </p>
+        <div class="legal-data">
+          <p><strong>_gcl_au</strong> (Google Ads) — Seguimiento de conversiones publicitarias. Duración: 90 días.</p>
+        </div>
+
+        <h2>3. Gestión del consentimiento</h2>
+        <p>
+          Utilizamos <strong>Cookiebot</strong> como plataforma de gestión de consentimiento (CMP). Cuando visitas el sitio por primera vez, se muestra un banner que te permite aceptar o rechazar cada categoría de cookies.
+        </p>
+        <p>
+          Puedes modificar tus preferencias en cualquier momento haciendo clic en el icono de cookies que aparece en la esquina inferior izquierda de la pantalla, o a través de este enlace:
+        </p>
+        <p>
+          <a href="javascript:Cookiebot.renew()">Modificar mis preferencias de cookies</a>
+        </p>
+
+        <h2>4. Cookies de terceros</h2>
+        <p>
+          Algunas cookies son instaladas por servicios de terceros que aparecen en nuestras páginas. No controlamos la configuración de estas cookies. Te recomendamos consultar las políticas de privacidad de cada proveedor:
+        </p>
+        <ul>
+          <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google (Analytics y Ads)</a></li>
+          <li><a href="https://www.cookiebot.com/en/privacy-policy/" target="_blank" rel="noopener">Cookiebot / Usercentrics</a></li>
+        </ul>
+
+        <h2>5. Cómo desactivar cookies desde el navegador</h2>
+        <p>
+          Además del banner de consentimiento, puedes configurar tu navegador para bloquear o eliminar cookies. Ten en cuenta que si desactivas las cookies necesarias, algunas funcionalidades del sitio podrían no funcionar correctamente.
+        </p>
+        <ul>
+          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+          <li><a href="https://support.mozilla.org/es/kb/cookies-informacion-que-los-sitios-web-guardan-en-" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+          <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
+          <li><a href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Microsoft Edge</a></li>
+        </ul>
+
+        <h2>6. Modificaciones</h2>
+        <p>
+          Esta política de cookies puede actualizarse en función de cambios normativos o de la incorporación de nuevos servicios al sitio web. Cualquier modificación será publicada en esta página con la fecha de actualización correspondiente.
+        </p>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding: 140px 0 96px;
+  }
+
+  .legal-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .legal-header {
+    margin-bottom: 48px;
+  }
+
+  .legal-header .eyebrow {
+    justify-content: flex-start;
+  }
+
+  .legal-updated {
+    font-family: 'DM Mono', monospace;
+    font-size: .75rem;
+    color: var(--gray2);
+    margin-top: 8px;
+    letter-spacing: .04em;
+  }
+
+  .legal-content h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    color: var(--white);
+  }
+
+  .legal-content h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    color: var(--orange);
+  }
+
+  .legal-content p {
+    font-size: .92rem;
+    color: var(--gray);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .legal-content p strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .legal-content a {
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  .legal-content a:hover {
+    text-decoration: underline;
+  }
+
+  .legal-content ul {
+    list-style: none;
+    margin-bottom: 16px;
+    padding-left: 0;
+  }
+
+  .legal-content li {
+    font-size: .92rem;
+    color: var(--gray);
+    line-height: 1.75;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .legal-content li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+  }
+
+  .legal-data {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 12px 0 20px;
+  }
+
+  .legal-data p {
+    margin-bottom: 6px;
+    font-size: .85rem;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .legal-data strong {
+    color: var(--orange);
+    font-weight: 500;
+  }
+
+  @media (max-width: 600px) {
+    .legal-page {
+      padding: 110px 0 72px;
+    }
+    .legal-container {
+      padding: 0 20px;
+    }
+  }
+</style>

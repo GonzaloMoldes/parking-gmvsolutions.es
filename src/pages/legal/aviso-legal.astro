@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Aviso legal — GMV Solutions";
+const description = "Información legal del sitio web gmvsolutions.es. Datos del titular, condiciones de uso y propiedad intelectual.";
+---
+
+<BaseLayout title={title} description={description} activeNav="">
+  <section class="legal-page">
+    <div class="container legal-container">
+      <div class="legal-header fade-up">
+        <div class="eyebrow">Información legal</div>
+        <h1 class="section-title">Aviso legal</h1>
+        <p class="legal-updated">Última actualización: marzo 2026</p>
+      </div>
+
+      <div class="legal-content fade-up delay-1">
+
+        <h2>1. Datos identificativos del titular</h2>
+        <p>
+          En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa al usuario de los datos del titular de este sitio web:
+        </p>
+        <div class="legal-data">
+          <p><strong>Nombre comercial:</strong> GMV Solutions</p>
+          <p><strong>Titular:</strong> [NOMBRE COMPLETO DEL TITULAR]</p>
+          <p><strong>NIF/NIE:</strong> [NÚMERO DE IDENTIFICACIÓN FISCAL]</p>
+          <p><strong>Domicilio:</strong> [DIRECCIÓN COMPLETA]</p>
+          <p><strong>Email de contacto:</strong> hola@gmvsolutions.es</p>
+          <p><strong>Sitio web:</strong> https://gmvsolutions.es</p>
+        </div>
+        <p class="legal-note">
+          GMV Solutions es un nombre comercial. Cuando se constituya la sociedad mercantil, estos datos se actualizarán con la razón social, CIF y datos registrales correspondientes.
+        </p>
+
+        <h2>2. Objeto y ámbito de aplicación</h2>
+        <p>
+          El presente aviso legal regula el acceso y uso del sitio web gmvsolutions.es (en adelante, "el sitio web") y de los servicios que GMV Solutions pone a disposición de los usuarios a través de internet.
+        </p>
+        <p>
+          El acceso al sitio web implica la aceptación de las condiciones contenidas en este aviso legal, así como en la política de privacidad y la política de cookies.
+        </p>
+
+        <h2>3. Condiciones de uso</h2>
+        <p>
+          El usuario se compromete a hacer un uso adecuado de los contenidos y servicios que GMV Solutions ofrece a través de este sitio web y a no emplearlos para:
+        </p>
+        <ul>
+          <li>Realizar actividades ilícitas o contrarias a la buena fe y al orden público.</li>
+          <li>Difundir contenidos o propaganda de carácter racista, xenófobo, ilegal o que atente contra los derechos humanos.</li>
+          <li>Provocar daños en los sistemas físicos o lógicos de GMV Solutions, de sus proveedores o de terceros.</li>
+          <li>Intentar acceder y, en su caso, utilizar las cuentas de correo electrónico de otros usuarios y modificar o manipular sus mensajes.</li>
+        </ul>
+
+        <h2>4. Propiedad intelectual e industrial</h2>
+        <p>
+          Todos los contenidos del sitio web, incluyendo a título enunciativo pero no limitativo los textos, fotografías, gráficos, imágenes, iconos, tecnología, software, diseño gráfico y código fuente, así como las marcas y signos distintivos, son propiedad de GMV Solutions o de terceros que han autorizado su uso, y están protegidos por las leyes de propiedad intelectual e industrial.
+        </p>
+        <p>
+          El nombre comercial REELEVO y sus elementos gráficos asociados son propiedad de GMV Solutions. Queda prohibida su reproducción, distribución, comunicación pública o transformación sin autorización expresa.
+        </p>
+
+        <h2>5. Exclusión de garantías y responsabilidad</h2>
+        <p>
+          GMV Solutions no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran derivarse del acceso o uso del sitio web, incluyendo pero no limitándose a los daños causados a los sistemas informáticos o los provocados por la introducción de virus.
+        </p>
+        <p>
+          GMV Solutions se reserva el derecho de modificar, suspender o interrumpir el acceso a los contenidos del sitio web, con o sin previo aviso, sin que ello genere derecho alguno de indemnización a favor del usuario.
+        </p>
+
+        <h2>6. Enlaces externos</h2>
+        <p>
+          El sitio web puede contener enlaces a sitios web de terceros (como diagnostico.gmvsolutions.es o app.gmvsolutions.es). GMV Solutions no asume responsabilidad alguna por el contenido, informaciones o servicios que pudieran ofrecerse en dichos sitios, que tienen carácter meramente informativo y que en ningún caso implican relación, aprobación o respaldo alguno entre GMV Solutions y las personas o entidades titulares de tales contenidos.
+        </p>
+
+        <h2>7. Legislación aplicable y jurisdicción</h2>
+        <p>
+          Para la resolución de cualquier controversia que pudiera derivarse del acceso o uso de este sitio web, será de aplicación la legislación española. Las partes se someten, con renuncia expresa a cualquier otro fuero, a los Juzgados y Tribunales del domicilio del titular.
+        </p>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding: 140px 0 96px;
+  }
+
+  .legal-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .legal-header {
+    margin-bottom: 48px;
+  }
+
+  .legal-header .eyebrow {
+    justify-content: flex-start;
+  }
+
+  .legal-updated {
+    font-family: 'DM Mono', monospace;
+    font-size: .75rem;
+    color: var(--gray2);
+    margin-top: 8px;
+    letter-spacing: .04em;
+  }
+
+  .legal-content h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    color: var(--white);
+  }
+
+  .legal-content p {
+    font-size: .92rem;
+    color: var(--gray);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .legal-content ul {
+    list-style: none;
+    margin-bottom: 16px;
+    padding-left: 0;
+  }
+
+  .legal-content li {
+    font-size: .92rem;
+    color: var(--gray);
+    line-height: 1.75;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .legal-content li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+  }
+
+  .legal-data {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin: 16px 0 24px;
+  }
+
+  .legal-data p {
+    margin-bottom: 6px;
+    font-size: .88rem;
+  }
+
+  .legal-data strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .legal-note {
+    font-size: .82rem !important;
+    color: var(--gray2) !important;
+    font-style: italic;
+    border-left: 2px solid var(--orange);
+    padding-left: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .legal-page {
+      padding: 110px 0 72px;
+    }
+    .legal-container {
+      padding: 0 20px;
+    }
+  }
+</style>
