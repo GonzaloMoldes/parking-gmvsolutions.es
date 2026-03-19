@@ -1,0 +1,152 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Cómo documentar el conocimiento de tus operarios expertos antes de que se vayan";
+const description = "Guía práctica para capturar el conocimiento tácito de operarios veteranos en pymes industriales. Metodología de transferencia de conocimiento operativo paso a paso, con errores comunes y soluciones.";
+const date = "2026-03-10";
+const category = "Transferencia de conocimiento";
+const readTime = "14 min.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": date,
+  "author": { "@type": "Organization", "name": "GMV Solutions" },
+  "publisher": { "@type": "Organization", "name": "GMV Solutions", "url": "https://gmvsolutions.es" }
+};
+---
+
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} schema={schema}>
+
+<h2>El conocimiento que se va cuando se va la persona</h2>
+
+<p>En cualquier planta industrial hay personas que llevan 10, 15 o 20 años haciendo lo mismo. Saben cómo suena la máquina cuando algo no va bien. Saben que el tercer paso del manual del fabricante no funciona y hay que hacerlo de otra forma. Saben que los martes por la mañana la presión tarda más en estabilizarse porque el compresor viene frío del fin de semana.</p>
+
+<p>Ese conocimiento no está en ningún manual. Se llama <strong>conocimiento tácito</strong> — en inglés, "tribal knowledge" — y es probablemente el activo más valioso y más frágil de tu empresa.</p>
+
+<p>Frágil porque <strong>desaparece el día que esa persona se va</strong>. Y según los datos de la Encuesta REELEVO 2025, el 87% de las pymes industriales españolas identifican la dependencia de estos perfiles como un riesgo alto para su producción, pero solo el 23% ha documentado ese conocimiento.</p>
+
+<h2>Por qué la transferencia de conocimiento falla en la mayoría de empresas</h2>
+
+<p>Casi todas las empresas industriales intentan alguna forma de transferencia de conocimiento. Y casi todas fracasan. Las razones son siempre las mismas:</p>
+
+<h3>"Ya lo haremos cuando se acerque la fecha"</h3>
+<p>La jubilación se ve venir con años de antelación, pero la documentación se deja para el último mes. Para entonces, el experto ya tiene la cabeza en otra parte y el proceso se hace con prisas y sin profundidad.</p>
+
+<h3>"Que le enseñe al nuevo"</h3>
+<p>La transferencia operario-a-operario parece la solución natural, pero tiene problemas graves: depende de la habilidad pedagógica del experto (que rara vez es buena), es inconsistente (cada día enseña diferente), no queda registro, y ocupa el tiempo productivo de dos personas durante semanas.</p>
+
+<h3>"Vamos a hacer un manual"</h3>
+<p>Alguien del departamento de calidad se sienta con el experto y redacta un documento de 40 páginas con capturas de pantalla y diagramas. El documento queda perfecto. Nadie lo consulta jamás. El día que hace falta, nadie encuentra el archivo o está desactualizado.</p>
+
+<h3>"Es que esto no se puede documentar"</h3>
+<p>El mito más peligroso. Sí se puede documentar. Lo que pasa es que el formato habitual (texto escrito en un Word) no es capaz de capturar el conocimiento tácito. Necesitas un formato que capture <strong>cómo lo hace el experto realmente</strong>, no cómo lo describe alguien que le ha observado.</p>
+
+<h2>Qué tipo de conocimiento tienes que capturar (y cuál no)</h2>
+
+<p>No todo el conocimiento del experto tiene el mismo valor ni la misma urgencia. Hay que priorizar:</p>
+
+<h3>Conocimiento crítico (captura primero)</h3>
+<ul>
+<li><strong>Procesos que solo domina esa persona:</strong> si mañana no viene, ¿qué se para? Empieza por ahí.</li>
+<li><strong>Ajustes y configuraciones no documentadas:</strong> los parámetros reales vs los del manual del fabricante. Las adaptaciones que ha hecho a lo largo de los años.</li>
+<li><strong>Troubleshooting:</strong> qué hacer cuando algo falla. Las señales que indican que algo va a fallar. Los 5 problemas más comunes y cómo resolverlos sin llamar al técnico.</li>
+</ul>
+
+<h3>Conocimiento importante (captura después)</h3>
+<ul>
+<li><strong>Secuencias de arranque y parada:</strong> el orden importa, y muchas veces el orden real difiere del manual.</li>
+<li><strong>Criterios de calidad:</strong> cómo sabe el experto que una pieza está bien o mal. Qué mira, qué toca, qué escucha.</li>
+<li><strong>Interacciones entre máquinas:</strong> cómo afecta el ajuste de una máquina al rendimiento de la siguiente en la línea.</li>
+</ul>
+
+<h3>Conocimiento que no necesitas documentar</h3>
+<ul>
+<li>Procesos que ya están correctamente documentados en manuales del fabricante y se siguen tal cual.</li>
+<li>Conocimiento que comparten varios operarios (no hay dependencia de una persona).</li>
+<li>Tareas que van a desaparecer por cambio de maquinaria o proceso.</li>
+</ul>
+
+<h2>Metodología: cómo capturar el conocimiento en 4 fases</h2>
+
+<h3>Fase 1: Mapeo de dependencias (1 día)</h3>
+
+<p>Antes de documentar nada, necesitas saber <strong>dónde está el riesgo</strong>. Haz una lista de todas las máquinas y procesos de tu planta y responde a estas preguntas para cada uno:</p>
+
+<ol>
+<li>¿Cuántas personas saben operar este proceso correctamente?</li>
+<li>Si la persona principal falta mañana, ¿qué pasa?</li>
+<li>¿Cuánto tiempo tardaría un sustituto en aprender?</li>
+<li>¿Cuándo se prevé que la persona principal pueda dejar el puesto? (jubilación, rotación, etc.)</li>
+</ol>
+
+<p>Los procesos donde solo 1 persona sabe hacerlo y hay riesgo de salida a corto-medio plazo son tu prioridad absoluta.</p>
+
+<h3>Fase 2: Sesiones de captura con el experto (1-2 semanas)</h3>
+
+<p>La clave de esta fase es que <strong>el experto documente el proceso mientras lo ejecuta</strong>. No después, no de memoria, no dictándole a alguien de calidad. En el puesto de trabajo, con la máquina, paso a paso.</p>
+
+<p>Consejos prácticos para las sesiones:</p>
+
+<ul>
+<li><strong>Una sesión = un proceso.</strong> No intentes documentar todo en una mañana. 30-60 minutos por proceso es suficiente.</li>
+<li><strong>El experto lidera.</strong> No le digas qué documentar. Pregúntale: "¿Cómo haces esto?" y deja que él estructure los pasos.</li>
+<li><strong>Captura los "por qué".</strong> No solo qué hace, sino por qué lo hace así. "Siempre espero 30 segundos antes de subir la velocidad porque si no, el material se atasca" — eso es conocimiento tácito puro.</li>
+<li><strong>Incluye los errores.</strong> Pregúntale: "¿Qué es lo que suele salir mal aquí? ¿Qué harías si…?" El troubleshooting es la parte más valiosa.</li>
+<li><strong>No busques perfección.</strong> Un procedimiento imperfecto pero real es infinitamente más útil que un manual perfecto que nadie consulta.</li>
+</ul>
+
+<h3>Fase 3: Estructuración y accesibilidad (2-3 días)</h3>
+
+<p>Una vez capturado, el conocimiento necesita estar <strong>organizado por máquina y proceso</strong>, y ser <strong>accesible en el puesto de trabajo</strong>.</p>
+
+<p>La estructura debería ser:</p>
+
+<ul>
+<li>Máquina → Proceso → Pasos secuenciales</li>
+<li>Cada paso: instrucción + detalle del experto + troubleshooting si aplica</li>
+<li>Acceso directo desde la máquina, sin buscar en carpetas ni servidores</li>
+</ul>
+
+<p>Si el sustituto tiene que encender un ordenador, navegar por carpetas y abrir un PDF para consultar un paso, no lo va a hacer. <strong>La accesibilidad es lo que determina si los procedimientos se usan o se ignoran.</strong></p>
+
+<h3>Fase 4: Validación y transición (1-2 semanas)</h3>
+
+<p>Antes de que el experto se vaya, necesitas verificar que lo documentado funciona:</p>
+
+<ol>
+<li>Un operario que NO domina el proceso sigue los procedimientos documentados.</li>
+<li>El experto observa y corrige lo que falta o no está claro.</li>
+<li>Se actualizan los procedimientos con las correcciones.</li>
+<li>Se repite hasta que el sustituto pueda completar el proceso correctamente sin ayuda del experto.</li>
+</ol>
+
+<p>Este paso es crítico. Si no validas antes de que el experto se vaya, te arriesgas a descubrir los huecos cuando ya es tarde para llenarlos.</p>
+
+<h2>Cuándo empezar (pista: antes de lo que crees)</h2>
+
+<p>El error más común es empezar demasiado tarde. La ventana ideal para documentar el conocimiento de un operario que se va a jubilar es <strong>6-12 meses antes de su salida</strong>. Esto permite:</p>
+
+<ul>
+<li>Hacer las sesiones de captura sin prisa.</li>
+<li>Validar con sustitutos reales.</li>
+<li>Iterar y mejorar los procedimientos.</li>
+<li>Que el experto resuelva dudas que surjan después de la documentación inicial.</li>
+</ul>
+
+<p>Pero la jubilación no es el único escenario. La rotación voluntaria, las bajas de larga duración y las reestructuraciones también generan pérdida de conocimiento — y esas no avisan con 12 meses de antelación.</p>
+
+<p>Por eso, <strong>la mejor estrategia es documentar los procesos críticos ahora, independientemente de si alguien tiene previsto irse</strong>. No es un proyecto de transferencia de conocimiento — es un activo de la empresa que debería existir siempre.</p>
+
+<div class="highlight-box">
+<p><strong>REELEVO</strong> permite que tus operarios expertos capturen sus procedimientos operativos paso a paso y que queden accesibles directamente en cada máquina para cualquier sustituto. Sin manuales de 40 páginas. Sin carpetas en el servidor. Sin depender de que alguien enseñe a alguien.</p>
+<p><a href="https://app.gmvsolutions.es/registro">Solicitar demo →</a></p>
+</div>
+
+<hr />
+
+<p><em>¿Tienes operarios clave cuyo conocimiento no está documentado? Haz nuestro <a href="https://diagnostico.gmvsolutions.es">diagnóstico de riesgo operativo</a> y descubre cuánto riesgo real tiene tu planta — resultado en 2 minutos.</em></p>
+
+</ArticleLayout>

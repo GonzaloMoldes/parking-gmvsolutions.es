@@ -1,0 +1,117 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Qué es un SOP industrial y cómo implementarlo en tu planta";
+const description = "Guía completa sobre procedimientos operativos estándar (SOP) para pymes industriales. Qué son, por qué importan, cómo crearlos y qué herramientas usar. Con datos del sector español.";
+const date = "2026-03-18";
+const category = "Procedimientos operativos estándar";
+const readTime = "12 min.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": date,
+  "author": { "@type": "Organization", "name": "GMV Solutions" },
+  "publisher": { "@type": "Organization", "name": "GMV Solutions", "url": "https://gmvsolutions.es" }
+};
+---
+
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} schema={schema}>
+
+<h2>Qué es un SOP y por qué debería importarte</h2>
+
+<p>Un SOP (Standard Operating Procedure) o procedimiento operativo estándar es un documento que describe paso a paso cómo realizar una tarea concreta dentro de una organización. En el contexto industrial, un SOP define exactamente cómo operar una máquina, ejecutar un proceso de producción, realizar un cambio de formato o actuar ante una incidencia.</p>
+
+<p>La definición es sencilla. Lo que no es sencillo es la realidad de la mayoría de pymes industriales españolas: <strong>solo el 23% tiene procedimientos operativos documentados y actualizados</strong>. El 77% restante depende de lo que el operario experto tiene en la cabeza — lo que en inglés se llama "tribal knowledge" o conocimiento tácito.</p>
+
+<p>Esto significa que cuando esa persona falta, se jubila o cambia de empresa, el conocimiento se va con ella.</p>
+
+<h2>SOP vs instrucciones de trabajo vs manual de operaciones</h2>
+
+<p>Hay confusión frecuente entre estos tres conceptos. La diferencia es de alcance:</p>
+
+<ul>
+<li><strong>Manual de operaciones:</strong> documento general que describe el funcionamiento global de una planta o departamento. Rara vez se consulta en el día a día.</li>
+<li><strong>Procedimiento operativo estándar (SOP):</strong> describe un proceso completo de principio a fin — por ejemplo, "arranque de la línea de envasado". Incluye los pasos, el orden, los criterios de calidad y qué hacer si algo sale mal.</li>
+<li><strong>Instrucción de trabajo:</strong> describe una tarea específica dentro de un SOP — por ejemplo, "ajustar la presión del cabezal a 2,5 bar". Es más granular.</li>
+</ul>
+
+<p>Para una pyme industrial, lo más práctico es trabajar a nivel de SOP: procesos completos que un operario pueda seguir de principio a fin. Si dentro de un paso necesitas más detalle, añades la instrucción de trabajo como sub-paso.</p>
+
+<h2>Por qué las pymes industriales necesitan SOPs (con datos)</h2>
+
+<p>Los datos del sector industrial español son claros sobre el coste de no tener procedimientos documentados:</p>
+
+<div class="data-card">
+<p><strong>7,2%</strong> — tasa de absentismo media en pymes industriales españolas. Eso significa que en una empresa de 40 trabajadores, casi 3 personas faltan cada día.</p>
+<p><strong>40%</strong> — de los responsables de planta llaman directamente al operario experto cuando alguien falta. Aunque esté de baja.</p>
+<p><strong>3-5 días</strong> — tiempo medio hasta que una nueva incorporación rinde como el titular.</p>
+<p><strong>+40%</strong> — más errores operativos durante los primeros días de cualquier incorporación sin procedimientos documentados.</p>
+</div>
+
+<p>Sin SOPs, cada baja es una crisis. Cada incorporación es un coste doble (el nuevo no produce, y el tutor tampoco). Cada jubilación es una pérdida irreversible de conocimiento.</p>
+
+<p>Con SOPs documentados y accesibles, <strong>el conocimiento deja de depender de personas y pasa a ser un activo de la empresa</strong>.</p>
+
+<h2>Los 5 tipos de SOP más comunes en plantas industriales</h2>
+
+<p>No todos los procesos necesitan un SOP. Empieza por los que más impacto tienen:</p>
+
+<ol>
+<li><strong>Arranque y parada de máquina:</strong> los procesos que más variabilidad tienen entre operarios y que más errores generan cuando los ejecuta alguien que no es el titular.</li>
+<li><strong>Cambio de formato o producto:</strong> donde un error en los parámetros genera rechazos de lotes completos. Son los SOPs con mayor ROI inmediato.</li>
+<li><strong>Mantenimiento preventivo de primer nivel:</strong> las tareas que el operario debe hacer antes de cada turno y que muchos se saltan porque "ya saben" hacerlo.</li>
+<li><strong>Gestión de incidencias:</strong> qué hacer cuando la máquina falla, qué comprobar antes de llamar al técnico, cuándo parar la producción. El troubleshooting que evita paradas innecesarias.</li>
+<li><strong>Protocolos de seguridad:</strong> procedimientos de bloqueo/etiquetado (LOTO), uso de EPIs, actuación en emergencias. Son obligatorios por normativa pero rara vez están actualizados.</li>
+</ol>
+
+<h2>Cómo crear un SOP industrial en 5 pasos</h2>
+
+<h3>1. Identifica los procesos críticos</h3>
+
+<p>No documentes todo a la vez. Empieza por los procesos que cumplen al menos uno de estos criterios: solo una persona sabe hacerlo, genera paradas cuando esa persona falta, tiene alta variabilidad entre operarios, o ha causado incidencias de calidad o seguridad.</p>
+
+<h3>2. Captura el conocimiento del experto</h3>
+
+<p>Siéntate con el operario que mejor domina el proceso y documenta cada paso. Lo importante es capturar <strong>cómo lo hace él realmente</strong>, no cómo dice el manual de la máquina que debería hacerse. Los trucos, los ajustes, las señales de que algo no va bien — eso es el conocimiento tácito que ningún manual recoge.</p>
+
+<h3>3. Estructura el SOP por pasos secuenciales</h3>
+
+<p>Cada SOP debería tener entre 5 y 15 pasos. Si tiene más, probablemente estés mezclando varios procesos. Cada paso debe ser una acción concreta y verificable: "ajustar la presión a 2,5 bar", no "preparar la máquina".</p>
+
+<h3>4. Añade troubleshooting</h3>
+
+<p>Para cada paso que pueda fallar, documenta qué hacer si sale mal. Esto es lo que diferencia un SOP útil de un documento decorativo. El operario sustituto no solo necesita saber qué hacer — necesita saber qué hacer <strong>cuando algo no va como esperaba</strong>.</p>
+
+<h3>5. Haz que sea accesible donde se necesita</h3>
+
+<p>Un SOP que vive en una carpeta compartida del servidor no sirve. El operario necesita acceder a las instrucciones <strong>en el puesto de trabajo, en el momento que las necesita</strong>. Si tiene que ir a un ordenador, buscar la carpeta, encontrar el archivo y abrirlo, no lo va a hacer. La accesibilidad es lo que diferencia un SOP que se usa de uno que se ignora.</p>
+
+<h2>Errores comunes al implementar SOPs en pymes</h2>
+
+<ul>
+<li><strong>Documentar todo de golpe:</strong> genera fatiga y abandono. Empieza por 3-5 procesos críticos y amplía después.</li>
+<li><strong>Redactar SOPs desde el despacho:</strong> si no participan los operarios que realmente ejecutan el proceso, el SOP no reflejará la realidad y nadie lo seguirá.</li>
+<li><strong>Crear documentos de 40 páginas:</strong> un SOP debe poder seguirse paso a paso en el puesto de trabajo. Si parece un manual universitario, nadie lo va a consultar.</li>
+<li><strong>No actualizar:</strong> un SOP desactualizado es peor que no tener SOP, porque genera falsa confianza. Necesitas un sistema que haga fácil actualizar.</li>
+<li><strong>No medir:</strong> si no sabes quién consulta qué SOP, cuándo y con qué resultado, no puedes mejorar ni demostrar el ROI de la documentación.</li>
+</ul>
+
+<h2>Software SOP: cuándo tiene sentido usar una herramienta</h2>
+
+<p>Si tienes 1-2 máquinas y 5 empleados, un documento PDF puede ser suficiente. Pero cuando la planta crece, los PDFs se pierden, se desactualizan, no sabes quién los ha consultado y no hay forma de garantizar que el operario sigue el proceso correcto.</p>
+
+<p>Un software SOP resuelve estos problemas: centraliza los procedimientos, los hace accesibles en el puesto de trabajo, registra quién ha consultado qué, permite actualizar sin reimprimir, y genera datos sobre el uso real de los SOPs.</p>
+
+<div class="highlight-box">
+<p><strong>REELEVO</strong> es un software SOP diseñado específicamente para pymes industriales. Permite capturar los procedimientos operativos del experto, organizarlos por máquina y hacerlos accesibles directamente en cada puesto de trabajo para cualquier operario — sin cuenta de usuario, sin app, sin formación. Desde 49€/mes por empresa con operarios ilimitados.</p>
+<p><a href="https://app.gmvsolutions.es/registro">Solicitar demo →</a></p>
+</div>
+
+<hr />
+
+<p><em>Este artículo forma parte de la serie de guías prácticas sobre documentación operativa industrial de <a href="/recursos/">GMV Solutions</a>. Si quieres saber cuánto te está costando la falta de procedimientos documentados en tu planta, haz nuestro <a href="https://diagnostico.gmvsolutions.es">diagnóstico de riesgo operativo</a> — resultado en 2 minutos.</em></p>
+
+</ArticleLayout>

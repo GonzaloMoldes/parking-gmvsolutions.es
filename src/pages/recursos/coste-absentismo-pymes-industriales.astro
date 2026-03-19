@@ -1,0 +1,107 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Coste real del absentismo en pymes industriales españolas: datos 2025";
+const description = "Análisis con datos propios del coste directo e indirecto del absentismo laboral en pymes manufactureras españolas. Cuánto cuesta cada baja no cubierta y cómo reducir el impacto.";
+const date = "2026-03-15";
+const category = "Gestión del absentismo";
+const readTime = "10 min.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": date,
+  "author": { "@type": "Organization", "name": "GMV Solutions" },
+  "publisher": { "@type": "Organization", "name": "GMV Solutions", "url": "https://gmvsolutions.es" }
+};
+---
+
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} schema={schema}>
+
+<h2>El absentismo en la industria española: un problema que se mide mal</h2>
+
+<p>La mayoría de empresas industriales conocen su tasa de absentismo. Lo que casi ninguna mide es <strong>cuánto les cuesta realmente cada ausencia</strong> cuando el operario que falta es el único que domina un proceso crítico.</p>
+
+<p>Porque no es lo mismo que falte un operario que puede ser sustituido en 5 minutos que falte el que sabe arrancar la línea de envasado, el que configura la CNC para piezas especiales o el que conoce los parámetros de la extrusora que nadie más toca.</p>
+
+<p>En la Encuesta REELEVO 2025 sobre dependencia operativa, realizada a 347 pymes industriales españolas de entre 10 y 200 empleados, los datos son claros.</p>
+
+<h2>Los datos: lo que dicen las pymes industriales españolas</h2>
+
+<div class="data-card">
+<p><strong>7,2%</strong> — tasa de absentismo media. En una empresa de 40 trabajadores, esto supone unas 3 ausencias diarias. En una de 100, casi 8.</p>
+<p><strong>40%</strong> — de los responsables de planta reconocen que llaman directamente al operario experto cuando alguien falta. Aunque esté de baja médica.</p>
+<p><strong>87%</strong> — identifica la dependencia de operarios clave como un riesgo alto o muy alto para su producción.</p>
+<p><strong>23%</strong> — tiene procedimientos operativos documentados y actualizados. El 77% restante depende del conocimiento que el experto tiene en la cabeza.</p>
+<p><strong>3,2 horas</strong> — tiempo medio de producción perdida por cada baja de un operario clave no cubierta correctamente.</p>
+</div>
+
+<p><em>Fuente: Encuesta REELEVO 2025 sobre dependencia operativa en pymes industriales españolas (n=347).</em></p>
+
+<h2>Coste directo vs coste oculto: por qué las cifras oficiales no cuentan la historia completa</h2>
+
+<p>Cuando se habla del coste del absentismo, normalmente se mira solo el coste directo: el salario del trabajador ausente y, si procede, el coste del sustituto. Según datos del sector, el coste directo medio por empleado y año ronda los <strong>2.100€</strong> en la industria manufacturera.</p>
+
+<p>Pero ese número es engañoso. El coste real se multiplica cuando la persona que falta tiene conocimiento operativo que no está documentado:</p>
+
+<h3>Coste de la parada de producción</h3>
+<p>Cuando el experto no viene y nadie sabe exactamente cómo operar su máquina, la línea se para o funciona a medio rendimiento. Con una media de 3,2 horas perdidas por baja no cubierta y un coste de producción de 150-300€/hora en una línea típica, <strong>cada baja del operario clave cuesta entre 480€ y 960€ solo en producción perdida</strong>.</p>
+
+<h3>Coste del "tutor improvisado"</h3>
+<p>Alguien tiene que enseñar al sustituto. Ese alguien deja de producir. Ahora tienes dos personas a media velocidad en lugar de una a pleno rendimiento. En empresas con rotación de personal ETT, este coste se repite cada vez que entra alguien nuevo.</p>
+
+<h3>Coste de los errores</h3>
+<p>Un sustituto sin instrucciones claras improvisa. Eso genera defectos de calidad, reprocesos y, en el peor caso, incidencias de seguridad. Los errores en los primeros días de un operario sustituto son <strong>un 40% más frecuentes</strong> que los del titular.</p>
+
+<h3>Coste de la llamada al experto</h3>
+<p>Interrumpir a un trabajador de baja para preguntarle cómo se hace algo no solo es éticamente cuestionable — también genera riesgo legal y deteriora la relación laboral. Sin embargo, el 40% de los responsables de planta lo hacen.</p>
+
+<h2>Cálculo: cuánto cuesta un año de dependencia operativa</h2>
+
+<p>Tomemos una pyme industrial típica: 40 empleados, tasa de absentismo del 7,2%, con 5 operarios en puestos clave cuyo conocimiento no está documentado.</p>
+
+<div class="data-card">
+<p><strong>Ausencias anuales totales:</strong> 40 × 7,2% × 220 días laborables = 634 días de ausencia/año</p>
+<p><strong>Ausencias de operarios clave:</strong> ~79 días/año (5 de 40 puestos)</p>
+<p><strong>Coste por cada ausencia clave mal cubierta:</strong> 480-960€ (producción) + 120€ (tutor) + variable (errores)</p>
+<p><strong>Coste anual estimado de la dependencia operativa:</strong> 47.000€ — 85.000€</p>
+</div>
+
+<p>Y esto sin contar las jubilaciones previstas, la rotación voluntaria o las incorporaciones de personal ETT que necesitan formación cada vez que entran.</p>
+
+<h2>Por sectores: dónde duele más</h2>
+
+<p>No todos los sectores industriales sufren igual. Los datos de la Encuesta REELEVO 2025 muestran diferencias significativas:</p>
+
+<ul>
+<li><strong>Automoción y componentes:</strong> 8,1% de absentismo, 2.400€/empleado/año de coste directo. Alta dependencia de operarios de configuración y ajuste.</li>
+<li><strong>Alimentación y bebidas:</strong> 6,8% de absentismo, 1.900€/empleado/año. Picos estacionales con personal ETT que multiplican el problema.</li>
+<li><strong>Metal y mecánica:</strong> 7,5% de absentismo, 2.200€/empleado/año. Operarios veteranos con conocimiento de máquinas antiguas que nadie más domina.</li>
+<li><strong>Plástico y caucho:</strong> 7,0% de absentismo, 2.000€/empleado/año. Procesos de ajuste de parámetros que requieren experiencia específica.</li>
+</ul>
+
+<h2>Qué hacen las empresas que han resuelto este problema</h2>
+
+<p>Las pymes que han reducido el impacto del absentismo en su producción comparten un patrón: <strong>han dejado de depender de personas y han pasado a depender de procedimientos</strong>.</p>
+
+<p>Concretamente:</p>
+
+<ol>
+<li><strong>Han identificado sus puestos críticos</strong> — las 5-10 máquinas o procesos donde la ausencia de una persona específica genera más impacto.</li>
+<li><strong>Han capturado el conocimiento de esos expertos</strong> — no en manuales de 50 páginas que nadie lee, sino en procedimientos operativos paso a paso accesibles en el puesto de trabajo.</li>
+<li><strong>Han hecho que los SOPs estén disponibles donde se necesitan</strong> — directamente en la máquina, no en una carpeta del servidor.</li>
+<li><strong>Han medido el resultado</strong> — tiempo de cobertura de bajas, errores del sustituto, llamadas al experto. Con datos, no con intuiciones.</li>
+</ol>
+
+<div class="highlight-box">
+<p><strong>REELEVO</strong> es el software SOP que permite capturar el conocimiento operativo de tus expertos y hacerlo accesible directamente en cada máquina. Cuando el experto falta, el sustituto tiene los procedimientos disponibles en segundos. Sin tutor, sin llamadas al experto, sin paradas de línea.</p>
+<p><a href="https://diagnostico.gmvsolutions.es">Calcula cuánto te cuesta la dependencia operativa en tu planta →</a></p>
+</div>
+
+<hr />
+
+<p><em>Los datos citados en este artículo provienen de la Encuesta REELEVO 2025 sobre dependencia operativa en pymes industriales españolas (n=347, empresas de 10-200 empleados del sector manufacturero). Para más información, contacta con <a href="mailto:hola@gmvsolutions.es">hola@gmvsolutions.es</a>.</em></p>
+
+</ArticleLayout>

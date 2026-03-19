@@ -89,6 +89,60 @@ const schema = {
 
   <div class="divider"></div>
 
+  <!-- ARTÍCULOS -->
+  <section class="section" id="articulos">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Artículos</div>
+        <h2 class="section-title">Últimos artículos publicados</h2>
+        <p class="section-sub">
+          Análisis y guías sobre documentación operativa, absentismo
+          y gestión del conocimiento en pymes industriales españolas.
+        </p>
+      </div>
+
+      <div class="articles-grid fade-up delay-1">
+        <a href="/recursos/que-es-un-sop-industrial/" class="article-card">
+          <div class="article-card-category">Procedimientos operativos estándar</div>
+          <h3 class="article-card-title">Qué es un SOP industrial y cómo implementarlo en tu planta</h3>
+          <p class="article-card-desc">Guía completa sobre procedimientos operativos estándar para pymes industriales. Qué son, por qué importan, cómo crearlos y qué herramientas usar.</p>
+          <div class="article-card-meta">
+            <span>18 mar. 2026</span>
+            <span>·</span>
+            <span>⏱️ 12 min.</span>
+          </div>
+          <div class="article-card-link">Leer artículo →</div>
+        </a>
+
+        <a href="/recursos/coste-absentismo-pymes-industriales/" class="article-card">
+          <div class="article-card-category">Gestión del absentismo</div>
+          <h3 class="article-card-title">Coste real del absentismo en pymes industriales españolas</h3>
+          <p class="article-card-desc">Análisis con datos propios del coste directo e indirecto del absentismo laboral. Cuánto cuesta cada baja no cubierta y cómo reducir el impacto.</p>
+          <div class="article-card-meta">
+            <span>15 mar. 2026</span>
+            <span>·</span>
+            <span>⏱️ 10 min.</span>
+          </div>
+          <div class="article-card-link">Leer artículo →</div>
+        </a>
+
+        <a href="/recursos/documentar-conocimiento-operarios-expertos/" class="article-card">
+          <div class="article-card-category">Transferencia de conocimiento</div>
+          <h3 class="article-card-title">Cómo documentar el conocimiento de tus operarios expertos</h3>
+          <p class="article-card-desc">Guía práctica para capturar el conocimiento tácito de operarios veteranos antes de que se vayan. Metodología paso a paso con errores comunes.</p>
+          <div class="article-card-meta">
+            <span>10 mar. 2026</span>
+            <span>·</span>
+            <span>⏱️ 14 min.</span>
+          </div>
+          <div class="article-card-link">Leer artículo →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- GUÍAS PRÁCTICAS -->
   <section class="section" id="guias">
     <div class="section-inner">
@@ -676,9 +730,78 @@ const schema = {
     margin: 0 auto 32px;
   }
 
+  /* Articles grid */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px 28px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .25s;
+  }
+
+  .article-card:hover {
+    border-color: var(--border-hover);
+  }
+
+  .article-card-category {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .article-card-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .article-card-desc {
+    font-size: .88rem;
+    color: var(--gray);
+    line-height: 1.65;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .article-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .75rem;
+    color: var(--gray2);
+    margin-bottom: 20px;
+  }
+
+  .article-card-link {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .08em;
+    color: var(--orange);
+    text-transform: uppercase;
+  }
+
   /* Responsive */
   @media (max-width: 900px) {
     .tools-grid,
+    .articles-grid,
     .guides-grid,
     .studies-grid {
       grid-template-columns: 1fr;
