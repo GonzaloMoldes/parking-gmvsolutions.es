@@ -217,65 +217,69 @@ const schema = {
         </p>
       </div>
 
-      <div class="comparison-table fade-up delay-1" style="margin-top:48px;">
-        <div class="comp-table">
-          <div class="comp-header">
-            <div class="comp-cell"></div>
-            <div class="comp-cell highlight">REELEVO</div>
-            <div class="comp-cell">Dozuki</div>
-            <div class="comp-cell">Poka (IFS)</div>
-            <div class="comp-cell">GembaDocs</div>
-          </div>
-          <div class="comp-row">
-            <div class="comp-cell label">Precio visible</div>
-            <div class="comp-cell highlight"><span class="check">✓</span> 49€/mes</div>
-            <div class="comp-cell"><span class="cross">×</span> ~$850/mes</div>
-            <div class="comp-cell"><span class="cross">×</span> Oculto</div>
-            <div class="comp-cell"><span class="cross">×</span> Oculto</div>
-          </div>
-          <div class="comp-row">
-            <div class="comp-cell label">Sin cuenta operario</div>
-            <div class="comp-cell highlight"><span class="check">✓</span> Total</div>
-            <div class="comp-cell"><span class="cross">×</span></div>
-            <div class="comp-cell"><span class="cross">×</span></div>
-            <div class="comp-cell"><span class="cross">×</span></div>
-          </div>
-          <div class="comp-row">
-            <div class="comp-cell label">Sin app operario</div>
-            <div class="comp-cell highlight"><span class="check">✓</span> Total</div>
-            <div class="comp-cell"><span class="cross">×</span></div>
-            <div class="comp-cell"><span class="cross">×</span> App obligatoria</div>
-            <div class="comp-cell"><span class="cross">×</span></div>
-          </div>
-          <div class="comp-row">
-            <div class="comp-cell label">Monitor tiempo real</div>
-            <div class="comp-cell highlight"><span class="check">✓</span></div>
-            <div class="comp-cell"><span class="cross">×</span></div>
-            <div class="comp-cell">Parcial</div>
-            <div class="comp-cell"><span class="cross">×</span></div>
-          </div>
-          <div class="comp-row">
-            <div class="comp-cell label">Certificación ejecución</div>
-            <div class="comp-cell highlight"><span class="check">✓</span></div>
-            <div class="comp-cell"><span class="cross">×</span></div>
-            <div class="comp-cell"><span class="cross">×</span></div>
-            <div class="comp-cell"><span class="cross">×</span></div>
-          </div>
-          <div class="comp-row">
-            <div class="comp-cell label">En español nativo</div>
-            <div class="comp-cell highlight"><span class="check">✓</span></div>
-            <div class="comp-cell"><span class="cross">×</span></div>
-            <div class="comp-cell">Parcial</div>
-            <div class="comp-cell"><span class="cross">×</span></div>
-          </div>
-          <div class="comp-row">
-            <div class="comp-cell label">Para pyme española</div>
-            <div class="comp-cell highlight"><span class="check">✓</span> Específico</div>
-            <div class="comp-cell"><span class="cross">×</span> Fortune 500</div>
-            <div class="comp-cell"><span class="cross">×</span> Enterprise</div>
-            <div class="comp-cell">Parcial</div>
-          </div>
-        </div>
+      <div class="comp-scroll fade-up delay-1" style="margin-top:48px;">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th class="comp-feature-col"></th>
+              <th class="comp-highlight">REELEVO</th>
+              <th>Dozuki</th>
+              <th>Poka (IFS)</th>
+              <th>GembaDocs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="comp-label">Precio visible</td>
+              <td class="comp-highlight"><span class="check">✓</span> 49€/mes</td>
+              <td><span class="cross">×</span> ~$850/mes</td>
+              <td><span class="cross">×</span> Oculto</td>
+              <td><span class="cross">×</span> Oculto</td>
+            </tr>
+            <tr>
+              <td class="comp-label">Sin cuenta de operario</td>
+              <td class="comp-highlight"><span class="check">✓</span> Total</td>
+              <td><span class="cross">×</span></td>
+              <td><span class="cross">×</span></td>
+              <td><span class="cross">×</span></td>
+            </tr>
+            <tr>
+              <td class="comp-label">Sin app de operario</td>
+              <td class="comp-highlight"><span class="check">✓</span> Total</td>
+              <td><span class="cross">×</span></td>
+              <td><span class="cross">×</span> App obligatoria</td>
+              <td><span class="cross">×</span></td>
+            </tr>
+            <tr>
+              <td class="comp-label">Monitor tiempo real</td>
+              <td class="comp-highlight"><span class="check">✓</span></td>
+              <td><span class="cross">×</span></td>
+              <td>Parcial</td>
+              <td><span class="cross">×</span></td>
+            </tr>
+            <tr>
+              <td class="comp-label">Certificación por ejecución</td>
+              <td class="comp-highlight"><span class="check">✓</span></td>
+              <td><span class="cross">×</span></td>
+              <td><span class="cross">×</span></td>
+              <td><span class="cross">×</span></td>
+            </tr>
+            <tr>
+              <td class="comp-label">En español nativo</td>
+              <td class="comp-highlight"><span class="check">✓</span></td>
+              <td><span class="cross">×</span></td>
+              <td>Parcial</td>
+              <td><span class="cross">×</span></td>
+            </tr>
+            <tr>
+              <td class="comp-label">Diseñado para pyme española</td>
+              <td class="comp-highlight"><span class="check">✓</span> Específico</td>
+              <td><span class="cross">×</span> Fortune 500</td>
+              <td><span class="cross">×</span> Enterprise</td>
+              <td>Parcial</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -567,55 +571,89 @@ const schema = {
   }
 
   /* Comparison Table */
-  .comp-table {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    gap: 2px;
-    background: var(--border);
+  .comp-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 6px;
   }
 
-  .comp-header .comp-cell {
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 560px;
+  }
+
+  .comp-table thead th {
     background: var(--surface2);
-    padding: 16px 12px;
+    padding: 16px 20px;
     font-family: 'Oswald', sans-serif;
-    font-size: .9rem;
+    font-size: .85rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: .03em;
+    letter-spacing: .04em;
     text-align: center;
+    border-bottom: 2px solid var(--border);
   }
 
-  .comp-cell {
-    background: var(--surface);
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: .8rem;
-    text-align: center;
+  .comp-table thead th.comp-highlight {
+    background: rgba(244,82,30,.12);
+    color: var(--orange);
+    border-bottom-color: var(--orange);
   }
 
-  .comp-cell.label {
-    justify-content: flex-start;
-    font-weight: 500;
+  .comp-table thead th.comp-feature-col {
     text-align: left;
+    width: 30%;
   }
 
-  .comp-cell.highlight {
-    background: rgba(244, 82, 30, 0.06);
-    border: 1px solid rgba(244, 82, 30, 0.15);
+  .comp-table tbody tr {
+    border-bottom: 1px solid var(--border);
   }
 
-  .comp-cell .check {
+  .comp-table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .comp-table tbody tr:hover td {
+    background: rgba(255,255,255,.02);
+  }
+
+  .comp-table tbody tr:hover td.comp-highlight {
+    background: rgba(244,82,30,.10);
+  }
+
+  .comp-table td {
+    padding: 14px 20px;
+    font-size: .85rem;
+    text-align: center;
+    color: var(--gray);
+    background: var(--surface);
+    vertical-align: middle;
+  }
+
+  .comp-table td.comp-label {
+    text-align: left;
+    font-weight: 500;
+    color: var(--white);
+  }
+
+  .comp-table td.comp-highlight {
+    background: rgba(244,82,30,.06);
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .comp-table .check {
     color: var(--green);
     font-weight: 600;
+    margin-right: 4px;
   }
 
-  .comp-cell .cross {
+  .comp-table .cross {
     color: var(--gray2);
+    margin-right: 4px;
   }
 
-  /* Responsive */
   @media (max-width: 900px) {
     .plans-grid {
       grid-template-columns: 1fr;
@@ -625,15 +663,6 @@ const schema = {
       grid-template-columns: 1fr;
       gap: 32px;
     }
-
-    .comp-table {
-      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
-    }
-
-    .comp-cell {
-      font-size: .7rem;
-      padding: 8px;
-    }
   }
 
   @media (max-width: 600px) {
@@ -641,22 +670,6 @@ const schema = {
       flex-direction: column;
       align-items: center;
       gap: 16px;
-    }
-
-    .comp-table {
-      display: block;
-    }
-
-    .comp-header,
-    .comp-row {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 1px;
-      margin-bottom: 2px;
-    }
-
-    .comp-cell:not(.label):not(:nth-child(1)):not(:nth-child(2)) {
-      display: none;
     }
   }
 </style>
