@@ -1,0 +1,312 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Sobre GMV Solutions — El equipo detrás de REELEVO";
+const description = "Conoce al equipo de GMV Solutions, la empresa detrás de REELEVO. Experiencia en industria, valores y compromiso con las pymes industriales españolas.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "Sobre GMV Solutions",
+  "description": description,
+  "publisher": {
+    "@type": "Organization",
+    "name": "GMV Solutions",
+    "url": "https://gmvsolutions.es"
+  }
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+  activeNav="nosotros"
+>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">El equipo</div>
+    <h1 class="fade-up delay-1">Detrás de REELEVO<br><em>hay personas, no una corporación.</em></h1>
+    <p class="fade-up delay-2">Somos un equipo pequeño, cercano y con conocimiento de primera mano de la industria española. Construimos REELEVO porque vimos el problema de cerca.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- QUIÉNES SOMOS -->
+  <section class="section" id="quienes">
+    <div class="section-inner">
+      <div class="about-grid fade-up">
+        <div class="about-text">
+          <div class="eyebrow">Nuestra historia</div>
+          <h2 class="section-title">Por qué construimos REELEVO</h2>
+          <p>
+            Trabajando con empresas industriales españolas, vimos repetidamente el mismo problema:
+            plantas que funcionaban bien mientras el operario de siempre estaba presente,
+            y que se frenaban en seco cuando faltaba.
+          </p>
+          <p>
+            El conocimiento que hacía funcionar la planta vivía en la cabeza de unas pocas personas.
+            No en documentos, no en sistemas. En personas. Y eso es un riesgo enorme que nadie medía.
+          </p>
+          <p>
+            Las soluciones existentes eran para Fortune 500: caras, lentas de implementar, y diseñadas
+            para empresas con departamento de IT y seis meses de proyecto. No para la pyme de 40 personas
+            en Pontevedra que necesita solucionar esto la semana que viene.
+          </p>
+          <p>
+            Por eso construimos REELEVO: una herramienta diseñada específicamente para pymes industriales
+            españolas. Simple, honesta en precio, y que funciona desde el primer día.
+          </p>
+        </div>
+        <div class="about-values">
+          <div class="value-card">
+            <div class="value-icon">🎯</div>
+            <h3 class="value-title">Problema real, solución real</h3>
+            <p class="value-desc">No construimos funcionalidades porque queden bien en una demo. Construimos lo que resuelve el problema en planta, el lunes por la mañana.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3 class="value-title">Cercanía sin letra pequeña</h3>
+            <p class="value-desc">Precio publicado, sin sorpresas. Funcionalidades que existen, no prometidas. Si algo no está construido, lo decimos.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🏭</div>
+            <h3 class="value-title">Hecho para la industria española</h3>
+            <p class="value-desc">No somos una startup americana adaptada al español. Entendemos la realidad de la pyme industrial española: sus recursos, sus tiempos y su cultura.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SEGURIDAD Y DATOS -->
+  <section class="section section-center" id="seguridad">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Seguridad y datos</div>
+        <h2 class="section-title">Tu conocimiento operativo <em>está protegido</em></h2>
+        <p class="section-sub">
+          Sabemos que vas a confiar en REELEVO el conocimiento crítico de tu empresa.
+          Aquí te explicamos cómo lo protegemos.
+        </p>
+      </div>
+
+      <div class="security-grid fade-up delay-1">
+        <div class="security-card">
+          <div class="security-icon">🔒</div>
+          <h3 class="security-title">Almacenamiento seguro</h3>
+          <p class="security-desc">Los datos se almacenan en infraestructura cloud gestionada (UE), con cifrado en reposo y en tránsito. Aislamiento completo entre empresas mediante Row-Level Security.</p>
+        </div>
+        <div class="security-card">
+          <div class="security-icon">💾</div>
+          <h3 class="security-title">Backups automáticos</h3>
+          <p class="security-desc">Copias de seguridad diarias automáticas. Tus procesos documentados están protegidos ante cualquier incidente. Sin intervención manual necesaria.</p>
+        </div>
+        <div class="security-card">
+          <div class="security-icon">🇪🇺</div>
+          <h3 class="security-title">Cumplimiento GDPR</h3>
+          <p class="security-desc">Datos almacenados en servidores dentro de la Unión Europea. Cumplimiento con el Reglamento General de Protección de Datos. Sin transferencias a terceros países.</p>
+        </div>
+        <div class="security-card">
+          <div class="security-icon">👤</div>
+          <h3 class="security-title">Mínimo dato de operario</h3>
+          <p class="security-desc">Los operarios acceden con código de empresa, sin cuenta personal. No capturamos datos personales innecesarios. La trazabilidad es operativa, no nominativa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FAQ PORTABILIDAD -->
+  <section class="section" id="portabilidad">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Portabilidad y continuidad</div>
+        <h2 class="section-title">Preguntas sobre <em>tus datos y continuidad</em></h2>
+        <p class="section-sub">
+          Las preguntas que se hace cualquier empresa antes de confiar su conocimiento operativo a un proveedor.
+        </p>
+      </div>
+
+      <div class="faq-list fade-up delay-1">
+        <div class="faq-item-static">
+          <h3 class="faq-q">¿Dónde se almacenan mis datos?</h3>
+          <p class="faq-a">En servidores dentro de la Unión Europea. Utilizamos infraestructura cloud con servidores en la región EU-West, bajo normativa GDPR. Nunca almacenamos datos en servidores fuera de la UE sin tu consentimiento explícito.</p>
+        </div>
+        <div class="faq-item-static">
+          <h3 class="faq-q">¿Puedo exportar todos mis procesos documentados?</h3>
+          <p class="faq-a">Sí. Desde el panel de administración puedes exportar en cualquier momento todos los procesos, pasos e instrucciones en formato CSV y Excel (plan Profesional). Los datos son tuyos y siempre accesibles.</p>
+        </div>
+        <div class="faq-item-static">
+          <h3 class="faq-q">¿Qué pasa si REELEVO deja de operar?</h3>
+          <p class="faq-a">En caso de cierre del servicio, avisaríamos con un mínimo de 90 días de antelación y facilitaríamos la exportación completa de todos tus datos y procesos. El conocimiento que has documentado siempre será tuyo, no queda cautivo en nuestra plataforma.</p>
+        </div>
+        <div class="faq-item-static">
+          <h3 class="faq-q">¿Durante cuánto tiempo se guardan los registros de actividad?</h3>
+          <p class="faq-a">Los registros de actividad (quién consultó qué proceso y cuándo) se conservan durante el tiempo que estés suscrito, más 12 meses adicionales tras la baja. Puedes exportar el histórico completo en cualquier momento.</p>
+        </div>
+        <div class="faq-item-static">
+          <h3 class="faq-q">¿Necesitamos IT para arrancar?</h3>
+          <p class="faq-a">Para las funciones básicas (crear procesos, acceder con QR), no necesitas IT. Si tu red corporativa tiene restricciones de firewall o proxy, puede ser necesaria una apertura de dominio —algo que se resuelve en minutos con cualquier técnico de red. Las integraciones con ERP o sistemas de RRHH sí requieren colaboración de IT.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">¿Hablamos?</div>
+    <h2 class="cta-title fade-up delay-1">
+      Cuéntanos tu situación.<br><em>Sin presión, sin script de ventas.</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Somos un equipo pequeño. Si contactas, hablará contigo alguien que entiende el producto
+      y el problema que intentas resolver.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="mailto:hola@gmvsolutions.es" class="btn-primary">
+        Escribirnos directamente →
+      </a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">
+        Solicitar demo
+      </a>
+    </div>
+    <div class="cta-note fade-up delay-4">
+      Respuesta en menos de 24h · Sin compromiso
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: .9rem;
+    color: var(--gray);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .about-values {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .value-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .value-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .value-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: .95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: 6px;
+  }
+
+  .value-desc {
+    font-size: .85rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* Security grid */
+  .security-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .security-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px 28px;
+  }
+
+  .security-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .security-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: 10px;
+  }
+
+  .security-desc {
+    font-size: .88rem;
+    color: var(--gray);
+    line-height: 1.65;
+  }
+
+  /* FAQ list */
+  .faq-list {
+    max-width: 760px;
+    margin: 48px auto 0;
+  }
+
+  .faq-item-static {
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0;
+  }
+
+  .faq-item-static:last-child {
+    border-bottom: none;
+  }
+
+  .faq-q {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+
+  .faq-a {
+    font-size: .9rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .security-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

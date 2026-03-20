@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "Precios REELEVO — Software SOP industrial desde 49€/mes | Operarios ilimitados";
-const description = "Precio fijo por empresa de software SOP para documentación operativa industrial. Desde 49€/mes con operarios ilimitados. El único con precio transparente en euros. Procedimientos operativos estándar para pymes manufactureras.";
+const description = "Precio fijo por empresa de software SOP para documentación operativa industrial. Desde 49€/mes con operarios ilimitados. Precio transparente en euros, sin sorpresas. Procedimientos operativos estándar para pymes manufactureras.";
 
 const schema = {
   "@context": "https://schema.org",
@@ -38,7 +38,7 @@ const schema = {
   <section class="page-hero">
     <div class="eyebrow fade-up">Precios transparentes</div>
     <h1 class="fade-up delay-1">Precio por empresa.<br><em>No por operario.</em></h1>
-    <p class="fade-up delay-2">Da igual que tengas 5 o 500 personas accediendo a los procesos. El precio es fijo por empresa. Sin sorpresas. El único del mercado que lo publica en euros.</p>
+    <p class="fade-up delay-2">Da igual que tengas 5 o 500 personas accediendo a los procesos. El precio es fijo por empresa. Sin sorpresas. De los pocos del mercado que lo publican en euros, sin letra pequeña.</p>
   </section>
 
   <div class="divider"></div>
@@ -61,7 +61,7 @@ const schema = {
             <div class="plan-feature"><span class="check">✓</span>Acceso directo sin cuenta de operario</div>
             <div class="plan-feature"><span class="check">✓</span>Troubleshooting inline</div>
             <div class="plan-feature"><span class="check">✓</span>Notificación WhatsApp al supervisor</div>
-            <div class="plan-feature"><span class="check">✓</span>Certificación automática por ejecución</div>
+            <div class="plan-feature"><span class="check">✓</span>Registro verificable de ejecución</div>
             <div class="plan-feature"><span class="check">✓</span>Estadísticas básicas de uso</div>
             <div class="plan-feature"><span class="check">✓</span>Exportación CSV</div>
             <div class="plan-feature"><span class="cross">×</span>Múltiples plantas</div>
@@ -88,10 +88,10 @@ const schema = {
             <div class="plan-feature"><span class="check">✓</span>Acceso directo sin cuenta de operario</div>
             <div class="plan-feature"><span class="check">✓</span>Troubleshooting inline</div>
             <div class="plan-feature"><span class="check">✓</span>Notificación WhatsApp al supervisor</div>
-            <div class="plan-feature"><span class="check">✓</span>Certificación automática por ejecución</div>
+            <div class="plan-feature"><span class="check">✓</span>Registro verificable de ejecución</div>
             <div class="plan-feature"><span class="check">✓</span>Dashboard avanzado y reports</div>
             <div class="plan-feature"><span class="check">✓</span>Exportación CSV y Excel</div>
-            <div class="plan-feature"><span class="check">✓</span>Integración API con Factorial/Personio</div>
+            <div class="plan-feature"><span class="roadmap">○</span>Integración API con Factorial/Personio <span class="plan-badge-roadmap">Roadmap</span></div>
             <div class="plan-feature"><span class="check">✓</span>Soporte prioritario</div>
           </div>
           <div class="plan-cta">
@@ -112,9 +112,9 @@ const schema = {
             <div class="plan-feature"><span class="check">✓</span>Usuarios administrativos ilimitados</div>
             <div class="plan-feature"><span class="check">✓</span>Operarios ilimitados (sin coste)</div>
             <div class="plan-feature"><span class="check">✓</span>Todo lo del plan Profesional</div>
-            <div class="plan-feature"><span class="check">✓</span>SSO / Azure AD / LDAP</div>
+            <div class="plan-feature"><span class="roadmap">○</span>SSO / Azure AD / LDAP <span class="plan-badge-roadmap">Roadmap</span></div>
             <div class="plan-feature"><span class="check">✓</span>API completa personalizada</div>
-            <div class="plan-feature"><span class="check">✓</span>Integración ERP (SAP, Oracle)</div>
+            <div class="plan-feature"><span class="roadmap">○</span>Integración ERP (SAP, Oracle) <span class="plan-badge-roadmap">Roadmap</span></div>
             <div class="plan-feature"><span class="check">✓</span>Auditoría y compliance avanzado</div>
             <div class="plan-feature"><span class="check">✓</span>SLA garantizado</div>
             <div class="plan-feature"><span class="check">✓</span>Soporte dedicado</div>
@@ -162,23 +162,28 @@ const schema = {
         <div class="roi-result">
           <div class="roi-result-row">
             <span class="roi-result-label">Bajas anuales estimadas</span>
-            <span class="roi-result-value" id="res-absences">315</span>
+            <span class="roi-result-value" id="res-absences">123</span>
           </div>
           <div class="roi-result-row">
-            <span class="roi-result-label">Coste por cada baja mal cubierta</span>
+            <span class="roi-result-label">Coste directo por baja no cubierta</span>
             <span class="roi-result-value" id="res-perbaja">180€</span>
           </div>
+          <div class="roi-result-row">
+            <span class="roi-result-label">Impacto total anual estimado</span>
+            <span class="roi-result-value" id="res-annual">22.140€</span>
+          </div>
           <div class="roi-result-row prominent">
-            <span class="roi-result-label">Coste total anual estimado</span>
-            <span class="roi-result-value" id="res-annual">56.700€</span>
+            <span class="roi-result-label">Ahorro estimado con REELEVO (~40%)</span>
+            <span class="roi-result-value" id="res-savings">8.856€</span>
           </div>
           <div class="roi-result-summary">
             <div class="roi-result-big">
-              <span class="roi-result-big-label">ROI</span>
-              <span class="roi-result-big-value" id="res-roi">×31.7</span>
+              <span class="roi-result-big-label">ROI estimado</span>
+              <span class="roi-result-big-value" id="res-roi">×5.0</span>
             </div>
-            <div class="roi-result-payback" id="res-payback">Recuperas la inversión en menos de 1 mes</div>
+            <div class="roi-result-payback" id="res-payback">Recuperas la inversión en aprox. 2.4 meses</div>
           </div>
+          <div class="roi-result-note">* REELEVO reduce el impacto de las bajas —menos errores, menos tiempo de parada— pero no las elimina. El cálculo asume una reducción del 40% del coste directo, que es una estimación conservadora basada en procesos bien documentados.</div>
           <div style="margin-top:20px;">
             <a href="https://app.gmvsolutions.es/registro" class="btn-primary" style="font-size:.8rem;padding:12px 24px;">Solicitar demo →</a>
           </div>
@@ -195,7 +200,7 @@ const schema = {
     <div class="trial-bullets fade-up delay-1">
       <div class="trial-bullet"><span>✓</span>Sin compromiso</div>
       <div class="trial-bullet"><span>✓</span>Te ayudamos a configurar los primeros procesos</div>
-      <div class="trial-bullet"><span>✓</span>Implementación en 1 día</div>
+      <div class="trial-bullet"><span>✓</span>Configuración técnica en 1 día</div>
       <div class="trial-bullet"><span>✓</span>Soporte en español</div>
     </div>
     <div class="cta-actions fade-up delay-2">
@@ -213,7 +218,7 @@ const schema = {
         <div class="eyebrow">Comparación del mercado</div>
         <h2 class="section-title">REELEVO vs competencia internacional</h2>
         <p class="section-sub">
-          Somos los únicos que publican precio en euros y están diseñados específicamente para pymes industriales españolas.
+          Publicamos el precio en euros sin letra pequeña y estamos diseñados específicamente para pymes industriales españolas.
         </p>
       </div>
 
@@ -248,20 +253,6 @@ const schema = {
               <td class="comp-highlight"><span class="check">✓</span> Total</td>
               <td><span class="cross">×</span></td>
               <td><span class="cross">×</span> App obligatoria</td>
-              <td><span class="cross">×</span></td>
-            </tr>
-            <tr>
-              <td class="comp-label">Monitor tiempo real</td>
-              <td class="comp-highlight"><span class="check">✓</span></td>
-              <td><span class="cross">×</span></td>
-              <td>Parcial</td>
-              <td><span class="cross">×</span></td>
-            </tr>
-            <tr>
-              <td class="comp-label">Certificación por ejecución</td>
-              <td class="comp-highlight"><span class="check">✓</span></td>
-              <td><span class="cross">×</span></td>
-              <td><span class="cross">×</span></td>
               <td><span class="cross">×</span></td>
             </tr>
             <tr>
@@ -302,7 +293,7 @@ const schema = {
       </a>
     </div>
     <div class="cta-note fade-up delay-4">
-      Configuración en 1 día · Soporte incluido · Implementación asistida
+      Configuración técnica en 1 día · Primer proceso en tu primera semana · Soporte incluido
     </div>
   </section>
 </BaseLayout>
@@ -654,6 +645,34 @@ const schema = {
     margin-right: 4px;
   }
 
+  .plan-badge-roadmap {
+    font-family: 'DM Mono', monospace;
+    font-size: .58rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gray2);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  .plan-feature .roadmap {
+    color: var(--gray2);
+    flex-shrink: 0;
+  }
+
+  .roi-result-note {
+    font-size: .72rem;
+    color: var(--gray2);
+    line-height: 1.55;
+    margin-top: 16px;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+
   @media (max-width: 900px) {
     .plans-grid {
       grid-template-columns: 1fr;
@@ -690,13 +709,16 @@ const schema = {
     const absences = Math.round(workers * (abs / 100) * workingDays / 5);
     const perBaja = Math.round(lost * daily);
     const annual = absences * perBaja;
+    const reductionFactor = 0.4; // REELEVO reduces impact ~40% on average
+    const savings = Math.round(annual * reductionFactor);
     const reelevo = 1788;
-    const roi = annual > 0 ? (annual / reelevo).toFixed(1) : '—';
-    const paybackMonths = annual > 0 ? (reelevo / (annual / 12)).toFixed(1) : '—';
+    const roi = savings > 0 ? (savings / reelevo).toFixed(1) : '—';
+    const paybackMonths = savings > 0 ? (reelevo / (savings / 12)).toFixed(1) : '—';
 
     document.getElementById('res-absences')!.textContent = absences.toString();
     document.getElementById('res-perbaja')!.textContent = perBaja.toLocaleString('es-ES') + '€';
     document.getElementById('res-annual')!.textContent = annual.toLocaleString('es-ES') + '€';
+    document.getElementById('res-savings')!.textContent = savings.toLocaleString('es-ES') + '€';
     document.getElementById('res-roi')!.textContent = '×' + roi;
     document.getElementById('res-payback')!.textContent = parseFloat(paybackMonths) < 1
       ? 'Recuperas la inversión en menos de 1 mes'
