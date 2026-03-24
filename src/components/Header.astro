@@ -12,6 +12,9 @@ const { activeNav } = Astro.props;
     <a href="/como-funciona/" class={activeNav === 'como-funciona' ? 'nav-active' : ''}>
       Cómo funciona
     </a>
+    <a href="/por-que-usar-reelevo/" class={activeNav === 'por-que-usar-reelevo' ? 'nav-active' : ''}>
+      Por qué REELEVO
+    </a>
 
     <div class="nav-dropdown">
       <span class="nav-dropdown-trigger">
@@ -88,6 +91,7 @@ const { activeNav } = Astro.props;
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="/como-funciona/" onclick="closeMobile()">Cómo funciona</a>
+  <a href="/por-que-usar-reelevo/" onclick="closeMobile()">Por qué REELEVO</a>
   <div class="mobile-section-title">Casos de uso</div>
   <a href="/casos-de-uso/cobertura-bajas/" onclick="closeMobile()">Cobertura de bajas</a>
   <a href="/casos-de-uso/onboarding-operarios/" onclick="closeMobile()">Onboarding operarios</a>

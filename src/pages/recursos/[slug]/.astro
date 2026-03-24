@@ -1,0 +1,40 @@
+---
+// 1. Importamos el cliente que configuramos en src/lib/sanity.ts
+import { client } from "../../lib/sanity";
+import Layout from "../../layouts/Layout.astro"; // Ajusta según tu nombre de layout
+
+// 2. getStaticPaths le dice a Astro qué páginas debe generar
+export async function getStaticPaths() {
+  const recursos = await client.fetch(`*[_type == "recurso"]{ "params": { "slug": slug.current } }`);
+  return recursos;
+}
+
+// 3. Obtenemos el slug de la URL y pedimos los datos específicos a Sanity
+const { slug } = Astro.params;
+const recurso = await client.fetch(
+  `*[_type == "recurso" && slug.current == $slug][0]{
+    title,
+    content,
+    "image": image.asset->url
+  }`,
+  { slug }
+);
+
+// Si no encuentra el recurso, Astro lanzará un 404
+if (!recurso) return Astro.redirect("/404");
+---
+
+<Layout title={recurso.title}>
+  <article class="max-w-4xl mx-auto py-10 px-4">
+    {recurso.image && <img src={recurso.image} alt={recurso.title} class="w-full h-64 object-cover rounded-xl mb-8" />}
+    
+    <h1 class="text-4xl font-bold mb-6">{recurso.title}</h1>
+    
+    <div class="prose prose-lg max-w-none">
+      {/* Aquí procesaremos el contenido de Sanity. 
+         Si es texto enriquecido, necesitarás un componente de Portable Text.
+      */}
+      {recurso.content} 
+    </div>
+  </article>
+</Layout>
