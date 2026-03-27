@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "REELEVO para RRHH — Software SOP de onboarding industrial y certificación de competencias";
-const description = "Software SOP para RRHH industrial: acelera el onboarding, certifica por ejecución real y reduce la dependencia del tutor.";
+const title = "REELEVO para RRHH — Software SOP de onboarding industrial y matriz de habilidades";
+const description = "Software SOP para RRHH industrial: onboarding más ordenado, trazabilidad de ejecución y visibilidad sobre competencias en planta.";
 
 const schema = {
   "@context": "https://schema.org",
@@ -25,11 +25,11 @@ const schema = {
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Software SOP para responsables de RRHH</div>
-    <h1 class="fade-up delay-1">Onboarding <em>sin tutores</em><br>y registro de ejecución.</h1>
-    <p class="fade-up delay-2">Reduce el tiempo de incorporación de 2 semanas a 3 días. Certificación por ejecución real, no por asistencia. Integración directa con tu software de RRHH.</p>
+    <h1 class="fade-up delay-1">Onboarding industrial<br><em>más ordenado</em> y trazabilidad.</h1>
+    <p class="fade-up delay-2">REELEVO ayuda a RRHH a ordenar el onboarding, tener visibilidad sobre qué procesos domina cada persona y trabajar con integraciones de software de RRHH disponibles en la app, con Factorial entre las opciones.</p>
     <div class="hero-cta-group fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Solicitar demo →</a>
-      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">Ver impacto en mi empresa</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">Evaluar mi situación</a>
     </div>
     <div class="hero-cta-note fade-up delay-4">Sin compromiso · Implementación asistida</div>
   </section>
@@ -101,8 +101,8 @@ const schema = {
               <li>Registro automático de competencias por puesto</li>
               <li>Certificación por ejecución real demostrada</li>
               <li>Trazabilidad completa para auditorías</li>
-              <li>Integración directa con tu sistema de RRHH</li>
-              <li>Actualizaciones automáticas de skills matriz</li>
+              <li>Integraciones disponibles con software de RRHH</li>
+              <li>Visibilidad clara de competencias y evidencias para RRHH</li>
             </ul>
           </div>
         </div>
@@ -199,13 +199,13 @@ const schema = {
             <div class="cert-arrow">→</div>
             <div class="cert-step">
               <div class="cert-step-icon">📊</div>
-              <div class="cert-step-text">Certificación automática</div>
+              <div class="cert-step-text">Registro por ejecución</div>
             </div>
           </div>
           <div class="cert-benefits">
             <h4>Ventajas:</h4>
             <ul>
-              <li>Garantiza competencia práctica demostrada</li>
+              <li>Aporta evidencia más cercana a la competencia práctica</li>
               <li>Basada en ejecución real, no en teoría</li>
               <li>Conectada directamente con el puesto</li>
               <li>Refleja la capacidad operativa real</li>
@@ -249,105 +249,75 @@ const schema = {
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
-        <div class="eyebrow">Integración sistemas</div>
-        <h2 class="section-title">Conecta con tu software de RRHH</h2>
+        <div class="eyebrow">Integraciones disponibles</div>
+        <h2 class="section-title">Integraciones con software de RRHH</h2>
         <p class="section-sub">
-          API directa con Factorial, Personio, SAP SuccessFactors y
-          principales sistemas de gestión de personas.
+          REELEVO dispone de integraciones con software de RRHH dentro de la app.
+          Factorial es una de las opciones disponibles, y el alcance se revisa según cada caso.
         </p>
       </div>
 
       <div class="integration-grid fade-up delay-1">
         <div class="integration-card featured">
-          <div class="integration-logo">📊</div>
-          <h3 class="integration-name">Factorial</h3>
-          <div class="integration-status">✅ Integración nativa</div>
+          <div class="integration-logo">🔗</div>
+          <h3 class="integration-name">Software de RRHH</h3>
+          <div class="integration-status">Disponible en la app</div>
           <div class="integration-features">
-            <h4>Sincronización automática:</h4>
+            <h4>Qué significa:</h4>
             <ul>
-              <li>Competencias adquiridas → Skills del empleado</li>
-              <li>Horas de formación efectivas</li>
-              <li>Certificaciones por puesto</li>
-              <li>Plan de desarrollo individual</li>
+              <li>REELEVO puede encajar en tu flujo de RRHH</li>
+              <li>La activación se revisa según vuestra operativa</li>
+              <li>El alcance se define durante la implantación</li>
+              <li>Se comunica de forma realista desde el inicio</li>
             </ul>
           </div>
         </div>
 
         <div class="integration-card featured">
-          <div class="integration-logo">🎯</div>
-          <h3 class="integration-name">Personio</h3>
-          <div class="integration-status">✅ Integración nativa</div>
+          <div class="integration-logo">📊</div>
+          <h3 class="integration-name">Factorial</h3>
+          <div class="integration-status">Opción disponible</div>
           <div class="integration-features">
-            <h4>Sincronización automática:</h4>
+            <h4>Ejemplo de integración:</h4>
             <ul>
-              <li>Training records actualizados</li>
-              <li>Performance data por competencias</li>
-              <li>Certification tracking</li>
-              <li>Skills matrix actualizada</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="integration-card">
-          <div class="integration-logo">🏢</div>
-          <h3 class="integration-name">SAP SuccessFactors</h3>
-          <div class="integration-status">📡 Vía API</div>
-          <div class="integration-features">
-            <h4>Sincronización automática:</h4>
-            <ul>
-              <li>Learning Management System</li>
-              <li>Goal and Performance Management</li>
-              <li>Talent Management</li>
-              <li>Reporting y Analytics</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="integration-card">
-          <div class="integration-logo">⚙️</div>
-          <h3 class="integration-name">Otros sistemas</h3>
-          <div class="integration-status">🔌 API personalizada</div>
-          <div class="integration-features">
-            <h4>API REST completa:</h4>
-            <ul>
-              <li>Webhook en tiempo real</li>
-              <li>Exportación CSV/Excel programada</li>
-              <li>Integración custom con cualquier sistema</li>
-              <li>Documentación API completa</li>
+              <li>Puede formar parte de vuestro flujo si ya trabajáis con Factorial</li>
+              <li>El alcance real se valida antes de activarlo</li>
+              <li>Se adapta al caso de uso de onboarding y trazabilidad</li>
+              <li>Se revisa junto con vuestro equipo durante la implantación</li>
             </ul>
           </div>
         </div>
       </div>
 
       <div class="integration-demo fade-up delay-2">
-        <h3>🔄 Flujo de integración automática</h3>
+        <h3>🔄 Cómo encaja en tu proceso</h3>
         <div class="integration-flow">
           <div class="flow-step">
             <div class="flow-number">1</div>
             <div class="flow-content">
               <h4>Operario ejecuta proceso</h4>
-              <p>Completa procedimiento siguiendo REELEVO</p>
+              <p>Completa el procedimiento siguiendo REELEVO</p>
             </div>
           </div>
           <div class="flow-arrow">→</div>
           <div class="flow-step">
             <div class="flow-number">2</div>
             <div class="flow-content">
-              <h4>Certificación automática</h4>
-              <p>Sistema registra competencia demostrada</p>
+              <h4>REELEVO registra evidencias</h4>
+              <p>La plataforma deja trazabilidad sobre la ejecución realizada</p>
             </div>
           </div>
           <div class="flow-arrow">→</div>
           <div class="flow-step">
             <div class="flow-number">3</div>
             <div class="flow-content">
-              <h4>Sincronización instantánea</h4>
-              <p>Datos aparecen en tu sistema de RRHH</p>
+              <h4>Integración si aplica</h4>
+              <p>El flujo con tu software de RRHH se revisa y configura según el caso</p>
             </div>
           </div>
         </div>
       </div>
-    </end>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -356,16 +326,16 @@ const schema = {
   <section class="stat-band">
     <div class="stat-band-inner fade-up">
       <div class="stat-item">
-        <div class="stat-num">-67%</div>
-        <div class="stat-label">Tiempo de onboarding nuevas incorporaciones</div>
+        <div class="stat-num">Onboarding</div>
+        <div class="stat-label">Más orden en nuevas incorporaciones y menos dependencia del tutor</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">-440€</div>
-        <div class="stat-label">Coste por incorporación (vs formación tradicional)</div>
+        <div class="stat-num">Trazabilidad</div>
+        <div class="stat-label">Registro de ejecución para acompañar onboarding y auditorías</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Trazabilidad de competencias para auditorías</div>
+        <div class="stat-num">Competencias</div>
+        <div class="stat-label">Más visibilidad sobre qué procesos domina cada persona</div>
       </div>
     </div>
   </section>
@@ -389,7 +359,7 @@ const schema = {
         <h2 class="section-title">Implementación asistida para RRHH</h2>
         <p class="section-sub">
           Plan específico para departamentos de recursos humanos.
-          Incluye integración con sistemas y formación del equipo.
+          Incluye revisión del encaje con tu software de RRHH y formación del equipo.
         </p>
       </div>
 
@@ -405,7 +375,7 @@ const schema = {
               <ul>
                 <li>Análisis de puestos críticos y competencias requeridas</li>
                 <li>Configuración de perfiles de usuario (operario/supervisor/RRHH)</li>
-                <li>Setup de integración con vuestro sistema de RRHH</li>
+                <li>Revisión del encaje con vuestro software de RRHH</li>
                 <li>Configuración de reporting automático</li>
               </ul>
             </div>
@@ -413,7 +383,7 @@ const schema = {
               <h4>Tu participación:</h4>
               <ul>
                 <li>2h reunión inicial con el equipo de REELEVO</li>
-                <li>Facilitar acceso API sistema RRHH (si procede)</li>
+                <li>Compartir el software de RRHH que utilizáis y sus requisitos (si aplica)</li>
                 <li>Revisión y aprobación plan de competencias</li>
               </ul>
             </div>
@@ -430,8 +400,8 @@ const schema = {
               <h4>Tareas REELEVO:</h4>
               <ul>
                 <li>Captura de procesos con operarios expertos</li>
-                <li>Configuración de certificaciones automáticas</li>
-                <li>Pruebas de integración con sistema RRHH</li>
+                <li>Configuración de trazabilidad por ejecución</li>
+                <li>Validación del flujo con software de RRHH, si aplica</li>
                 <li>Verificación de flujo completo de datos</li>
               </ul>
             </div>
@@ -482,7 +452,7 @@ const schema = {
               <h4>Incluido sin coste adicional:</h4>
               <ul>
                 <li>Soporte técnico prioritario para RRHH</li>
-                <li>Actualizaciones de integración automáticas</li>
+                <li>Seguimiento de integraciones activas, cuando apliquen</li>
                 <li>Informes mensuales de competencias y uso</li>
                 <li>Consultoría en optimización de procesos RRHH</li>
               </ul>
@@ -499,22 +469,22 @@ const schema = {
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Para responsables de RRHH</div>
     <h2 class="cta-title fade-up delay-1">
-      Reduce los costes de onboarding <em>un 70%</em>
+      Ordena el onboarding y gana<br><em>visibilidad sobre competencias</em>
     </h2>
     <p class="cta-sub fade-up delay-2">
       Solicita una demo para comprobar el impacto real en tus métricas de RRHH.
-      Implementación asistida e integración con tu sistema incluida.
+      Implementación asistida y revisión de integración con tu software de RRHH.
     </p>
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
         Solicitar demo →
       </a>
       <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">
-        Calcular mi ahorro
+        Evaluar mi situación
       </a>
     </div>
     <div class="cta-note fade-up delay-4">
-      Integración con Factorial/Personio incluida · Soporte especializado en RRHH
+      Integraciones con software de RRHH disponibles · Factorial entre las opciones
     </div>
   </section>
 </BaseLayout>

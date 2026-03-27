@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Cómo funciona REELEVO — Software SOP para documentar procesos industriales paso a paso";
-const description = "Descubre cómo REELEVO convierte el conocimiento del operario experto en SOPs accesibles en cada máquina, sin app ni cuentas.";
+const title = "Cómo funciona REELEVO — Software SOP industrial para documentar procesos críticos";
+const description = "Descubre cómo REELEVO convierte el conocimiento del operario experto en procesos accesibles en cada máquina para reducir dependencia operativa.";
 
 const howToSchema = {
   "@context": "https://schema.org",
@@ -13,7 +13,7 @@ const howToSchema = {
   "step": [
     { "@type": "HowToStep", "text": "El operario experto captura su conocimiento paso a paso" },
     { "@type": "HowToStep", "text": "El conocimiento queda disponible en cada máquina" },
-    { "@type": "HowToStep", "text": "Cualquier sustituto accede y opera desde el primer día" }
+    { "@type": "HowToStep", "text": "El operario accede al proceso en la máquina y sigue el estándar paso a paso" }
   ]
 };
 
@@ -146,7 +146,7 @@ const faqSchema = {
       "name": "¿Tienen soporte en español? ¿Qué pasa si tenemos un problema en planta?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. El soporte es en español por email y chat, con tiempos de respuesta garantizados en horario laboral según el plan contratado."
+        "text": "Sí. El soporte es en español por email y chat, con tiempos de respuesta definidos en horario laboral según el plan contratado."
       }
     },
     {
@@ -154,7 +154,7 @@ const faqSchema = {
       "name": "¿Es compatible con nuestros sistemas de gestión?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La integración con ERPs y sistemas de RRHH está en el roadmap y puede priorizarse según la demanda real de los clientes."
+        "text": "REELEVO puede encajar con software de RRHH y otros sistemas según el caso. Si ya trabajáis con una herramienta concreta, revisamos el encaje durante la implantación."
       }
     },
     {
@@ -181,7 +181,7 @@ const schema = [howToSchema, faqSchema];
   <section class="page-hero">
     <div class="eyebrow fade-up">Flujo completo</div>
     <h1 class="fade-up delay-1">Así funciona <em>REELEVO</em><br>paso a paso.</h1>
-    <p class="fade-up delay-2">Tres participantes, tres perspectivas. Los procedimientos operativos estándar del experto llegan al sustituto en segundos, sin fricción, sin cuenta de usuario, sin app que instalar.</p>
+    <p class="fade-up delay-2">REELEVO es un software SOP industrial para pymes que documenta procesos críticos, acelera el onboarding y reduce la dependencia de operarios clave. Así es como ese proceso llega al puesto de trabajo.</p>
   </section>
 
   <div class="divider"></div>
@@ -197,7 +197,7 @@ const schema = [howToSchema, faqSchema];
           <h2 class="section-title">Captura los <em>procedimientos operativos</em></h2>
           <p class="section-sub">
             El operario que sabe documenta las instrucciones de trabajo de cada proceso con sus propias palabras.
-            Sin guión, sin producción, en minutos. 20 años de conocimiento tácito de fábrica convertidos en SOPs accesibles y siempre actualizables.
+            Sin guión y sin procesos pesados. El conocimiento tácito de fábrica se convierte en SOPs claros, accesibles y actualizables.
           </p>
 
           <div class="scenarios-grid">
@@ -260,7 +260,7 @@ const schema = [howToSchema, faqSchema];
               </div>
               <div class="benefit-result">
                 <div class="benefit-result-label">Beneficio</div>
-                <p>Cualquier sustituto opera desde el minuto 1, sin configuración previa</p>
+                <p>El operario llega al proceso sin configuraciones previas ni gestión de usuarios</p>
               </div>
             </div>
 
@@ -290,7 +290,7 @@ const schema = [howToSchema, faqSchema];
         <div class="step-number">3</div>
         <div class="step-content">
           <div class="step-role">👤 El sustituto / nuevo operario</div>
-          <h2 class="section-title">Opera <em>desde el primer momento</em></h2>
+          <h2 class="section-title">Accede al proceso <em>en el puesto</em></h2>
           <p class="section-sub">
             El sustituto escanea el código QR de la máquina, introduce el código de empresa
             y sigue las instrucciones paso a paso. Sin cuenta, sin app que instalar, sin esperar a nadie.
@@ -313,7 +313,7 @@ const schema = [howToSchema, faqSchema];
 
             <div class="scenario-card">
               <div class="scenario-card-tag">3. Resuelve problemas</div>
-              <h3 class="scenario-card-title">Troubleshooting integrado</h3>
+              <h3 class="scenario-card-title">Guía de incidencias integrada</h3>
               <div class="scenario-before">Sin REELEVO: Parar la línea, llamar al supervisor, esperar ayuda</div>
               <div class="scenario-after">Con REELEVO: Problemas comunes resueltos al instante, aviso al supervisor si lo necesita</div>
             </div>
@@ -340,10 +340,10 @@ const schema = [howToSchema, faqSchema];
       <div class="benefits-grid fade-up delay-1">
         <div class="benefit-card">
           <div class="benefit-card-icon">⚡</div>
-          <h3 class="benefit-card-title">Autonomía inmediata</h3>
+          <h3 class="benefit-card-title">Autonomía más ordenada</h3>
           <p class="benefit-card-desc">
-            El sustituto opera correctamente desde el primer momento.
-            Sin tutor, sin esperas, sin improvisar.
+            El sustituto encuentra el proceso cuando lo necesita.
+            Menos dependencia del tutor, menos esperas, menos improvisación.
           </p>
         </div>
 
@@ -369,25 +369,25 @@ const schema = [howToSchema, faqSchema];
           <div class="benefit-card-icon">🛡️</div>
           <h3 class="benefit-card-title">Menos errores</h3>
           <p class="benefit-card-desc">
-            El proceso se ejecuta siempre igual. Mismo orden, mismos criterios.
+            El proceso se ejecuta con el mismo orden y los mismos criterios.
             Menos reprocesos, menos riesgo.
           </p>
         </div>
 
         <div class="benefit-card">
           <div class="benefit-card-icon">✅</div>
-          <h3 class="benefit-card-title">Certificación real</h3>
+          <h3 class="benefit-card-title">Trazabilidad de ejecución</h3>
           <p class="benefit-card-desc">
-            REELEVO registra la ejecución verificable,
-            no por asistir a una formación.
+            REELEVO registra la ejecución verificable
+            para saber qué procesos se han hecho y cuándo.
           </p>
         </div>
 
         <div class="benefit-card">
           <div class="benefit-card-icon">🔧</div>
-          <h3 class="benefit-card-title">Problemas resueltos</h3>
+          <h3 class="benefit-card-title">Guía de incidencias</h3>
           <p class="benefit-card-desc">
-            Troubleshooting paso a paso integrado en cada proceso.
+            Resolución de incidencias paso a paso integrada en cada proceso.
             Aviso automático al supervisor si hace falta.
           </p>
         </div>
@@ -405,7 +405,7 @@ const schema = [howToSchema, faqSchema];
         <h2 class="section-title">Empieza por el escenario que más te duele en planta</h2>
         <p class="section-sub">
           REELEVO conecta el mismo núcleo de producto con problemas distintos:
-          cobertura de bajas, onboarding, transferencia de conocimiento, skill matrix y evaluación de alternativas.
+          cobertura de bajas, onboarding, transferencia de conocimiento, matriz de habilidades y evaluación de alternativas.
         </p>
       </div>
 
@@ -419,7 +419,7 @@ const schema = [howToSchema, faqSchema];
         <a href="/casos-de-uso/onboarding-operarios/" class="explore-card">
           <div class="explore-kicker">Onboarding de operarios</div>
           <h3 class="explore-title">Cuando el nuevo depende demasiado del tutor</h3>
-          <p class="explore-desc">Estandariza el aprendizaje desde el primer día y reduce variabilidad.</p>
+          <p class="explore-desc">Estandariza el aprendizaje desde las primeras incorporaciones y reduce variabilidad.</p>
         </a>
 
         <a href="/casos-de-uso/transferencia-conocimiento/" class="explore-card">
@@ -518,7 +518,7 @@ const schema = [howToSchema, faqSchema];
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p><strong>No</strong>. Los operarios acceden con un código de empresa. Sin crear cuentas, sin contraseñas, sin gestión de usuarios. Cualquier sustituto opera inmediatamente.</p>
+              <p><strong>No</strong>. Los operarios acceden con un código de empresa. Sin crear cuentas, sin contraseñas, sin gestión de usuarios. Cualquier sustituto llega al proceso correcto sin fricción.</p>
             </div>
           </div>
         </div>
@@ -580,7 +580,7 @@ const schema = [howToSchema, faqSchema];
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p><strong>Sí</strong>. Cualquier administrador puede actualizar procesos desde el panel. Los cambios se reflejan automáticamente. El operario siempre accede a la versión más actual.</p>
+              <p><strong>Sí</strong>. Cualquier administrador puede actualizar procesos desde el panel. Los cambios se reflejan automáticamente. El operario accede a la versión más actual sin tener que buscar documentos nuevos.</p>
             </div>
           </div>
         </div>
@@ -657,7 +657,7 @@ const schema = [howToSchema, faqSchema];
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>Sí, el soporte es <strong>en español</strong>. Puedes contactarnos por email y chat. Los planes de pago incluyen soporte con tiempo de respuesta garantizado en horario laboral. No te dejamos solo después de la firma.</p>
+              <p>Sí, el soporte es <strong>en español</strong>. Puedes contactarnos por email y chat. Los planes de pago incluyen soporte con tiempo de respuesta definido en horario laboral. No te dejamos solo después de la firma.</p>
             </div>
           </div>
         </div>
@@ -669,7 +669,7 @@ const schema = [howToSchema, faqSchema];
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>La integración mediante API con ERPs y sistemas de RRHH (Factorial, Personio, SAP...) está en nuestro roadmap. Si tienes una integración específica que necesitas, cuéntanos — lo priorizamos según la demanda real de nuestros clientes.</p>
+              <p>REELEVO puede encajar con software de RRHH y otros sistemas según el caso. Si ya trabajáis con una herramienta concreta, revisamos el encaje durante la implantación y definimos con claridad el alcance real.</p>
             </div>
           </div>
         </div>
@@ -696,7 +696,7 @@ const schema = [howToSchema, faqSchema];
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">¿Todo claro?</div>
     <h2 class="cta-title fade-up delay-1">
-      Empieza hoy mismo
+      Empieza por tus procesos críticos
     </h2>
     <p class="cta-sub fade-up delay-2">
       Solicita una demo y te lo enseñamos funcionando en tu tipo de empresa.
