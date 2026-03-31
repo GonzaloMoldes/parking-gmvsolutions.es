@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "REELEVO — Menos improvisación y más continuidad en planta";
-const description = "REELEVO ayuda a las pymes industriales a reducir la dependencia de personas clave, ordenar incorporaciones y ganar más visibilidad sobre lo que pasa en planta.";
+const description = "REELEVO ayuda a las pymes industriales a reducir la dependencia de personas clave, ordenar incorporaciones, mejorar la documentación de procesos de producción y ganar más visibilidad sobre lo que pasa en planta.";
 const canonical = "https://gmvsolutions.es/";
 
 const schema = [
@@ -63,7 +63,7 @@ const schema = [
     </h1>
     <p class="hero-sub fade-up delay-2">
       REELEVO ayuda a las pymes industriales a que una baja, una incorporación o un cambio de turno no rompan la operación.<br>
-      <strong>Producción gana contexto para decidir, RRHH ordena mejor el onboarding y la empresa depende menos de las personas clave</strong>.
+      <strong>Producción gana contexto para decidir, RRHH ordena mejor el onboarding, la empresa depende menos de las personas clave y se refuerza la documentación de procesos de producción</strong>.
     </p>
     <div class="hero-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO</a>
@@ -284,6 +284,42 @@ const schema = [
               </div>
               <div class="screenshot-caption">Vista de producción — más contexto para ver actividad y decidir con menos improvisación</div>
             </div>
+            <div class="screenshot-slide">
+              <div class="screenshot-frame">
+                <img src="/screenshots/Captura de pantalla 2026-03-31 161924.png" alt="Planificación semanal de operarios" loading="lazy">
+              </div>
+              <div class="screenshot-caption">Planificación semanal — asignación visual de tareas y turnos</div>
+            </div>
+            <div class="screenshot-slide">
+              <div class="screenshot-frame">
+                <img src="/screenshots/Captura de pantalla 2026-03-31 162126.png" alt="Gestión de productos y procesos" loading="lazy">
+              </div>
+              <div class="screenshot-caption">Gestión de productos — definición de procesos y combinaciones</div>
+            </div>
+            <div class="screenshot-slide">
+              <div class="screenshot-frame">
+                <img src="/screenshots/Captura de pantalla 2026-03-31 162150.png" alt="Panel de equipo de operaciones" loading="lazy">
+              </div>
+              <div class="screenshot-caption">Equipo de operaciones — seguimiento de actividad y competencias</div>
+            </div>
+            <div class="screenshot-slide">
+              <div class="screenshot-frame">
+                <img src="/screenshots/Captura de pantalla 2026-03-31 162218.png" alt="Detalle de competencias de operario" loading="lazy">
+              </div>
+              <div class="screenshot-caption">Detalle de competencias — certificaciones y habilidades de operario</div>
+            </div>
+            <div class="screenshot-slide">
+              <div class="screenshot-frame">
+                <img src="/screenshots/Captura de pantalla 2026-03-31 162300.png" alt="Panel de productividad y analítica" loading="lazy">
+              </div>
+              <div class="screenshot-caption">Productividad — analítica de procesos y rendimiento</div>
+            </div>
+            <div class="screenshot-slide">
+              <div class="screenshot-frame">
+                <img src="/screenshots/Captura de pantalla 2026-03-31 162618.png" alt="Detalle de procesos y tiempos" loading="lazy">
+              </div>
+              <div class="screenshot-caption">Detalle de procesos — tiempos, pasos y eficiencia</div>
+            </div>
           </div>
           <button class="carousel-btn carousel-prev" id="carPrev" aria-label="Anterior">←</button>
           <button class="carousel-btn carousel-next" id="carNext" aria-label="Siguiente">→</button>
@@ -291,6 +327,12 @@ const schema = [
             <button class="carousel-dot is-active" aria-label="Pantalla 1"></button>
             <button class="carousel-dot" aria-label="Pantalla 2"></button>
             <button class="carousel-dot" aria-label="Pantalla 3"></button>
+            <button class="carousel-dot" aria-label="Pantalla 4"></button>
+            <button class="carousel-dot" aria-label="Pantalla 5"></button>
+            <button class="carousel-dot" aria-label="Pantalla 6"></button>
+            <button class="carousel-dot" aria-label="Pantalla 7"></button>
+            <button class="carousel-dot" aria-label="Pantalla 8"></button>
+            <button class="carousel-dot" aria-label="Pantalla 9"></button>
           </div>
         </div>
 
@@ -597,6 +639,9 @@ const schema = [
   }
 
   /* Screenshots carousel */
+  :root {
+    --carousel-autoplay-ms: 3000;
+  }
   .screenshots-wrap {
     position: relative;
     margin: 48px 0 0;
