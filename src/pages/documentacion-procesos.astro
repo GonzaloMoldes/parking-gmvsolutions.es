@@ -1,0 +1,585 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Documentación de procesos industriales | Software SOP para pymes";
+const description = "Software para documentar procesos industriales. SOPs accesibles en máquina. Reduce errores operativos, acelera onboarding, evita pérdida de conocimiento.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "REELEVO - Documentación de Procesos",
+  "description": description,
+  "url": "https://gmvsolutions.es/documentacion-procesos/",
+  "applicationCategory": "BusinessApplication"
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Documentación Operativa</div>
+    <h1 class="fade-up delay-1">Documentación de procesos<br><em>industriales accesible</em></h1>
+    <p class="fade-up delay-2">Procedimientos paso a paso en máquina. SOP que los operarios realmente consultan. Sin manuales de 50 páginas que nadie usa.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">Ver demo →</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EL PROBLEMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">La realidad</div>
+        <h2 class="section-title">Los SOPs que nadie consulta</h2>
+      </div>
+
+      <div class="problem-showcase fade-up delay-1">
+        <div class="bad-approach">
+          <h3>❌ El enfoque tradicional</h3>
+          <ul>
+            <li>Alguien de calidad documenta 40 páginas en Word</li>
+            <li>Diagramas, capturas de pantalla, formato perfecto</li>
+            <li>Se guarda en carpeta de servidor "Documentación/SOP/Línea1/"</li>
+            <li>Operario necesita encender el ordenador</li>
+            <li>Navegar carpetas ("¿dónde estaba?")</li>
+            <li>Abrir PDF</li>
+            <li>Buscar página relevante</li>
+            <li>Realidad: Operario llama al tutor en lugar de consultar</li>
+          </ul>
+          <p class="result">Resultado: 100% de los SOP documentados. 0% de uso.</p>
+        </div>
+
+        <div class="good-approach">
+          <h3>✓ El enfoque REELEVO</h3>
+          <ul>
+            <li>Operario experto documenta MIENTRAS ejecuta el proceso</li>
+            <li>App lo guía por los pasos: "¿Cuál es el siguiente paso?"</li>
+            <li>A un click de distancia del SOP: foto, video, checklist</li>
+            <li>Disponible offline en máquina (QR o acceso app)</li>
+            <li>Operario nuevo consulta 10 segundos</li>
+            <li>Sigue el procedimiento</li>
+            <li>¡Listo!</li>
+            <li>Tutor verifica resultado, no enseña</li>
+          </ul>
+          <p class="result">Resultado: SOPs documentados Y usados en planta.</p>
+        </div>
+      </div>
+
+      <div class="data-point fade-up delay-2">
+        <p><strong>Dato:</strong> 77% de pymes industriales españolas NO tiene procedimientos operativos documentados y actualizados. Del 23% que sí, menos del 10% de sus procedimientos se consultan habitualmente en planta.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- POR QUÉ FALLAN LOS TRADICIONALES -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Por qué fracasan los manuales tradicionales</h2>
+      </div>
+
+      <div class="failure-reasons fade-up delay-1">
+        <div class="reason">
+          <div class="reason-title">1. Inaccesibles en planta</div>
+          <p>Requieren navegador, carpetas, archivos. Un operario de máquina pierde 5-10 minutos antes de encontrar lo que necesita. Más fácil llamar al tutor.</p>
+        </div>
+
+        <div class="reason">
+          <div class="reason-title">2. No reflejan la realidad</div>
+          <p>Están escritos por gente de calidad, no por el operario que realmente lo hace. Se pierden los "trucos" que el experto sabe.</p>
+        </div>
+
+        <div class="reason">
+          <div class="reason-title">3. Se desactualizan rápido</div>
+          <p>Después de 3 meses, nadie los actualiza. ¿Por qué cambiar el manual si podemos seguir improvisando?</p>
+        </div>
+
+        <div class="reason">
+          <div class="reason-title">4. No incluyen troubleshooting</div>
+          <p>"¿Qué hacer si X pasa?" — El manual no lo contempla. El operario improvisa o llama.</p>
+        </div>
+
+        <div class="reason">
+          <div class="reason-title">5. Están en inglés o formato pobre</div>
+          <p>Si el fabricante la máquina es alemán, el manual es alemán. Si es traducido, es incomprensible.</p>
+        </div>
+
+        <div class="reason">
+          <div class="reason-title">6. Generan resistencia</div>
+          <p>Operarios ven la documentación como control, no como herramienta. "Si cometo un error está registrado..."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- LA SOLUCIÓN -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">La solución</div>
+        <h2 class="section-title">Documentación que se consulta</h2>
+      </div>
+
+      <div class="solution-approach fade-up delay-1">
+        <div class="feature">
+          <div class="feature-icon">📱</div>
+          <h3>Accesible en 3 segundos</h3>
+          <p>QR en máquina + scan = SOP abierto directamente. O app preinstalada. Sin buscar nada. Offline si no hay wifi.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">👷</div>
+          <h3>Documentado por el experto</h3>
+          <p>El operario que sabe hace el SOP mientras trabaja. Incluye los puntos críticos que solo él conoce. Es la verdad operativa.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🛠️</div>
+          <h3>Incluye troubleshooting</h3>
+          <p>"Si la presión sube, espera 30 segundos." "Si el material se atasca, esto significa…" — El conocimiento tácito documentado.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">📊</div>
+          <h3>Versionado y actual</h3>
+          <p>Cuando cambia un parámetro por nueva máquina, se actualiza fácil. Todos ven la última versión. Sin confusión.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <h3>Checklisteable</h3>
+          <p>No es "lee esto y luego adivina el siguiente paso". Es: paso 1 → check ✓ → paso 2 → check ✓. Secuencial.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">👥</div>
+          <h3>Colaborativo sin entorpecer</h3>
+          <p>Cuando algo no está claro, el tutor lo anota. En el siguiente turno, el novato lo ve actualizado. Mejora continua.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- TIPOS DE PROCEDIMIENTOS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">¿Qué documentar con REELEVO?</h2>
+      </div>
+
+      <div class="procedures-grid fade-up delay-1">
+        <div class="procedure-type">
+          <h3>🚀 Arranque/Parada</h3>
+          <p>Secuencia exacta. Orden de pasos importa. Qué hay que esperar en cada etapa. Cuándo está listo para producir.</p>
+        </div>
+
+        <div class="procedure-type">
+          <h3>⚙️ Cambio de parámetros</h3>
+          <p>Configuración de máquina. Valores exactos. Tolerancias. Cómo verificar que quedó bien. Qué NO hacer.</p>
+        </div>
+
+        <div class="procedure-type">
+          <h3>🔧 Mantenimiento básico</h3>
+          <p>Lubricación. Limpieza. Inspección visual. Cuándo hacer qué. Dónde están los puntos de lubricación.</p>
+        </div>
+
+        <div class="procedure-type">
+          <h3>❌ Troubleshooting</h3>
+          <p>Máquina para. ¿Qué significa este sonido? ¿Qué hacer primero? Árbol de diagnóstico de problemas comunes.</p>
+        </div>
+
+        <div class="procedure-type">
+          <h3>✓ Control de calidad</h3>
+          <p>Cómo sabe el operario que una pieza está bien o mal. Qué mira, qué toca, qué mide. Criterios visuales.</p>
+        </div>
+
+        <div class="procedure-type">
+          <h3>🧹 Limpieza GMP</h3>
+          <p>Si necesitas conformidad ISO/IATF: checklist paso a paso de limpieza por zona. Con foto de "antes" y "después".</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- IMPACTO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Impacto real de buena documentación</h2>
+      </div>
+
+      <div class="impact-metrics fade-up delay-1">
+        <div class="metric">
+          <div class="metric-label">Reducción de errores operarios nuevos</div>
+          <div class="metric-before">Antes: +40% errores vs operario titular</div>
+          <div class="metric-after">Con documentación clara: -60% errores</div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-label">Tiempo de setup de máquina</div>
+          <div class="metric-before">Antes: 30-45 min (si no sabe, llama al tutor)</div>
+          <div class="metric-after">Con SOP: 10-15 min (sigue los pasos)</div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-label">Dependencia del operario experto</div>
+          <div class="metric-before">Antes: "Llama a Juan para todo"</div>
+          <div class="metric-after">Con documentación: Juan solo revisa resultados</div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-label">Rotación de personal sin caos</div>
+          <div class="metric-before">Antes: Personal ETT pierde 1-2 semanas en aprendizaje</div>
+          <div class="metric-after">Con SOP accesible: productivo desde día 1</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CÓMO EMPEZAR -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Comienza documentando lo crítico</h2>
+      </div>
+
+      <div class="startup-steps fade-up delay-1">
+        <div class="startup-box">
+          <h3>Semana 1: Priorización</h3>
+          <ul>
+            <li>¿Qué máquina produce más dinero?</li>
+            <li>¿Cuántas personas la dominan?</li>
+            <li>¿Qué pasería si falta el operario expert4o?</li>
+            <li>Las 3 máquinas más críticas = prioridad 1</li>
+          </ul>
+        </div>
+
+        <div class="startup-box">
+          <h3>Semana 2: Documentación</h3>
+          <ul>
+            <li>El experto abre REELEVO app</li>
+            <li>Sigue su proceso step-by-step</li>
+            <li>La app lo guía</li>
+            <li>Incluye videos cortos, fotos, checklist</li>
+            <li>Listo en 1-2 horas por máquina</li>
+          </ul>
+        </div>
+
+        <div class="startup-box">
+          <h3>Semana 3: Validación</h3>
+          <ul>
+            <li>Operario menos experimentado sigue el SOP</li>
+            <li>¿Algo no está claro?</li>
+            <li>Experto lo corrige</li>
+            <li>Iteración hasta que funcione</li>
+          </ul>
+        </div>
+
+        <div class="startup-box">
+          <h3>Mes 1: Despliegue</h3>
+          <ul>
+            <li>SOP en QR en cada máquina</li>
+            <li>Operarios pueden consultarlo</li>
+            <li>Mejoras continuas basadas en feedback</li>
+            <li>Línea productiva desde el primer día</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Listo para empezar</div>
+    <h2 class="cta-title fade-up delay-1">
+      Documenta tus procedimientos <em>operativos</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Procedimientos que se consultan porque están accesibles donde se necesitan. Sin manuales de 50 páginas. Sin dependencia del tutor.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Registrarse gratis
+      </a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">
+        Evaluar mi situación →
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .problem-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .bad-approach,
+  .good-approach {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px;
+  }
+
+  .good-approach {
+    border-color: var(--orange);
+    background: rgba(255, 150, 0, 0.02);
+  }
+
+  .bad-approach h3,
+  .good-approach h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  .bad-approach ul,
+  .good-approach ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .bad-approach li,
+  .good-approach li {
+    padding: 8px 0;
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .bad-approach li:before,
+  .good-approach li:before {
+    margin-right: 8px;
+    font-weight: 600;
+  }
+
+  .bad-approach li:before {
+    content: "→ ";
+    color: #c86464;
+  }
+
+  .good-approach li:before {
+    content: "✓ ";
+    color: var(--orange);
+  }
+
+  .result {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+
+  .data-point {
+    background: rgba(100, 150, 200, 0.08);
+    border-left: 4px solid #6496c8;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 40px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .failure-reasons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .reason {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .reason-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .reason p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .solution-approach {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .feature {
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+
+  .feature h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .feature p {
+    color: var(--gray);
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .procedures-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .procedure-type {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .procedure-type h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .procedure-type p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .impact-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .metric {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .metric-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .metric-before,
+  .metric-after {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+
+  .metric-after {
+    border-bottom: none;
+  }
+
+  .metric-before {
+    color: #888;
+  }
+
+  .metric-after {
+    color: var(--orange);
+    font-weight: 600;
+  }
+
+  .startup-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .startup-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .startup-box h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+
+  .startup-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .startup-box li {
+    padding: 8px 0;
+    color: var(--gray);
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .startup-box li:before {
+    content: "→ ";
+    color: var(--orange);
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  @media (max-width: 900px) {
+    .problem-showcase,
+    .solution-approach,
+    .impact-metrics,
+    .startup-steps {
+      grid-template-columns: 1fr;
+    }
+
+    .failure-reasons,
+    .procedures-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
