@@ -1,0 +1,596 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "REELEVO en acción: Demo de onboarding software + gestión de competencias";
+const description = "Mira el video: REELEVO en acción. Onboarding software en planta, gestión de competencias real, HR software para pymes industriales en 6 minutos.";
+const canonical = "https://gmvsolutions.es/video-demo/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": title,
+  "description": description,
+  "url": canonical,
+  "uploadDate": "2026-04-07",
+  "thumbnailUrl": "https://gmvsolutions.es/video-thumbnail.jpg",
+  "duration": "PT6M",
+  "contentUrl": "https://video.gmvsolutions.es/demo"
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  schema={schema}
+  activeNav=""
+>
+
+<section class="demo-hero">
+  <div class="demo-header fade-up">
+    <div class="header-eyebrow">Video Demo • 6 minutos</div>
+    <h1 class="fade-up delay-1">
+      REELEVO en acción:<br>
+      <em>Onboarding software + gestión de competencias</em>
+    </h1>
+    <p class="header-subtitle fade-up delay-2">
+      Mira cómo un operario nuevo ejecuta su primer día con REELEVO.
+      Cómo el sistema registra competencias. Cómo RRHH ve todo en tiempo real.
+    </p>
+  </div>
+
+  <div class="demo-video-wrap fade-up delay-3">
+    <div class="video-placeholder">
+      <div class="play-button">▶</div>
+      <p>Video Demo REELEVO - 6 minutos</p>
+      <p style="font-size: .9rem; color: var(--gray);">Haz clic para ver cómo funciona onboarding software + gestión de competencias en vivo</p>
+    </div>
+  </div>
+
+  <div class="demo-features fade-up delay-4">
+    <div class="feature-tag">✓ Onboarding en el puesto</div>
+    <div class="feature-tag">✓ Gestión de competencias automática</div>
+    <div class="feature-tag">✓ Dashboard RRHH en tiempo real</div>
+    <div class="feature-tag">✓ Trazabilidad de ejecución</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- QUÉ VAS A VER -->
+<section class="section section-center">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="eyebrow">Lo που verás en el video</div>
+      <h2 class="section-title">Recorrido de 6 minutos por REELEVO</h2>
+      <p class="section-sub">
+        Desde el primer día del operario nuevo hasta cómo RRHH visualiza su progresión.
+        Onboarding software + gestión de competencias en acción.
+      </p>
+    </div>
+
+    <div class="what-you-see fade-up delay-1">
+      <div class="see-item see-item-1">
+        <div class="see-num">1</div>
+        <h3>El operario nuevo llega</h3>
+        <p>
+          Acceso a REELEVO. El sistema le muestra los procesos críticos para su puesto.
+          Onboarding software guía cada paso.
+        </p>
+        <span class="see-time">0:00 - 1:00</span>
+      </div>
+
+      <div class="see-item see-item-2">
+        <div class="see-num">2</div>
+        <h3>Ejecución supervisa en el puesto</h3>
+        <p>
+          El tutor acompaña. El sistema registra cada paso completado.
+          Gestión de competencias: Level 1 → Level 2.
+        </p>
+        <span class="see-time">1:00 - 3:00</span>
+      </div>
+
+      <div class="see-item see-item-3">
+        <div class="see-num">3</div>
+        <h3>Dashboard RRHH en tiempo real</h3>
+        <p>
+          Responsable de RRHH ve el progreso. Qué procesos domina, cuáles necesita refuerzo.
+          Gestión de competencias clara para toda la operación.
+        </p>
+        <span class="see-time">3:00 - 4:30</span>
+      </div>
+
+      <div class="see-item see-item-4">
+        <div class="see-num">4</div>
+        <h3>Panel de gestión de competencias</h3>
+        <p>
+          Toda la planta en un dashboard. Quién domina qué. Niveles de competencia.
+          Identificar gaps de formación automáticamente.
+        </p>
+        <span class="see-time">4:30 - 6:00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TESTIMONIOS -->
+<section class="section section-center">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="eyebrow">Lo que dicen los usuarios</div>
+      <h2 class="section-title">Reflexiones reales sobre REELEVO</h2>
+    </div>
+
+    <div class="testimonials fade-up delay-1">
+      <div class="testimonial">
+        <quote class="testimonial-text">
+          "Con onboarding software, mis tutores perdían 2 horas diarias explicando. Ahora el sistema explica,
+          ellos solo acompañan. Ganamos tiempo y mejor calidad."
+        </quote>
+        <p class="testimonial-author"><strong>Jefe de Producción</strong> • Taller de mecanizado CNC</p>
+      </div>
+
+      <div class="testimonial">
+        <quote class="testimonial-text">
+          "La gestión de competencias que teníamos era: 'Jorge sabe CNC'. Con REELEVO vemos
+          exactamente Level 3 en CNC, Level 2 en soldadura, necesita refuerzo en montaje.
+          Es increíble para planificar formación."
+        </quote>
+        <p class="testimonial-author"><strong>Responsable RRHH</strong> • Planta alimentaria</p>
+      </div>
+
+      <div class="testimonial">
+        <quote class="testimonial-text">
+          "El primer día de ETT con REELEVO es diferente. El temporal no pregunta 'qué hago'.
+          Tiene instrucciones claras. Ársenla 3 días antes de resultar, no 2 semanas."
+        </quote>
+        <p class="testimonial-author"><strong>Gerente</strong> • Empresa con rotación alta</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DESCARGAR RECURSOS -->
+<section class="section section-center">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="eyebrow">Después del video</div>
+      <h2 class="section-title">Recursos gratuitos para descargar</h2>
+      <p class="section-sub">
+        Guías, plantillas, casos de uso. Todo lo que necesitas para empezar.
+      </p>
+    </div>
+
+    <div class="recursos fade-up delay-1">
+      <div class="recurso-card">
+        <div class="recurso-icon">📋</div>
+        <h3>Guía onboarding software</h3>
+        <p>Checklist: cómo implementar onboarding software en tu pyme en 30 días.</p>
+        <a href="#" class="recurso-link">Descargar PDF →</a>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icon">📊</div>
+        <h3>Plantilla gestión de competencias</h3>
+        <p>Excel listo: mapea competencias, define niveles, actualiza automáticamente.</p>
+        <a href="#" class="recurso-link">Descargar XLSX →</a>
+      </div>
+
+      <div class="recurso-card">
+        <div class="recurso-icon">💰</div>
+        <h3>Calculadora ROI</h3>
+        <p>¿Cuánto ahorraría tu empresa con onboarding software? Calcula en 2 minutos.</p>
+        <a href="https://diagnostico.gmvsolutions.es" class="recurso-link">Abrir calculadora →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="cta-eyebrow fade-up">¿Listo para ver REELEVO?</div>
+  <h2 class="cta-title fade-up delay-1">
+    Empieza con onboarding software.<br>
+    <em>Gestión de competencias desde el primer día.</em>
+  </h2>
+  <p class="cta-sub fade-up delay-2">
+    49€/mes. Sin compromiso. Implementación asistida.
+    El video te mostrará exactamente qué esperar.
+  </p>
+  <div class="cta-actions fade-up delay-3">
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      Registrarme en REELEVO
+    </a>
+    <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">
+      Evaluar ahorro potencial →
+    </a>
+  </div>
+  <div class="cta-note fade-up delay-4">
+    Precio publicado · Sin sorpresas · Soporte en español
+  </div>
+</section>
+
+<!-- ENLACES INTERNOS -->
+<section class="section section-center" style="background: var(--surface2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="eyebrow">Profundiza más</div>
+      <h2 class="section-title">Artículos relacionados</h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px;">
+      <a href="/blog/onboarding-software-pymes/" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 28px; text-decoration: none; transition: transform .2s; display: block;">
+        <h3 style="color: var(--white); margin-top: 0;">📖 Guía: Onboarding software para pymes</h3>
+        <p style="color: var(--gray); margin: 12px 0;">Descubre cómo un onboarding software reduce costos de incorporación en un 40% y mejora la gestión de competencias.</p>
+        <p style="color: var(--orange); font-weight: 600; margin: 0;">Leer guía →</p>
+      </a>
+
+      <a href="/blog/gestion-competencias-industria/" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 28px; text-decoration: none; transition: transform .2s; display: block;">
+        <h3 style="color: var(--white); margin-top: 0;">📊 Guía: Gestión de competencias en industria</h3>
+        <p style="color: var(--gray); margin: 12px 0;">Guía práctica: cómo documentar competencias reales y usarlas para onboarding y retención.</p>
+        <p style="color: var(--orange); font-weight: 600; margin: 0;">Leer guía →</p>
+      </a>
+
+      <a href="/blog/onboarding-vs-tradicional/" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 28px; text-decoration: none; transition: transform .2s; display: block;">
+        <h3 style="color: var(--white); margin-top: 0;">⚖️ Comparativa: Onboarding software vs tradicional</h3>
+        <p style="color: var(--gray); margin: 12px 0;">Análisis completo con datos reales: costo, tiempo, gestión de competencias, ROI.</p>
+        <p style="color: var(--orange); font-weight: 600; margin: 0;">Leer comparativa →</p>
+      </a>
+
+      <a href="/casos-de-uso/onboarding-operarios/" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 28px; text-decoration: none; transition: transform .2s; display: block;">
+        <h3 style="color: var(--white); margin-top: 0;">🎯 Caso de uso: Onboarding de operarios</h3>
+        <p style="color: var(--gray); margin: 12px 0;">Caso real: cómo REELEVO ordena el primer día sin depender del tutor.</p>
+        <p style="color: var(--orange); font-weight: 600; margin: 0;">Ver caso →</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .demo-hero {
+    text-align: center;
+    padding: 80px 32px 60px;
+  }
+
+  .demo-header {
+    margin-bottom: 48px;
+  }
+
+  .header-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .demo-hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .header-subtitle {
+    font-size: 1.1rem;
+    color: var(--gray);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .demo-video-wrap {
+    max-width: 800px;
+    margin: 48px auto 32px;
+  }
+
+  .video-placeholder {
+    background: linear-gradient(135deg, var(--surface2) 0%, var(--surface) 100%);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform .3s, border-color .3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-placeholder:hover {
+    border-color: var(--orange);
+    transform: scale(1.02);
+  }
+
+  .video-placeholder:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 140, 0, 0.05);
+    opacity: 0;
+    transition: opacity .3s;
+  }
+
+  .video-placeholder:hover:before {
+    opacity: 1;
+  }
+
+  .play-button {
+    font-size: 64px;
+    color: var(--orange);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .7; }
+  }
+
+  .video-placeholder p {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .demo-features {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+
+  .feature-tag {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: .9rem;
+    color: var(--gray);
+  }
+
+  .what-you-see {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 800px) {
+    .what-you-see {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .see-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+    text-align: left;
+    position: relative;
+  }
+
+  .see-num {
+    width: 40px;
+    height: 40px;
+    background: var(--orange);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .see-item h3 {
+    margin: 0 0 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .see-item p {
+    color: var(--gray);
+    font-size: .95rem;
+    margin-bottom: 16px;
+  }
+
+  .see-time {
+    font-family: 'DM Mono', monospace;
+    font-size: .75rem;
+    color: var(--gray2);
+    letter-spacing: .06em;
+  }
+
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 900px) {
+    .testimonials {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .testimonial {
+    background: var(--surface);
+    border-left: 3px solid var(--orange);
+    border-radius: 6px;
+    padding: 28px;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.65;
+    margin-bottom: 20px;
+    display: block;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    font-size: .9rem;
+    color: var(--gray2);
+    margin: 0;
+  }
+
+  .recursos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 900px) {
+    .recursos {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .recursos {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .recurso-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+    text-align: center;
+  }
+
+  .recurso-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  .recurso-card h3 {
+    margin: 0 0 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .recurso-card p {
+    color: var(--gray);
+    margin-bottom: 16px;
+    font-size: .95rem;
+  }
+
+  .recurso-link {
+    display: inline-block;
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .2s;
+  }
+
+  .recurso-link:hover {
+    color: #FF9800;
+  }
+
+  .section-center {
+    text-align: center;
+  }
+
+  .section-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--gray);
+    margin: 0 auto;
+    max-width: 700px;
+    line-height: 1.6;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--surface2) 0%, var(--surface) 100%);
+    padding: 80px 32px;
+    text-align: center;
+  }
+
+  .cta-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .cta-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .cta-sub {
+    font-size: 1.1rem;
+    color: var(--gray);
+    max-width: 800px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .cta-note {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gray2);
+  }
+</style>
+
+</BaseLayout>

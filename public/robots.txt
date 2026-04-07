@@ -1,10 +1,29 @@
 # gmvsolutions.es — REELEVO
-# Software SOP de documentación operativa industrial
+# Onboarding software + Gestión de competencias para pymes industriales
 
 User-agent: *
 Allow: /
+Allow: /blog/
+Allow: /casos-de-uso/
+Allow: /para-quien/
+Allow: /sectores/
+Allow: /recursos/
+Allow: /video-demo/
 
-# Sitemap
+# Disallow robots from crawling certain paths if needed
+# Disallow: /admin/
+
+# Allow major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://gmvsolutions.es/sitemap.xml
 Sitemap: https://gmvsolutions.es/sitemap-index.xml
 
 # LLMs
