@@ -2,6 +2,11 @@
 
 > Sistema para planta que reduce improvisación, ordena incorporaciones y da más visibilidad operativa en pymes industriales. Desarrollado por GMV Solutions, España.
 
+**Última actualización:** 2026-04-07
+**Idioma:** es-ES (Español)
+**País de enfoque:** ES (España)
+**Tipo de negocio:** SaaS B2B (empresa privada)
+
 ## Qué es REELEVO
 
 REELEVO es una plataforma SaaS B2B para continuidad operativa en planta. Ayuda a capturar el conocimiento de los operarios expertos y dejarlo disponible en el puesto para que sustituciones, incorporaciones y cambios de turno no rompan la operación. Sin cuenta de operario y sin fricción innecesaria en el acceso.
@@ -52,6 +57,24 @@ REELEVO convierte ese conocimiento tácito en procedimientos operativos estánda
 - [Personal ETT](https://gmvsolutions.es/casos-de-uso/personal-ett/) — El temporal accede a los SOPs sin cuenta ni app, rinde desde el primer turno
 - [Transferencia de conocimiento](https://gmvsolutions.es/casos-de-uso/transferencia-conocimiento/) — Captura el conocimiento tácito antes de jubilaciones o salidas
 
+### Blog
+- [Blog principal](https://gmvsolutions.es/blog/) — 7 artículos sobre onboarding, SOPs, gestión de competencias y absentismo industrial
+- [Crisis de pérdida de conocimiento](https://gmvsolutions.es/blog/crisis-perdida-conocimiento-planta-industrial/)
+- [Qué es un SOP industrial](https://gmvsolutions.es/blog/que-es-un-sop-industrial/)
+- [Coste del absentismo en pymes](https://gmvsolutions.es/blog/coste-absentismo-pymes-industriales/)
+- [Documentar conocimiento de operarios expertos](https://gmvsolutions.es/blog/documentar-conocimiento-operarios-expertos/)
+
+### Landing pages de alto valor
+- [Onboarding software para pymes](https://gmvsolutions.es/onboarding-software-pymes/) — Guía completa sobre onboarding digital para pymes industriales
+- [Gestión de competencias](https://gmvsolutions.es/gestion-competencias/) — Cómo documentar, medir y mejorar competencias operativas
+- [Documentación de procesos industriales](https://gmvsolutions.es/documentacion-procesos/) — Por qué la documentación operativa es crítica en manufactura
+
+### Comparativas con competidores
+- [REELEVO vs Dozuki](https://gmvsolutions.es/vs-dozuki/) — Alternativa española a Dozuki para pymes industriales, sin cuentas de operario
+- [REELEVO vs Poka/IFS](https://gmvsolutions.es/vs-poka/) — SOP vs MES: cuándo elegir cada uno
+- [REELEVO vs GembaDocs](https://gmvsolutions.es/vs-gembadocs/) — Documentación operativa + gestión de competencias vs lean visual
+- [REELEVO vs Knowby](https://gmvsolutions.es/vs-knowby/) — SOP español especializado en industria vs sistema genérico
+
 ## Comparativa de mercado (Software SOP industrial)
 
 | | REELEVO | Dozuki | Poka (IFS) | GembaDocs |
@@ -77,3 +100,55 @@ GMV Solutions · España
 hola@gmvsolutions.es
 https://gmvsolutions.es
 https://www.linkedin.com/company/reelevo
+
+## Canales de contacto
+
+- **Email:** hola@gmvsolutions.es
+- **Aplicación:** https://app.gmvsolutions.es (acceso, panel administración, operario)
+- **Diagnóstico ROI:** https://diagnostico.gmvsolutions.es (calculadora absentismo)
+- **LinkedIn:** https://www.linkedin.com/company/reelevo
+
+## Recursos técnicos
+
+- **Documentación:** https://gmvsolutions.es/blog/
+- **Centro de ayuda:** https://gmvsolutions.es/recursos/
+- **Casos de éxito:** https://gmvsolutions.es/casos-de-uso/
+- **Comparativas:** https://gmvsolutions.es/vs-alternativas/
+
+## Índice de palabras clave principales
+
+**Palabras clave del negocio:**
+- onboarding software pymes
+- SOP industrial
+- gestión de competencias operativas
+- documentación procesos industriales
+- software operativo español
+- continuidad operativa manufactura
+- absentismo industrial
+- knowledge management pymes
+
+**Palabras clave por rol:**
+- Jefe de producción/planta: softwares para optimizar procesos, bajas laborales, máquinas, producción
+- Responsable RRHH/RRHH: onboarding, gestión de competencias, incorporaciones, formación operativa
+- Gerente/propietario: ROI, productividad, dependencia operativa, riesgo
+
+**Palabras clave por sector:**
+- Automoción, Alimentación, Metal, Plástico, Electrónica, Textil, Químico
+
+## Garantías y certificaciones
+
+- Precio visible en euros (49€/mes - 149€/mes - Enterprise)
+- Sin contrato de permanencia mínima
+- Implementación asistida incluida
+- Soporte en español
+- Datos en servidores EU
+- RGPD compliant
+
+## USP (Proposiciones únicas de venta)
+
+1. **Sin cuentas de operario**: Acceso directo con código de empresa
+2. **Sin apps necesarias**: Funciona en navegador+máquina
+3. **Documentación en planta**: SOPs disponibles donde se necesitan
+4. **Precio fijo**: 49€/mes operarios ilimitados (no por usuario)
+5. **Especializado en pymes industriales españolas**: No enterprise oversized
+6. **Registro verificable**: Auditoría de ejecución integrada
