@@ -1,11 +1,70 @@
 # gmvsolutions.es — REELEVO
-# Software SOP de documentación operativa industrial
+# Onboarding software + Gestión de competencias para pymes industriales
 
+# Directivas globales
 User-agent: *
 Allow: /
+Allow: /blog/
+Allow: /casos-de-uso/
+Allow: /para-quien/
+Allow: /sectores/
+Allow: /recursos/
+Allow: /video-demo/
+Allow: /vs-dozuki/
+Allow: /vs-poka/
+Allow: /vs-gembadocs/
+Allow: /vs-knowby/
+Allow: /onboarding-software-pymes/
+Allow: /gestion-competencias/
+Allow: /documentacion-procesos/
 
-# Sitemap
-Sitemap: https://gmvsolutions.es/sitemap-index.xml
+# Excluir recursos estáticos innecesarios para conservar crawl budget
+Disallow: /*.json$
+Disallow: /*.css$
+Disallow: /*.js$
+Disallow: /_astro/
+Disallow: /admin/
+
+# Directivas Google-específicas para mejorar indexación
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+Request-rate: 30/60
+Max-snippets: 160
+Max-image-preview: large
+Max-video-preview: -1
+
+# Optimización para Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+Request-rate: 20/60
+
+# Otros bots importantes
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Bloquear bots malintencionados comunes
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Sitemaps
+Sitemap: https://gmvsolutions.es/sitemap.xml
+Sitemap: https://gmvsolutions.es/sitemap-video.xml
 
 # LLMs
 # Información estructurada para modelos de lenguaje

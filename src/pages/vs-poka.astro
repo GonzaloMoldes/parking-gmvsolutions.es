@@ -1,0 +1,505 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Poka/IFS vs REELEVO — Comparativa de software industrial para pymes";
+const description = "Comparativa: Poka (IFS) vs REELEVO. Análisis de MES, gemba walks, y software SOP. ¿Cuál necesita tu pyme industrial?";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ComparisonChart",
+  "headline": title,
+  "description": description,
+  "url": "https://gmvsolutions.es/vs-poka/",
+  "inLanguage": "es-ES"
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Comparativa de herramientas</div>
+    <h1 class="fade-up delay-1">Poka vs REELEVO<br><em>MES vs SOP operativo</em></h1>
+    <p class="fade-up delay-2">Poka es un sistema MES enterprise. REELEVO es SOP y onboarding para pymes. Comparativa: funcionalidades, enfoque y precio.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DIFERENCIA FUNDAMENTAL -->
+  <section class="section" id="diferencia">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Diferencia fundamental</div>
+        <h2 class="section-title">No son el mismo tipo de herramienta</h2>
+      </div>
+
+      <div class="fundamental-diff fade-up delay-1">
+        <div class="diff-card">
+          <h3>Poka by IFS</h3>
+          <p class="diff-type">Manufacturing Execution System (MES)</p>
+          <ul>
+            <li>Gestión completa de producción</li>
+            <li>Planificación y scheduling</li>
+            <li>Seguimiento de máquinas en tiempo real</li>
+            <li>Integración con ERP</li>
+            <li>Datos de rendimiento y KPIs</li>
+            <li>Pensado para: manufactura media-grande</li>
+          </ul>
+        </div>
+
+        <div class="diff-card highlight">
+          <h3>REELEVO</h3>
+          <p class="diff-type">SOP + Onboarding + Competencias</p>
+          <ul>
+            <li>Documentación operativa paso a paso</li>
+            <li>Incorporación de operarios</li>
+            <li>Gestión de competencias</li>
+            <li>Accesible en el puesto de trabajo</li>
+            <li>Enfoque: transferencia de conocimiento</li>
+            <li>Pensado para: pymes industriales</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="complementary-note fade-up delay-2">
+        <p><strong>Nota:</strong> Poka y REELEVO son <strong>complementarios</strong>, no competitivos. Una pyme podría usar REELEVO para operarios y procedimientos, y Poka si necesitara MES. Pero una pyme típica solo necesita REELEVO.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CARACTERISTICAS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Comparativa de funcionalidades</h2>
+      </div>
+
+      <div class="comparison-table fade-up delay-1">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 35%;">Funcionalidad</th>
+              <th style="width: 32.5%;">Poka (IFS)</th>
+              <th style="width: 32.5%;">REELEVO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Documentación SOP</strong></td>
+              <td>Limitada (enfoque MES)</td>
+              <td class="highlight">✓ Central</td>
+            </tr>
+            <tr>
+              <td><strong>Acceso en máquina</strong></td>
+              <td>Tablet/pantalla (instalación)</td>
+              <td class="highlight">✓ Simple (app o web)</td>
+            </tr>
+            <tr>
+              <td><strong>Onboarding operarios</strong></td>
+              <td>No incluido</td>
+              <td class="highlight">✓ Sí</td>
+            </tr>
+            <tr>
+              <td><strong>Gestión competencias</strong></td>
+              <td>No incluido</td>
+              <td class="highlight">✓ Matriz de habilidades</td>
+            </tr>
+            <tr>
+              <td><strong>Scheduling producción</strong></td>
+              <td>✓ Sí (core feature)</td>
+              <td>No (no es necesario)</td>
+            </tr>
+            <tr>
+              <td><strong>Integración ERP</strong></td>
+              <td>✓ Sí (architecture MES)</td>
+              <td>Integraciones limitadas</td>
+            </tr>
+            <tr>
+              <td><strong>KPIs tiempo real</strong></td>
+              <td>✓ Sí (OEE, utilización)</td>
+              <td>Reportes simples</td>
+            </tr>
+            <tr>
+              <td><strong>Gemba walk digital</strong></td>
+              <td>✓ Sí (feature premium)</td>
+              <td>No (diferente enfoque)</td>
+            </tr>
+            <tr>
+              <td><strong>Idioma español</strong></td>
+              <td>✓ Sí</td>
+              <td class="highlight">✓ 100% Español</td>
+            </tr>
+            <tr>
+              <td><strong>Precio transparente</strong></td>
+              <td>No (contacto)</td>
+              <td class="highlight">✓ Desde 49€/mes</td>
+            </tr>
+            <tr>
+              <td><strong>Implementación</strong></td>
+              <td>Meses (proyecto)</td>
+              <td class="highlight">✓ Días (simple)</td>
+            </tr>
+            <tr>
+              <td><strong>Curva aprendizaje</strong></td>
+              <td>Alta (software complejo)</td>
+              <td class="highlight">✓ Baja</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRECIO Y ROI -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Inversión y ROI</h2>
+      </div>
+
+      <div class="investment-grid fade-up delay-1">
+        <div class="investment-card">
+          <h3>Poka/IFS</h3>
+          <div class="investment-timeline">
+            <p class="timeline-item">
+              <span class="timeline-label">Setup:</span>
+              <span class="timeline-value">€15,000 - €50,000</span>
+            </p>
+            <p class="timeline-item">
+              <span class="timeline-label">Licencia anual:</span>
+              <span class="timeline-value">€10,000 - €30,000+</span>
+            </p>
+            <p class="timeline-item">
+              <span class="timeline-label">Implementación:</span>
+              <span class="timeline-value">3-6 meses</span>
+            </p>
+            <p class="timeline-item">
+              <span class="timeline-label">ROI esperado:</span>
+              <span class="timeline-value">1-2 años</span>
+            </p>
+            <p class="timeline-item">
+              <span class="timeline-label">Para:</span>
+              <span class="timeline-value">Manufactura operación compleja</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="investment-card highlight">
+          <h3>REELEVO</h3>
+          <div class="investment-timeline">
+            <p class="timeline-item">
+              <span class="timeline-label">Setup:</span>
+              <span class="timeline-value">Gratis</span>
+            </p>
+            <p class="timeline-item">
+              <span class="timeline-label">Costo mensual:</span>
+              <span class="timeline-value">49€ - 99€/mes</span>
+            </p>
+            <p class="timeline-item">
+              <span class="timeline-label">Implementación:</span>
+              <span class="timeline-value">1-2 días</span>
+            </p>
+            <p class="timeline-item">
+              <span class="timeline-label">ROI esperado:</span>
+              <span class="timeline-value">1-2 meses</span>
+            </p>
+            <p class="timeline-item">
+              <span class="timeline-label">Para:</span>
+              <span class="timeline-value">Documentación y operarios</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CASOS DE USO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">¿Cuándo elegir cada uno?</h2>
+      </div>
+
+      <div class="use-case-comparison fade-up delay-1">
+        <div class="use-case-box">
+          <h3>Elige Poka si...</h3>
+          <ul>
+            <li>Necesitas scheduling automático de producción</li>
+            <li>Requieres KPIs de manufactura en tiempo real</li>
+            <li>Tienes integración ERP compleja</li>
+            <li>Operas líneas muy automatizadas</li>
+            <li>Eres empresa mediana-grande (100+ empleados)</li>
+            <li>Presupuesto IT importante</li>
+          </ul>
+        </div>
+
+        <div class="use-case-box highlight">
+          <h3>Elige REELEVO si...</h3>
+          <ul>
+            <li>Necesitas documentar procedimientos operativos</li>
+            <li>Tienes problema de dependencia de operarios clave</li>
+            <li>Incorporas personal frecuentemente (ETT, bajas)</li>
+            <li>Quieres evitar pérdida de conocimiento tácito</li>
+            <li>Eres pyme (10-200 empleados)</li>
+            <li>Presupuesto IT limitado</li>
+            <li>Necesitas implementación rápida</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="combined-strategy fade-up delay-2">
+        <h3>¿Los dos juntos?</h3>
+        <p>Una pyme grande o mediana que necesite tanto MES y SOP podría implementar ambos. REELEVO sería competencia más en onboarding y documentación, donde Poka no se enfoca. Pero el 90% de pymes no necesita Poka — necesita solo REELEVO.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Tu caso específico</div>
+    <h2 class="cta-title fade-up delay-1">
+      ¿Necesitas SOP u <em>MES completo?</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      La mayoría de pymes industriales necesita documentación operativa y onboarding, no un MES. Si ese es tu caso, REELEVO es la solución rápida y asequible.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">
+        Evaluar mi necesidad
+      </a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">
+        Registrarse en REELEVO →
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .fundamental-diff {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .diff-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px;
+  }
+
+  .diff-card.highlight {
+    border-color: var(--orange);
+    background: rgba(255, 150, 0, 0.02);
+  }
+
+  .diff-type {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .diff-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .diff-card li {
+    padding: 8px 0;
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .diff-card li:before {
+    content: "→ ";
+    color: var(--orange);
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  .complementary-note {
+    background: rgba(100, 150, 200, 0.08);
+    border-left: 4px solid #6496c8;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 40px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .comparison-table {
+    overflow-x: auto;
+    margin-top: 40px;
+  }
+
+  .comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+
+  .comparison-table th {
+    background: var(--surface2);
+    font-weight: 600;
+  }
+
+  .comparison-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .comparison-table td.highlight {
+    background: rgba(255, 150, 0, 0.05);
+    color: var(--orange);
+    font-weight: 500;
+  }
+
+  .investment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .investment-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px;
+  }
+
+  .investment-card.highlight {
+    border-color: var(--orange);
+    background: rgba(255, 150, 0, 0.02);
+  }
+
+  .investment-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  .investment-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .timeline-item:last-child {
+    border-bottom: none;
+  }
+
+  .timeline-label {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.9rem;
+  }
+
+  .timeline-value {
+    color: var(--gray);
+    font-size: 0.9rem;
+  }
+
+  .use-case-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .use-case-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px;
+  }
+
+  .use-case-box.highlight {
+    border-color: var(--orange);
+    background: rgba(255, 150, 0, 0.02);
+  }
+
+  .use-case-box h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  .use-case-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .use-case-box li {
+    padding: 8px 0;
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .use-case-box li:before {
+    content: "✓ ";
+    color: var(--orange);
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  .combined-strategy {
+    background: rgba(100, 200, 150, 0.08);
+    border-left: 4px solid #64c896;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 40px;
+  }
+
+  .combined-strategy h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .combined-strategy p {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .fundamental-diff,
+    .investment-grid,
+    .use-case-comparison {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

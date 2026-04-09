@@ -68,6 +68,36 @@ const { activeNav } = Astro.props;
 
     <a href="/precios/" class={activeNav === 'precios' ? 'nav-active' : ''}>Precios</a>
     <a href="/recursos/" class={activeNav === 'recursos' ? 'nav-active' : ''}>Recursos</a>
+
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-trigger">
+        Blog
+        <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4"/></svg>
+      </span>
+      <div class="nav-dropdown-menu">
+        <a href="/blog/crisis-perdida-conocimiento-planta-industrial/">
+          Crisis de pérdida de conocimiento
+          <span class="nav-sub-label">Estrategias del MIT Sloan</span>
+        </a>
+        <a href="/blog/que-es-un-sop-industrial/">
+          Qué es un SOP industrial
+          <span class="nav-sub-label">Guía completa de implementación</span>
+        </a>
+        <a href="/blog/coste-absentismo-pymes-industriales/">
+          Coste del absentismo
+          <span class="nav-sub-label">Análisis de datos reales</span>
+        </a>
+        <a href="/blog/documentar-conocimiento-operarios-expertos/">
+          Documentar conocimiento operario
+          <span class="nav-sub-label">Metodología paso a paso</span>
+        </a>
+        <a href="/blog/">
+          Ver todos los artículos
+          <span class="nav-sub-label">Accede a toda la sección blog</span>
+        </a>
+      </div>
+    </div>
+
     <a href="/sobre-nosotros/" class={activeNav === 'nosotros' ? 'nav-active' : ''}>Nosotros</a>
   </nav>
 
@@ -108,6 +138,12 @@ const { activeNav } = Astro.props;
   <a href="/para-quien/gerente-propietario/" onclick="closeMobile()">Gerente / Propietario</a>
   <a href="/precios/" onclick="closeMobile()">Precios</a>
   <a href="/recursos/" onclick="closeMobile()">Recursos</a>
+  <div class="mobile-section-title">Blog</div>
+  <a href="/blog/crisis-perdida-conocimiento-planta-industrial/" onclick="closeMobile()">Crisis de pérdida de conocimiento</a>
+  <a href="/blog/que-es-un-sop-industrial/" onclick="closeMobile()">Qué es un SOP industrial</a>
+  <a href="/blog/coste-absentismo-pymes-industriales/" onclick="closeMobile()">Coste del absentismo</a>
+  <a href="/blog/documentar-conocimiento-operarios-expertos/" onclick="closeMobile()">Documentar conocimiento operario</a>
+  <a href="/blog/" onclick="closeMobile()">Ver todos los artículos</a>
   <a href="/sobre-nosotros/" onclick="closeMobile()">Nosotros</a>
   <div class="mobile-cta-group">
     <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost" style="text-align:center;font-size:.8rem;padding:14px 28px;">

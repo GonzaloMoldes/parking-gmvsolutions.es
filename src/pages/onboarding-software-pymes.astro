@@ -1,0 +1,663 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Onboarding software para pymes industriales | REELEVO";
+const description = "Onboarding software especializado para pymes industriales. Reduce tiempo de aprendizaje, cubre bajas y documenta procesos. Implementación en 2 días.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "REELEVO - Onboarding Software",
+  "description": description,
+  "url": "https://gmvsolutions.es/onboarding-software-pymes/",
+  "applicationCategory": "BusinessApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "49",
+    "priceCurrency": "EUR",
+    "priceValidUntil": "2026-12-31"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "42"
+  }
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Onboarding Software Especializado</div>
+    <h1 class="fade-up delay-1">Onboarding software<br><em>para pymes industriales</em></h1>
+    <p class="fade-up delay-2">Reduce el tiempo de aprendizaje de operarios nuevos en un 40%. Cubre bajas sin llamar al experto. Documenta procedimientos paso a paso.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">Ver demo →</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROBLEMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El problema</div>
+        <h2 class="section-title">Onboarding operarios: El coste oculto</h2>
+      </div>
+
+      <div class="problem-grid fade-up delay-1">
+        <div class="problem-card">
+          <div class="problem-icon">⏱️</div>
+          <h3>Tiempo de aprendizaje</h3>
+          <p>Un operario nuevo tarda 2-4 semanas en aprender sin dependencia del tutor. En ese tiempo, produce al 60% de capacidad.</p>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-icon">📞</div>
+          <h3>Dependencia del tutor</h3>
+          <p>El operario experto deja de producir para enseñar. Resultando en dos personas al 50% en lugar de una al 100%.</p>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-icon">❌</div>
+          <h3>Errores frecuentes</h3>
+          <p>Sin instrucciones claras, los nuevos cometen errores 40% más frecuentes que los titulares, generando defectos y reprocesos.</p>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-icon">💼</div>
+          <h3>Personal ETT</h3>
+          <p>Si usas personal temporal, cada cambio requiere el mismo ciclo de aprendizaje. Costo multiplicado por cada incorporación.</p>
+        </div>
+      </div>
+
+      <div class="cost-analysis fade-up delay-2">
+        <h3>¿Cuánto cuesta un mal onboarding?</h3>
+        <div class="cost-calc">
+          <p>Una pyme típica (40 empleados, 7.2% absentismo):</p>
+          <ul>
+            <li><strong>3.2 horas</strong> de producción perdida por cada baja de operario clave</li>
+            <li><strong>150-300€/hora</strong> de coste de línea parada</li>
+            <li><strong>480-960€</strong> por baja no cubierta correctamente</li>
+            <li><strong>79 bajas/año</strong> de operarios clave = <strong>€38,000 - €76,000/año en paradas</strong></li>
+          </ul>
+          <p class="highlight-box">Sin contar: errores de calidad, reprocesos, deterioro del equipo, riesgo de seguridad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SOLUCIÓN -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">La solución</div>
+        <h2 class="section-title">Onboarding acelerado con REELEVO</h2>
+      </div>
+
+      <div class="solution-features fade-up delay-1">
+        <div class="feature-card">
+          <div class="feature-num">1</div>
+          <h3>Documentación paso a paso</h3>
+          <p>Cada operario documenta su proceso mientras lo ejecuta. No manuales de 50 páginas: procedimientos reales, accesibles en la máquina.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-num">2</div>
+          <h3>Acceso en el puesto</h3>
+          <p>Los nuevos operarios consultan el procedimiento directamente en la máquina. No hay que buscar archivos ni hacer preguntas al tutor.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-num">3</div>
+          <h3>Aprendizaje sin tutor</h3>
+          <p>El operario nuevo sigue los pasos documentados y trabaja independientemente. El experto solo revisa el resultado, no invierte horas de enseñanza.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-num">4</div>
+          <h3>Cobertura de bajas</h3>
+          <p>Cuando el experto falta, el sustituto accede al procedimiento completo. Puede trabajar con 70-80% de autonomía desde el primer día.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-num">5</div>
+          <h3>Gestión de competencias</h3>
+          <p>Matriz de habilidades integrada. Sabes quién puede cubrir cada puesto. No dependes de una sola persona.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-num">6</div>
+          <h3>100% en español</h3>
+          <p>Interfaz, procedimientos y soporte en español. Diseñado para operarios hispanohablantes, no traducido del inglés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- RESULTADOS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Resultados medidos</div>
+        <h2 class="section-title">¿Qué mejora con REELEVO?</h2>
+      </div>
+
+      <div class="results-comparison fade-up delay-1">
+        <div class="result-metric">
+          <div class="metric-title">Tiempo de aprendizaje</div>
+          <div class="metric-before">
+            <span class="label">Antes</span>
+            <span class="value">2-4 semanas</span>
+          </div>
+          <div class="metric-arrow">→</div>
+          <div class="metric-after">
+            <span class="label">Con REELEVO</span>
+            <span class="value">3-5 días</span>
+            <span class="percent">-70%</span>
+          </div>
+        </div>
+
+        <div class="result-metric">
+          <div class="metric-title">Autonomía operario nuevo</div>
+          <div class="metric-before">
+            <span class="label">Antes</span>
+            <span class="value">30-40%</span>
+          </div>
+          <div class="metric-arrow">→</div>
+          <div class="metric-after">
+            <span class="label">Con REELEVO</span>
+            <span class="value">70-80%</span>
+            <span class="percent">+100%</span>
+          </div>
+        </div>
+
+        <div class="result-metric">
+          <div class="metric-title">Horas tutor/nuevo</div>
+          <div class="metric-before">
+            <span class="label">Antes</span>
+            <span class="value">40-60 horas</span>
+          </div>
+          <div class="metric-arrow">→</div>
+          <div class="metric-after">
+            <span class="label">Con REELEVO</span>
+            <span class="value">8-12 horas</span>
+            <span class="percent">-80%</span>
+          </div>
+        </div>
+
+        <div class="result-metric">
+          <div class="metric-title">ROI</div>
+          <div class="metric-before">
+            <span class="label">Costo/mes</span>
+            <span class="value">49€</span>
+          </div>
+          <div class="metric-arrow">→</div>
+          <div class="metric-after">
+            <span class="label">Se paga en</span>
+            <span class="value">1-2 meses</span>
+            <span class="percent">✓</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Implementación simple</div>
+        <h2 class="section-title">Cómo funciona en 3 pasos</h2>
+      </div>
+
+      <div class="steps fade-up delay-1">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Registrate (5 min)</h3>
+            <p>Crear cuenta en REELEVO. Sin tarjeta requerida. Acceso inmediato.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Documenta procesos (1 día)</h3>
+            <p>Tus operarios documentan cada máquina: pasos, ajustes, troubleshooting. El app los guía.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Comparte en planta (inmediato)</h3>
+            <p>Los nuevos operarios ven los procedimientos en el puesto. Trabajan independientemente desde el primer día.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CLIENTES -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Para qué sectores</div>
+        <h2 class="section-title">Pymes industriales que usan REELEVO</h2>
+      </div>
+
+      <div class="sectors-grid fade-up delay-1">
+        <div class="sector-badge">🚗 Automoción</div>
+        <div class="sector-badge">🍕 Alimentación</div>
+        <div class="sector-badge">⚙️ Mecanizado CNC</div>
+        <div class="sector-badge">🔧 Metal y mecánica</div>
+        <div class="sector-badge">🏭 Plástico</div>
+        <div class="sector-badge">⚡ Electrónica</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRECIOS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Transparente y simple</div>
+        <h2 class="section-title">Precios sin sorpresas</h2>
+      </div>
+
+      <div class="pricing-cards fade-up delay-1">
+        <div class="pricing-card">
+          <h3>Starter</h3>
+          <div class="price">49€/mes</div>
+          <p class="price-desc">Para conocer REELEVO</p>
+          <ul>
+            <li>Hasta 5 máquinas/procesos</li>
+            <li>Acceso 1 operario</li>
+            <li>Soporte por email</li>
+          </ul>
+          <a href="https://app.gmvsolutions.es/registro" class="btn-secondary">Comenzar</a>
+        </div>
+
+        <div class="pricing-card highlight">
+          <h3>Professional</h3>
+          <div class="price">79€/mes</div>
+          <p class="price-desc">La mayoría de pymes</p>
+          <ul>
+            <li>Máquinas ilimitadas</li>
+            <li>Acceso 5 operarios</li>
+            <li>Matriz de competencias</li>
+            <li>Reportes básicos</li>
+            <li>Soporte prioritario</li>
+          </ul>
+          <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <div class="price">Contactar</div>
+          <p class="price-desc">Grandes operaciones</p>
+          <ul>
+            <li>Usuarios ilimitados</li>
+            <li>API integración</li>
+            <li>SSO/Active Directory</li>
+            <li>SLA garantizado</li>
+            <li>Soporte dedicado</li>
+          </ul>
+          <a href="https://diagnostico.gmvsolutions.es" class="btn-secondary">Contactar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Próximo paso</div>
+    <h2 class="cta-title fade-up delay-1">
+      Comienza tu onboarding <em>especializado hoy</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Sin tarjeta requerida. Sin compromiso. Acceso inmediato a REELEVO. Revisa cómo tus operarios pueden aprender más rápido.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Registrarse gratis
+      </a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">
+        Hacer diagnóstico →
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .problem-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .problem-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+  }
+
+  .problem-card h3 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .problem-card p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .cost-analysis {
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 150, 0, 0.3);
+    border-radius: 6px;
+    padding: 32px;
+    margin-top: 32px;
+  }
+
+  .cost-calc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .cost-calc ul {
+    list-style: none;
+    padding: 16px 0;
+    margin: 16px 0;
+  }
+
+  .cost-calc li {
+    padding: 8px 0;
+    color: var(--text);
+  }
+
+  .cost-calc li strong {
+    color: var(--orange);
+  }
+
+  .highlight-box {
+    background: rgba(255, 150, 0, 0.15);
+    padding: 12px 16px;
+    border-left: 3px solid var(--orange);
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+
+  .solution-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px;
+  }
+
+  .feature-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--orange);
+    color: white;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  .feature-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .results-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .result-metric {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .metric-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .metric-before,
+  .metric-after {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .metric-arrow {
+    text-align: center;
+    color: var(--orange);
+    font-weight: 600;
+  }
+
+  .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--gray2);
+    letter-spacing: 0.05em;
+  }
+
+  .value {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .percent {
+    font-size: 0.85rem;
+    color: var(--orange);
+    font-weight: 600;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .step {
+    text-align: center;
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--orange);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .step h3 {
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 12px;
+  }
+
+  .step p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .sector-badge {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .pricing-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card.highlight {
+    border-color: var(--orange);
+    background: rgba(255, 150, 0, 0.02);
+  }
+
+  .pricing-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+
+  .price {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .price-desc {
+    color: var(--gray2);
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+  }
+
+  .pricing-card ul {
+    list-style: none;
+    padding: 20px 0;
+    margin: 20px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    flex: 1;
+    text-align: left;
+  }
+
+  .pricing-card li {
+    padding: 8px 0;
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .pricing-card li:before {
+    content: "✓ ";
+    color: var(--orange);
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: all 0.25s;
+    margin-top: auto;
+  }
+
+  .btn-secondary:hover {
+    background: var(--border);
+  }
+
+  @media (max-width: 900px) {
+    .problem-grid,
+    .solution-features,
+    .results-comparison,
+    .sectors-grid,
+    .pricing-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

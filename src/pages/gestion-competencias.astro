@@ -1,0 +1,540 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Gestión de competencias en industria | Software para pymes";
+const description = "Software de gestión de competencias para pymes industriales. Matriz de habilidades, análisis de dependencia operativa, diagnóstico de brechas de competencias.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "REELEVO - Gestión de Competencias",
+  "description": description,
+  "url": "https://gmvsolutions.es/gestion-competencias/",
+  "applicationCategory": "BusinessApplication"
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Gestión de Competencias Operativas</div>
+    <h1 class="fade-up delay-1">Gestión de competencias<br><em>para pymes industriales</em></h1>
+    <p class="fade-up delay-2">Visualiza quién sabe hacer qué. Identifica brechas de competencias. Distribuye trabajo sin dependencia de personas clave.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">Ver demo →</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROBLEMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El reto</div>
+        <h2 class="section-title">¿Quién sabe hacer qué en tu planta?</h2>
+      </div>
+
+      <div class="challenge-content fade-up delay-1">
+        <p>En una pyme industrial típica:</p>
+        <div class="challenge-list">
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>87% identifica dependencia de operarios clave como riesgo alto</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Solo 23% tiene competencias documentadas y actualizadas</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Responsable RRHH desconoce quién está habilitado para cada máquina</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Cuando falta alguien, "llamamos al que sabe" (si está disponible)</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>No hay transparencia sobre el riesgo operativo real</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-box fade-up delay-2">
+        <h3>Resultado: La bomba de tiempo de dependencia operativa</h3>
+        <p>Operarios clave sin documentación de su conocimiento + matriz de competencias desconocida = riesgo de parada de producción cuando falta alguien.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SOLUCIÓN -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">La solución</div>
+        <h2 class="section-title">Matriz de competencias + Documentación integrada</h2>
+      </div>
+
+      <div class="solution-grid fade-up delay-1">
+        <div class="solution-cell">
+          <div class="cell-number">1</div>
+          <h3>Mapeo de competencias</h3>
+          <p>¿Quién sabe operar cada máquina? ¿Quién está "apto", "en entrenamiento", "experto"? Matriz clara y actualizable.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">2</div>
+          <h3>Identificación de brechas</h3>
+          <p>¿Hay solo una persona que domina la CNC? ¿Nadie sabe los parámetros de la extrusora? REELEVO lo identifica.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">3</div>
+          <h3>Análisis de riesgo</h3>
+          <p>Score de dependencia operativa por máquina. Sabes exactamente dónde está el riesgo. Prioriza documentación donde más importa.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">4</div>
+          <h3>Vinculación con SOP</h3>
+          <p>Cada procedimiento documentado vinculado a la competencia requerida. "Este SOP enseña a operar la línea de envasado".</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">5</div>
+          <h3>Capacitación planificada</h3>
+          <p>Sabe exactamente a quién entrenar. Cuando alguien completa un SOP, actualiza su competencia automáticamente.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">6</div>
+          <h3>Trazabilidad</h3>
+          <p>Historial de quién completó cada capacitación, cuándo, con qué resultado. Cumple requisitos de auditoría ISO.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BENEFICIOS ESPECÍFICOS PARA RRHH -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Para el departamento de RRHH</div>
+        <h2 class="section-title">Lo que ganas con REELEVO</h2>
+      </div>
+
+      <div class="benefits-grid fade-up delay-1">
+        <div class="benefit-box">
+          <h3>Visibilidad real</h3>
+          <p>Sabes exactamente quién está listo para cada puesto. No es intuición, son datos.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Planificación de sucesión</h3>
+          <p>Cuando alguien se jubila, ya tienes a 2-3 personas entrenadas en su competencia.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Cobertura de bajas sin estrés</h3>
+          <p>Cuando alguien falta, consultas la matriz: "Juan puede cubrir. Aquí está el SOP. Listo."</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Inversión en capacitación eficiente</h3>
+          <p>Sabes dónde invertir el presupuesto de formación. Entrenar a alguien en la máquina crítica que solo domina el experto.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Reducción de riesgo legal</h3>
+          <p>Trazabilidad completa de quién tiene qué competencia. Cumple auditorías ISO, IATF, etc.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Rotación de personal sin pánico</h3>
+          <p>Personal ETT entra entrenado siguiendo el procedimiento. Personal rotante sabe dónde consultar su competencia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CASO DE USO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Caso de uso: Pyme de mecanizado CNC</h2>
+      </div>
+
+      <div class="case-story fade-up delay-1">
+        <div class="story-section">
+          <h3>La situación</h3>
+          <p>Empresa de 35 empleados con 8 máquinas CNC. Juan tiene 15 años y es el único que domina la máquina más crítica (50% de ingresos).</p>
+        </div>
+
+        <div class="story-section">
+          <h3>El problema</h3>
+          <p>Cuando Juan entra de baja, la máquina se para porque nadie más sabe los parámetros. Gerente teme que se jubile en 5 años.</p>
+        </div>
+
+        <div class="story-section highlight">
+          <h3>Con REELEVO</h3>
+          <ul>
+            <li>Semana 1: Juan documenta el proceso step-by-step</li>
+            <li>Semana 2: Rosa (operaria menos experimentada) sigue el SOP y opera la máquina al 80%</li>
+            <li>Mes 1: Cuando Juan cae enfermo, Rosa la cubre. Producción 0% parada.</li>
+            <li>Mes 3: Rosa está certificada. La matriz muestra 2 personas competentes.</li>
+            <li>Año 1: Juan sigue siendo el experto pero la empresa no depende de él</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- MATRIZ VISUAL -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">¿Cómo se ve en REELEVO?</h2>
+      </div>
+
+      <div class="matrix-example fade-up delay-1">
+        <p class="matrix-title">Matriz de competencias - Línea de envasado alimentaria</p>
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Operario</th>
+              <th>Configuraciónlínea</th>
+              <th>Atasco material</th>
+              <th>Parámetros velocidad</th>
+              <th>Etiquetado</th>
+              <th>Limpieza GMP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Antonio</td>
+              <td class="level-3">✓ Experto</td>
+              <td class="level-3">✓ Experto</td>
+              <td class="level-3">✓ Experto</td>
+              <td class="level-2">Apto</td>
+              <td class="level-1">Entrenando</td>
+            </tr>
+            <tr>
+              <td>María</td>
+              <td class="level-2">Apto</td>
+              <td class="level-2">Apto</td>
+              <td class="level-1">Entrenando</td>
+              <td class="level-3">✓ Experta</td>
+              <td class="level-3">✓ Experta</td>
+            </tr>
+            <tr>
+              <td>Pedro</td>
+              <td class="level-1">Entrenando</td>
+              <td class="level-2">Apto</td>
+              <td class="level-1">Entrenando</td>
+              <td class="level-2">Apto</td>
+              <td class="level-2">Apto</td>
+            </tr>
+            <tr>
+              <td>Carmen</td>
+              <td class="level-2">Apto</td>
+              <td class="level-1">Entrenando</td>
+              <td class="level-2">Apto</td>
+              <td class="level-1">Entrenando</td>
+              <td class="level-3">✓ Experta</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="matrix-analysis">
+          <p><strong>RRHH ve:</strong> "Configuración línea tiene riesgo (solo Antonio): PRIORIDAD entrenar a María. Limpieza GMP está bien distribuida."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Siguiente paso</div>
+    <h2 class="cta-title fade-up delay-1">
+      Construye tu matriz de <em>competencias hoy</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Visualiza el riesgo operativo real. Identifica dónde invertir capacitación. Reduce la dependencia de personas clave.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">
+        Hacer diagnóstico de competencias
+      </a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">
+        Registrarse en REELEVO →
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .challenge-content {
+    max-width: 700px;
+    margin-top: 40px;
+  }
+
+  .challenge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .challenge-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 12px;
+    background: var(--surface);
+    border-left: 3px solid rgba(255, 100, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  .challenge-item .icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .challenge-item span:last-child {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .risk-box {
+    background: rgba(255, 100, 0, 0.1);
+    border: 1px solid rgba(255, 150, 0, 0.3);
+    border-radius: 6px;
+    padding: 28px;
+    margin-top: 32px;
+  }
+
+  .risk-box h3 {
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .risk-box p {
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .solution-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .cell-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--orange);
+    color: white;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  .solution-cell h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .solution-cell p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .benefit-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .benefit-box h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .benefit-box p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .case-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .story-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .story-section.highlight {
+    border-color: var(--orange);
+    background: rgba(255, 150, 0, 0.02);
+  }
+
+  .story-section h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+
+  .story-section p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .story-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .story-section li {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .story-section li:before {
+    content: "✓ ";
+    color: var(--orange);
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  .matrix-example {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px;
+    margin-top: 40px;
+  }
+
+  .matrix-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  .matrix-table th,
+  .matrix-table td {
+    padding: 12px 8px;
+    text-align: left;
+    border: 1px solid var(--border);
+    font-size: 0.85rem;
+  }
+
+  .matrix-table th {
+    background: var(--surface2);
+    font-weight: 600;
+  }
+
+  .matrix-table td:first-child {
+    font-weight: 500;
+  }
+
+  .level-1 {
+    background: rgba(200, 100, 100, 0.15);
+    color: #c86464;
+  }
+
+  .level-2 {
+    background: rgba(255, 180, 100, 0.15);
+    color: #d4991a;
+  }
+
+  .level-3 {
+    background: rgba(100, 200, 100, 0.15);
+    color: #64c864;
+  }
+
+  .matrix-analysis {
+    background: rgba(255, 150, 0, 0.1);
+    padding: 16px;
+    border-radius: 4px;
+    border-left: 3px solid var(--orange);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .solution-grid,
+    .benefits-grid,
+    .case-story {
+      grid-template-columns: 1fr;
+    }
+
+    .case-story {
+      grid-template-columns: 1fr;
+    }
+
+    .matrix-table {
+      font-size: 0.75rem;
+    }
+
+    .matrix-table th,
+    .matrix-table td {
+      padding: 8px 4px;
+    }
+  }
+</style>
