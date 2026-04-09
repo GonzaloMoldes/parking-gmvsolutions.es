@@ -32,7 +32,7 @@ export default defineConfig({
             item.url.includes('/gestion-competencias/') ||
             item.url.includes('/documentacion-procesos/')) {
           item.priority = 0.9;
-          item.changefreq = 'bi-weekly';
+          item.changefreq = 'weekly';
         }
         // Video demo (contiene schema VideoObject)
         if (item.url.includes('/video-demo/')) {
@@ -57,7 +57,7 @@ export default defineConfig({
         // Recursos educativos
         if (item.url.includes('/recursos/')) {
           item.priority = 0.75;
-          item.changefreq = 'bi-weekly';
+          item.changefreq = 'weekly';
         }
         // Página principal máxima prioridad
         if (item.url === 'https://gmvsolutions.es/') {
