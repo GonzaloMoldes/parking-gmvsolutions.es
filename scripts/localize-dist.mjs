@@ -4,10 +4,12 @@ import { fileURLToPath } from 'node:url';
 import { parse, serialize } from 'parse5';
 import {
   SITE_URL,
+  SITE_URL_ALIASES,
   DEFAULT_LOCALE,
   SUPPORTED_LOCALES,
   buildLocalePath,
   getLocaleConfig,
+  normalizePrimarySiteUrl,
   normalizeSitePath,
   stripLocalePrefix,
 } from '../src/lib/i18n.js';
@@ -59,6 +61,7 @@ const nonTranslatableJsonKeys = new Set([
   'itemCondition',
 ]);
 const staticProtectedTerms = [
+  'www.gmvsolutions.es',
   'REELEVO',
   'GMV Solutions',
   'gmvsolutions.es',
@@ -646,15 +649,14 @@ function rewriteInternalUrl(value, targetLocale, routeSet) {
     return `${localizedPath}${search}${hash}`;
   }
 
-  if (value.startsWith(SITE_URL)) {
-    const url = new URL(value);
+  if (SITE_URL_ALIASES.some((baseUrl) => value.startsWith(baseUrl))) {
+    const url = new URL(normalizePrimarySiteUrl(value));
     const localizedPath = localizeRoutePath(url.pathname, targetLocale, routeSet);
 
-    if (!localizedPath) {
-      return value;
+    if (localizedPath) {
+      url.pathname = localizedPath;
     }
 
-    url.pathname = localizedPath;
     return url.toString();
   }
 
@@ -804,12 +806,12 @@ async function transformStructuredValue(value, targetLocale, routeSet, key) {
     return getLocaleConfig(targetLocale).htmlLang;
   }
 
-  if (key && nonTranslatableJsonKeys.has(key)) {
-    return key === 'url' || key === '@id' ? rewriteInternalUrl(value, targetLocale, routeSet) : value;
+  if (value.startsWith('/') || SITE_URL_ALIASES.some((baseUrl) => value.startsWith(baseUrl))) {
+    return rewriteInternalUrl(value, targetLocale, routeSet);
   }
 
-  if (value.startsWith(SITE_URL) || value.startsWith('/')) {
-    return rewriteInternalUrl(value, targetLocale, routeSet);
+  if (key && nonTranslatableJsonKeys.has(key)) {
+    return value;
   }
 
   if (targetLocale === DEFAULT_LOCALE) {
@@ -862,15 +864,13 @@ async function writeSitemap(routeSet) {
     '</urlset>',
   ].join('\n');
 
-  const sitemapIndex = [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    `  <sitemap><loc>${SITE_URL}/sitemap-0.xml</loc></sitemap>`,
-    '</sitemapindex>',
-  ].join('\n');
+  await Promise.all([
+    fs.rm(path.join(distDir, 'sitemap-index.xml'), { force: true }),
+    fs.rm(path.join(distDir, 'sitemap-0.xml'), { force: true }),
+    fs.rm(path.join(distDir, 'sitemap-video.xml'), { force: true }),
+  ]);
 
-  await fs.writeFile(path.join(distDir, 'sitemap-0.xml'), sitemap, 'utf8');
-  await fs.writeFile(path.join(distDir, 'sitemap-index.xml'), sitemapIndex, 'utf8');
+  await fs.writeFile(path.join(distDir, 'sitemap.xml'), sitemap, 'utf8');
 }
 
 function walk(node, visitor, ancestors = []) {

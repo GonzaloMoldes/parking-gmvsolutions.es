@@ -63,9 +63,8 @@ User-agent: BLEXBot
 Disallow: /
 
 # Sitemaps
-Sitemap: https://gmvsolutions.es/sitemap.xml
-Sitemap: https://gmvsolutions.es/sitemap-video.xml
+Sitemap: https://www.gmvsolutions.es/sitemap.xml
 
 # LLMs
 # Información estructurada para modelos de lenguaje
-# https://gmvsolutions.es/llms.txt
+# https://www.gmvsolutions.es/llms.txt

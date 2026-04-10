@@ -1,4 +1,8 @@
-export const SITE_URL = 'https://gmvsolutions.es';
+export const SITE_URL = 'https://www.gmvsolutions.es';
+export const SITE_URL_ALIASES = [
+  SITE_URL,
+  'https://gmvsolutions.es',
+];
 export const DEFAULT_LOCALE = 'es';
 
 export const SUPPORTED_LOCALES = [
@@ -90,4 +94,19 @@ export function buildLocalePath(locale, pathname = '/') {
 
 export function toAbsoluteSiteUrl(pathname = '/') {
   return new URL(buildLocalePath(DEFAULT_LOCALE, pathname), SITE_URL).toString();
+}
+
+export function normalizePrimarySiteUrl(value = '') {
+  if (!value || typeof value !== 'string') {
+    return value;
+  }
+
+  const matchingBaseUrl = SITE_URL_ALIASES.find((baseUrl) => value.startsWith(baseUrl));
+
+  if (!matchingBaseUrl) {
+    return value;
+  }
+
+  const url = new URL(value);
+  return new URL(`${url.pathname}${url.search}${url.hash}`, SITE_URL).toString();
 }
