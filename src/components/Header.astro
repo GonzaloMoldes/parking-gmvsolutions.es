@@ -13,6 +13,16 @@ const { activeNav } = Astro.props;
 const currentPath = Astro.url.pathname;
 const currentLocale = detectLocaleFromPath(currentPath);
 const currentBasePath = stripLocalePrefix(currentPath);
+
+const getFlagAlt = (localeCode: string): string => {
+  const altMap: Record<string, string> = {
+    es: 'Bandera de España',
+    en: 'Flag of United Kingdom',
+    pt: 'Bandeira de Portugal',
+  };
+  return altMap[localeCode] || localeCode;
+};
+
 const localeOptions = SUPPORTED_LOCALES.map((locale) => ({
   ...locale,
   href: buildLocalePath(locale.code, currentBasePath),
@@ -129,7 +139,7 @@ const localeOptions = SUPPORTED_LOCALES.map((locale) => ({
             class="language-switcher-flag"
             data-language-flag
             src={localeOptions.find((locale) => locale.isActive)?.flagIcon}
-            alt=""
+            alt={getFlagAlt(currentLocale)}
             width="18"
             height="13"
             loading="lazy"
@@ -154,7 +164,7 @@ const localeOptions = SUPPORTED_LOCALES.map((locale) => ({
               <img
                 class="language-switcher-flag"
                 src={locale.flagIcon}
-                alt=""
+                alt={getFlagAlt(locale.code)}
                 width="18"
                 height="13"
                 loading="lazy"
@@ -214,7 +224,7 @@ const localeOptions = SUPPORTED_LOCALES.map((locale) => ({
         <img
           class="language-switcher-flag"
           src={locale.flagIcon}
-          alt=""
+          alt={getFlagAlt(locale.code)}
           width="18"
           height="13"
           loading="lazy"
