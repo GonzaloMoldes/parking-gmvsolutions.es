@@ -142,27 +142,10 @@ body{background:transparent;color:var(--white);font-family:'DM Sans',sans-serif;
   }
 }
 
-/* Tablet and desktop: use optimized image (WebP with fallback) */
+/* Tablet and desktop: use factory background image */
 @media (min-width:769px) {
   .hero-bg {
-    background-image:url('/factory-bg-lg.webp');
-    background-image:image-set(
-      url('/factory-bg-lg.webp') type('image/webp'),
-      url('/factory-bg.jpg') type('image/jpeg')
-    );
-  }
-}
-
-/* Modern browsers: prefer AVIF when available */
-@supports (background-image:image-set(url('a') type('image/avif'))) {
-  @media (min-width:769px) {
-    .hero-bg {
-      background-image:image-set(
-        url('/factory-bg-lg.avif') type('image/avif'),
-        url('/factory-bg-lg.webp') type('image/webp'),
-        url('/factory-bg.jpg') type('image/jpeg')
-      );
-    }
+    background-image:url('/factory-bg.jpg');
   }
 }
 .hero-bg::after{
