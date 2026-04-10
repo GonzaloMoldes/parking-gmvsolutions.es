@@ -104,6 +104,11 @@ export function normalizePrimarySiteUrl(value = '') {
   const matchingBaseUrl = SITE_URL_ALIASES.find((baseUrl) => value.startsWith(baseUrl));
 
   if (!matchingBaseUrl) {
+    // If the value doesn't start with any known alias, assume it's a pathname and build from SITE_URL
+    const isPathOnly = value.startsWith('/');
+    if (isPathOnly) {
+      return new URL(value, SITE_URL).toString();
+    }
     return value;
   }
 

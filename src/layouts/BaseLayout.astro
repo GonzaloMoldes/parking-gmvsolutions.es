@@ -20,7 +20,7 @@ export interface Props {
 const {
   title,
   description,
-  canonical: canonicalInput = Astro.url.href,
+  canonical: canonicalInput = new URL(Astro.url.pathname, 'https://www.gmvsolutions.es').toString(),
   ogTitle = title,
   ogDescription = description,
   ogImage: ogImageInput = 'https://www.gmvsolutions.es/factory-bg.jpg',
