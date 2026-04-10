@@ -1,0 +1,1330 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "REELEVO — Software de integração para PMEs industriais | Gestão de competências no chão de fábrica";
+const description = "REELEVO é uma plataforma de recursos humanos com software de integração industrial. Organize admissões, gerencie competências operacionais, melhore documentação de processos e reduza dependência de operadores-chave na fábrica.";
+const canonical = "https://www.gmvsolutions.es/pt/";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "REELEVO",
+    "url": "https://www.gmvsolutions.es/pt"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.gmvsolutions.es/pt#organization",
+    "name": "GMV Solutions",
+    "alternateName": "REELEVO",
+    "url": "https://www.gmvsolutions.es/pt",
+    "logo": "https://www.gmvsolutions.es/favicon.svg",
+    "description": "REELEVO ajuda PMEs industriais a reduzir a dependência de pessoal-chave, organizar admissões e ganhar mais visibilidade sobre o que acontece na fábrica.",
+    "email": "hola@gmvsolutions.es",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Marola",
+      "addressLocality": "A Coruña",
+      "postalCode": "15002",
+      "addressCountry": "ES"
+    },
+    "foundingDate": "2025",
+    "areaServed": "ES",
+    "knowsAbout": [
+      "Software POP industrial",
+      "Procedimentos operativos padrão",
+      "Documentação operativa",
+      "Continuidade operativa em planta",
+      "Visibilidade operativa industrial",
+      "Redução de dependência operativa",
+      "Aprendizagem operativa em planta",
+      "Integração de operadores",
+      "Cobertura de faltas em produção",
+      "Pessoal temporário na fábrica",
+      "PMEs industriais portuguesas"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/gmvsolutions"
+    ]
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-eyebrow fade-up">Software de integração industrial · Software de RH · Menos improvisação</div>
+    <h1 class="hero-title fade-up delay-1">
+      Software de integração para PMEs industriais<br>
+      com gestão de competências<br>
+      <em>no chão de fábrica</em>.
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      REELEVO é uma plataforma de integração desenhada para PMEs industriais. Organize admissões, gerencie competências operacionais, reduza dependência de operadores-chave e melhore documentação de processos.<br>
+      <strong>Produção ganha contexto para decidir melhor, RH organiza a integração mais eficientemente, a empresa compreende que competências cada equipe tem e fortalece a documentação em planta</strong>.
+    </p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Cadastre-se no REELEVO</a>
+      <a href="https://diagnostico.gmvsolutions.es/?lang=pt" class="btn-ghost">Avalie minha situação →</a>
+    </div>
+    <div class="hero-proof fade-up delay-4">
+      <div class="hero-proof-item">
+        <div class="hero-proof-num">Continuidade</div>
+        <div class="hero-proof-label">menos dependência quando o titular não está</div>
+      </div>
+      <div class="hero-proof-item">
+        <div class="hero-proof-num">Clareza</div>
+        <div class="hero-proof-label">compreensão do que realmente acontece na fábrica</div>
+      </div>
+      <div class="hero-proof-item">
+        <div class="hero-proof-num">€49</div>
+        <div class="hero-proof-label">por mês por empresa</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ O PROBLEMA ═══ -->
+  <section class="section" id="casos">
+    <div class="section-inner">
+      <div class="casos-header fade-up">
+        <div class="eyebrow">O dia a dia</div>
+        <h2 class="section-title">Isto soa familiar?</h2>
+        <p class="section-sub">
+          Dois momentos onde mais se nota se o processo vive na fábrica
+          ou continua vivendo só na cabeça de alguém.
+        </p>
+      </div>
+
+      <div class="casos fade-up delay-1">
+        <div class="caso">
+          <div class="caso-tag">O especialista não veio</div>
+          <h3 class="caso-title">
+            «João está de falta.<br>
+            Quem dá partida na<br>
+            envasadora?»
+          </h3>
+          <p class="caso-desc">
+            É terça de manhã 6h30. João trabalha naquela máquina há 15 anos e hoje está na emergência.
+            Seu substituto não domina o processo. A linha não inicia até que alguém
+            encontre a solução ou até que João atenda o telefone.
+          </p>
+          <ul class="caso-benefits">
+            <li>2-4 horas de linha parada procurando quem sabe</li>
+            <li>Pressão sobre o time para cobrir</li>
+            <li>Erros por improvisar sem instruções claras</li>
+            <li>Chamadas para seu especialista durante sua falta só para sair do aperto</li>
+            <li>Pedidos atrasados e clientes frustrados</li>
+          </ul>
+        </div>
+
+        <div class="caso">
+          <div class="caso-tag">Novo operador chega</div>
+          <h3 class="caso-title">
+            «É o primeiro dia dele.<br>
+            Alguém precisa<br>
+            treinar.»
+          </h3>
+          <p class="caso-desc">
+            Chega uma pessoa nova — contratado permanente, pessoal temporário, o que for — e precisa aprender o cargo.
+            Um de seus melhores operadores sai de sua máquina para mentorear durante dias.
+            Duas pessoas ocupadas, um único cargo produzindo.
+          </p>
+          <ul class="caso-benefits">
+            <li>Seu operador melhor perde tempo produtivo treinando</li>
+            <li>Duas pessoas para um cargo durante dias</li>
+            <li>O aprendizado depende de quem treina e como ensina</li>
+            <li>Risco maior de erros durante o treinamento</li>
+            <li>Em épocas de pico ou demanda alta, o problema se multiplica com cada novo temporário</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ DADOS ═══ -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">O que os números dizem</div>
+        <h2 class="section-title">O custo que ninguém mede</h2>
+        <p class="section-sub">
+          Estes são dados do setor industrial português. A maioria das PMEs industriais e oficinas
+          aceitam isto como "normal." Não é.
+        </p>
+      </div>
+
+      <div class="dolor-grid fade-up delay-1">
+        <div class="dolor-item">
+          <div class="dolor-num">7,2<sup>%</sup></div>
+          <div class="dolor-label">
+            <strong>Taxa média de absentismo</strong> em PMEs industriais.
+            1 de cada 14 trabalhadores falta cada dia.
+          </div>
+        </div>
+        <div class="dolor-item">
+          <div class="dolor-num">3-5</div>
+          <div class="dolor-label">
+            <strong>Dias até produtividade</strong> até que um novo operador renda
+            como o operador titular.
+          </div>
+        </div>
+        <div class="dolor-item">
+          <div class="dolor-num">40<sup>%</sup></div>
+          <div class="dolor-label">
+            <strong>De chefes de planta</strong> chamam diretamente para o especialista
+            quando alguém falta. Mesmo que esteja de falta.
+          </div>
+        </div>
+      </div>
+
+      <div class="dolor-cta fade-up delay-2">
+        <a href="https://diagnostico.gmvsolutions.es/?lang=pt" class="btn-primary">
+          Avalie minha situação →
+        </a>
+        <div class="dolor-cta-note">
+          Calculadora gratuita · Resultado em 2 minutos
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ 4 PILARES ═══ -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">O valor real do produto</div>
+        <h2 class="section-title">Quatro benefícios que se notam <em>em planta</em></h2>
+        <p class="section-sub">
+          REELEVO não fica apenas em documentar processos. Ajuda o trabalho a acontecer com menos
+          improvisação, mais clareza e uma transferência de conhecimento muito mais útil.
+        </p>
+      </div>
+
+      <div class="steps-grid steps-grid-four fade-up delay-1">
+        <div class="step-card">
+          <div class="step-card-icon">📲</div>
+          <h3 class="step-card-title">1. Integração ordenada desde o primeiro dia</h3>
+          <p class="step-card-desc">
+            O novo operador encontra instruções claras no cargo. Seu software de integração reduz treinamento repetitivo e acelera a admissão com menos dependência do especialista.
+          </p>
+        </div>
+        <div class="step-card">
+          <div class="step-card-icon">🧾</div>
+          <h3 class="step-card-title">2. Mais clareza para decidir melhor</h3>
+          <p class="step-card-desc">
+            Produção ganha contexto sobre o que está sendo feito e onde o turno fica bloqueado,
+            sem depender só de chamadas, relatórios ou memória.
+          </p>
+        </div>
+        <div class="step-card">
+          <div class="step-card-icon">📊</div>
+          <h3 class="step-card-title">3. Gestão de competências e integração</h3>
+          <p class="step-card-desc">
+            Visualize competências por operador e processo. A integração ganha consistência e você deixa de depender de memória. Cada admissão fica documentada.
+          </p>
+        </div>
+        <div class="step-card">
+          <div class="step-card-icon">✅</div>
+          <h3 class="step-card-title">4. Integração industrial com rastreabilidade</h3>
+          <p class="step-card-desc">
+            O que acontece em planta deixa evidência de execução. Melhor dados para integração, redução de dependência de operadores-chave e operação mais ordenada.
+          </p>
+        </div>
+      </div>
+
+      <div class="steps-cta fade-up delay-2">
+        <a href="/pt/como-funciona/" class="btn-ghost">Ver o fluxo completo →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ PRODUTO EM AÇÃO ═══ -->
+  <section class="section section-center" id="produto">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">O produto</div>
+        <h2 class="section-title">Isto é o que <em>você verá na sua fábrica</em></h2>
+        <p class="section-sub">
+          Painel para empresa, vista de trabalho no cargo e visibilidade de atividade.
+          O valor não é só consultar instruções: é trabalhar com menos atrito e mais ordem.
+        </p>
+      </div>
+
+      <div class="screenshots-wrap fade-up delay-1">
+        <div class="screenshots-track" id="screenshotsTrack">
+          <div class="screenshot-slide">
+            <div class="screenshot-frame">
+              <img src="/screenshots/admin-dashboard.png" alt="Painel empresa REELEVO com processos, máquinas e configuração operativa" loading="lazy">
+            </div>
+            <div class="screenshot-caption">Painel empresa — uma visão mais ordenada de processos, cargos e operativa</div>
+          </div>
+          <div class="screenshot-slide">
+            <div class="screenshot-frame">
+              <img src="/screenshots/sop-operario.png" alt="Vista operador REELEVO com acesso a processo do cargo" loading="lazy">
+            </div>
+            <div class="screenshot-caption">Vista do operador — o trabalho aparece no cargo quando faz falta, sem atrito desnecessário</div>
+          </div>
+          <div class="screenshot-slide">
+            <div class="screenshot-frame">
+              <img src="/screenshots/monitor-actividad.png" alt="Monitor de atividade REELEVO" loading="lazy">
+            </div>
+            <div class="screenshot-caption">Vista de produção — mais contexto para ver atividade e decidir com menos improvisação</div>
+          </div>
+          <div class="screenshot-slide">
+            <div class="screenshot-frame">
+              <img src="/screenshots/Captura de pantalla 2026-03-31 161924.png" alt="Planejamento semanal de operadores" loading="lazy">
+            </div>
+            <div class="screenshot-caption">Planejamento semanal — atribuição visual de tarefas e turnos</div>
+          </div>
+          <div class="screenshot-slide">
+            <div class="screenshot-frame">
+              <img src="/screenshots/Captura de pantalla 2026-03-31 162126.png" alt="Gestão de produtos e processos" loading="lazy">
+            </div>
+            <div class="screenshot-caption">Gestão de produtos — definição de processos e combinações</div>
+          </div>
+          <div class="screenshot-slide">
+            <div class="screenshot-frame">
+              <img src="/screenshots/Captura de pantalla 2026-03-31 162150.png" alt="Painel de equipe de operações" loading="lazy">
+            </div>
+            <div class="screenshot-caption">Equipe de operações — acompanhamento de atividade e competências</div>
+          </div>
+          <div class="screenshot-slide">
+            <div class="screenshot-frame">
+              <img src="/screenshots/Captura de pantalla 2026-03-31 162218.png" alt="Detalhe de competências de operador" loading="lazy">
+            </div>
+            <div class="screenshot-caption">Detalhe de competências — certificações e capacidades do operador</div>
+          </div>
+          <div class="screenshot-slide">
+            <div class="screenshot-frame">
+              <img src="/screenshots/Captura de pantalla 2026-03-31 162300.png" alt="Painel de produtividade e analítica" loading="lazy">
+            </div>
+            <div class="screenshot-caption">Produtividade — analítica de processos e rendimento</div>
+          </div>
+          <div class="screenshot-slide">
+            <div class="screenshot-frame">
+              <img src="/screenshots/Captura de pantalla 2026-03-31 162618.png" alt="Detalhe de processos e tempos" loading="lazy">
+            </div>
+            <div class="screenshot-caption">Detalhe de processos — tempos, passos e eficiência</div>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-prev" id="carPrev" aria-label="Anterior">←</button>
+        <button class="carousel-btn carousel-next" id="carNext" aria-label="Próximo">→</button>
+        <div class="carousel-dots" id="carDots">
+          <button class="carousel-dot is-active" aria-label="Tela 1"></button>
+          <button class="carousel-dot" aria-label="Tela 2"></button>
+          <button class="carousel-dot" aria-label="Tela 3"></button>
+          <button class="carousel-dot" aria-label="Tela 4"></button>
+          <button class="carousel-dot" aria-label="Tela 5"></button>
+          <button class="carousel-dot" aria-label="Tela 6"></button>
+          <button class="carousel-dot" aria-label="Tela 7"></button>
+          <button class="carousel-dot" aria-label="Tela 8"></button>
+          <button class="carousel-dot" aria-label="Tela 9"></button>
+        </div>
+      </div>
+
+      <div class="visual-proof-grid fade-up delay-2">
+        <article class="visual-proof-card">
+          <div class="visual-proof-tag">No cargo</div>
+          <h3 class="visual-proof-title">O substituto não arranca às cegas</h3>
+          <p class="visual-proof-desc">
+            A vista de trabalho demonstra que o processo aparece onde faz falta,
+            com menos procura, menos chamadas e menos dependência do titular.
+          </p>
+        </article>
+
+        <article class="visual-proof-card">
+          <div class="visual-proof-tag">Para produção</div>
+          <h3 class="visual-proof-title">Há mais contexto para decidir melhor</h3>
+          <p class="visual-proof-desc">
+            A vista de produção transforma a atividade do turno numa leitura
+            mais clara para reorganizar, detectar bloqueios e agir antes.
+          </p>
+        </article>
+
+        <article class="visual-proof-card">
+          <div class="visual-proof-tag">Para acompanhamento</div>
+          <h3 class="visual-proof-title">O trabalho deixa uma base útil</h3>
+          <p class="visual-proof-desc">
+            O painel de empresa demonstra que REELEVO não fica em consultar:
+            ajuda a sustentar formação, continuidade e revisão interna com mais factos.
+          </p>
+        </article>
+      </div>
+
+      <div class="screenshots-cta fade-up delay-3">
+        <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">Cadastre-se no REELEVO →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ PARA QUEM ═══ -->
+  <section class="section" id="perfiles">
+    <div class="section-inner">
+      <div class="perfiles-header fade-up">
+        <div class="eyebrow">Para quem é isto?</div>
+        <h2 class="section-title">Cada pessoa vê um valor distinto</h2>
+        <p class="section-sub">
+          REELEVO encaixa com prioridades distintas dentro da fábrica.
+          Produção ganha clareza para decidir, RH organiza melhor as admissões,
+          qualidade revisa melhor o que acontece em planta e gerência reduz dependência operativa.
+        </p>
+      </div>
+
+      <div class="perfiles-grid perfiles-grid-four fade-up delay-1">
+        <div class="perfil-card">
+          <div class="perfil-card-icon">👷</div>
+          <h3 class="perfil-card-title">Chefe de produção</h3>
+          <p class="perfil-card-desc">
+            Mais visibilidade para reorganizar turnos, cobrir mudanças e reagir antes
+            sem depender tanto do operador titular.
+          </p>
+          <a href="/pt/para-quien/jefe-de-produccion/" class="perfil-card-link">Ver como te ajuda →</a>
+        </div>
+
+        <div class="perfil-card">
+          <div class="perfil-card-icon">👥</div>
+          <h3 class="perfil-card-title">Responsável de RH</h3>
+          <p class="perfil-card-desc">
+            Integração mais ordenada, menos treinamento repetitivo e mais clareza
+            sobre quem precisa de apoio e quem já pode render com autonomia.
+          </p>
+          <a href="/pt/para-quien/responsable-rrhh/" class="perfil-card-link">Ver como te ajuda →</a>
+        </div>
+
+        <div class="perfil-card">
+          <div class="perfil-card-icon">🧪</div>
+          <h3 class="perfil-card-title">Responsável de qualidade</h3>
+          <p class="perfil-card-desc">
+            Mais clareza para revisão interna, mudanças de processo e cargos sensíveis,
+            sem depender só de papéis, memória ou versões conflituosas.
+          </p>
+          <a href="/pt/para-quien/responsable-calidad/" class="perfil-card-link">Ver como te ajuda →</a>
+        </div>
+
+        <div class="perfil-card">
+          <div class="perfil-card-icon">💼</div>
+          <h3 class="perfil-card-title">Gerente / Proprietário</h3>
+          <p class="perfil-card-desc">
+            Menos fragilidade operativa, mais continuidade e um preço por empresa
+            que torna viável começar por onde mais dói.
+          </p>
+          <a href="/pt/para-quien/gerente-propietario/" class="perfil-card-link">Ver como te ajuda →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ BENEFÍCIOS ═══ -->
+  <section class="section section-center" id="beneficios">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">O que muda em planta</div>
+        <h2 class="section-title">Impacto operativo <em>desde o arranque</em></h2>
+        <p class="section-sub">
+          Você começa com processos críticos, mas o valor se nota logo:
+          menos bloqueios, mais clareza para decidir e uma operação mais ordenada.
+        </p>
+      </div>
+
+      <div class="benefits-grid fade-up delay-1">
+        <div class="benefit-card">
+          <div class="benefit-card-icon">⚡</div>
+          <h3 class="benefit-card-title">O processo aparece onde faz falta</h3>
+          <p class="benefit-card-desc">
+            Quando alguém cobre um cargo, não perde tempo procurando como arrancar.
+            As instruções estão lá, no momento certo.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-card-icon">🎯</div>
+          <h3 class="benefit-card-title">Menos improvisação, mais estrutura</h3>
+          <p class="benefit-card-desc">
+            Cada processo tem o conhecimento real do especialista: os truques, os ajustes,
+            os sinais de que algo vai falhar. Não o manual — a realidade.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-card-icon">📈</div>
+          <h3 class="benefit-card-title">Treinamento fica mais curto e fiável</h3>
+          <p class="benefit-card-desc">
+            Novos operadores treinam mais rápido porque a estrutura é clara.
+            Seu operador melhor gasta menos tempo treinando e mais tempo produzindo.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-card-icon">🔍</div>
+          <h3 class="benefit-card-title">Você vê o que realmente está acontecendo</h3>
+          <p class="benefit-card-desc">
+            A atividade em planta fica visível. Você sabe quem está fazendo o quê, onde há atrasos,
+            e onde estão os problemas — não apenas adivinhanças ou relatórios atrasados.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ PREÇOS ═══ -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Preços transparentes</div>
+        <h2 class="section-title">Um preço, operadores ilimitados</h2>
+        <p class="section-sub">
+          Sem licenças por assento. Sem taxas escondidas. Comece com seus processos críticos e expanda no seu próprio ritmo.
+        </p>
+      </div>
+
+      <div class="pricing-card fade-up delay-1">
+        <div class="pricing-card-amount">€49<span class="pricing-card-period">/mês</span></div>
+        <div class="pricing-card-label">por empresa</div>
+        <p class="pricing-card-detail">Operadores ilimitados, todos os processos críticos de que precisa</p>
+        <ul class="pricing-card-features">
+          <li>✓ Documentação de processos no cargo</li>
+          <li>✓ Acompanhamento de integração de operadores</li>
+          <li>✓ Competências e habilidades</li>
+          <li>✓ Visibilidade e analítica de produção</li>
+          <li>✓ Suporte multi-idioma</li>
+          <li>✓ Suporte por email incluído</li>
+        </ul>
+        <a href="https://app.gmvsolutions.es/registro" class="pricing-card-cta btn-primary">Começar grátis →</a>
+        <p class="pricing-card-note">Primeiros 14 dias grátis. Sem cartão de crédito.</p>
+      </div>
+
+      <div class="pricing-note fade-up delay-2">
+        <p>Veja a página de <a href="/pt/precios/">preços completos</a> para descontos por volume e planos customizados.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══ PILOT ═══ -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Início rápido</div>
+        <h2 class="section-title">Comece com um pilot funcional</h2>
+        <p class="section-sub">
+          Não implemente em toda a fábrica. Comece com um processo crítico e veja o impacto em duas semanas.
+        </p>
+      </div>
+
+      <div class="pilot-grid fade-up delay-1">
+        <div class="pilot-card">
+          <div class="pilot-icon">📋</div>
+          <div class="pilot-label">Semana 1</div>
+          <div class="pilot-title">Capture o conhecimento do especialista</div>
+          <p class="pilot-desc">
+            Sente-se com seu melhor operador. Documente o processo passo a passo: a forma real como ele faz,
+            não o manual.
+          </p>
+        </div>
+
+        <div class="pilot-card">
+          <div class="pilot-icon">📱</div>
+          <div class="pilot-label">Semana 2</div>
+          <div class="pilot-title">Coloque no chão de fábrica</div>
+          <p class="pilot-desc">
+            O substituto vê os passos no seu telefone, no cargo.
+            Ele executa sem chamar o especialista. Tempo até produtividade cai 60%.
+          </p>
+        </div>
+
+        <div class="pilot-card">
+          <div class="pilot-icon">📊</div>
+          <div class="pilot-label">Semanas 3-4</div>
+          <div class="pilot-title">Meça e escale</div>
+          <p class="pilot-desc">
+            Veja o impacto: menos paragens, integração mais rápida, menos erros.
+            Depois, escolha o próximo processo que precisa do mesmo tratamento.
+          </p>
+        </div>
+      </div>
+
+      <div class="pilot-note fade-up delay-2">
+        <p>Os primeiros 14 dias são grátis. <a href="https://app.gmvsolutions.es/registro">Comece seu pilot agora →</a></p>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* Hero section */
+  .hero {
+    background: linear-gradient(135deg, var(--bg) 0%, var(--surface) 100%);
+    padding: 120px 32px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 24px;
+  }
+
+  .hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--gray);
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 48px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+  }
+
+  .hero-proof {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-proof-item {
+    text-align: center;
+  }
+
+  .hero-proof-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .hero-proof-label {
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  /* Section styles */
+  .section {
+    padding: 80px 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-center {
+    text-align: center;
+  }
+
+  .section-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--gray);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Casos grid */
+  .casos-header {
+    margin-bottom: 60px;
+  }
+
+  .casos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+  }
+
+  .caso {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 36px 28px;
+    text-align: left;
+  }
+
+  .caso-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .caso-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .caso-desc {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .caso-benefits {
+    list-style: none;
+    padding: 0;
+  }
+
+  .caso-benefits li {
+    font-size: 0.9rem;
+    color: var(--gray2);
+    line-height: 1.6;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .caso-benefits li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  /* Data grid */
+  .dolor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+    margin: 60px 0;
+  }
+
+  .dolor-item {
+    text-align: center;
+  }
+
+  .dolor-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .dolor-label {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .dolor-cta {
+    margin-top: 50px;
+  }
+
+  .dolor-cta-note {
+    font-size: 0.85rem;
+    color: var(--gray2);
+    margin-top: 12px;
+  }
+
+  /* Steps grid */
+  .steps-grid {
+    display: grid;
+    gap: 28px;
+    margin: 60px 0;
+  }
+
+  .steps-grid-four {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .step-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+    text-align: left;
+  }
+
+  .step-card-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .step-card-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .step-card-desc {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .steps-cta {
+    margin-top: 50px;
+  }
+
+  /* Screenshots carousel */
+  .screenshots-wrap {
+    position: relative;
+    margin: 60px 0;
+  }
+
+  .screenshots-track {
+    display: flex;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .screenshot-slide {
+    flex-shrink: 0;
+    width: 100%;
+  }
+
+  .screenshot-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+  }
+
+  .screenshot-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .screenshot-caption {
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    color: var(--gray);
+    text-align: center;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  .carousel-prev {
+    left: 16px;
+  }
+
+  .carousel-next {
+    right: 16px;
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .carousel-dot.is-active {
+    background: var(--orange);
+  }
+
+  /* Visual proof grid */
+  .visual-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 28px;
+    margin: 50px 0;
+  }
+
+  .visual-proof-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+    text-align: left;
+  }
+
+  .visual-proof-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .visual-proof-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .visual-proof-desc {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .screenshots-cta {
+    margin-top: 50px;
+  }
+
+  /* Perfiles grid */
+  .perfiles-header {
+    margin-bottom: 60px;
+  }
+
+  .perfiles-grid {
+    display: grid;
+    gap: 28px;
+    margin-top: 50px;
+  }
+
+  .perfiles-grid-four {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .perfil-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+    text-align: center;
+  }
+
+  .perfil-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  .perfil-card-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .perfil-card-desc {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .perfil-card-link {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .perfil-card-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Benefits grid */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+    margin: 60px 0;
+  }
+
+  .benefit-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+    text-align: center;
+  }
+
+  .benefit-card-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .benefit-card-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .benefit-card-desc {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Pricing section */
+  .pricing-card {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 2px solid var(--orange);
+    border-radius: 12px;
+    padding: 48px 40px;
+    text-align: center;
+    max-width: 400px;
+    margin: 60px auto;
+  }
+
+  .pricing-card-amount {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--orange);
+  }
+
+  .pricing-card-period {
+    font-size: 1.2rem;
+    color: var(--gray);
+  }
+
+  .pricing-card-label {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-bottom: 12px;
+  }
+
+  .pricing-card-detail {
+    font-size: 0.95rem;
+    color: var(--gray);
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  .pricing-card-features {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-bottom: 28px;
+  }
+
+  .pricing-card-features li {
+    font-size: 0.9rem;
+    color: var(--gray);
+    padding: 8px 0;
+    line-height: 1.5;
+  }
+
+  .pricing-card-cta {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .pricing-card-note {
+    font-size: 0.85rem;
+    color: var(--gray2);
+  }
+
+  .pricing-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--gray);
+  }
+
+  .pricing-note a {
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  .pricing-note a:hover {
+    text-decoration: underline;
+  }
+
+  /* Pilot section */
+  .pilot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 32px;
+    margin: 60px 0;
+  }
+
+  .pilot-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+    text-align: center;
+  }
+
+  .pilot-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  .pilot-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .pilot-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .pilot-desc {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .pilot-note {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-top: 40px;
+  }
+
+  .pilot-note a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 32px;
+  }
+
+  /* Animation utilities */
+  .fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 80px 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+
+    .section {
+      padding: 60px 20px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-proof {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .carousel-btn {
+      width: 32px;
+      height: 32px;
+      font-size: 1.2rem;
+    }
+
+    .carousel-prev {
+      left: 8px;
+    }
+
+    .carousel-next {
+      right: 8px;
+    }
+  }
+</style>
+
+<script>
+  // Screenshots carousel
+  (function () {
+    const track = document.getElementById('screenshotsTrack') as HTMLElement | null;
+    const wrap = track?.parentElement as HTMLElement | null;
+    const slides = document.querySelectorAll<HTMLElement>('.screenshot-slide');
+    const dots = document.querySelectorAll<HTMLButtonElement>('.carousel-dot');
+    let current = 0;
+    const total = slides.length;
+    const AUTOPLAY_MS = 10000;
+    let timer: ReturnType<typeof setInterval>;
+    let resizeTimer: ReturnType<typeof setTimeout>;
+
+    function getWidth() {
+      return wrap?.offsetWidth ?? 0;
+    }
+
+    function applyWidths() {
+      const w = getWidth();
+      slides.forEach(s => { s.style.width = w + 'px'; });
+      return w;
+    }
+
+    function goTo(n: number) {
+      current = ((n % total) + total) % total;
+      const w = applyWidths();
+      if (track) track.style.transform = `translateX(-${current * w}px)`;
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+    }
+
+    function startAutoplay() {
+      timer = setInterval(() => goTo(current + 1), AUTOPLAY_MS);
+    }
+
+    function stopAutoplay() {
+      clearInterval(timer);
+    }
+
+    if (track && wrap && slides.length > 0) {
+      applyWidths();
+      goTo(0);
+      startAutoplay();
+
+      document.getElementById('carPrev')?.addEventListener('click', () => {
+        stopAutoplay();
+        goTo(current - 1);
+        startAutoplay();
+      });
+
+      document.getElementById('carNext')?.addEventListener('click', () => {
+        stopAutoplay();
+        goTo(current + 1);
+        startAutoplay();
+      });
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          stopAutoplay();
+          goTo(i);
+          startAutoplay();
+        });
+      });
+
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => goTo(current), 150);
+      });
+
+      wrap.addEventListener('touchstart', () => stopAutoplay(), { passive: true });
+      wrap.addEventListener('touchend', () => startAutoplay(), { passive: true });
+    }
+  })();
+</script>
+
+</BaseLayout>
