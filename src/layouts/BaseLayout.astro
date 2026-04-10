@@ -214,6 +214,7 @@ const ogImage = normalizePrimarySiteUrl(ogImageInput);
   <link rel="dns-prefetch" href="//www.googletagmanager.com" />
   <link rel="dns-prefetch" href="//www.google-analytics.com" />
   <link rel="dns-prefetch" href="//stats.g.doubleclick.net" />
+  <link rel="preconnect" href="https://consent.cookiebot.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Preload critical WOFF2 fonts -->
@@ -235,8 +236,8 @@ const ogImage = normalizePrimarySiteUrl(ogImageInput);
         <img
           class="entry-splash__logo"
           src={entryLogo.src}
-          width={entryLogo.width}
-          height={entryLogo.height}
+          width="525"
+          height="525"
           alt=""
           loading="eager"
           decoding="async"
@@ -341,7 +342,7 @@ const ogImage = normalizePrimarySiteUrl(ogImageInput);
     })();
   </script>
 
-  <!-- Cookiebot: Loads consent manager (moved to end of body for performance) -->
-  <script id="Cookiebot" async src="https://consent.cookiebot.com/uc.js" data-cbid="555982fb-7d04-4596-8a45-fa2d446a3892" data-blockingmode="manual" type="text/javascript"></script>
+  <!-- Cookiebot: Deferred to end of body for non-blocking consent loading -->
+  <script id="Cookiebot" defer src="https://consent.cookiebot.com/uc.js" data-cbid="555982fb-7d04-4596-8a45-fa2d446a3892" data-blockingmode="manual" type="text/javascript"></script>
 </body>
 </html>
