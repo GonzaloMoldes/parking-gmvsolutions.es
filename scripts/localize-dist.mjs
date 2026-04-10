@@ -60,6 +60,18 @@ const nonTranslatableJsonKeys = new Set([
   'identifier',
   'itemCondition',
 ]);
+// Load glossary for context-aware translation
+const glossaryPath = path.join(rootDir, 'src/locales/glossary.json');
+let glossaryData = {};
+try {
+  const glossaryRaw = await fs.readFile(glossaryPath, 'utf8');
+  const glossaryJson = JSON.parse(glossaryRaw);
+  glossaryData = glossaryJson.glossary || {};
+} catch {
+  console.warn('⚠️  Glossary not found or malformed. Proceeding without term mapping.');
+}
+
+// Protected terms: never translate these
 const staticProtectedTerms = [
   'www.gmvsolutions.es',
   'REELEVO',
@@ -68,6 +80,20 @@ const staticProtectedTerms = [
   'app.gmvsolutions.es',
   'diagnostico.gmvsolutions.es',
   'hola@gmvsolutions.es',
+  // International standards/acronyms
+  'SOP',
+  'SME',
+  'PME',
+  'ISO',
+  'IATF',
+  'GMP',
+  'LOTO',
+  'EPI',
+  'CNC',
+  'ETT',
+  'HR',
+  'RH',
+  'RRHH',
 ];
 
 let translationCache = {};

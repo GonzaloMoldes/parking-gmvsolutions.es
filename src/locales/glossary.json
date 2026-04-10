@@ -1,0 +1,432 @@
+{
+  "glossary": {
+    "operario": {
+      "es": "Operario",
+      "en": {
+        "default": "Machine Operator",
+        "formal": "Production Operator",
+        "short": "Operator"
+      },
+      "pt": {
+        "default": "Operador",
+        "formal": "Operador de máquina"
+      },
+      "context": "Persona que opera máquinas/equipos en planta industrial. NO traducir literal a 'Operator' genérico",
+      "usage": "narrativa, títulos, descripción de roles"
+    },
+    "baja": {
+      "es": "Baja",
+      "en": {
+        "operational": "Absence",
+        "medical": "Sick leave",
+        "urgent": "Unplanned absence"
+      },
+      "pt": {
+        "operational": "Falta",
+        "administrative": "Ausência"
+      },
+      "context": "Ausencia de operario por enfermedad o razón personal. En ES 'baja' es natural; EN/PT requieren precisión",
+      "usage": "Casos de uso, narrativa de problemas"
+    },
+    "competencias": {
+      "es": "Competencias",
+      "en": {
+        "operational": "Skills",
+        "formal": "Competencies",
+        "matrix": "Skills Matrix"
+      },
+      "pt": {
+        "operational": "Habilidades",
+        "formal": "Competências"
+      },
+      "context": "Skills = habilidades específicas (ej: 'soldar'); Competencies = cluster formalizado de skills + actitudes",
+      "usage": "Títulos de producto, descripciones de feature, marketing",
+      "note": "CRÍTICO: si usas 'Competencies' en EN, ser consistente - NO mezclar con 'Skills'"
+    },
+    "tutor": {
+      "es": "Tutor/Tutoría",
+      "en": {
+        "context_training": "On-the-job training",
+        "context_mentor": "Experienced operator",
+        "context_formal": "Subject matter expert"
+      },
+      "pt": {
+        "context_training": "Treinamento",
+        "context_mentor": "Operador experiente",
+        "context_formal": "Especialista"
+      },
+      "context": "En ES 'tutor' es el operario experto. En EN 'Trainer' suena corporativo; en PT 'Instrutor' es académico. Preferir traslación por contexto",
+      "usage": "Descripción de personas, narrativa de problemas",
+      "avoid": "EN: 'Trainer'; PT: 'Instrutor' en contexto operativo"
+    },
+    "dependencia_operativa": {
+      "es": "Dependencia operativa",
+      "en": "Key person risk",
+      "pt": "Risco de pessoal-chave",
+      "context": "Concepto muy específico ES de gestión industrial. Problema de tener solo una persona capaz de hacer algo crítico",
+      "usage": "Títulos, problemas, marketing",
+      "doNotTranslateLiteral": true,
+      "note": "NUNCA traducir palabra-por-palabra. Siempre usar equivalente conceptual"
+    },
+    "titular": {
+      "es": "Titular (del puesto)",
+      "en": "Primary operator",
+      "pt": "Operador designado",
+      "context": "La persona asignada normalmente a ese rol/máquina. NO confundir con 'account holder'",
+      "usage": "Narrativa, textos descriptivos"
+    },
+    "puesto_de_trabajo": {
+      "es": "Puesto de trabajo",
+      "en": {
+        "context_physical": "Workstation",
+        "context_role": "Position",
+        "context_line": "Work assignment"
+      },
+      "pt": {
+        "default": "Posto de trabalho",
+        "context_role": "Posição"
+      },
+      "context": "Ambigüedad: ¿ubicación física o rol funcional? EN requiere precisión",
+      "usage": "Descripción de setup, organización",
+      "example": "'Workstation 3' para ubicación física; 'Assigned position' para rol"
+    },
+    "onboarding": {
+      "es": "Onboarding/Incorporación",
+      "en": "Onboarding",
+      "pt": "Onboarding (Integração)",
+      "context": "Anglicismo establecido en HR a nivel global. Mantener término pero explicar en PT",
+      "usage": "Títulos, feature names, marketing",
+      "note": "Primera mención EN: +explicación contextual; Primera mención PT: 'Onboarding (Integração de novo operário)'"
+    },
+    "incorporacion": {
+      "es": "Incorporación",
+      "en": "New operator onboarding",
+      "pt": "Admissão / Integração",
+      "context": "Proceso ES de ingreso. EN: 'Onboarding' es estándar. PT: 'Incorporação' es muy formal/jurídico",
+      "usage": "Títulos de casos de uso, descripción de proceso"
+    },
+    "arranca_sin_friccion": {
+      "es": "Arranca sin fricción",
+      "en": "Seamless setup",
+      "pt": "Começa sem complicações",
+      "context": "Expresión idiomática ES. NO traducir literal. Concepto: fácil de empezar.",
+      "usage": "Marketing/CTA",
+      "doNotTranslateLiteral": true
+    },
+    "menos_improvisacion": {
+      "es": "Menos improvisación",
+      "en": "More structured execution",
+      "pt": "Execução mais padronizada",
+      "context": "Concepto cultural ES. No existe equivalente emocional igual en EN/PT. Traducir por significado",
+      "usage": "Beneficios, marketing copy",
+      "doNotTranslateLiteral": true
+    },
+    "variabilidad": {
+      "es": "Variabilidad",
+      "en": {
+        "statistical": "Variability",
+        "operational": "Inconsistency"
+      },
+      "pt": {
+        "statistical": "Variabilidade",
+        "operational": "Inconsistência"
+      },
+      "context": "EN: 'Variability' es estadístico; 'Inconsistency' es cualitativo. PT: Preferir 'Inconsistência' en contexto operativo",
+      "usage": "Descripción de problemas, análisis",
+      "note": "Contexto operativo industrial: preferir 'Inconsistency/Inconsistência'"
+    },
+    "proceso": {
+      "es": "Proceso",
+      "en": "Process",
+      "pt": "Processo",
+      "context": "Término estándar internacional. Mantener igual. PT: 'Procedimiento' suena administrativo",
+      "usage": "General - no crítico"
+    },
+    "sop": {
+      "es": "SOP",
+      "en": "SOP",
+      "pt": "SOP",
+      "context": "Acrónimo internacional. MANTENER. En textos ES/PT/EN, expandir en primera mención: 'SOP (Procedimiento Operativo Estándar)'",
+      "usage": "Títulos, descripción técnica",
+      "doNotTranslate": true,
+      "expand": "SOP (Standard Operating Procedure) / SOP (Procedimento Operativo Padrão)"
+    },
+    "pyme": {
+      "es": "Pyme",
+      "en": "SME",
+      "pt": "PME",
+      "context": "Acrónimos regionales. EN: 'SME' es estándar. PT: 'PME' pero a veces 'Pequena empresa'",
+      "usage": "Target audience, descripción de mercado",
+      "alternative_en": "'Small business' si SME no es claro"
+    },
+    "jefe_de_produccion": {
+      "es": "Jefe de Producción",
+      "en": "Production Manager",
+      "pt": "Gerente de Produção",
+      "context": "Rol claro. Mantener término corporativo estándar",
+      "usage": "Perfiles de usuario, títulos",
+      "doNotTranslate": true
+    },
+    "responsable_rrhh": {
+      "es": "Responsable RRHH / Responsable de Recursos Humanos",
+      "en": "HR Manager",
+      "pt": "Gerente de RH",
+      "context": "Rol estándar. RRHH/RH es acrónimo universal",
+      "usage": "Perfiles de usuario",
+      "note": "Primera mención: expandir acrónimo"
+    },
+    "responsable_calidad": {
+      "es": "Responsable de Calidad",
+      "en": "Quality Manager",
+      "pt": "Gerente de Qualidade",
+      "context": "Rol estándar. Mantener término",
+      "usage": "Perfiles de usuario",
+      "doNotTranslate": true
+    },
+    "tutorias_repetitivas": {
+      "es": "Tutorías repetitivas",
+      "en": "Redundant training",
+      "pt": "Treinamento repetido",
+      "context": "Concepto ES específico. Problema: re-enseñar lo mismo a diferentes personas. EN/PT necesitan ajuste",
+      "usage": "Descripción de problemas"
+    },
+    "visibilidad_operativa": {
+      "es": "Visibilidad operativa",
+      "en": "Operational clarity",
+      "pt": "Clareza operativa",
+      "context": "EN: 'Visibility' es vago en industria. 'Clarity' es más preciso. PT: 'Clareza' suena mejor que 'Visibilidade'",
+      "usage": "Beneficios, marketing",
+      "avoid": "EN: 'Operational visibility' suena técnico sin contexto"
+    },
+    "conocimiento_tacito": {
+      "es": "Conocimiento tácito",
+      "en": "Unwritten knowledge",
+      "pt": "Conhecimento tácito",
+      "context": "Concepto académico. EN: Preferir 'Unwritten knowledge' (más operativo) que 'Tacit knowledge' (muy formal)",
+      "usage": "Educativo, artículos blog"
+    },
+    "tribal_knowledge": {
+      "es": "Conocimiento tribal",
+      "en": "Tribal knowledge",
+      "pt": "Conhecimento tribal",
+      "context": "Anglicismo establecido. Mantener en los 3 idiomas",
+      "usage": "Marketing, narrativa",
+      "doNotTranslate": true,
+      "note": "Ya aparece en blog - mantener consistencia"
+    },
+    "absentismo": {
+      "es": "Absentismo",
+      "en": "Absenteeism",
+      "pt": "Absentismo",
+      "context": "Término técnico/administrativo universal. Mantener igual",
+      "usage": "Estadísticas, títulos de artículos"
+    },
+    "conformidad": {
+      "es": "Conformidad",
+      "en": "Compliance",
+      "pt": "Conformidade",
+      "context": "Término estándar legal/calidad. Mantener",
+      "usage": "Descripción de beneficios, conformidad regulatoria"
+    },
+    "gestion_competencias": {
+      "es": "Gestión de competencias",
+      "en": "Skills management",
+      "pt": "Gestão de habilidades",
+      "context": "Término de producto/feature. Mantener consistencia terminológica",
+      "usage": "Títulos de feature, marketing"
+    },
+    "documentacion_procesos": {
+      "es": "Documentación de procesos",
+      "en": "Process documentation",
+      "pt": "Documentação de processos",
+      "context": "Término estándar. Mantener",
+      "usage": "Títulos, descripción de feature"
+    },
+    "transferencia_conocimiento": {
+      "es": "Transferencia de conocimiento",
+      "en": "Knowledge transfer",
+      "pt": "Transferência de conhecimento",
+      "context": "Término estándar de gestión. Mantener",
+      "usage": "Casos de uso, beneficios"
+    },
+    "linea_produccion": {
+      "es": "Línea de producción",
+      "en": "Production line",
+      "pt": "Linha de produção",
+      "context": "Término técnico estándar. Mantener",
+      "usage": "General, contexto técnico"
+    },
+    "maquina": {
+      "es": "Máquina",
+      "en": {
+        "generic": "Equipment",
+        "specific": "Machine",
+        "cnc": "CNC machine"
+      },
+      "pt": {
+        "default": "Máquina"
+      },
+      "context": "EN: Ser específico. 'Machine' para máquinas individuales; 'Equipment' para genérico",
+      "usage": "Descripción técnica",
+      "note": "En ES/PT es igual. EN requiere precisión"
+    },
+    "herramienta": {
+      "es": "Herramienta",
+      "en": "Tool",
+      "pt": "Ferramenta",
+      "context": "Término técnico. EN: No confundir con 'Software tool' en contexto de IT",
+      "usage": "Descripción de producto/feature"
+    },
+    "capacitacion": {
+      "es": "Capacitación",
+      "en": "Training",
+      "pt": "Treinamento",
+      "context": "EN: 'Training' (operativo); 'Development' (formal). Preferir 'Training' en industria",
+      "usage": "Descripción de servicios, feature"
+    },
+    "formacion": {
+      "es": "Formación",
+      "en": "Training",
+      "pt": "Formação",
+      "context": "EN: Mismo que 'Capacitación' - usar 'Training'",
+      "usage": "Descripción general"
+    },
+    "ejecucion_real": {
+      "es": "Ejecución (real de proceso)",
+      "en": "Process execution",
+      "pt": "Execução do processo",
+      "context": "Especificar 'Process' para evitar confusión con 'Performance' (resultado)",
+      "usage": "Documentación técnica"
+    },
+    "incorporacion_nuevo": {
+      "es": "Incorporación de nuevo operario",
+      "en": "New operator onboarding",
+      "pt": "Admissão de novo operador",
+      "context": "Proceso completo de ingreso. PT: 'Incorporação' es muy formal",
+      "usage": "Caso de uso, descripción de beneficio"
+    },
+    "crisis_perdida_conocimiento": {
+      "es": "Crisis por pérdida de conocimiento",
+      "en": "Knowledge loss risk",
+      "pt": "Risco de perda de conhecimento",
+      "context": "Problema de negocio. Mantener naturalidad en cada idioma",
+      "usage": "Narrativa de problemas, títulos de artículos"
+    },
+    "cobertura_bajas": {
+      "es": "Cobertura de bajas",
+      "en": "Absence coverage",
+      "pt": "Cobertura de faltas",
+      "context": "Caso de uso clave. PT: 'Faltas' (operativo) es mejor que 'Ausências' (administrativo)",
+      "usage": "Caso de uso, títulos",
+      "note": "CRÍTICO: término de caso de uso - mantener consistencia"
+    },
+    "transferencia_turno": {
+      "es": "Transferencia entre turnos",
+      "en": "Shift handoff",
+      "pt": "Passagem de turno",
+      "context": "Proceso operativo diario. Mantener términos naturales",
+      "usage": "Casos de uso, descripción de mejora"
+    },
+    "personal_ett": {
+      "es": "Personal ETT / Personal temporal",
+      "en": "Temporary staff",
+      "pt": "Pessoal temporário",
+      "context": "EN: ETT no es acrónimo conocido. Usar 'Temporary staff'. PT: 'Pessoal' es correcto",
+      "usage": "Caso de uso, título",
+      "note": "CRÍTICO: revisar si en EN debería expandir ETT o mantener genérico"
+    },
+    "operario_experto": {
+      "es": "Operario experto / El experto",
+      "en": "Skilled operator",
+      "pt": "Operador experiente",
+      "context": "Rol en narrativa. Mantener consistencia dentro de page",
+      "usage": "Narrativa, textos descriptivos",
+      "note": "NO usar 'Subject matter expert' en contexto operativo puro - muy formal"
+    },
+    "operario_nuevo": {
+      "es": "Operario nuevo / Nuevo operario",
+      "en": "New operator",
+      "pt": "Novo operador",
+      "context": "EN: No usar 'Novice' (implicaría falta de experiencia previa). 'New operator' es correcto",
+      "usage": "Narrativa, descripción de usuarios"
+    },
+    "error_operativo": {
+      "es": "Error operativo",
+      "en": "Operational error",
+      "pt": "Erro operacional",
+      "context": "Término estándar de calidad. Mantener",
+      "usage": "Descripción de problemas, estadísticas"
+    },
+    "dificultad_coordinacion": {
+      "es": "Dificultad de coordinación",
+      "en": "Coordination challenge",
+      "pt": "Desafio de coordenação",
+      "context": "Problema de negocio. Mantener lenguaje natural",
+      "usage": "Narrativa de problemas"
+    },
+    "velocidad_ramp_up": {
+      "es": "Velocidad de rampa (de productividad)",
+      "en": "Ramp-up speed",
+      "pt": "Velocidade de ramp-up",
+      "context": "Anglicismo 'ramp-up' es estándar en industria. Mantener en EN/PT",
+      "usage": "Métricas, beneficios",
+      "note": "Mantener 'ramp-up' en EN/PT - concepto industrial universal"
+    },
+    "productividad_primer_dia": {
+      "es": "Productividad desde el primer día",
+      "en": "Day-one productivity",
+      "pt": "Produtividade desde o primeiro dia",
+      "context": "Beneficio clave. Mantener lenguaje aspiracional",
+      "usage": "Marketing, beneficios"
+    },
+    "continuidad_operativa": {
+      "es": "Continuidad operativa",
+      "en": "Operational continuity",
+      "pt": "Continuidade operativa",
+      "context": "Beneficio estratégico. Término estándar",
+      "usage": "Beneficios, marketing"
+    }
+  },
+  "translationNotes": {
+    "general": [
+      "NO traducir acrónimos internacionales: SOP, SME/PME, ISO, IATF, GMP, LOTO, EPI, CNC",
+      "Primera mención de acrónimos: expandir 'SOP (Standard Operating Procedure)' en EN; 'SOP (Procedimento Operativo Padrão)' en PT",
+      "Mantener consistencia de términos a lo largo de CADA artículo. Elegir UNA variación por idioma",
+      "EN: 'Operational' context = lenguaje directo, industrial. 'Formal' context = más corporativo",
+      "PT: Preferir lenguaje más operativo ('Falta' vs 'Ausência'; 'Operador' vs 'Operário')",
+      "NUNCA traducir literal frases idiomáticas ES: 'arranca sin fricción', 'dependencia operativa', 'conocimiento tribal'"
+    ],
+    "por_idioma": {
+      "en": [
+        "Ser específico con términos ambiguos: 'Skills' vs 'Competencies'; 'Machine' vs 'Equipment'",
+        "Evitar 'Trainer' en contexto operativo - preferir 'Experienced operator' o 'On-the-job training'",
+        "Evitar 'Visibility' genérico - usar 'Operational clarity' o 'Real-time visibility' con contexto",
+        "SME es standard para pequeña empresa",
+        "Mantener 'Ramp-up' para concepto de velocidad de productividad inicial"
+      ],
+      "pt": [
+        "Preferir 'Operador' sobre 'Operário' en contexto industrial moderno",
+        "Preferir 'Falta' (operativo) sobre 'Ausência' (administrativo) en contexto de plant floor",
+        "Explicar 'Onboarding' como '(Integração de novo operário)' en primera mención",
+        "Preferir 'Execução' cuando es claro; usar 'Desempenho' solo si es resultado",
+        "Preferir 'Habilidades' (operativo) sobre 'Competências' (formal) en contexto de plant floor"
+      ],
+      "es": [
+        "Mantener español neutro/estándar para facilitar traducciones",
+        "Evitar regionalismos ('Peón' en lugar de 'Operario')",
+        "Usar 'Competencias' para contexto formal; 'Habilidades' para lo operativo es MENOS usado en ES",
+        "Mantener 'Baja', 'Tutor', 'Dependencia operativa' - son naturales en ES"
+      ]
+    }
+  },
+  "marcasDeContexto": {
+    "explicacion": "En el código de las páginas, usar comentarios HTML para marcar contexto de traducción. Esto guiará futuras revisiones automáticas",
+    "ejemplos": [
+      "<!-- CONTEXT: marketing/emotional --> Arranca sin fricción",
+      "<!-- CONTEXT: technical --> Procedimiento Operativo Estándar (SOP)",
+      "<!-- CONTEXT: operational --> Operario nuevo",
+      "<!-- TRANSLATION_NOTE: No traducir literal - usar equivalente conceptual --> Dependencia operativa",
+      "<!-- EXPAND_ON_FIRST_MENTION: SOP --> Procedimiento Operativo Estándar"
+    ]
+  }
+}
