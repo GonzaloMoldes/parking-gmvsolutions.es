@@ -107,6 +107,7 @@ const ogImage = normalizePrimarySiteUrl(ogImageInput);
       .entry-splash__logo {
         width: min(62vw, 420px);
         height: auto;
+        aspect-ratio: 1;
         transform: scale(1);
         transform-origin: 58% center;
         filter: drop-shadow(0 12px 34px rgba(0,0,0,.42));
@@ -179,9 +180,6 @@ const ogImage = normalizePrimarySiteUrl(ogImageInput);
     </style>
   )}
 
-  <!-- Cookiebot: Loads consent manager (non-blocking) -->
-  <script id="Cookiebot" async src="https://consent.cookiebot.com/uc.js" data-cbid="555982fb-7d04-4596-8a45-fa2d446a3892" data-blockingmode="manual" type="text/javascript"></script>
-
   <!-- SEO -->
   <title>{title}</title>
   <meta name="description" content={description} />
@@ -214,8 +212,13 @@ const ogImage = normalizePrimarySiteUrl(ogImageInput);
   <link rel="dns-prefetch" href="//consent.cookiebot.com" />
   <link rel="dns-prefetch" href="//consentcdn.cookiebot.com" />
   <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="//www.google-analytics.com" />
+  <link rel="dns-prefetch" href="//stats.g.doubleclick.net" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Preload critical WOFF2 fonts -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/dmsans/v16/rP2Yp2ywxg8T4e_xyW9vJ0nCytnnvLWJ2xwK_uL05aE.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="https://fonts.gstatic.com/s/oswald/v57/TK3IWkUHH4ztbl0S1W8AiZkS9qT5F3vl3p3YMCCc-gE.woff2" as="font" type="font/woff2" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap"
     rel="stylesheet"
@@ -235,6 +238,7 @@ const ogImage = normalizePrimarySiteUrl(ogImageInput);
           width={entryLogo.width}
           height={entryLogo.height}
           alt=""
+          loading="eager"
           decoding="async"
         />
       </div>
@@ -336,5 +340,8 @@ const ogImage = normalizePrimarySiteUrl(ogImageInput);
       }
     })();
   </script>
+
+  <!-- Cookiebot: Loads consent manager (moved to end of body for performance) -->
+  <script id="Cookiebot" async src="https://consent.cookiebot.com/uc.js" data-cbid="555982fb-7d04-4596-8a45-fa2d446a3892" data-blockingmode="manual" type="text/javascript"></script>
 </body>
 </html>
