@@ -4,13 +4,16 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "astro build && node scripts/localize-dist.mjs",
+    "build:astro": "astro build",
+    "localize:dist": "node scripts/localize-dist.mjs",
+    "preview": "astro preview",
+    "optimize:images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.2.1",
     "@sanity/client": "^7.20.0",
-    "astro": "^4.16.0",
+    "astro": "^5.18.1",
     "next-sanity": "^12.1.5"
   }
 }

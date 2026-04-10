@@ -1,21 +1,68 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "REELEVO para Jefes de Producción — Onboarding software y skills management en planta";
-const description = "REELEVO para jefes de producción industrial. Onboarding software que da visibilidad, gestión de competencias clara y menos dependencia cuando cambia el día.";
+const title = "Onboarding Software para Jefes de Producción | Skills Management en Planta | REELEVO";
+const description = "Onboarding software para jefes de producción en pymes industriales. Gestión de competencias clara, menos dependencia de operarios clave, visibilidad de turnos. Software RRHH industrial.";
 
-const schema = {
+const faqSchema = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "REELEVO para Jefes de Producción",
-  "description": description,
-  "keywords": "onboarding software producción, skills management planta, HR software manufacturing, performance management",
-  "audience": {
-    "@type": "Audience",
-    "audienceType": "Production Manager HR"
-  }
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es un onboarding software y por qué un jefe de producción lo necesita?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Onboarding software es una plataforma que ordena y estructura el proceso de incorporación de nuevos operarios. Para jefes de producción es crítico porque reduce el tiempo de adaptación, documenta qué sabe cada operario, y evita que la incorporación dependa de una sola persona."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo un onboarding software ayuda a reducir el impacto de una baja en producción?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Al tener documentadas las competencias de cada operario y los procedimientos claros, cuando alguien falta puedes reasignar tareas sabiendo exactamente quién puede hacer qué. Sin onboarding, el jefe improvisaba y perdía productividad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la diferencia entre REELEVO y software RRHH general?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Software RRHH general gestiona nóminas y vacaciones. REELEVO está diseñado específicamente para pymes industriales: documenta SOPs, gestiona competencias operativas, y da visibilidad real de qué pasa en turno — no es backend administrativo, es operativo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En cuánto tiempo implementamos onboarding software en nuestra planta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "REELEVO se implementa de forma asistida. Los primeros operarios están documentando en 1-2 semanas. La documentación completa de turnos lleva 4-6 semanas dependiendo del número de procesos y complejidad."
+      }
+    }
+  ]
 };
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "REELEVO para Jefes de Producción",
+    "description": description,
+    "keywords": "onboarding software producción, skills management planta, software RRHH industrial, gestión de competencias operarios",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Production Manager"
+    }
+  },
+  faqSchema
+];
 ---
+
+<!-- GLOSSARY: operario, baja, onboarding, competencias, tutor, incorporación, SOP, continuidad -->
+<!-- CONTEXT: operational, marketing, product -->
+<!-- EN_TERMS: [machine operator, absence, onboarding, skills, mentor, operator onboarding, standard operating procedure, continuity] -->
+<!-- PT_TERMS: [operador, falta, integração, competências, mentor, integração de operadores, procedimento operativo padrão, continuidade] -->
 
 <BaseLayout
   title={title}

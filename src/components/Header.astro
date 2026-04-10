@@ -1,12 +1,37 @@
 ---
+import {
+  buildLocalePath,
+  detectLocaleFromPath,
+  stripLocalePrefix,
+  SUPPORTED_LOCALES,
+} from '../lib/i18n.js';
+
 export interface Props {
   activeNav?: string; // e.g. 'como-funciona', 'precios', 'recursos'
 }
 const { activeNav } = Astro.props;
+const currentPath = Astro.url.pathname;
+const currentLocale = detectLocaleFromPath(currentPath);
+const currentBasePath = stripLocalePrefix(currentPath);
+
+const getFlagAlt = (localeCode: string): string => {
+  const altMap: Record<string, string> = {
+    es: 'Bandera de España',
+    en: 'Flag of United Kingdom',
+    pt: 'Bandeira de Portugal',
+  };
+  return altMap[localeCode] || localeCode;
+};
+
+const localeOptions = SUPPORTED_LOCALES.map((locale) => ({
+  ...locale,
+  href: buildLocalePath(locale.code, currentBasePath),
+  isActive: locale.code === currentLocale,
+}));
 ---
 
 <header class="header">
-  <a href="/" class="header-logo">REEL<span>EVO</span></a>
+  <a href="/" class="header-logo" translate="no">REEL<span>EVO</span></a>
 
   <nav class="header-nav">
     <a href="/como-funciona/" class={activeNav === 'como-funciona' ? 'nav-active' : ''}>
@@ -102,15 +127,56 @@ const { activeNav } = Astro.props;
   </nav>
 
   <div class="header-right">
-    <a
-      href="https://diagnostico.gmvsolutions.es"
-      class="header-diag"
-      style="font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:400;color:rgba(255,255,255,.55);text-decoration:none;letter-spacing:.02em;transition:color .2s;"
-      onmouseover="this.style.color='#fff'"
-      onmouseout="this.style.color='rgba(255,255,255,.55)'"
-    >
-      Evaluar mi situación
-    </a>
+    <div class="language-switcher" data-language-switcher>
+      <button
+        class="language-switcher-trigger"
+        type="button"
+        aria-haspopup="true"
+        aria-label="Seleccionar idioma"
+      >
+        <span class="language-switcher-current" translate="no">
+          <img
+            class="language-switcher-flag"
+            data-language-flag
+            src={localeOptions.find((locale) => locale.isActive)?.flagIcon}
+            alt={getFlagAlt(currentLocale)}
+            width="18"
+            height="13"
+            loading="lazy"
+            decoding="async"
+          />
+          <span data-language-current>{currentLocale.toUpperCase()}</span>
+        </span>
+        <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M1 1l4 4 4-4" />
+        </svg>
+      </button>
+      <div class="language-switcher-menu">
+        {localeOptions.map((locale) => (
+          <a
+            href={locale.href}
+            data-locale-option={locale.code}
+            class={locale.isActive ? 'is-active' : ''}
+            aria-current={locale.isActive ? 'page' : undefined}
+            translate="no"
+          >
+            <span class="language-option-main">
+              <img
+                class="language-switcher-flag"
+                src={locale.flagIcon}
+                alt={getFlagAlt(locale.code)}
+                width="18"
+                height="13"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>{locale.nativeName}</span>
+            </span>
+            <span class="language-option-code">{locale.label}</span>
+          </a>
+        ))}
+      </div>
+    </div>
     <a href="https://app.gmvsolutions.es/registro" class="header-cta">Registrarme en REELEVO</a>
     <button
       class="hamburger"
@@ -145,6 +211,29 @@ const { activeNav } = Astro.props;
   <a href="/blog/documentar-conocimiento-operarios-expertos/" onclick="closeMobile()">Documentar conocimiento operario</a>
   <a href="/blog/" onclick="closeMobile()">Ver todos los artículos</a>
   <a href="/sobre-nosotros/" onclick="closeMobile()">Nosotros</a>
+  <div class="mobile-section-title">Idioma</div>
+  <div class="mobile-language-switcher" data-language-switcher>
+    {localeOptions.map((locale) => (
+      <a
+        href={locale.href}
+        data-locale-option={locale.code}
+        class={locale.isActive ? 'is-active' : ''}
+        aria-current={locale.isActive ? 'page' : undefined}
+        translate="no"
+      >
+        <img
+          class="language-switcher-flag"
+          src={locale.flagIcon}
+          alt={getFlagAlt(locale.code)}
+          width="18"
+          height="13"
+          loading="lazy"
+          decoding="async"
+        />
+        <span>{locale.label}</span>
+      </a>
+    ))}
+  </div>
   <div class="mobile-cta-group">
     <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost" style="text-align:center;font-size:.8rem;padding:14px 28px;">
       Evaluar mi situación →
@@ -156,6 +245,101 @@ const { activeNav } = Astro.props;
 </div>
 
 <script>
+  function detectLocale(pathname) {
+    if (pathname === '/en' || pathname.startsWith('/en/')) {
+      return 'en';
+    }
+
+    if (pathname === '/pt' || pathname.startsWith('/pt/')) {
+      return 'pt';
+    }
+
+    return 'es';
+  }
+
+  function normalizePath(pathname) {
+    if (!pathname) {
+      return '/';
+    }
+
+    let normalized = pathname.startsWith('/') ? pathname : `/${pathname}`;
+    normalized = normalized.replace(/\/index\.html$/i, '/');
+    normalized = normalized.replace(/\/{2,}/g, '/');
+
+    if (normalized !== '/' && !normalized.endsWith('/')) {
+      normalized = `${normalized}/`;
+    }
+
+    return normalized || '/';
+  }
+
+  function stripLocale(pathname) {
+    const normalized = normalizePath(pathname);
+    const locale = detectLocale(normalized);
+
+    if (locale === 'es') {
+      return normalized;
+    }
+
+    const prefix = `/${locale}`;
+    const stripped = normalized.slice(prefix.length) || '/';
+    return stripped.startsWith('/') ? normalizePath(stripped) : normalizePath(`/${stripped}`);
+  }
+
+  function buildLocaleHref(locale, pathname) {
+    const basePath = stripLocale(pathname);
+
+    if (locale === 'es') {
+      return basePath;
+    }
+
+    return normalizePath(`/${locale}${basePath === '/' ? '/' : basePath}`);
+  }
+
+  function syncLanguageSwitchers() {
+    const pathname = window.location.pathname;
+    const currentLocale = detectLocale(pathname);
+
+    document.querySelectorAll('[data-language-switcher]').forEach((switcher) => {
+      const current = switcher.querySelector('[data-language-current]');
+      const currentFlag = switcher.querySelector('[data-language-flag]');
+
+      if (current) {
+        current.textContent = currentLocale.toUpperCase();
+      }
+
+      if (currentFlag) {
+        currentFlag.setAttribute(
+          'src',
+          currentLocale === 'en'
+            ? '/flags/gb.svg'
+            : currentLocale === 'pt'
+              ? '/flags/pt.svg'
+              : '/flags/es.svg',
+        );
+      }
+
+      switcher.querySelectorAll('[data-locale-option]').forEach((link) => {
+        const locale = link.getAttribute('data-locale-option');
+
+        if (!locale) {
+          return;
+        }
+
+        const isActive = locale === currentLocale;
+
+        link.setAttribute('href', buildLocaleHref(locale, pathname));
+        link.classList.toggle('is-active', isActive);
+
+        if (isActive) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    });
+  }
+
   function closeMobile() {
     document.getElementById('mobileMenu')?.classList.remove('active');
     document.getElementById('hamburgerBtn')?.classList.remove('active');
@@ -167,5 +351,7 @@ const { activeNav } = Astro.props;
     document.getElementById('mobileMenu')?.classList.toggle('active');
     document.body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
   });
+
+  syncLanguageSwitchers();
 </script>
 

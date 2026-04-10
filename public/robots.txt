@@ -20,8 +20,6 @@ Allow: /documentacion-procesos/
 
 # Excluir recursos estáticos innecesarios para conservar crawl budget
 Disallow: /*.json$
-Disallow: /*.css$
-Disallow: /*.js$
 Disallow: /_astro/
 Disallow: /admin/
 
@@ -30,9 +28,9 @@ User-agent: Googlebot
 Allow: /
 Crawl-delay: 0.5
 Request-rate: 30/60
-Max-snippets: 160
-Max-image-preview: large
-Max-video-preview: -1
+# Max-snippets: 160
+# Max-image-preview: large
+# Max-video-preview: -1
 
 # Optimización para Bingbot
 User-agent: Bingbot
@@ -53,19 +51,12 @@ Crawl-delay: 1
 User-agent: MJ12bot
 Disallow: /
 
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
 User-agent: BLEXBot
 Disallow: /
 
 # Sitemaps
-Sitemap: https://gmvsolutions.es/sitemap.xml
-Sitemap: https://gmvsolutions.es/sitemap-video.xml
+Sitemap: https://www.gmvsolutions.es/sitemap.xml
 
 # LLMs
 # Información estructurada para modelos de lenguaje
-# https://gmvsolutions.es/llms.txt
+# https://www.gmvsolutions.es/llms.txt

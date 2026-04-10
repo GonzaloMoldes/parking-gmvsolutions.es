@@ -1,17 +1,20 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
 
-const title = "Qué es un SOP industrial y cómo implementarlo en tu planta";
-const description = "Guía completa sobre procedimientos operativos estándar (SOP) para pymes industriales. Qué son, por qué importan, cómo crearlos y qué herramientas usar. Con datos del sector español.";
+const title = "SOP Industrial: Qué es, cómo implementarlo en tu planta industrial | Guía 2026";
+const description = "Guía completa sobre SOP (procedimientos operativos estándar) para pymes industriales. Qué son, por qué importan, cómo crearlos, tipos de SOP y mejores herramientas. Incluye datos del sector español.";
 const date = "2026-03-18";
 const category = "Procedimientos operativos estándar";
 const readTime = "12 min.";
-const canonical = "https://gmvsolutions.es/blog/que-es-un-sop-industrial/";
-const image = "https://gmvsolutions.es/factory-bg.jpg";
+const canonical = "https://www.gmvsolutions.es/blog/que-es-un-sop-industrial/";
+const image = "https://www.gmvsolutions.es/factory-bg.jpg";
+const keywords = "SOP industrial, procedimientos operativos estándar, máquinas industria, documentación procesos, operarios, pymes industriales";
+const wordCount = 2400;
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "headline": title,
   "description": description,
   "datePublished": date,
@@ -21,20 +24,27 @@ const schema = {
   "url": canonical,
   "mainEntityOfPage": canonical,
   "image": image,
+  "keywords": keywords,
+  "wordCount": wordCount,
   "author": { "@type": "Organization", "name": "GMV Solutions" },
   "publisher": {
     "@type": "Organization",
     "name": "GMV Solutions",
-    "url": "https://gmvsolutions.es",
+    "url": "https://www.gmvsolutions.es",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://gmvsolutions.es/favicon.svg"
+      "url": "https://www.gmvsolutions.es/favicon.svg"
     }
   }
 };
 ---
 
-<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} schema={schema}>
+<!-- GLOSSARY: operario, baja, onboarding, competencias, tutor, incorporación, SOP, continuidad -->
+<!-- CONTEXT: operational, marketing, product -->
+<!-- EN_TERMS: [machine operator, absence, onboarding, skills, mentor, operator onboarding, standard operating procedure, continuity] -->
+<!-- PT_TERMS: [operador, falta, integração, competências, mentor, integração de operadores, procedimento operativo padrão, continuidade] -->
+
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} schema={schema} keywords={keywords} wordCount={wordCount}>
 
 <h2>Qué es un SOP y por qué debería importarte</h2>
 
@@ -148,6 +158,39 @@ const schema = {
 </div>
 
 <hr />
+
+<RelatedContent
+  blogArticles={[
+    {
+      title: "Cómo documentar el conocimiento de tus operarios expertos",
+      url: "/blog/documentar-conocimiento-operarios-expertos/",
+      description: "Estrategias prácticas para capturar el conocimiento tácito de tus mejores operarios antes de que se jubilen o se vayan."
+    },
+    {
+      title: "Gestión de competencias en la industria: Guía + Plantilla",
+      url: "/blog/gestion-competencias-industria/",
+      description: "Cómo documentar, medir y desarrollar competencias operativas reales en tu planta."
+    }
+  ]}
+  forQuienPages={[
+    {
+      title: "Soluciones para Jefes de Producción",
+      url: "/para-quien/jefe-de-produccion/",
+      audience: "responsables de turno y producción diaria"
+    },
+    {
+      title: "Software de Onboarding para Pymes",
+      url: "/onboarding-software-pymes/",
+      audience: "empresas que necesitan ordenar incorporaciones"
+    }
+  ]}
+  relatedResources={[
+    {
+      title: "Plantilla descargable de SOP industrial",
+      url: "/recursos/plantilla-sop-industrial/"
+    }
+  ]}
+/>
 
 <p><em>Este artículo forma parte de la serie de guías prácticas sobre documentación operativa industrial de <a href="/blog/">GMV Solutions</a>. Si quieres saber cuánto te está costando la falta de procedimientos documentados en tu planta, haz nuestro <a href="https://diagnostico.gmvsolutions.es">diagnóstico de riesgo operativo</a> — resultado en 2 minutos.</em></p>
 

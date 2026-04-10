@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import entryLogo from '../../reelevo-brand-logo-transparent-shadow.png';
+import { normalizePrimarySiteUrl } from '../lib/i18n.js';
 
 export interface Props {
   title: string;
@@ -13,18 +14,23 @@ export interface Props {
   ogImage?: string;
   activeNav?: string;
   schema?: object | object[];
+  enableEntrySplash?: boolean;
 }
 
 const {
   title,
   description,
-  canonical = Astro.url.href,
+  canonical: canonicalInput = new URL(Astro.url.pathname, 'https://www.gmvsolutions.es').toString(),
   ogTitle = title,
   ogDescription = description,
-  ogImage = 'https://gmvsolutions.es/factory-bg.jpg',
+  ogImage: ogImageInput = 'https://www.gmvsolutions.es/factory-bg.jpg',
   activeNav,
   schema,
+  enableEntrySplash = Astro.url.pathname === '/',
 } = Astro.props;
+
+const canonical = normalizePrimarySiteUrl(canonicalInput);
+const ogImage = normalizePrimarySiteUrl(ogImageInput);
 ---
 
 <!doctype html>
@@ -34,76 +40,145 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <script is:inline>
-    (() => {
-      const root = document.documentElement;
-      const splashKey = 'reelevo-entry-splash-seen';
+  {enableEntrySplash && (
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const splashKey = 'reelevo-entry-splash-seen';
 
-      root.classList.add('entry-splash-booting');
+        root.classList.add('entry-splash-booting');
 
-      try {
-        if (window.sessionStorage.getItem(splashKey) !== '1') {
+        try {
+          if (window.sessionStorage.getItem(splashKey) !== '1') {
+            root.classList.add('show-entry-splash');
+            window.sessionStorage.setItem(splashKey, '1');
+          }
+        } catch {
           root.classList.add('show-entry-splash');
-          window.sessionStorage.setItem(splashKey, '1');
+        } finally {
+          root.classList.remove('entry-splash-booting');
         }
-      } catch {
-        root.classList.add('show-entry-splash');
-      } finally {
-        root.classList.remove('entry-splash-booting');
+      })();
+    </script>
+  )}
+
+  {enableEntrySplash && (
+    <style is:inline>
+      html,
+      body {
+        background: #000;
       }
-    })();
-  </script>
 
-  <style is:inline>
-    html,
-    body {
-      background: #000;
-    }
+      html.entry-splash-booting body,
+      html.show-entry-splash body {
+        overflow: hidden;
+      }
 
-    html.entry-splash-booting body {
-      overflow: hidden;
-    }
+      .site-shell {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .6s ease, visibility 0s linear 0s;
+      }
 
-    html.entry-splash-booting .site-shell,
-    html.show-entry-splash .site-shell {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-    }
+      .entry-splash {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: #000;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity .6s ease, visibility 0s linear .6s;
+      }
 
-    html.entry-splash-booting .entry-splash {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-    }
+      .entry-splash__logo-wrap {
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        transform: translateY(12px);
+        filter: blur(10px);
+        transition: opacity .42s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .6s ease;
+      }
 
-    html.show-entry-splash .entry-splash {
-      opacity: 1 !important;
-      visibility: visible !important;
-      pointer-events: auto !important;
-    }
-  </style>
+      .entry-splash__logo {
+        width: min(62vw, 420px);
+        height: auto;
+        aspect-ratio: 1;
+        transform: scale(1);
+        transform-origin: 58% center;
+        filter: drop-shadow(0 12px 34px rgba(0,0,0,.42));
+        transition: transform .92s cubic-bezier(.16,1,.3,1), opacity .5s ease;
+      }
 
-  <!-- Cookiebot -->
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="555982fb-7d04-4596-8a45-fa2d446a3892" data-blockingmode="auto" type="text/javascript"></script>
-  
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M223Z398');</script>
-    <!-- End Google Tag Manager -->
+      html.entry-splash-booting .site-shell,
+      html.show-entry-splash .site-shell {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
 
-  <!-- Google tag (gtag.js) — GA4 + Google Ads -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJCZ6M3T8Y"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-JJCZ6M3T8Y');
-    gtag('config', 'AW-18000536518');
-  </script>
+      html.entry-splash-booting .entry-splash {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+
+      html.show-entry-splash .entry-splash {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transition: opacity .6s ease;
+      }
+
+      .entry-splash-logo-visible .entry-splash__logo-wrap {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+
+      .entry-splash-logo-visible .entry-splash__logo {
+        animation: entryBreath 1.45s ease-in-out infinite;
+      }
+
+      .entry-splash-zoom .entry-splash__logo {
+        animation: none;
+        transform: scale(4.8);
+        opacity: 0;
+      }
+
+      @keyframes entryBreath {
+        0%, 100% { transform: scale(1); opacity: .9; }
+        50% { transform: scale(1.05); opacity: 1; }
+      }
+
+      @media (max-width: 600px) {
+        .entry-splash__logo {
+          width: min(78vw, 300px);
+        }
+
+        .entry-splash-zoom .entry-splash__logo {
+          transform: scale(5.6);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .entry-splash,
+        .site-shell,
+        .entry-splash__logo-wrap {
+          transition: none;
+        }
+
+        .entry-splash__logo {
+          animation: none;
+          transition: none;
+        }
+      }
+    </style>
+  )}
 
   <!-- SEO -->
   <title>{title}</title>
@@ -134,7 +209,17 @@ const {
   )}
 
   <!-- Google Fonts -->
+  <link rel="dns-prefetch" href="//consent.cookiebot.com" />
+  <link rel="dns-prefetch" href="//consentcdn.cookiebot.com" />
+  <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="//www.google-analytics.com" />
+  <link rel="dns-prefetch" href="//stats.g.doubleclick.net" />
+  <link rel="preconnect" href="https://consent.cookiebot.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Preload critical WOFF2 fonts -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/dmsans/v16/rP2Yp2ywxg8T4e_xyW9vJ0nCytnnvLWJ2xwK_uL05aE.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="https://fonts.gstatic.com/s/oswald/v57/TK3IWkUHH4ztbl0S1W8AiZkS9qT5F3vl3p3YMCCc-gE.woff2" as="font" type="font/woff2" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap"
     rel="stylesheet"
@@ -145,18 +230,21 @@ const {
 </head>
 
 <body>
-  <div class="entry-splash" aria-hidden="true">
-    <div class="entry-splash__logo-wrap">
-      <img
-        class="entry-splash__logo"
-        src={entryLogo.src}
-        width={entryLogo.width}
-        height={entryLogo.height}
-        alt=""
-        decoding="async"
-      />
+  {enableEntrySplash && (
+    <div class="entry-splash" aria-hidden="true">
+      <div class="entry-splash__logo-wrap">
+        <img
+          class="entry-splash__logo"
+          src={entryLogo.src}
+          width="525"
+          height="525"
+          alt=""
+          loading="eager"
+          decoding="async"
+        />
+      </div>
     </div>
-  </div>
+  )}
 
   <div class="site-shell">
     <div class="hero-bg"></div>
@@ -169,36 +257,92 @@ const {
     <Footer />
   </div>
 
-  <script is:inline>
-    (() => {
-      const root = document.documentElement;
-      const logoRevealDelay = 220;
-      const pulseDuration = 3000;
-      const zoomDuration = 920;
-      const blackoutHold = 180;
+  {enableEntrySplash && (
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const logoRevealDelay = 220;
+        const pulseDuration = 3000;
+        const zoomDuration = 920;
+        const blackoutHold = 180;
 
-      if (!root.classList.contains('show-entry-splash')) {
-        return;
-      }
+        if (!root.classList.contains('show-entry-splash')) {
+          return;
+        }
 
-      window.setTimeout(() => {
-        root.classList.add('entry-splash-logo-visible');
-      }, logoRevealDelay);
+        window.setTimeout(() => {
+          root.classList.add('entry-splash-logo-visible');
+        }, logoRevealDelay);
 
-      window.setTimeout(() => {
-        root.classList.add('entry-splash-zoom');
-      }, logoRevealDelay + pulseDuration);
+        window.setTimeout(() => {
+          root.classList.add('entry-splash-zoom');
+        }, logoRevealDelay + pulseDuration);
 
-      window.setTimeout(() => {
-        root.classList.remove('entry-splash-zoom');
-        root.classList.remove('entry-splash-logo-visible');
-        root.classList.remove('show-entry-splash');
-      }, logoRevealDelay + pulseDuration + zoomDuration + blackoutHold);
-    })();
-  </script>
-</body>
+        window.setTimeout(() => {
+          root.classList.remove('entry-splash-zoom');
+          root.classList.remove('entry-splash-logo-visible');
+          root.classList.remove('show-entry-splash');
+        }, logoRevealDelay + pulseDuration + zoomDuration + blackoutHold);
+      })();
+    </script>
+  )}
+
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M223Z398"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Analytics Loading: Deferred until consent -->
+  <script is:inline>
+    (function() {
+      const consentKey = 'ck_analytics';
+
+      function loadGTM() {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-M223Z398');
+      }
+
+      function loadGA4() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-JJCZ6M3T8Y');
+        gtag('config', 'AW-18000536518');
+
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JJCZ6M3T8Y';
+        document.head.appendChild(script);
+      }
+
+      function initializeAnalytics() {
+        if (!window.CookieConsent) return;
+
+        const hasAnalyticsConsent = window.CookieConsent.consent?.marketing ||
+                                    window.CookieConsent.consent?.statistics;
+
+        if (hasAnalyticsConsent) {
+          loadGTM();
+          loadGA4();
+        }
+      }
+
+      // Check if Cookiebot is already loaded
+      if (typeof window.CookieConsent !== 'undefined') {
+        initializeAnalytics();
+      } else {
+        // Wait for Cookiebot to load
+        window.addEventListener('CookiebotOnConsentUpdate', initializeAnalytics);
+        window.addEventListener('CookiebotOnLoad', initializeAnalytics);
+      }
+    })();
+  </script>
+
+  <!-- Cookiebot: Deferred to end of body for non-blocking consent loading -->
+  <script id="Cookiebot" defer src="https://consent.cookiebot.com/uc.js" data-cbid="555982fb-7d04-4596-8a45-fa2d446a3892" data-blockingmode="manual" type="text/javascript"></script>
+</body>
 </html>

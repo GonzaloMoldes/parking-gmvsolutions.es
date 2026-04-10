@@ -1,17 +1,20 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
 
-const title = "Cómo documentar el conocimiento de tus operarios expertos antes de que se vayan";
-const description = "Guía práctica para capturar el conocimiento tácito de operarios veteranos en pymes industriales. Metodología de transferencia de conocimiento operativo paso a paso, con errores comunes y soluciones.";
+const title = "Documentar Conocimiento de Operarios: Guía Práctica para Capturar Know-How Industrial";
+const description = "Guía completa para capturar y documentar el conocimiento tácito de operarios expertos en pymes industriales. Metodología de transferencia de conocimiento operativo, plantilla de documentación y errores comunes.";
 const date = "2026-03-10";
 const category = "Transferencia de conocimiento";
 const readTime = "14 min.";
-const canonical = "https://gmvsolutions.es/blog/documentar-conocimiento-operarios-expertos/";
-const image = "https://gmvsolutions.es/factory-bg.jpg";
+const canonical = "https://www.gmvsolutions.es/blog/documentar-conocimiento-operarios-expertos/";
+const image = "https://www.gmvsolutions.es/factory-bg.jpg";
+const keywords = "documentar conocimiento operarios, transferencia de conocimiento industrial, know-how operativo, operarios expertos, pymes industria";
+const wordCount = 2800;
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "headline": title,
   "description": description,
   "datePublished": date,
@@ -21,20 +24,27 @@ const schema = {
   "url": canonical,
   "mainEntityOfPage": canonical,
   "image": image,
+  "keywords": keywords,
+  "wordCount": wordCount,
   "author": { "@type": "Organization", "name": "GMV Solutions" },
   "publisher": {
     "@type": "Organization",
     "name": "GMV Solutions",
-    "url": "https://gmvsolutions.es",
+    "url": "https://www.gmvsolutions.es",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://gmvsolutions.es/favicon.svg"
+      "url": "https://www.gmvsolutions.es/favicon.svg"
     }
   }
 };
 ---
 
-<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} schema={schema}>
+<!-- GLOSSARY: operario, baja, onboarding, competencias, tutor, incorporación, SOP, continuidad -->
+<!-- CONTEXT: operational, marketing, product -->
+<!-- EN_TERMS: [machine operator, absence, onboarding, skills, mentor, operator onboarding, standard operating procedure, continuity] -->
+<!-- PT_TERMS: [operador, falta, integração, competências, mentor, integração de operadores, procedimento operativo padrão, continuidade] -->
+
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} schema={schema} keywords={keywords} wordCount={wordCount}>
 
 <h2>El conocimiento que se va cuando se va la persona</h2>
 
@@ -183,6 +193,33 @@ const schema = {
 </div>
 
 <hr />
+
+<RelatedContent
+  blogArticles={[
+    {
+      title: "SOP Industrial: Qué es y cómo implementarlo",
+      url: "/blog/que-es-un-sop-industrial/",
+      description: "Guía completa sobre procedimientos operativos estándar y cómo documentarlos para evitar dependencia de personas clave."
+    },
+    {
+      title: "Gestión de competencias en la industria",
+      url: "/blog/gestion-competencias-industria/",
+      description: "Metodología práctica para medir y desarrollar competencias reales en tu planta."
+    }
+  ]}
+  forQuienPages={[
+    {
+      title: "Jefe de Producción",
+      url: "/para-quien/jefe-de-produccion/",
+      audience: "responsables de turno con necesidad de evitar bajas inesperadas"
+    },
+    {
+      title: "Responsable RRHH",
+      url: "/para-quien/responsable-rrhh/",
+      audience: "equipos de recursos humanos"
+    }
+  ]}
+/>
 
 <p><em>¿Tienes operarios clave cuyo conocimiento no está documentado? Haz nuestro <a href="https://diagnostico.gmvsolutions.es">diagnóstico de riesgo operativo</a> y descubre cuánto riesgo real tiene tu planta — resultado en 2 minutos.</em></p>
 

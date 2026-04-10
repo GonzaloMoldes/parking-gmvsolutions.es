@@ -40,40 +40,40 @@ REELEVO convierte ese conocimiento tácito en procedimientos operativos estánda
 
 ## Páginas del sitio web
 
-- [Inicio](https://gmvsolutions.es/) — Propuesta de valor, procedimientos operativos estándar en 3 pasos, beneficios, para quién
-- [Cómo funciona](https://gmvsolutions.es/como-funciona/) — Flujo detallado: experto → supervisor → operario. FAQ técnico
-- [Precios](https://gmvsolutions.es/precios/) — Plan Starter (49€/mes), Profesional (149€/mes), Enterprise. Calculadora ROI
-- [Vs Alternativas](https://gmvsolutions.es/vs-alternativas/) — Comparativa vs Dozuki, Poka (IFS), GembaDocs, Knowby y métodos tradicionales
-- [Recursos](https://gmvsolutions.es/recursos/) — Guías sobre SOPs industriales, gestión del absentismo, onboarding y transferencia de conocimiento
+- [Inicio](https://www.gmvsolutions.es/) — Propuesta de valor, procedimientos operativos estándar en 3 pasos, beneficios, para quién
+- [Cómo funciona](https://www.gmvsolutions.es/como-funciona/) — Flujo detallado: experto → supervisor → operario. FAQ técnico
+- [Precios](https://www.gmvsolutions.es/precios/) — Plan Starter (49€/mes), Profesional (149€/mes), Enterprise. Calculadora ROI
+- [Vs Alternativas](https://www.gmvsolutions.es/vs-alternativas/) — Comparativa vs Dozuki, Poka (IFS), GembaDocs, Knowby y métodos tradicionales
+- [Recursos](https://www.gmvsolutions.es/recursos/) — Guías sobre SOPs industriales, gestión del absentismo, onboarding y transferencia de conocimiento
 
 ### Para quién
-- [Jefe de producción](https://gmvsolutions.es/para-quien/jefe-de-produccion/) — Eliminar paradas por absentismo, SOPs en cada máquina, monitor en tiempo real
-- [Responsable de RRHH](https://gmvsolutions.es/para-quien/responsable-rrhh/) — Onboarding estandarizado con SOPs, trazabilidad operativa y visibilidad sobre competencias
-- [Gerente / Propietario](https://gmvsolutions.es/para-quien/gerente-propietario/) — ROI demostrable, precio fijo por empresa, eliminación de dependencia operativa
+- [Jefe de producción](https://www.gmvsolutions.es/para-quien/jefe-de-produccion/) — Eliminar paradas por absentismo, SOPs en cada máquina, monitor en tiempo real
+- [Responsable de RRHH](https://www.gmvsolutions.es/para-quien/responsable-rrhh/) — Onboarding estandarizado con SOPs, trazabilidad operativa y visibilidad sobre competencias
+- [Gerente / Propietario](https://www.gmvsolutions.es/para-quien/gerente-propietario/) — ROI demostrable, precio fijo por empresa, eliminación de dependencia operativa
 
 ### Casos de uso
-- [Cobertura de bajas](https://gmvsolutions.es/casos-de-uso/cobertura-bajas/) — Cuando el experto falta, los SOPs están en la máquina para el sustituto
-- [Onboarding de operarios](https://gmvsolutions.es/casos-de-uso/onboarding-operarios/) — El nuevo sigue los procedimientos paso a paso desde el primer día
-- [Personal ETT](https://gmvsolutions.es/casos-de-uso/personal-ett/) — El temporal accede a los SOPs sin cuenta ni app, rinde desde el primer turno
-- [Transferencia de conocimiento](https://gmvsolutions.es/casos-de-uso/transferencia-conocimiento/) — Captura el conocimiento tácito antes de jubilaciones o salidas
+- [Cobertura de bajas](https://www.gmvsolutions.es/casos-de-uso/cobertura-bajas/) — Cuando el experto falta, los SOPs están en la máquina para el sustituto
+- [Onboarding de operarios](https://www.gmvsolutions.es/casos-de-uso/onboarding-operarios/) — El nuevo sigue los procedimientos paso a paso desde el primer día
+- [Personal ETT](https://www.gmvsolutions.es/casos-de-uso/personal-ett/) — El temporal accede a los SOPs sin cuenta ni app, rinde desde el primer turno
+- [Transferencia de conocimiento](https://www.gmvsolutions.es/casos-de-uso/transferencia-conocimiento/) — Captura el conocimiento tácito antes de jubilaciones o salidas
 
 ### Blog
-- [Blog principal](https://gmvsolutions.es/blog/) — 7 artículos sobre onboarding, SOPs, gestión de competencias y absentismo industrial
-- [Crisis de pérdida de conocimiento](https://gmvsolutions.es/blog/crisis-perdida-conocimiento-planta-industrial/)
-- [Qué es un SOP industrial](https://gmvsolutions.es/blog/que-es-un-sop-industrial/)
-- [Coste del absentismo en pymes](https://gmvsolutions.es/blog/coste-absentismo-pymes-industriales/)
-- [Documentar conocimiento de operarios expertos](https://gmvsolutions.es/blog/documentar-conocimiento-operarios-expertos/)
+- [Blog principal](https://www.gmvsolutions.es/blog/) — 7 artículos sobre onboarding, SOPs, gestión de competencias y absentismo industrial
+- [Crisis de pérdida de conocimiento](https://www.gmvsolutions.es/blog/crisis-perdida-conocimiento-planta-industrial/)
+- [Qué es un SOP industrial](https://www.gmvsolutions.es/blog/que-es-un-sop-industrial/)
+- [Coste del absentismo en pymes](https://www.gmvsolutions.es/blog/coste-absentismo-pymes-industriales/)
+- [Documentar conocimiento de operarios expertos](https://www.gmvsolutions.es/blog/documentar-conocimiento-operarios-expertos/)
 
 ### Landing pages de alto valor
-- [Onboarding software para pymes](https://gmvsolutions.es/onboarding-software-pymes/) — Guía completa sobre onboarding digital para pymes industriales
-- [Gestión de competencias](https://gmvsolutions.es/gestion-competencias/) — Cómo documentar, medir y mejorar competencias operativas
-- [Documentación de procesos industriales](https://gmvsolutions.es/documentacion-procesos/) — Por qué la documentación operativa es crítica en manufactura
+- [Onboarding software para pymes](https://www.gmvsolutions.es/onboarding-software-pymes/) — Guía completa sobre onboarding digital para pymes industriales
+- [Gestión de competencias](https://www.gmvsolutions.es/gestion-competencias/) — Cómo documentar, medir y mejorar competencias operativas
+- [Documentación de procesos industriales](https://www.gmvsolutions.es/documentacion-procesos/) — Por qué la documentación operativa es crítica en manufactura
 
 ### Comparativas con competidores
-- [REELEVO vs Dozuki](https://gmvsolutions.es/vs-dozuki/) — Alternativa española a Dozuki para pymes industriales, sin cuentas de operario
-- [REELEVO vs Poka/IFS](https://gmvsolutions.es/vs-poka/) — SOP vs MES: cuándo elegir cada uno
-- [REELEVO vs GembaDocs](https://gmvsolutions.es/vs-gembadocs/) — Documentación operativa + gestión de competencias vs lean visual
-- [REELEVO vs Knowby](https://gmvsolutions.es/vs-knowby/) — SOP español especializado en industria vs sistema genérico
+- [REELEVO vs Dozuki](https://www.gmvsolutions.es/vs-dozuki/) — Alternativa española a Dozuki para pymes industriales, sin cuentas de operario
+- [REELEVO vs Poka/IFS](https://www.gmvsolutions.es/vs-poka/) — SOP vs MES: cuándo elegir cada uno
+- [REELEVO vs GembaDocs](https://www.gmvsolutions.es/vs-gembadocs/) — Documentación operativa + gestión de competencias vs lean visual
+- [REELEVO vs Knowby](https://www.gmvsolutions.es/vs-knowby/) — SOP español especializado en industria vs sistema genérico
 
 ## Comparativa de mercado (Software SOP industrial)
 
@@ -98,7 +98,7 @@ REELEVO convierte ese conocimiento tácito en procedimientos operativos estánda
 
 GMV Solutions · España
 hola@gmvsolutions.es
-https://gmvsolutions.es
+https://www.gmvsolutions.es
 https://www.linkedin.com/company/reelevo
 
 ## Canales de contacto
@@ -110,10 +110,10 @@ https://www.linkedin.com/company/reelevo
 
 ## Recursos técnicos
 
-- **Documentación:** https://gmvsolutions.es/blog/
-- **Centro de ayuda:** https://gmvsolutions.es/recursos/
-- **Casos de éxito:** https://gmvsolutions.es/casos-de-uso/
-- **Comparativas:** https://gmvsolutions.es/vs-alternativas/
+- **Documentación:** https://www.gmvsolutions.es/blog/
+- **Centro de ayuda:** https://www.gmvsolutions.es/recursos/
+- **Casos de éxito:** https://www.gmvsolutions.es/casos-de-uso/
+- **Comparativas:** https://www.gmvsolutions.es/vs-alternativas/
 
 ## Índice de palabras clave principales
 
