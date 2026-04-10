@@ -1,0 +1,235 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "What is an industrial SOP and how to implement it on your shop floor";
+const description = "Complete guide to Standard Operating Procedures (SOPs) for industrial SMEs. What they are, why they matter, how to create them, and what tools to use. With data from the manufacturing sector.";
+const date = "2026-03-18";
+const category = "Standard Operating Procedures";
+const readTime = "12 min.";
+const canonical = "https://www.gmvsolutions.es/en/blog/que-es-un-sop-industrial/";
+const image = "https://www.gmvsolutions.es/factory-bg.jpg";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": date,
+  "dateModified": date,
+  "articleSection": category,
+  "inLanguage": "en-US",
+  "url": canonical,
+  "mainEntityOfPage": canonical,
+  "image": image,
+  "author": { "@type": "Organization", "name": "GMV Solutions" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GMV Solutions",
+    "url": "https://www.gmvsolutions.es",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gmvsolutions.es/favicon.svg"
+    }
+  }
+};
+---
+
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} schema={schema}>
+
+<h2>What is an SOP and why it matters</h2>
+
+<p>An SOP (Standard Operating Procedure) is a document that describes, step by step, how to perform a specific task within an organization. In industrial settings, an SOP defines exactly how to operate a machine, execute a production process, perform a changeover, or respond to an incident.</p>
+
+<p>The definition is straightforward. The reality for most industrial SMEs is not: <strong>only 23% have documented and updated operating procedures</strong>. The remaining 77% depends on what the experienced operator carries around in their head — what we call "tribal knowledge" or unwritten knowledge.</p>
+
+<p>This means that when that person takes sick leave, retires, or moves to another company, that knowledge walks out the door with them.</p>
+
+<h2>SOP vs work instructions vs operations manual</h2>
+
+<p>There's frequent confusion between these three concepts. The difference is scope:</p>
+
+<ul>
+<li><strong>Operations manual:</strong> a general document that describes how a plant or department functions overall. Rarely consulted on a daily basis.</li>
+<li><strong>Standard Operating Procedure (SOP):</strong> describes a complete process from start to finish — for example, "start-up of the filling line." Includes the steps, their sequence, quality criteria, and what to do if something goes wrong.</li>
+<li><strong>Work instruction:</strong> describes a specific task within an SOP — for example, "set the head pressure to 2.5 bar." More granular.</li>
+</ul>
+
+<p>For an industrial SME, the practical approach is to work at the SOP level: complete processes that a machine operator can follow from start to finish. If you need more detail within a step, add the work instruction as a sub-step.</p>
+
+<h2>Why industrial SMEs need SOPs (with data)</h2>
+
+<p>The numbers from the manufacturing sector are clear about the cost of not having documented procedures:</p>
+
+<div class="data-card">
+<p><strong>7.2%</strong> — average absenteeism rate in Spanish industrial SMEs. That means in a company of 40 people, almost 3 are absent daily.</p>
+<p><strong>40%</strong> — of production managers call their experienced operator directly when someone is absent. Even if they're on sick leave.</p>
+<p><strong>3-5 days</strong> — average time until a new operator performs at the level of the primary operator.</p>
+<p><strong>+40%</strong> — more operational errors during the first days of any new operator without documented procedures.</p>
+</div>
+
+<p>Without SOPs, every absence becomes a crisis. Every new hire doubles the cost (the new operator isn't productive, and the trainer isn't either). Every retirement means irreversible loss of knowledge.</p>
+
+<p>With documented and accessible SOPs, <strong>knowledge stops being about people and becomes a company asset</strong>.</p>
+
+<h2>The 5 most common types of SOPs on the shop floor</h2>
+
+<p>Not every process needs an SOP. Start with the ones that have the most impact:</p>
+
+<ol>
+<li><strong>Machine start-up and shutdown:</strong> processes with the highest variability between operators and the most errors when performed by someone unfamiliar with them.</li>
+<li><strong>Product changeover:</strong> where a parameter error rejects entire batches. These SOPs have the highest immediate ROI.</li>
+<li><strong>First-level preventive maintenance:</strong> tasks the operator should do before each shift that many skip because "they know how."</li>
+<li><strong>Incident management:</strong> what to do when a machine fails, what to check before calling the technician, when to stop production. The troubleshooting that prevents unnecessary downtime.</li>
+<li><strong>Safety protocols:</strong> lockout/tagout procedures (LOTO), PPE use, emergency response. Mandatory by regulation but rarely kept current.</li>
+</ol>
+
+<h2>How to create an industrial SOP in 5 steps</h2>
+
+<h3>1. Identify critical processes</h3>
+
+<p>Don't document everything at once. Start with processes that meet at least one of these criteria: only one person knows how to do it, production stops when that person is unavailable, it has high variability between operators, or it's caused quality or safety incidents.</p>
+
+<h3>2. Capture the expert's knowledge</h3>
+
+<p>Sit down with the operator who knows the process best and document each step. The key is capturing <strong>how they actually do it</strong>, not what the machine manual says it should be. The tricks, the adjustments, the signs something's going wrong — that's the unwritten knowledge no manual captures.</p>
+
+<h3>3. Structure the SOP in sequential steps</h3>
+
+<p>Each SOP should have between 5 and 15 steps. If it has more, you're probably mixing multiple processes. Each step should be a concrete, verifiable action: "set pressure to 2.5 bar," not "prepare the machine."</p>
+
+<h3>4. Add troubleshooting</h3>
+
+<p>For each step that could fail, document what to do if it goes wrong. This is what separates a useful SOP from a decorative document. The substitute operator needs to know not just what to do — they need to know what to do <strong>when things don't go as planned</strong>.</p>
+
+<h3>5. Make it accessible where it's needed</h3>
+
+<p>An SOP sitting in a shared folder on the server doesn't help. The operator needs access to instructions <strong>at the workstation, at the moment they need them</strong>. If they have to go to a computer, find a folder, locate a file, and open it, they won't. Accessibility is what separates an SOP that gets used from one that gets ignored.</p>
+
+<h2>Common mistakes when implementing SOPs in SMEs</h2>
+
+<ul>
+<li><strong>Documenting everything at once:</strong> creates fatigue and abandonment. Start with 3-5 critical processes and expand.</li>
+<li><strong>Writing SOPs from the office:</strong> if the operators who actually run the process don't participate, the SOP won't reflect reality and no one will follow it.</li>
+<li><strong>Creating 40-page documents:</strong> an SOP needs to be followed step-by-step at the workstation. If it looks like a university manual, no one will consult it.</li>
+<li><strong>Not updating:</strong> an outdated SOP is worse than no SOP because it creates false confidence. You need a system that makes updating easy.</li>
+<li><strong>Not measuring:</strong> if you don't know who's consulting what SOP, when, and with what result, you can't improve or prove the ROI of documentation.</li>
+</ul>
+
+<h2>SOP software: when it makes sense to use a tool</h2>
+
+<p>If you have 1-2 machines and 5 employees, a PDF might be enough. But as your plant grows, PDFs get lost, become outdated, you lose track of who consulted them, and there's no way to ensure operators are following the right procedure.</p>
+
+<p>SOP software solves these problems: centralizes procedures, makes them accessible at the workstation, tracks who's consulted what, allows updates without reprinting, and generates data on actual SOP usage.</p>
+
+<div class="highlight-box">
+<p><strong>REELEVO</strong> is industrial SOP software for SMEs that helps reduce dependency on key operators, accelerate onboarding, and improve operational continuity. It puts work directly at the workstation with no friction for the operator. Starting at €49/month per company with unlimited operators.</p>
+<p><a href="https://app.gmvsolutions.es/registro">Sign up for REELEVO →</a></p>
+</div>
+
+<div class="related-links">
+<div class="related-links-label">Keep exploring</div>
+<div class="related-links-grid">
+<a href="/en/como-funciona/" class="related-link-card">
+<div class="related-link-kicker">How REELEVO works</div>
+<div class="related-link-title">See how REELEVO turns SOPs into guided execution</div>
+<p class="related-link-desc">Move from SOP theory to real execution on the shop floor: less improvisation, more clarity, and more operational continuity.</p>
+</a>
+<a href="/en/casos-de-uso/onboarding-operarios/" class="related-link-card">
+<div class="related-link-kicker">Operator onboarding</div>
+<div class="related-link-title">Apply SOPs from day one</div>
+<p class="related-link-desc">Discover how to standardize learning without depending on a trainer or slowing production.</p>
+</a>
+<a href="/en/vs-alternativas/" class="related-link-card">
+<div class="related-link-kicker">SOP software comparison</div>
+<div class="related-link-title">Compare REELEVO with Dozuki, Poka, and other tools</div>
+<p class="related-link-desc">Evaluate pricing, adoption, SME focus, and differences from heavier platforms.</p>
+</a>
+</div>
+</div>
+
+<hr />
+
+<p><em>This article is part of the practical guide series on industrial operational documentation by <a href="/en/blog/">GMV Solutions</a>. If you want to know how much undocumented procedures are costing your plant, take our <a href="https://diagnostico.gmvsolutions.es/?lang=en">operational risk assessment</a> — results in 2 minutes.</em></p>
+
+</ArticleLayout>
+
+<style>
+  .blog-article {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 32px;
+  }
+
+  .article-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .article-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .article-header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .article-subtitle {
+    font-size: 1.1rem;
+    color: var(--gray);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 24px;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: .9rem;
+    color: var(--gray2);
+  }
+
+  .content-inner {
+    line-height: 1.8;
+  }
+
+  .content-inner h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 48px 0 24px;
+  }
+
+  .content-inner p {
+    font-size: 1rem;
+    color: var(--gray);
+    margin-bottom: 20px;
+  }
+
+  .section-intro, .section-cta {
+    margin: 48px 0;
+  }
+
+  .cta-box {
+    background: var(--surface2);
+    border: 2px solid var(--orange);
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    margin: 48px 0;
+  }
+
+  .cta-box h2 {
+    margin-top: 0;
+  }
+</style>
+</ArticleLayout>

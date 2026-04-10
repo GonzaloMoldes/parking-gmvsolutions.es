@@ -1,0 +1,270 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "How to document the knowledge of your expert operators before they leave";
+const description = "Practical guide to capturing the unwritten knowledge of experienced operators in industrial SMEs. Methodology for operational knowledge transfer step by step, with common mistakes and solutions.";
+const date = "2026-03-10";
+const category = "Knowledge Transfer";
+const readTime = "14 min.";
+const canonical = "https://www.gmvsolutions.es/en/blog/documentar-conocimiento-operarios-expertos/";
+const image = "https://www.gmvsolutions.es/factory-bg.jpg";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": date,
+  "dateModified": date,
+  "articleSection": category,
+  "inLanguage": "en-US",
+  "url": canonical,
+  "mainEntityOfPage": canonical,
+  "image": image,
+  "author": { "@type": "Organization", "name": "GMV Solutions" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GMV Solutions",
+    "url": "https://www.gmvsolutions.es",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gmvsolutions.es/favicon.svg"
+    }
+  }
+};
+---
+
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} schema={schema}>
+
+<h2>The knowledge that walks out the door when people leave</h2>
+
+<p>In any industrial plant, there are people who've been doing the same thing for 10, 15, or 20 years. They know what the machine sounds like when something's not right. They know that the machine manual's third step doesn't actually work and you have to do it differently. They know that Tuesday mornings take longer for pressure to stabilize because the compressor comes cold from the weekend.</p>
+
+<p>That knowledge isn't in any manual. It's called <strong>tacit knowledge</strong> — or in English, "tribal knowledge" — and it's probably the most valuable and most fragile asset your company has.</p>
+
+<p>Fragile because <strong>it disappears the day that person leaves</strong>. And according to the REELEVO 2025 Survey, 87% of Spanish industrial SMEs identify dependency on these profiles as high-risk for their production, but only 23% have documented that knowledge.</p>
+
+<h2>Why knowledge transfer fails in most companies</h2>
+
+<p>Many industrial companies attempt some form of knowledge transfer and stumble at similar points. These are the most common reasons:</p>
+
+<h3>"We'll do it when they're about to leave"</h3>
+<p>Retirement comes into view months in advance, but documentation gets left for the last month. By then, the expert's mind is elsewhere and the process happens in a rush without depth.</p>
+
+<h3>"Have them train the new person"</h3>
+<p>Operator-to-operator transfer seems like the natural solution, but it has serious problems: it depends on the expert's teaching ability (which is rarely their strength), it's inconsistent (they teach it differently each day), there's no record, and it ties up two people's productive time for weeks.</p>
+
+<h3>"Let's make a manual"</h3>
+<p>Someone from quality sits down with the expert and writes a 40-page document with screenshots and diagrams. The document comes out perfect. No one ever reads it. When you need it, no one can find the file or it's outdated.</p>
+
+<h3>"This just can't be documented"</h3>
+<p>The most dangerous myth. It can be documented. The problem is that the usual format (text in a Word document) can't capture tacit knowledge. You need a format that captures <strong>how the expert actually does it</strong>, not how someone observing them describes it.</p>
+
+<h2>What knowledge to capture (and what not to)</h2>
+
+<p>Not all of an expert's knowledge has the same value or urgency. You have to prioritize:</p>
+
+<h3>Critical knowledge (capture first)</h3>
+<ul>
+<li><strong>Processes only that person masters:</strong> if they don't show up tomorrow, what stops? Start there.</li>
+<li><strong>Undocumented adjustments and configurations:</strong> the real parameters vs. the machine manufacturer's manual. The adaptations they've made over years.</li>
+<li><strong>Troubleshooting:</strong> what to do when something fails. The signs that indicate something will fail. The 5 most common problems and how to solve them without calling the technician.</li>
+</ul>
+
+<h3>Important knowledge (capture after)</h3>
+<ul>
+<li><strong>Start-up and shutdown sequences:</strong> order matters, and often the actual order differs from the manual.</li>
+<li><strong>Quality criteria:</strong> how the expert knows a part is good or bad. What they look at, what they touch, what they listen for.</li>
+<li><strong>Machine interactions:</strong> how adjusting one machine affects the performance of the next one in the line.</li>
+</ul>
+
+<h3>Knowledge you don't need to document</h3>
+<ul>
+<li>Processes that are already correctly documented in manufacturer manuals and followed exactly as written.</li>
+<li>Knowledge shared by multiple operators (no dependency on one person).</li>
+<li>Tasks that will disappear due to machinery change or process redesign.</li>
+</ul>
+
+<h2>Methodology: How to capture knowledge in 4 phases</h2>
+
+<h3>Phase 1: Dependency mapping (1 day)</h3>
+
+<p>Before documenting anything, you need to know <strong>where the risk is</strong>. Make a list of all machines and processes in your plant and answer these questions for each one:</p>
+
+<ol>
+<li>How many people can operate this process correctly?</li>
+<li>If the primary person is absent tomorrow, what happens?</li>
+<li>How long would a substitute take to learn?</li>
+<li>When is the primary person expected to leave the position? (retirement, turnover, etc.)</li>
+</ol>
+
+<p>Processes where only 1 person knows how and there's risk of departure in the short-to-medium term are your absolute priority.</p>
+
+<h3>Phase 2: Capture sessions with the expert (1-2 weeks)</h3>
+
+<p>The key to this phase is that <strong>the expert documents the process while doing it</strong>. Not afterward, not from memory, not by dictating to someone from quality. At the workstation, with the machine, step by step.</p>
+
+<p>Practical tips for the sessions:</p>
+
+<ul>
+<li><strong>One session = one process.</strong> Don't try to document everything in one morning. 30-60 minutes per process is enough.</li>
+<li><strong>The expert leads.</strong> Don't tell them what to document. Ask: "How do you do this?" and let them structure the steps.</li>
+<li><strong>Capture the "whys."</strong> Not just what they do, but why they do it that way. "I always wait 30 seconds before increasing speed because if I don't, the material jams" — that's pure tacit knowledge.</li>
+<li><strong>Include the mistakes.</strong> Ask: "What usually goes wrong here? What would you do if...?" Troubleshooting is the most valuable part.</li>
+<li><strong>Don't seek perfection.</strong> An imperfect procedure that's real is infinitely more useful than a perfect manual no one consults.</li>
+</ul>
+
+<h3>Phase 3: Structuring and accessibility (2-3 days)</h3>
+
+<p>Once captured, the knowledge needs to be <strong>organized by machine and process</strong>, and be <strong>accessible at the workstation</strong>.</p>
+
+<p>The structure should look like:</p>
+
+<ul>
+<li>Machine → Process → Sequential steps</li>
+<li>Each step: instruction + expert detail + troubleshooting if applicable</li>
+<li>Direct access from the machine, no folder hunting or server digging</li>
+</ul>
+
+<p>If the substitute has to turn on a computer, navigate folders, and open a PDF to check one step, they won't. <strong>Accessibility is what determines whether procedures get used or ignored.</strong></p>
+
+<h3>Phase 4: Validation and transition (1-2 weeks)</h3>
+
+<p>Before the expert leaves, you need to verify that what was documented works:</p>
+
+<ol>
+<li>An operator who doesn't master the process follows the documented procedures.</li>
+<li>The expert observes and corrects what's missing or unclear.</li>
+<li>The procedures are updated with the corrections.</li>
+<li>Repeat until the substitute can complete the process correctly without expert help.</li>
+</ol>
+
+<p>This step is critical. If you don't validate before the expert leaves, you risk discovering gaps when it's too late to fill them.</p>
+
+<h2>When to start (hint: earlier than you think)</h2>
+
+<p>The most common mistake is starting too late. The ideal window to document the knowledge of an operator heading for retirement is <strong>6-12 months before their departure</strong>. This allows:</p>
+
+<ul>
+<li>Capture sessions without rush.</li>
+<li>Validation with actual substitutes.</li>
+<li>Iteration and procedure improvement.</li>
+<li>The expert to answer questions that come up after initial documentation.</li>
+</ul>
+
+<p>But retirement isn't the only scenario. Voluntary turnover, extended sick leave, and restructuring also cause knowledge loss — and those don't give 12 months' notice.</p>
+
+<p>That's why <strong>the best strategy is to document critical processes now, regardless of whether someone is planned to leave</strong>. It's not just a knowledge-transfer project: it's a company asset worth building before urgency hits.</p>
+
+<div class="highlight-box">
+<p><strong>REELEVO</strong> is industrial SOP software for SMEs that helps capture step-by-step operating procedures and leaves them accessible directly at each machine for any substitute. Without 40-page manuals or folders that are hard to check on the shop floor.</p>
+<p><a href="https://app.gmvsolutions.es/registro">Sign up for REELEVO →</a></p>
+</div>
+
+<div class="related-links">
+<div class="related-links-label">Keep exploring</div>
+<div class="related-links-grid">
+<a href="/en/casos-de-uso/transferencia-conocimiento/" class="related-link-card">
+<div class="related-link-kicker">Knowledge transfer</div>
+<div class="related-link-title">See the practical version on a product page</div>
+<p class="related-link-desc">If your priority is capturing the expert's knowledge before their departure, this is the most direct page.</p>
+</a>
+<a href="/en/como-funciona/" class="related-link-card">
+<div class="related-link-kicker">How REELEVO works</div>
+<div class="related-link-title">Understand how that knowledge reaches the operator</div>
+<p class="related-link-desc">The complete flow unites capture, workstation execution, incident guidance, and better clarity on completed work.</p>
+</a>
+<a href="/en/para-quien/responsable-rrhh/" class="related-link-card">
+<div class="related-link-kicker">Skills matrix</div>
+<div class="related-link-title">See how HR turns that capture into visible skills</div>
+<p class="related-link-desc">Knowledge transfer also serves to update the skills matrix and provide better clarity on each person's real autonomy.</p>
+</a>
+</div>
+</div>
+
+<hr />
+
+<p><em>Do you have key operators whose knowledge isn't documented? Take our <a href="https://diagnostico.gmvsolutions.es/?lang=en">operational risk assessment</a> and discover how much real risk your plant has — results in 2 minutes.</em></p>
+
+</ArticleLayout>
+
+<style>
+  .blog-article {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 32px;
+  }
+
+  .article-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .article-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .article-header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .article-subtitle {
+    font-size: 1.1rem;
+    color: var(--gray);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 24px;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: .9rem;
+    color: var(--gray2);
+  }
+
+  .content-inner {
+    line-height: 1.8;
+  }
+
+  .content-inner h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 48px 0 24px;
+  }
+
+  .content-inner p {
+    font-size: 1rem;
+    color: var(--gray);
+    margin-bottom: 20px;
+  }
+
+  .section-intro, .section-cta {
+    margin: 48px 0;
+  }
+
+  .cta-box {
+    background: var(--surface2);
+    border: 2px solid var(--orange);
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    margin: 48px 0;
+  }
+
+  .cta-box h2 {
+    margin-top: 0;
+  }
+</style>
+</ArticleLayout>
