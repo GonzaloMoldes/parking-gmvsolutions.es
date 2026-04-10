@@ -1,0 +1,140 @@
+---
+export interface Props {
+  blogArticles?: Array<{
+    title: string;
+    url: string;
+    description: string;
+  }>;
+  forQuienPages?: Array<{
+    title: string;
+    url: string;
+    audience: string;
+  }>;
+  relatedResources?: Array<{
+    title: string;
+    url: string;
+  }>;
+}
+
+const { blogArticles = [], forQuienPages = [], relatedResources = [] } = Astro.props;
+---
+
+{blogArticles.length > 0 && (
+  <section class="related-content">
+    <h2>Artículos relacionados del blog</h2>
+    <div class="related-grid">
+      {blogArticles.map((article) => (
+        <article class="related-card">
+          <h3><a href={article.url}>{article.title}</a></h3>
+          <p>{article.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
+
+{forQuienPages.length > 0 && (
+  <section class="related-content">
+    <h2>Soluciones para tu rol</h2>
+    <div class="related-grid">
+      {forQuienPages.map((page) => (
+        <div class="related-card">
+          <h3><a href={page.url}>{page.title}</a></h3>
+          <p>Optimizado para {page.audience}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+{relatedResources.length > 0 && (
+  <section class="related-content">
+    <h2>Recursos descargables</h2>
+    <ul class="related-list">
+      {relatedResources.map((resource) => (
+        <li><a href={resource.url}>{resource.title}</a></li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .related-content {
+    margin-top: 60px;
+    padding: 40px;
+    background: var(--surface-alt);
+    border-radius: 8px;
+  }
+
+  .related-content h2 {
+    font-family: Oswald, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 28px;
+    color: var(--white);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .related-card {
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+
+  .related-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-4px);
+  }
+
+  .related-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .related-card a {
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  .related-card a:hover {
+    text-decoration: underline;
+  }
+
+  .related-card p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .related-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .related-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .related-list li:last-child {
+    border-bottom: none;
+  }
+
+  .related-list a {
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  .related-list a:hover {
+    text-decoration: underline;
+  }
+</style>
