@@ -27,9 +27,9 @@ User-agent: Googlebot
 Allow: /
 Crawl-delay: 0.5
 Request-rate: 30/60
-Max-snippets: 160
-Max-image-preview: large
-Max-video-preview: -1
+# Max-snippets: 160
+# Max-image-preview: large
+# Max-video-preview: -1
 
 # Optimización para Bingbot
 User-agent: Bingbot
