@@ -31,15 +31,6 @@
       ]
     },
     {
-      "source": "/consent.cookiebot.com/:path*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=2592000"
-        }
-      ]
-    },
-    {
       "source": "/:path(.*\\.(?:woff2|woff|ttf)$)",
       "headers": [
         {
