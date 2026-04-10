@@ -179,26 +179,8 @@ const ogImage = normalizePrimarySiteUrl(ogImageInput);
     </style>
   )}
 
-  <!-- Cookiebot -->
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="555982fb-7d04-4596-8a45-fa2d446a3892" data-blockingmode="auto" type="text/javascript"></script>
-  
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M223Z398');</script>
-    <!-- End Google Tag Manager -->
-
-  <!-- Google tag (gtag.js) — GA4 + Google Ads -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJCZ6M3T8Y"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-JJCZ6M3T8Y');
-    gtag('config', 'AW-18000536518');
-  </script>
+  <!-- Cookiebot: Loads consent manager (non-blocking) -->
+  <script id="Cookiebot" async src="https://consent.cookiebot.com/uc.js" data-cbid="555982fb-7d04-4596-8a45-fa2d446a3892" data-blockingmode="manual" type="text/javascript"></script>
 
   <!-- SEO -->
   <title>{title}</title>
@@ -299,9 +281,60 @@ const ogImage = normalizePrimarySiteUrl(ogImageInput);
       })();
     </script>
   )}
-</body>
+
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M223Z398"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Analytics Loading: Deferred until consent -->
+  <script is:inline>
+    (function() {
+      const consentKey = 'ck_analytics';
+
+      function loadGTM() {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-M223Z398');
+      }
+
+      function loadGA4() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-JJCZ6M3T8Y');
+        gtag('config', 'AW-18000536518');
+
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JJCZ6M3T8Y';
+        document.head.appendChild(script);
+      }
+
+      function initializeAnalytics() {
+        if (!window.CookieConsent) return;
+
+        const hasAnalyticsConsent = window.CookieConsent.consent?.marketing ||
+                                    window.CookieConsent.consent?.statistics;
+
+        if (hasAnalyticsConsent) {
+          loadGTM();
+          loadGA4();
+        }
+      }
+
+      // Check if Cookiebot is already loaded
+      if (typeof window.CookieConsent !== 'undefined') {
+        initializeAnalytics();
+      } else {
+        // Wait for Cookiebot to load
+        window.addEventListener('CookiebotOnConsentUpdate', initializeAnalytics);
+        window.addEventListener('CookiebotOnLoad', initializeAnalytics);
+      }
+    })();
+  </script>
+</body>
 </html>

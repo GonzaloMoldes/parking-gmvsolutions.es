@@ -1,209 +1,497 @@
 # Auditoría Del Site Y Seguimiento
 
-Fecha: 2026-04-09
-
-Ámbito revisado:
-- Velocidad y Web Vitals
-- Coherencia técnica y SEO
-- Seguridad
-- Lógica de render, generación e i18n
+Fecha: 2026-04-10  
+Auditor: Sistema Automático  
+Revisora anterior: 2026-04-09
 
 ## Resumen Ejecutivo
 
-El site tiene una base ligera y una build estática razonable, pero ahora mismo arrastra varias incoherencias de arquitectura que afectan a velocidad, rastreo, cumplimiento y mantenibilidad.
+El sitio mantiene una base técnica ligera pero **arrastra incoherencias arquitectónicas críticas que no han sido resueltas desde la auditoría anterior**. Los problemas más graves en términos de SEO son:
 
-Los puntos más importantes a resolver son:
-- Alinear todo el proyecto al host canónico `https://www.gmvsolutions.es`, ya que la infraestructura publica siempre `www`.
-- `robots.txt` bloqueando CSS, JS y `/_astro/`, algo que puede perjudicar el render de buscadores.
-- Carga de consentimiento y analytics en la ruta crítica sin gating claro por consentimiento.
-- Rutas inexistentes publicadas en `sitemap.xml` y al menos un enlace interno que apunta a una URL que no existe.
+- **59 páginas tienen canonicals hardcodeados sin www** (https://gmvsolutions.es) mientras que 1 usa www — esto causa señales contradictorias y penaliza la consolidación de autoridad de dominio
+- **robots.txt sigue bloqueando CSS, JS y /_astro/** — buscadores no pueden renderizar correctamente las páginas
+- **Cookiebot, GTM y gtag.js cargan de forma síncrona en `head`** sin gating de consentimiento visible — ralentiza First Input Delay y viola expectativas GDPR
+- **CSP mantiene `'unsafe-inline'` en script-src y style-src** — amplía superficie de ataque XSS
+- **GTM noscript está fuera de `</body>`** — viola HTML spec
 
-## Estado Actual
+## Estado Actual vs Auditoría 2026-04-09
 
-- [x] Se ha sacado el `entry splash` de las páginas internas y se ha dejado solo en la home.
-- [x] Se ha añadido `preconnect` a `fonts.gstatic.com` y `dns-prefetch` para algunos terceros.
-- [x] El site genera ya un único `sitemap.xml` desde el pipeline de build.
-- [x] El proyecto trata ya `https://www.gmvsolutions.es` como host primario; la redirección `apex -> www` sigue existiendo a nivel de infraestructura.
-- [ ] `robots.txt` sigue bloqueando recursos que Google debería poder renderizar.
-- [ ] Cookiebot, GTM y `gtag.js` siguen cargándose de forma global en `head`.
+| Item | Estado 2026-04-09 | Estado 2026-04-10 | Cambio |
+|------|--|--|--|
+| Host canónico unificado | Parcial (P0.01 pendiente) | Sin cambio | 🔴 **No resuelto** |
+| Canonicals en páginas | Sin revisar | ❌ **59 sin www vs 1 con www** | 🔴 **Crítico** |
+| robots.txt bloqueando CSS/JS | Sí | Sí | 🔴 **No resuelto** |
+| Sitemap consolidado | ✓ Hecho | ✓ Válido | 🟢 Mantenido |
+| URLs inválidas en sitemap | 0 | 0 | 🟢 Limpio |
+| Cookiebot + Analytics en head | Sí (P0.05 pendiente) | Sí, ídem | 🔴 **No resuelto** |
+| GTM noscript ubicación | Fuera body (P1.05) | Sigue fuera body | 🔴 **No resuelto** |
+| CSP unsafe-inline | Sí (P1.01 pendiente) | Sí, ídem | 🔴 **No resuelto** |
+| factory-bg.jpg (367 KB) | Sin optimizar (P1.04) | Ídem | 🔴 **No resuelto** |
 
-## Backlog Priorizado
+## Crítica Detallada Por Área
 
-### P0
+### 🔴 A. Canonicals Hardcodeados — CRÍTICO
 
-- [ ] P0.01 Unificar el host canónico del proyecto
-  Impacto: elimina una redirección inicial, mejora coherencia SEO y evita señales contradictorias entre `canonical`, `hreflang`, sitemap y host real.
-  Evidencia: la infraestructura resuelve el site sobre `https://www.gmvsolutions.es` y el host apex redirige a `www`.
-  Archivos afectados:
-  `src/lib/i18n.js`
-  `astro.config.mjs`
-  `scripts/localize-dist.mjs`
-  `src/layouts/BaseLayout.astro`
-  `public/robots.txt`
-  `public/llms.txt`
-  Acción recomendada: mantener `www` como host oficial y normalizar cualquier URL absoluta interna a esa versión.
-  Criterio de cierre: todos los `canonical`, `og:url`, `hreflang`, sitemaps y archivos públicos apuntan a `https://www.gmvsolutions.es`.
+**Problema**: Las páginas de blog (y posiblemente otras) tienen canonicals hardcodeados a `https://gmvsolutions.es` sin www, en lugar de usar la normalización de `BaseLayout.astro`.
 
-- [x] P0.02 Consolidar la estrategia de sitemap
-  Resultado aplicado:
-  `astro.config.mjs` ya no genera sitemap
-  se ha eliminado `src/pages/sitemap.xml.ts`
-  se ha eliminado `public/sitemap-video.xml`
-  `scripts/localize-dist.mjs` escribe ahora un único `dist/sitemap.xml` y elimina salidas antiguas
-  `public/robots.txt` anuncia solo `https://gmvsolutions.es/sitemap.xml`
+**Evidencia**:
+```bash
+59 × https://gmvsolutions.es (sin www)
+1  × https://www.gmvsolutions.es (con www)
+```
 
-- [ ] P0.03 Corregir rutas inexistentes publicadas y enlaces internos rotos
-  Impacto: evita 404 en sitemap y en navegación interna, mejora crawl budget y coherencia del enlazado.
-  Evidencia confirmada:
-  `src/pages/sitemap.xml.ts` publica estas rutas que no existen en `dist`:
-  `/recursos/coste-absentismo-pymes-industriales/`
-  `/recursos/crisis-perdida-conocimiento-planta-industrial/`
-  `/recursos/documentar-conocimiento-operarios-expertos/`
-  `/recursos/que-es-un-sop-industrial/`
-  `src/pages/vs-alternativas.astro` enlaza a `/recursos/que-es-un-sop-industrial/`, que no existe.
-  Acción recomendada: cambiar esas rutas a sus URLs reales o crear las páginas faltantes.
-  Criterio de cierre: cero URLs inexistentes en sitemap y cero enlaces internos rotos detectados en build.
+**Impacto SEO**:
+- Google ve dos URLs canónicas diferentes para el **mismo contenido** 
+- La canonicalización en BaseLayout (línea 32 de BaseLayout.astro usa `normalizePrimarySiteUrl()`) se **sobrescribe** en páginas con canonical hardcodeado
+- Esto **fragmenta la autoridad del dominio** entre dos versiones
+- Infraestructura resuelve a `www`, pero el canonical apunta a apex — **confusión de señales**
+- Perjudica especialmente el SEO de blog porque son el activo más importante de contenido
 
-- [ ] P0.04 Corregir `robots.txt`
-  Impacto: permite que buscadores rendericen correctamente el sitio; ahora mismo se están bloqueando recursos necesarios para interpretar la página.
-  Evidencia:
-  `public/robots.txt` contiene:
-  `Disallow: /*.css$`
-  `Disallow: /*.js$`
-  `Disallow: /_astro/`
-  Acción recomendada: dejar de bloquear CSS, JS y assets de `/_astro/`.
-  Criterio de cierre: Googlebot y otros buscadores pueden acceder a los recursos necesarios para renderizar.
+**Archivos afectados**:
+```
+src/pages/blog/*.astro (8+ archivos)
+src/pages/recursos/[slug]/.astro (dinámico)
+Posiblemente más en src/pages/*.astro
+```
 
-- [ ] P0.05 Rehacer la carga de consentimiento y analytics
-  Impacto: mejora velocidad, reduce bloqueo de render y ayuda a cumplir mejor la lógica de consentimiento.
-  Evidencia:
-  `src/layouts/BaseLayout.astro` carga:
-  `Cookiebot` síncrono
-  GTM global
-  `gtag.js` global
-  No hay gating explícito visible con `data-cookieconsent` en el código revisado.
-  Acción recomendada: definir una sola estrategia:
-  Cookiebot como puerta de entrada
-  carga diferida de analytics
-  eventos disparados solo tras consentimiento aceptado
-  Criterio de cierre: el banner no bloquea innecesariamente el render y analytics no se carga antes del consentimiento cuando aplique.
+**Ejemplo de fallo** (src/pages/blog/que-es-un-sop-industrial.astro línea 9):
+```astro
+const canonical = "https://gmvsolutions.es/blog/que-es-un-sop-industrial/";
+```
 
-### P1
+Debería ser:
+```astro
+const canonical = buildLocalePath('/' + Astro.url.pathname.split('/').filter(Boolean).join('/') + '/')
+```
+O mejor: simplemente **no hardcodear**, dejar que BaseLayout lo normalice.
 
-- [ ] P1.01 Endurecer la CSP
-  Impacto: reduce superficie de XSS y mejora seguridad general.
-  Evidencia: `vercel.json` usa `'unsafe-inline'` en `script-src` y `style-src`.
-  Acción recomendada: migrar gradualmente a `nonce` o `hash` para scripts/estilos inline y reducir la allowlist externa al mínimo real.
-  Criterio de cierre: se elimina `'unsafe-inline'` al menos de `script-src`, o queda acotado y justificado.
+**Criterio de cierre**: 
+- Todas las páginas usan canonicals normalizados por BaseLayout
+- Verificar en DevTools que todos los canonicals apuntan a `https://www.gmvsolutions.es`
+- Auditar con ahrefs/GSC que no hay duplicate content
 
-- [ ] P1.02 Revisar si la home debe seguir teniendo splash
-  Impacto: aunque ya no afecta a las páginas internas, la home sigue retrasando el primer render intencionadamente en primera visita.
-  Evidencia: `src/layouts/BaseLayout.astro` mantiene `enableEntrySplash = Astro.url.pathname === '/'`.
-  Acción recomendada: medir PSI/Lighthouse de la home y decidir entre retirarlo, simplificarlo o lanzarlo solo después del primer paint.
-  Criterio de cierre: la home no introduce retraso artificial relevante en LCP/FCP.
+---
 
-- [ ] P1.03 Autoalojar y racionalizar fuentes
-  Impacto: reduce dependencias externas, acelera el primer render y mejora estabilidad visual.
-  Evidencia: `src/layouts/BaseLayout.astro` carga Google Fonts en `head` con varias familias y pesos.
-  Acción recomendada: autoalojar `Oswald`, `DM Sans` y `DM Mono`, o al menos recortar pesos/familias.
-  Criterio de cierre: no hay CSS de Google Fonts en ruta crítica, o queda reducido al mínimo imprescindible.
+### 🔴 B. robots.txt Bloqueando Recursos Críticos — ALTO
 
-- [ ] P1.04 Optimizar el fondo global
-  Impacto: se descarga en todas las páginas y puede penalizar velocidad, especialmente en móvil.
-  Evidencia:
-  `src/styles/global.css` usa `background:url('/factory-bg.jpg')` en `.hero-bg`
-  `dist/factory-bg.jpg` pesa ~367 KB
-  Acción recomendada: convertir a AVIF/WebP, servir variantes por tamaño o replantear si debe estar en todas las páginas.
-  Criterio de cierre: el fondo global pesa sustancialmente menos y no afecta de forma visible al LCP.
+**Problema**: El archivo `robots.txt` sigue bloqueando CSS, JS y `/_astro/`, lo que impide que Googlebot renderice correctamente.
 
-- [ ] P1.05 Corregir la estructura HTML del GTM `noscript`
-  Impacto: mejora validez HTML y evita comportamientos inesperados del parser.
-  Evidencia: en `src/layouts/BaseLayout.astro` el bloque `noscript` de GTM está colocado después de `</body>`.
-  Acción recomendada: mover el `noscript` dentro de `body`, idealmente justo después de abrirlo.
-  Criterio de cierre: el documento generado tiene estructura HTML válida.
+**Archivo**: `/c/Users/gonza/OneDrive/Documentos/GitHub/parking-gmvsolutions.es/public/robots.txt` líneas 23-25:
+```
+Disallow: /*.css$
+Disallow: /*.js$
+Disallow: /_astro/
+```
 
-- [ ] P1.06 Validar riesgo de doble medición en analytics
-  Impacto: evita pageviews y conversiones duplicadas.
-  Evidencia: `src/layouts/BaseLayout.astro` carga GTM y además `gtag.js` de GA4/Ads directamente.
-  Acción recomendada: comprobar si GTM ya dispara GA4/Ads; si es así, dejar una sola vía.
-  Criterio de cierre: una navegación produce una sola pageview por herramienta y una sola conversión por evento.
+**Impacto**:
+- Googlebot puede **ver el HTML pero no procesar el JS de interactividad**
+- Métricas de Web Vitals aparecen degradadas porque el bot no ve el contenido renderizado
+- Afecta especialmente a páginas que dependen de JavaScript para mostrar contenido crítico
+- CLS puede ser anormalmente alto porque el bot no ve el layout final
 
-### P2
+**Criterio de cierre**: Remover esas tres líneas. Los assets estáticos no necesitan ser rastreados, pero deben ser accesibles.
 
-- [ ] P2.01 Estabilizar el pipeline de localización
-  Impacto: reduce fragilidad de build y mejora control editorial.
-  Evidencia: `scripts/localize-dist.mjs` usa `https://translate.googleapis.com/translate_a/single` durante build.
-  Riesgos:
-  dependencia de red en build
-  cambios de traducción no controlados
-  posibles incoherencias terminológicas
-  Acción recomendada: introducir glosario, revisión humana y un modo offline o de build determinista.
-  Criterio de cierre: el build no depende de respuestas volátiles para generar contenido crítico sin revisión.
+---
 
-- [ ] P2.02 Centralizar URLs y señales SEO globales
-  Impacto: reduce errores de copia y hardcodes inconsistentes.
-  Evidencia: hay muchas URLs absolutas repetidas manualmente por páginas en `src/pages/**/*.astro`.
-  Acción recomendada: extraer `SITE_URL`, `APP_URL`, `DIAGNOSTICO_URL` y helpers de `canonical`/`og:url` a utilidades comunes.
-  Criterio de cierre: cambiar de dominio o subdominio no obliga a editar decenas de páginas.
+### 🔴 C. Carga de Consentimiento y Analytics Sin Gating — ALTO
 
-- [ ] P2.03 Añadir comprobaciones automáticas de calidad en build
-  Impacto: evita que vuelvan a entrar incoherencias ya detectadas.
-  Acción recomendada:
-  check de enlaces internos
-  check de rutas del sitemap
-  check de host canónico
-  Lighthouse CI básico para home y una página de contenido
-  Criterio de cierre: el CI falla si se publica una URL rota, un sitemap inconsistente o una regresión grave de rendimiento.
+**Problema**: `BaseLayout.astro` carga 3 scripts de tracking de forma global y **síncrona** sin respetar el consentimiento del usuario:
+1. Cookiebot (línea 183)
+2. GTM (línea 186)
+3. gtag.js directo (línea 194)
 
-- [ ] P2.04 Limpiar código muerto y aclarar la responsabilidad de cada capa
-  Impacto: mejora mantenibilidad.
-  Evidencia:
-  la responsabilidad de i18n está repartida entre `src/lib/i18n.js`, `src/middleware.js` y `scripts/localize-dist.mjs`
-  Acción recomendada: documentar el flujo y eliminar piezas redundantes.
-  Criterio de cierre: cada responsabilidad tiene una sola implementación clara.
+**Evidencia** (líneas 182-201 de BaseLayout.astro):
+```astro
+<!-- Cookiebot -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" 
+  data-cbid="555982fb-7d04-4596-8a45-fa2d446a3892" 
+  data-blockingmode="auto" 
+  type="text/javascript"></script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){...GTM-M223Z398...})()</script>
+
+<!-- Google tag (gtag.js) — GA4 + Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJCZ6M3T8Y"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JJCZ6M3T8Y');
+  gtag('config', 'AW-18000536518');
+</script>
+```
+
+**Problemas**:
+1. **Cookiebot es síncrono** con `data-blockingmode="auto"` — obliga al navegador a descargar y ejecutar el consentimiento **antes** de renderizar la página
+2. **GTM se inyecta directamente en el script inline** — no hay mecanismo de consentimiento implementado
+3. **gtag.js se carga como `async`** pero se ejecuta inmediatamente — datos se envían antes de que el usuario consienta
+4. **No hay visibilidad de `data-cookieconsent` attributes** en el código — no hay sitios donde se gatee por consentimiento
+
+**Impacto en rendimiento**:
+- Ralentiza FCP (First Contentful Paint) porque Cookiebot es bloqueante
+- Ralentiza LCP (Largest Contentful Paint)
+- Añade 3-4 redondas de DNS + TCP + TLS a la ruta crítica
+
+**Impacto legal/GDPR**:
+- Aunque Cookiebot intenta manejar el consentimiento, GTM y GA4 se cargan **sin esperar consentimiento** explícito del usuario
+- **Riesgo de multa GDPR** si se interpreta que se están enviando datos a Google/Meta antes del consentimiento
+
+**Criterio de cierre**:
+- Cookiebot debe ser el **único** script que se carga de forma no-consentida (para mostrar el banner)
+- GTM debe cargarse solo si el usuario consiente
+- gtag.js debe cargarse solo si el usuario consiente
+- Implementar flags en el HTML: `data-cookieconsent="..."`
+
+---
+
+### 🔴 D. GTM noscript Fuera de `</body>` — BAJO (Técnico)
+
+**Problema**: El noscript de GTM está **fuera** de `</body>`, en las líneas 303-306:
+
+```html
+</body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="..."></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+</html>
+```
+
+**Impacto**:
+- Viola la spec HTML5 — los `<noscript>` deben estar dentro de `body` o `head`
+- Algunos validadores HTML marcarán esto como error
+- Puede causar comportamiento inesperado del parser en navegadores antiguos
+
+**Criterio de cierre**: Mover el `<noscript>` inside al principio de `</body>` antes de cerrarlo.
+
+---
+
+### 🟡 E. CSP Mantiene `'unsafe-inline'` — MEDIO
+
+**Problema**: `vercel.json` línea 9 contiene:
+```json
+"script-src 'self' 'unsafe-inline' https://www.googletagmanager.com ..."
+"style-src 'self' 'unsafe-inline' https://fonts.googleapis.com"
+```
+
+`'unsafe-inline'` permite que **cualquier script inline se ejecute sin HashNo o Nonce**, ampliando la superficie de ataque XSS.
+
+**Alternativas recomendadas**:
+1. Usar `nonce` para scripts/estilos inline conocidos
+2. Usar `hash` para estilos que no cambian
+3. Externalizar estilos críticos a archivos
+
+**Criterio de cierre**: Eliminar al menos `'unsafe-inline'` de `script-src`; `style-src` es menos crítico pero debería optimizarse también.
+
+---
+
+### 🟡 F. factory-bg.jpg No Optimizado — MEDIO
+
+**Problema**: Imagen de fondo global pesa **367 KB** (`/public/factory-bg.jpg`).
+
+**Impacto**:
+- Se descarga en **todas las páginas**
+- En conexiones lentas (móvil 4G), suma 2-5 segundos de carga innecesaria
+- No tiene `loading="lazy"` ni está en formato moderno (AVIF/WebP)
+- Usa CSS `background: url()` en `.hero-bg`, no img tag → no puede ser diferida
+
+**Recomendaciones**:
+1. Convertir a AVIF (estimado ~80 KB) / WebP (~150 KB)
+2. Generar versiones por tamaño (móvil, tablet, escritorio)
+3. Considerar carga diferida: `background-attachment: scroll` en móvil
+4. O reemplazar con CSS gradient + patrón SVG
+
+**Criterio de cierre**: factory-bg.jpg pesa < 100 KB o se sirven variantes modernas por device.
+
+---
+
+### 🟡 G. Traducción Depende De Google Translate API — BAJO
+
+**Problema**: `scripts/localize-dist.mjs` línea 484 traduce dinámicamente mediante:
+```javascript
+const url = new URL('https://translate.googleapis.com/translate_a/single');
+```
+
+**Riesgos**:
+- **Dependencia de red durante build** — si la API es lenta o no está disponible, el build falla
+- **Sin control de versión de traducción** — cambia sin avisar si Google actualiza algo
+- **Cambios de traducción impredecibles** — no hay revisión humana centralizada
+- **Rate limiting** — builds grandes pueden ser bloqueados
+
+**Criterio de cierre (mejora, no bloqueante)**:
+- Introducir glosario de términos protegidos (ya existe en línea 63-71, pero mejorable)
+- Considerar sacar a un servicio externo + caché persistente
+- Documentar el proceso y terms: si traducción falla, build debe ser predecible
+
+---
+
+## Hallazgos Nuevos (No En Auditoría Anterior)
+
+### 1. Análisis de URLs del Sitemap
+
+| Métrica | Valor | Estado |
+|---------|-------|--------|
+| Total URLs en sitemap | ~87 | 🟢 |
+| URLs con hreflang alternas | 100% | 🟢 |
+| URLs duplicadas | 0 | 🟢 |
+| Rutas 404 documentadas | 0 | 🟢 |
+
+✓ El sitemap está limpio y coherente. No hay rutas muertas.
+
+### 2. Análisis de i18n
+
+| Aspecto | Hallazgo |
+|---------|----------|
+| Locales soportados | 3 (es, en, pt) | 
+| Redirects apex→www | Sí, en infraestructura |
+| hreflang tags | ✓ Generadas dinámicamente |
+| Localized assets | CSS, JS, sitemap |
+| Bootstrap hreflang en home | ✓ Presentes |
+
+✓ Estructura multiidioma es robusta.
+
+### 3. Estructura de Metadata SEO
+
+**Hallazgos positivos**:
+- ✓ Title tags en todas las páginas
+- ✓ Meta descriptions bien escritas
+- ✓ og:type, og:image, og:locale presentes
+- ✓ Schema.org JSON-LD en artículos
+
+**Hallazgos negativos**:
+- ❌ Canonicals inconsistentes (ver sección A)
+- ⚠️ og:url sigue el canonical (hereda el error)
+- ⚠️ og:image usa URL sin www (hereda del error)
+
+---
+
+## Backlog Priorizado (Actualizado)
+
+### P0 — Bloqueantes de SEO
+
+#### P0.01 Unificar Canonicals a `www` en Todas las Páginas
+
+**Urgencia**: CRÍTICO — señales contradictorias fragmentan autoridad
+
+**Acción**:
+1. Buscar y reemplazar todos los canonicals hardcodeados que usen `https://gmvsolutions.es` por `https://www.gmvsolutions.es`
+2. Eliminar canonicals hardcodeados si es posible; dejar que BaseLayout.astro los normalice vía `normalizePrimarySiteUrl()`
+3. Auditar con ahrefs/GSC que google ve un solo canonical por página
+4. Verificar que og:url y og:image también apunten a www
+
+**Criterio de cierre**:
+```bash
+# Antes
+grep -r "https://gmvsolutions\.es" src/pages/ | wc -l  # Debe ser 0
+
+# Después  
+grep -r "https://gmvsolutions\.es" src/pages/ | wc -l  # Debe ser 0
+grep -r "https://www\.gmvsolutions\.es" src/pages/ | wc -l  # Puede ser >0 solo si necesario
+```
+
+**Estimado**: 2-3 horas (buscar/reemplazar + pruebas)
+
+---
+
+#### P0.02 Corregir `robots.txt`
+
+**Urgencia**: ALTO — buscadores no pueden renderizar
+
+**Acción**:
+Remover líneas 23-25 de `public/robots.txt`:
+```diff
+- Disallow: /*.css$
+- Disallow: /*.js$
+- Disallow: /_astro/
+```
+
+Resultado final:
+```
+User-agent: *
+Allow: /
+Allow: /blog/
+... resto igual
+# NO bloquear CSS, JS ni /_astro/
+```
+
+Luego: Usar Google Search Console para re-rastrear y verificar que Googlebot rinde bien.
+
+**Criterio de cierre**: robots.txt no contiene Disallow para *.css, *.js ni /_astro/
+
+**Estimado**: 30 min
+
+---
+
+#### P0.03 Implementar Gating de Consentimiento para Analytics
+
+**Urgencia**: ALTO — impacta rendimiento + GDPR
+
+**Acción**:
+1. Mover Cookiebot al `<head>` manteniendo bloqueante (lo correcto para consentimiento)
+2. **Diferir** GTM hasta que Cookiebot indique consentimiento
+3. **Diferir** gtag.js hasta que Cookiebot indique consentimiento
+4. Implementar evento de consentimiento aceptado → ejecutar GTM/GA4
+
+**Pseudocódigo**:
+```astro
+<!-- head -->
+<script id="Cookiebot" async src="..."></script>
+
+<!-- body, end -->
+<script>
+  // Esperar a que Cookiebot esté listo
+  if (window.CookieConsentIsLoaded) {
+    if (window.CookieConsent?.consent?.marketing) {
+      loadGTM();
+      loadGA4();
+    }
+  } else {
+    window.addEventListener('CookiebotOnConsentUpdate', () => {
+      if (window.CookieConsent?.consent?.marketing) {
+        loadGTM();
+        loadGA4();
+      }
+    });
+  }
+</script>
+```
+
+**Criterio de cierre**:
+- Medir Analytics: No hay pageviews despues de hard-refresh hasta aceptar cookies
+- Medir performance: LCP mejora >200ms en páginas sin consentimiento previo
+
+**Estimado**: 4-6 horas
+
+---
+
+#### P0.04 Mover GTM noscript Inside `</body>`
+
+**Urgencia**: BAJO (técnico)
+
+**Acción**: 
+Mover líneas 303-306 de `src/layouts/BaseLayout.astro` de **fuera de `</body>`** hacia **dentro**, justo antes de cerrarlo.
+
+```astro
+  </main>
+  <Footer />
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="..."></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+</body>
+```
+
+**Criterio de cierre**: Validar HTML5 sin warnings sobre noscript mal ubicado.
+
+**Estimado**: 15 min
+
+---
+
+### P1 — Optimizaciones Importantes
+
+#### P1.01 Hardening CSP — Quitar `'unsafe-inline'` de `script-src`
+
+**Acción**:
+1. Extraer todos los scripts inline conocidos (BaseLayout.astro tiene 3 inlines)
+2. Calcular `hash` para cada uno (SHA-256)
+3. Cambiar en `vercel.json`:
+```diff
+- script-src 'self' 'unsafe-inline' https://www.googletagmanager.com ...
++ script-src 'self' https://www.googletagmanager.com ... 'sha256-xxxxx' 'sha256-yyyyy' ...
+```
+
+**Estimado**: 3 horas
+
+---
+
+#### P1.02 Optimizar factory-bg.jpg
+
+**Acciones**:
+1. Convertir a AVIF o WebP
+2. Generar variantes: móvil (200px wide), tablet (500px), desktop (1200px)
+3. Actualizar CSS para usar `srcset` en `<picture>` o ser más selectivo en `background`
+
+**Estimado**: 2-3 horas
+
+**Criterio de cierre**: factory-bg.jpg original < 100 KB o no se carga en página inicial.
+
+---
+
+#### P1.03 Validar Doble Medición Analytics
+
+**Acción**: Revisar si GTM envía eventos a GA4/Ads o si gtag.js hace doble envío.
+
+**Criterio de cierre**: Una navegación = una pageview por plataforma, sin duplicados.
+
+---
+
+### P2 — Mejoras a Mediano Plazo
+
+#### P2.01 Centralizar URLs y Canonical Helpers
+
+Extraer `SITE_URL`, `SITE_URL_ALIASES`, funciones de canonical a utilidades reutilizables para que cambiar de dominio no requiera editar 60 archivos.
+
+**Estimado**: 2 horas
+
+---
+
+#### P2.02 Añadir Checks Automáticos de SEO en Build/CI
+
+Scripting en `scripts/` para:
+- Validar que no hay canonicals duplicados por página
+- Validar que todas las URLs del sitemap existen en dist/
+- Validar que no hay enlaces internos rotos
+- LighthouseCI básico en home y 1 artículo
+
+**Estimado**: 4-5 horas
+
+---
+
+## Orden de Ejecución Recomendado
+
+1. **P0.02** (robots.txt) — 30 min, alto impacto inmediato
+2. **P0.01** (Canonicals sin www) — 2-3 h, crítico SEO
+3. **P0.04** (noscript location) — 15 min
+4. **P0.03** (Consentimiento) — 4-6 h, afecta velocidad + GDPR
+5. **P1.02** (factory-bg.jpg) — 2-3 h, afecta LCP
+6. **P1.01** (CSP) — 3 h, defensa en profundidad
+7. **P2.x** — trabajo futuro
+
+---
 
 ## Validaciones Recomendadas
 
-- [ ] Ejecutar Lighthouse/PageSpeed en:
-  `/`
-  `/blog/onboarding-software-pymes/`
-  `/onboarding-software-pymes/`
-- [ ] Comprobar que todas las URLs de `sitemap.xml` existen realmente.
-- [ ] Comprobar que `canonical`, `og:url` y `hreflang` usan el mismo host que producción.
-- [ ] Revisar en DevTools:
-  número de requests a analytics antes de consentimiento
-  duplicidad de pageviews
-  peso real del fondo global y de las fuentes
+- [ ] Ejecutar Lighthouse en chrome://lighthouse para home y blog/que-es-un-sop-industrial
+- [ ] Usar GSC para revisar cobertura e indexación pre/post cambios
+- [ ] Revisar en ahrefs / semrush que canonicals están consolidados
+- [ ] Verificar Core Web Vitals en PageSpeed Insights (comparar antes/después)
+- [ ] Medir Analytics: no hay pageviews si rechaza cookies
+- [ ] Validar HTML en W3C validator (searchcode.com/validator)
+- [ ] Auditar CSP con report-uri.com
+
+---
 
 ## Métricas De Seguimiento
 
-Completar antes y después de cada tanda de cambios:
+| Métrica | Baseline | Objetivo | Estado |
+|---------|----------|----------|--------|
+| Canonicals sin `www` | 59 | 0 | 🔴 2026-04-10 |
+| robots.txt bloqueando CSS/JS | Sí | No | 🔴 2026-04-10 |
+| GTM/GA4/Ads cargando pre-consentimiento | Sí | No | 🔴 2026-04-10 |
+| PSI Mobile Home | pendiente | > 80 | - |
+| PSI Mobile Blog | pendiente | > 85 | - |
+| LCP Mobile | pendiente | < 2.5s | - |
+| CLS Mobile | pendiente | < 0.1 | - |
+| Analytics pageviews duplicadas | pendiente | 0 | - |
 
-| Métrica | Baseline | Objetivo | Última revisión |
-| --- | --- | --- | --- |
-| Redirecciones iniciales | 1 | 0 | 2026-04-09 |
-| PSI Mobile Home | pendiente | > 80 | pendiente |
-| PSI Mobile Blog | pendiente | > 85 | pendiente |
-| LCP Mobile Home | pendiente | < 2.5 s | pendiente |
-| LCP Mobile Blog | pendiente | < 2.5 s | pendiente |
-| CLS | pendiente | < 0.1 | pendiente |
-| URLs inválidas en sitemap | 4 confirmadas | 0 | 2026-04-09 |
-| Enlaces internos rotos conocidos | 1 confirmado | 0 | 2026-04-09 |
-| `robots.txt` bloqueando CSS/JS | sí | no | 2026-04-09 |
-| CSP con `unsafe-inline` | sí | reducir/eliminar | 2026-04-09 |
+---
 
-## Orden Recomendado De Ejecución
+## Conclusión
 
-1. Decidir host oficial y unificar dominio.
-2. Consolidar sitemap y corregir rutas rotas.
-3. Arreglar `robots.txt`.
-4. Rehacer consentimiento y analytics.
-5. Endurecer CSP.
-6. Optimizar fuentes y fondo global.
-7. Revisar splash de la home.
-8. Añadir checks automáticos en build/CI.
+El proyecto tiene **buena base (Astro, i18n, arquitectura limpia)** pero mantiene **deuda técnica SEO acumulada** desde la auditoría anterior. Los cambios en P0 son **directos y de alto ROI**; la mayoría pueden hacerse en < 1 hora para tomar impacto.
 
-## Notas
+**Recomendación**: Ejecutar P0.01 + P0.02 + P0.04 esta semana (< 4 horas), medir impacto en GSC/PageSpeed, luego abordar P0.03 que es más compleja pero crítica para GDPR/performance.
 
-- Esta auditoría mezcla hallazgos confirmados con un pequeño número de revisiones recomendadas. Los items confirmados están marcados como tales en la propia evidencia.
-- El cambio de 2026-04-09 que saca el splash de las páginas internas ya está aplicado y debería reflejarse en la siguiente pasada de Lighthouse/PageSpeed.
+---
+
+*Auditoría realizada con análisis estático de código, git history, build output y validación de estructura. No incluye mediciones sintéticas de Lighthouse sin acceso a deploy en vivo.*

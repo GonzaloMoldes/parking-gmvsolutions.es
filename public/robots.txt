@@ -20,9 +20,6 @@ Allow: /documentacion-procesos/
 
 # Excluir recursos estáticos innecesarios para conservar crawl budget
 Disallow: /*.json$
-Disallow: /*.css$
-Disallow: /*.js$
-Disallow: /_astro/
 Disallow: /admin/
 
 # Directivas Google-específicas para mejorar indexación

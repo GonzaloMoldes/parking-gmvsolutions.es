@@ -128,7 +128,42 @@ body{background:transparent;color:var(--white);font-family:'DM Sans',sans-serif;
    ══════════════════════════════════════════ */
 .hero-bg{
   position:fixed;top:0;left:0;right:0;bottom:0;z-index:-2;
-  background:url('/factory-bg.jpg') center center / cover no-repeat;
+  background-color:#0a0a0a;
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+/* Mobile: defer background image loading */
+@media (max-width:768px) {
+  .hero-bg {
+    background-image:none;
+  }
+}
+
+/* Tablet and desktop: use optimized image (WebP with fallback) */
+@media (min-width:769px) {
+  .hero-bg {
+    background-image:url('/factory-bg-lg.webp');
+    background-image:image-set(
+      url('/factory-bg-lg.webp') type('image/webp'),
+      url('/factory-bg.jpg') type('image/jpeg')
+    );
+  }
+}
+
+/* Modern browsers: prefer AVIF when available */
+@supports (background-image:image-set(url('a') type('image/avif'))) {
+  @media (min-width:769px) {
+    .hero-bg {
+      background-image:image-set(
+        url('/factory-bg-lg.avif') type('image/avif'),
+        url('/factory-bg-lg.webp') type('image/webp'),
+        url('/factory-bg.jpg') type('image/jpeg')
+      );
+    }
+  }
 }
 .hero-bg::after{
   content:'';position:absolute;inset:0;
