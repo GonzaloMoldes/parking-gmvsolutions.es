@@ -1,12 +1,31 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../../lib/seo';
 import Screenshot from '../../components/Screenshot.astro';
 
 const title = "Software operaciones pyme industrial para gerencia | REELEVO";
 const description = "Reduce el riesgo operativo y da continuidad al negocio industrial: menos dependencia de personas clave, plataforma ligera y precio por empresa.";
 const canonical = "https://www.gmvsolutions.es/para-quien/gerente-propietario/";
 
-const schema = {
+// Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe la seccion "Cuando encaja"
+// (tarea D4 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Cuándo tiene sentido para una gerencia meterse en esto?',
+    a: 'Cuando el coste de improvisar ya se nota en el día a día: hay puestos donde faltar una persona desordena la operación, los expertos siguen dedicando demasiado tiempo a enseñar, quieres ordenar procesos críticos sin depender de un proyecto de IT largo, o buscas claridad comercial con precio visible e implantación asumible. No hace falta convertirlo en un proyecto estratégico enorme.',
+  },
+  {
+    q: '¿Cuánto compromiso supone empezar?',
+    a: 'Se empieza por un proceso y un puesto, con precio público y sin llamada comercial obligatoria. La idea es justo la contraria a una transformación gigantesca: si el primer proceso documentado no cambia nada en tu operativa, no hay motivo para seguir.',
+  },
+  {
+    q: '¿Qué riesgo reduce concretamente?',
+    a: 'El de depender de dos o tres personas para que la planta funcione. Cuando el conocimiento crítico está solo en la cabeza de quien lleva quince años, una baja, una jubilación o una salida se convierten en un problema de continuidad, no de recursos humanos.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "REELEVO para Gerentes y Propietarios",
@@ -16,6 +35,8 @@ const schema = {
     "audienceType": "Business Owner"
   }
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout
@@ -29,7 +50,7 @@ const schema = {
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Para gerentes y propietarios</div>
-    <h1 class="fade-up delay-1">Control operativo para gerencia,<br><em>sin complejidad MES</em>.</h1>
+    <h1 class="fade-up delay-1">Control operativo para gerencia, <br><em>sin complejidad MES</em>.</h1>
     <p class="fade-up delay-2">Identifica riesgos de continuidad, ordena puestos críticos y gana visibilidad diaria sin abrir un proyecto largo ni difícil de defender internamente.</p>
     <div class="hero-cta-group fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
@@ -74,11 +95,100 @@ const schema = {
   <div class="divider"></div>
 
   <!-- EXECUTIVE SUMMARY -->
+  
+
+  <div class="divider"></div>
+
+  <!-- STATS BANDA -->
+  <section class="stat-band">
+    <div class="stat-band-inner fade-up">
+      <div class="stat-item">
+        <div class="stat-num">49€</div>
+        <div class="stat-label">Desde 49 €/mes por empresa</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Ligero</div>
+        <div class="stat-label">Arranque técnico y operativo</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Fijo</div>
+        <div class="stat-label">Mismo precio aunque crezca la plantilla</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- IMPACTO EMPRESARIAL -->
   <section class="section">
     <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Dónde se nota</div>
+        <h2 class="section-title">Tres impactos que sí importan a gerencia</h2>
+        <p class="section-sub">
+          Mensajes simples para valorar si tiene sentido mover esto ahora
+          o seguir conviviendo con la improvisación.
+        </p>
+      </div>
+
+      <div class="risk-matrix fade-up delay-1">
+        <div class="risk-card high-risk">
+          <div class="risk-level">Continuidad</div>
+          <h3 class="risk-title">Menos dependencia de una sola persona</h3>
+          <div class="risk-impact">
+            <strong>Sin ordenar esto:</strong>
+            <ul>
+              <li>Una baja o un cambio de puesto tensiona más de la cuenta el turno</li>
+              <li>El conocimiento sigue viviendo en conversaciones y costumbres</li></ul>
+          </div>
+      <div class="risk-mitigation">
+            <strong>Con REELEVO:</strong>
+            <ul>
+              <li>✅ Proceso documentado y accesible en el puesto</li>
+              <li>✅ Guía de incidencias ligada al trabajo real</li></ul>
+          </div>
+          <div class="risk-probability">Resultado: <strong>menos fragilidad operativa</strong></div>
+        </div>
+
+        <div class="risk-card medium-risk">
+          <div class="risk-level">Onboarding</div>
+          <h3 class="risk-title">Incorporaciones menos dependientes del tutor</h3>
+          <div class="risk-impact">
+            <strong>Sin ordenar esto:</strong>
+            <ul>
+              <li>El experto sigue perdiendo tiempo explicando lo mismo</li>
+              <li>Cada incorporación depende demasiado de quién enseña</li></ul>
+          </div>
+          <div class="risk-mitigation">
+            <strong>Con REELEVO:</strong>
+            <ul>
+              <li>✅ El proceso se enseña igual en cada incorporación</li>
+              <li>✅ Se reduce la necesidad de tutoría continua</li></ul>
+          </div>
+          <div class="risk-probability">Resultado: <strong>menos tiempo improductivo de los expertos</strong></div>
+        </div>
+
+        <div class="risk-card low-risk">
+          <div class="risk-level">Escala</div>
+          <h3 class="risk-title">Crecimiento sin añadir más complejidad</h3>
+          <div class="risk-impact">
+            <strong>Sin ordenar esto:</strong>
+            <ul>
+              <li>Cada nueva incorporación multiplica el esfuerzo interno</li>
+              <li>El coste de coordinar personas y procesos crece rápido</li></ul>
+          </div>
+          <div class="risk-mitigation">
+            <strong>Con REELEVO:</strong>
+            <ul>
+              <li>✅ Precio fijo por empresa</li>
+              <li>✅ Empezar por pocos procesos críticos y ampliar después</li></ul>
+          </div>
+          <div class="risk-probability">Resultado: <strong>más orden sin complicar la decisión</strong></div>
+        </div>
+      </div>
+    
       <div class="fade-up" style="text-align:center;margin-bottom:64px;">
-        <div class="eyebrow">Visión ejecutiva</div>
-        <h2 class="section-title">Qué compra realmente la empresa</h2>
+        <h3 class="sub-head">Qué compra realmente la empresa</h3>
         <p class="section-sub">
           No compras una herramienta más para "tener todo escrito".
           Compras continuidad operativa y menos dependencia de perfiles difíciles de sustituir.
@@ -140,153 +250,13 @@ const schema = {
           sin entrar en un proyecto caro, largo o difícil de justificar.
         </p>
       </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- STATS BANDA -->
-  <section class="stat-band">
-    <div class="stat-band-inner fade-up">
-      <div class="stat-item">
-        <div class="stat-num">49€</div>
-        <div class="stat-label">Desde 49 €/mes por empresa</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">Ligero</div>
-        <div class="stat-label">Arranque técnico y operativo</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">Fijo</div>
-        <div class="stat-label">Mismo precio aunque crezca la plantilla</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- IMPACTO EMPRESARIAL -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Dónde se nota</div>
-        <h2 class="section-title">Tres impactos que sí importan a gerencia</h2>
-        <p class="section-sub">
-          Mensajes simples para valorar si tiene sentido mover esto ahora
-          o seguir conviviendo con la improvisación.
-        </p>
-      </div>
-
-      <div class="risk-matrix fade-up delay-1">
-        <div class="risk-card high-risk">
-          <div class="risk-level">Continuidad</div>
-          <h3 class="risk-title">Menos dependencia de una sola persona</h3>
-          <div class="risk-impact">
-            <strong>Sin ordenar esto:</strong>
-            <ul>
-              <li>Una baja o un cambio de puesto tensiona más de la cuenta el turno</li>
-              <li>El conocimiento sigue viviendo en conversaciones y costumbres</li>
-              <li>La empresa depende demasiado de perfiles concretos</li>
-            </ul>
-          </div>
-      <div class="risk-mitigation">
-            <strong>Con REELEVO:</strong>
-            <ul>
-              <li>✅ Proceso documentado y accesible en el puesto</li>
-              <li>✅ Guía de incidencias ligada al trabajo real</li>
-              <li>✅ Transferencia de conocimiento más ordenada</li>
-            </ul>
-          </div>
-          <div class="risk-probability">Resultado: <strong>menos fragilidad operativa</strong></div>
-        </div>
-
-        <div class="risk-card medium-risk">
-          <div class="risk-level">Onboarding</div>
-          <h3 class="risk-title">Incorporaciones menos dependientes del tutor</h3>
-          <div class="risk-impact">
-            <strong>Sin ordenar esto:</strong>
-            <ul>
-              <li>El experto sigue perdiendo tiempo explicando lo mismo</li>
-              <li>Cada incorporación depende demasiado de quién enseña</li>
-              <li>Cuesta repetir un estándar de forma consistente</li>
-            </ul>
-          </div>
-          <div class="risk-mitigation">
-            <strong>Con REELEVO:</strong>
-            <ul>
-              <li>✅ El proceso se enseña igual en cada incorporación</li>
-              <li>✅ Se reduce la necesidad de tutoría continua</li>
-              <li>✅ La formación se apoya más en el sistema y menos en la memoria</li>
-            </ul>
-          </div>
-          <div class="risk-probability">Resultado: <strong>menos tiempo improductivo de los expertos</strong></div>
-        </div>
-
-        <div class="risk-card low-risk">
-          <div class="risk-level">Escala</div>
-          <h3 class="risk-title">Crecimiento sin añadir más complejidad</h3>
-          <div class="risk-impact">
-            <strong>Sin ordenar esto:</strong>
-            <ul>
-              <li>Cada nueva incorporación multiplica el esfuerzo interno</li>
-              <li>El coste de coordinar personas y procesos crece rápido</li>
-              <li>La decisión se retrasa porque parece un proyecto grande</li>
-            </ul>
-          </div>
-          <div class="risk-mitigation">
-            <strong>Con REELEVO:</strong>
-            <ul>
-              <li>✅ Precio fijo por empresa</li>
-              <li>✅ Empezar por pocos procesos críticos y ampliar después</li>
-              <li>✅ Una implantación asumible para una pyme industrial</li>
-            </ul>
-          </div>
-          <div class="risk-probability">Resultado: <strong>más orden sin complicar la decisión</strong></div>
-        </div>
-      </div>
-    </div>
+  </div>
   </section>
 
   <div class="divider"></div>
 
   <!-- DECISIÓN -->
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Cuándo encaja</div>
-        <h2 class="section-title">Tiene sentido si este problema ya se nota</h2>
-        <p class="section-sub">
-          No hace falta convertirlo en un proyecto estratégico enorme.
-          Tiene sentido cuando el coste de improvisar ya se nota en el día a día y quieres empezar por algo concreto.
-        </p>
-      </div>
-
-      <div class="decision-matrix fade-up delay-1">
-        <div class="decision-recommendation">
-          <h3>✅ Señales claras</h3>
-          <div class="recommendation-content">
-            <p>
-              <strong>REELEVO tiene sentido cuando quieres empezar por algo concreto y útil, no por una transformación gigantesca.</strong>
-            </p>
-            <div class="recommendation-reasons">
-              <div class="reason">
-                <strong>Se nota una baja:</strong> hay puestos donde faltar una persona desordena la operación
-              </div>
-              <div class="reason">
-                <strong>Se repite la tutoría:</strong> los expertos siguen dedicando demasiado tiempo a enseñar
-              </div>
-              <div class="reason">
-                <strong>Quieres ordenar procesos críticos:</strong> sin depender de un proyecto IT largo
-              </div>
-              <div class="reason">
-                <strong>Buscas claridad comercial:</strong> precio visible y una implantación asumible
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <div class="divider"></div>
 
@@ -308,6 +278,10 @@ const schema = {
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Para decisores</div>
     <h3 class="cta-title fade-up delay-1">
@@ -323,7 +297,7 @@ const schema = {
         Registrarme en REELEVO →
       </a>
     </div>
-    <div class="cta-note fade-up delay-4">
+    <div class="cta-note fade-up delay-4">Ver también <a href="/precios/">precios</a> o <a href="/por-que-usar-reelevo/">qué resuelve</a>. <br />
       Precio publicado · Implantación ligera · Evaluación guiada con foco en riesgo operativo
     </div>
     </section>
@@ -368,7 +342,7 @@ const schema = {
   }
 
   .proof-point {
-    font-size: .88rem;
+    font-size: .95rem;
     line-height: 1.65;
     color: var(--gray);
     padding: 0 0 14px;
@@ -468,7 +442,7 @@ const schema = {
   .exec-risks h4,
   .exec-benefits h4 {
     font-family: 'DM Mono', monospace;
-    font-size: .65rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);
@@ -758,7 +732,7 @@ const schema = {
   .risk-impact strong,
   .risk-mitigation strong {
     font-family: 'DM Mono', monospace;
-    font-size: .65rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     display: block;
@@ -846,7 +820,7 @@ const schema = {
   }
 
   .benefit-card-desc {
-    font-size: .86rem;
+    font-size: .95rem;
     color: var(--gray);
     line-height: 1.65;
   }

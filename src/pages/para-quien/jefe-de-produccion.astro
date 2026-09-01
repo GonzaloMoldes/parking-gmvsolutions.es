@@ -1,12 +1,31 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../../lib/seo';
 import Screenshot from '../../components/Screenshot.astro';
 
 const title = "Herramienta para jefe de produccion industrial | REELEVO";
 const description = "Gana visibilidad de turno, cubre bajas con menos improvisacion y mejora decisiones de planta con trazabilidad operativa y matriz de habilidades.";
 const canonical = "https://www.gmvsolutions.es/para-quien/jefe-de-produccion/";
 
-const schema = {
+// Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe la seccion "Beneficios especificos"
+// (tarea D4 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué cambia concretamente para un jefe de producción?',
+    a: 'Cuatro cosas. La cobertura de una baja deja de improvisarse: el sustituto encuentra el proceso en la máquina y entra al turno con el estándar del titular. Ves en un mismo panel qué se está ejecutando en cada máquina y dónde hay incidencia, en vez de reconstruirlo a llamadas. La formación en el puesto deja de depender de que tu mejor operario pare su máquina. Y las decisiones de asignación se toman sobre lo que está registrado, no sobre estimaciones.',
+  },
+  {
+    q: '¿Esto me obliga a cambiar cómo planifico los turnos?',
+    a: 'No. La planificación la sigues haciendo tú; lo que se añade es la capa de capacidad, que cruza el turno que ya has planificado con quién está realmente certificado para cada proceso y avisa antes del arranque si algo queda descubierto.',
+  },
+  {
+    q: '¿Cuánto tarda en verse algo?',
+    a: 'Lo que tardes en documentar un proceso y ponerlo en una máquina. Con el primer turno registrado ya se ve si el dato te sirve para decidir; no hace falta tener la planta entera documentada para que la primera baja cubierta sin llamar a nadie se note.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "REELEVO para Jefes de Producción",
@@ -17,6 +36,8 @@ const schema = {
     "audienceType": "Jefe de producción"
   }
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout
@@ -30,7 +51,7 @@ const schema = {
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Para jefes de producción</div>
-    <h1 class="fade-up delay-1">Visibilidad de turno,<br><em>sin reconstruirlo a llamadas</em>.</h1>
+    <h1 class="fade-up delay-1">Visibilidad de turno, <br><em>sin reconstruirlo a llamadas</em>.</h1>
     <p class="fade-up delay-2">Ves qué proceso está cubierto, dónde se está trabando el turno y qué puesto depende de una sola persona. Así puedes mover recursos antes de que la línea se te caiga encima.</p>
     <div class="hero-cta-group fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
@@ -42,35 +63,7 @@ const schema = {
   <div class="divider"></div>
 
   <!-- PRUEBA VISUAL -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Prueba visual</div>
-        <h2 class="section-title">Lo que producción ya puede <em>ver hoy</em></h2>
-        <p class="section-sub">
-          Captura real del panel operativo. La conversación deja de ser "alguien me dijo"
-          y pasa a ser "dónde se está complicando el turno y qué necesita atención". Menos tiempo perdido enseñando y más foco en la documentación de procesos de producción.
-        </p>
-      </div>
-
-      <div class="proof-grid fade-up delay-1">
-        <div class="proof-card proof-shot">
-          <div class="proof-frame">
-            <Screenshot name="monitor-actividad" alt="Monitor de actividad REELEVO para jefes de producción" layout="pair" />
-          </div>
-          <div class="proof-caption">Captura real del producto: más claridad para ver qué está pasando en planta.</div>
-        </div>
-
-        <div class="proof-card proof-points">
-          <h3>Qué aporta a producción</h3>
-          <div class="proof-point"><strong>Más claridad al momento:</strong> detectas antes dónde se está atascando el turno.</div>
-          <div class="proof-point"><strong>Menos dependencia de llamadas:</strong> el contexto no vive solo en la memoria de planta.</div>
-          <div class="proof-point"><strong>Mejor criterio para reorganizar:</strong> base más útil para decidir prioridades y coberturas.</div>
-          <div class="proof-point"><strong>Menos tiempo perdido arrancando:</strong> quien cubre el puesto encuentra antes qué hacer.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <div class="divider"></div>
 
@@ -94,21 +87,13 @@ const schema = {
             <strong>Sin REELEVO:</strong>
             <ul>
               <li>Paras la línea 2 hasta encontrar sustituto</li>
-              <li>Buscas desesperadamente quién pueda cubrir</li>
-              <li>El sustituto comete errores por falta de conocimiento</li>
-              <li>Llamas a Miguel a las 10h para preguntarle detalles</li>
-              <li>Produces con retraso el resto del turno</li>
-            </ul>
+            <li>Buscas desesperadamente quién pueda cubrir</li></ul>
           </div>
           <div class="scenario-after">
             <strong>Con REELEVO:</strong>
             <ul>
               <li>El sustituto accede al proceso de la máquina</li>
-              <li>Tiene instrucciones claras paso a paso</li>
-              <li>Empieza con menos trabajo a ciegas y menos dependencia del titular</li>
-              <li>Si hay problemas, tiene guía de incidencias paso a paso</li>
-              <li>Producción gana una base más clara para decidir cuándo intervenir</li>
-            </ul>
+            <li>Tiene instrucciones claras paso a paso</li></ul>
           </div>
         </div>
 
@@ -119,21 +104,13 @@ const schema = {
             <strong>Sin REELEVO:</strong>
             <ul>
               <li>Tus mejores operarios pierden tiempo haciendo de tutores</li>
-              <li>Baja la productividad en 2 puestos: tutor + aprendiz</li>
-              <li>Inconsistencias en la enseñanza según quién tutoriza</li>
-              <li>Quejas: «siempre me toca enseñar a los nuevos»</li>
-              <li>El conocimiento sigue en las cabezas, no accesible</li>
-            </ul>
+            <li>Baja la productividad en 2 puestos: tutor + aprendiz</li></ul>
           </div>
           <div class="scenario-after">
             <strong>Con REELEVO:</strong>
             <ul>
               <li>El nuevo sigue el proceso correcto desde el puesto</li>
-              <li>Se reduce parte de la tutoría repetitiva</li>
-              <li>Enseñanza más consistente, con menos variaciones</li>
-              <li>Tus expertos se dedican a producir, no a enseñar</li>
-              <li>Skill matrix y progreso visibles para planificar mejor</li>
-            </ul>
+            <li>Se reduce parte de la tutoría repetitiva</li></ul>
           </div>
         </div>
 
@@ -144,23 +121,13 @@ const schema = {
             <strong>Sin REELEVO:</strong>
             <ul>
               <li>No sabes quién está operando qué máquina ni qué proceso</li>
-              <li>Cuesta reorganizar turnos cuando cambia la disponibilidad</li>
-              <li>Te enteras de problemas cuando ya han parado la línea</li>
-              <li>Dependes de que te avisen (a veces no lo hacen)</li>
-              <li>No tienes una matriz de habilidades fiable para cubrir puestos</li>
-              <li>Más reacción que prevención</li>
-            </ul>
+            <li>Cuesta reorganizar turnos cuando cambia la disponibilidad</li></ul>
           </div>
           <div class="scenario-after">
             <strong>Con REELEVO:</strong>
             <ul>
               <li>Dashboard en tiempo real: quién opera dónde y qué proceso sigue</li>
-              <li>Más visibilidad para detectar antes dónde se complica el turno</li>
-              <li>Skill matrix actualizada para cubrir máquina y turno con criterio</li>
-              <li>Procesos disponibles en cada puesto y por tipo de trabajo</li>
-              <li>Más contexto sobre incidencias y resoluciones de trabajo</li>
-              <li>Menos reacción ciega y más decisión con datos</li>
-            </ul>
+            <li>Más visibilidad para detectar antes dónde se complica el turno</li></ul>
           </div>
         </div>
       </div>
@@ -240,7 +207,30 @@ const schema = {
           </div>
         </div>
       </div>
-    </div>
+    
+      <div class="fade-up">
+        <h3 class="sub-head">Lo que producción ya puede <em>ver hoy</em></h3>
+        <p class="section-sub">
+          Captura real del panel operativo. La conversación deja de ser "alguien me dijo"
+          y pasa a ser "dónde se está complicando el turno y qué necesita atención". Menos tiempo perdido enseñando y más foco en la documentación de procesos de producción.
+        </p>
+      </div>
+
+      <div class="proof-grid fade-up delay-1">
+        <div class="proof-card proof-shot">
+          <div class="proof-frame">
+            <Screenshot name="monitor-actividad" alt="Monitor de actividad REELEVO para jefes de producción" layout="pair" />
+          </div>
+          <div class="proof-caption">Captura real del producto: más claridad para ver qué está pasando en planta.</div>
+        </div>
+
+        <div class="proof-card proof-points">
+          <h3>Qué aporta a producción</h3>
+          <div class="proof-point"><strong>Más claridad al momento:</strong> detectas antes dónde se está atascando el turno.</div>
+          <div class="proof-point"><strong>Menos dependencia de llamadas:</strong> el contexto no vive solo en la memoria de planta.</div>
+        </div>
+      </div>
+  </div>
   </section>
 
   <div class="divider"></div>
@@ -266,80 +256,7 @@ const schema = {
   <div class="divider"></div>
 
   <!-- BENEFICIOS ESPECÍFICOS -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Beneficios específicos</div>
-        <h2 class="section-title">Para jefes de producción</h2>
-        <p class="section-sub">
-          Resultados medibles en las métricas que realmente importan
-          para un responsable de producción.
-        </p>
-      </div>
-
-      <div class="benefit-list fade-up delay-1">
-        <div class="benefit-row">
-          <div class="benefit-icon">⚡</div>
-          <div>
-            <h3 class="benefit-title">Cobertura de bajas sin improvisar</h3>
-            <p class="benefit-desc">El sustituto encuentra el proceso correcto en la máquina, sigue el estándar del experto y entra al turno con menos dependencia del titular.</p>
-          </div>
-          <div class="benefit-result">
-            <div class="benefit-result-label">Impacto medible</div>
-            <p>Menos tiempo perdido cuando falta el titular y hay que cubrir rápido</p>
-          </div>
-        </div>
-
-        <div class="benefit-row">
-          <div class="benefit-icon">📊</div>
-          <div>
-            <h3 class="benefit-title">Visibilidad operativa de la planta</h3>
-            <p class="benefit-desc">Ves en un mismo panel qué está pasando en cada máquina, qué proceso se está ejecutando y dónde hay incidencias o cuellos de botella.</p>
-          </div>
-          <div class="benefit-result">
-            <div class="benefit-result-label">Impacto medible</div>
-            <p>Más rapidez para decidir dónde intervenir y con qué prioridad</p>
-          </div>
-        </div>
-
-        <div class="benefit-row">
-          <div class="benefit-icon">🧠</div>
-          <div>
-            <h3 class="benefit-title">Matriz de habilidades útil para decidir turnos</h3>
-            <p class="benefit-desc">Sabes qué operarios dominan qué procesos, quién puede cubrir cada máquina y dónde necesitas reforzar la polivalencia de la planta.</p>
-          </div>
-          <div class="benefit-result">
-            <div class="benefit-result-label">Impacto medible</div>
-            <p>Asignaciones con datos objetivos en lugar de intuición</p>
-          </div>
-        </div>
-
-        <div class="benefit-row">
-          <div class="benefit-icon">🗓️</div>
-          <div>
-            <h3 class="benefit-title">Planificación por máquina, turno y proceso</h3>
-            <p class="benefit-desc">La asignación deja de hacerse “a ojo”: cruzas disponibilidad, matriz de habilidades, procesos pendientes y contexto de cada máquina.</p>
-          </div>
-          <div class="benefit-result">
-            <div class="benefit-result-label">Impacto medible</div>
-            <p>Más acierto al reorganizar el turno cuando cambia el día</p>
-          </div>
-        </div>
-
-        <div class="benefit-row">
-          <div class="benefit-icon">🔌</div>
-          <div>
-            <h3 class="benefit-title">Encaje con herramientas ya presentes en planta</h3>
-            <p class="benefit-desc">Si ya trabajas con herramientas de monitorización de máquina, el encaje se revisa caso a caso para aportar más información útil de operario, proceso y resolución de incidencias sobre esa señal.</p>
-          </div>
-          <div class="benefit-result">
-            <div class="benefit-result-label">Impacto medible</div>
-            <p>Más contexto para actuar cuando cae rendimiento o aparece una incidencia</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <div class="divider"></div>
 
@@ -378,6 +295,10 @@ const schema = {
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Para jefes de producción</div>
     <div class="cta-title fade-up delay-1">
@@ -393,7 +314,7 @@ const schema = {
         Registrarme en REELEVO →
       </a>
     </div>
-    <div class="cta-note fade-up delay-4">
+    <div class="cta-note fade-up delay-4">Ver también <a href="/control-produccion/">control de producción</a> o <a href="/cobertura-turnos/">cobertura de turnos</a>. <br />
       Puesta en marcha ágil · Panel operativo · Integración con telemetría cuando tenga sentido
     </div>
   </section>
@@ -438,7 +359,7 @@ const schema = {
   }
 
   .proof-point {
-    font-size: .88rem;
+    font-size: .95rem;
     line-height: 1.65;
     color: var(--gray);
     padding: 0 0 14px;
@@ -462,6 +383,14 @@ const schema = {
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
     margin-top: 48px;
+  }
+
+  .sub-head {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+    margin: 48px 0 16px;
   }
 
   .scenario-card {
@@ -520,7 +449,7 @@ const schema = {
   .scenario-before strong,
   .scenario-after strong {
     font-family: 'DM Mono', monospace;
-    font-size: .65rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     display: block;
@@ -599,7 +528,7 @@ const schema = {
 
   .dashboard-time {
     font-family: 'DM Mono', monospace;
-    font-size: .65rem;
+    font-size: .7rem;
     color: var(--gray);
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -662,7 +591,7 @@ const schema = {
 
   .dashboard-features h4 {
     font-family: 'DM Mono', monospace;
-    font-size: .65rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);
@@ -761,7 +690,7 @@ const schema = {
 
   .case-implementation h4 {
     font-family: 'DM Mono', monospace;
-    font-size: .65rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);

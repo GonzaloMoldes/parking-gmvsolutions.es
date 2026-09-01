@@ -26,6 +26,10 @@ const faqs: FaqItem[] = [
     q: '¿Sirve para planificar la formación?',
     a: 'Sí, y es de sus usos más directos. Al ver los huecos de la matriz sabes qué proceso tiene poca cobertura y a quién conviene formar antes de que una baja lo convierta en un problema, en lugar de planificar formación por intuición o por lo que se hizo el año pasado.',
   },
+  {
+    q: '¿Y cuánto le queda al que está aprendiendo?',
+    a: 'Esa es la otra mitad de la pregunta, y sale de las rutas de aprendizaje: en qué paso va, cuántas ejecuciones lleva y cuánto tarda comparado con el titular del puesto. Deja de ser «yo creo que en dos semanas está» y pasa a ser algo que se mira.',
+  },
 ];
 
 const pageSchema = softwareApplicationSchema();
@@ -34,11 +38,12 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
-  <!-- PAGE HERO -->
+
+  <!-- HERO + PROBLEMA -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Gestión de Competencias Operativas</div>
-    <h1 class="fade-up delay-1">¿Quién puede cubrir<br><em>ese puesto el lunes?</em></h1>
-    <p class="fade-up delay-2">Hoy la respuesta está en la cabeza del encargado, y cambia según a quién preguntes. Con una matriz de competencias real ves quién domina cada proceso, quién está a medias y qué puestos dependen de una sola persona.</p>
+    <h1 class="fade-up delay-1">¿Quién puede cubrir <br><em>ese puesto el lunes?</em></h1>
+    <p class="fade-up delay-2">Hoy la respuesta está en la cabeza del encargado y cambia según a quién preguntes: cuando falta alguien se «llama al que sabe», si está disponible. Con una matriz de competencias real ves quién está capacitado para qué proceso, en qué nivel, y dónde tu planta depende de una sola persona.</p>
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="05" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
@@ -49,220 +54,100 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <div class="divider"></div>
 
-  <!-- PROBLEMA -->
+  <!-- CÓMO FUNCIONA — bloque dominante -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
-        <div class="eyebrow">El reto</div>
-        <h2 class="section-title">¿Quién sabe hacer qué en tu planta?</h2>
-      </div>
-
-      <div class="challenge-content fade-up delay-1">
-        <p>En una pyme industrial típica:</p>
-        <div class="challenge-list">
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>87% identifica dependencia de operarios clave como riesgo alto</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>Solo 23% tiene competencias documentadas y actualizadas</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>Responsable RRHH desconoce quién está habilitado para cada máquina</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>Cuando falta alguien, "llamamos al que sabe" (si está disponible)</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>No hay transparencia sobre el riesgo operativo real</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="risk-box fade-up delay-2">
-        <h3>Resultado: La bomba de tiempo de dependencia operativa</h3>
-        <p>Operarios clave sin documentación de su conocimiento + matriz de competencias desconocida = riesgo de parada de producción cuando falta alguien.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- SOLUCIÓN -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">La solución</div>
-        <h2 class="section-title">Matriz de competencias + Documentación integrada</h2>
-      </div>
-
-      <div class="solution-grid fade-up delay-1">
-        <div class="solution-cell">
-          <div class="cell-number">1</div>
-          <h3>Mapeo de competencias</h3>
-          <p>¿Quién sabe operar cada máquina? ¿Quién está "apto", "en entrenamiento", "experto"? Matriz clara y actualizable.</p>
-        </div>
-
-        <div class="solution-cell">
-          <div class="cell-number">2</div>
-          <h3>Identificación de brechas</h3>
-          <p>¿Hay solo una persona que domina la CNC? ¿Nadie sabe los parámetros de la extrusora? REELEVO lo identifica.</p>
-        </div>
-
-        <div class="solution-cell">
-          <div class="cell-number">3</div>
-          <h3>Análisis de riesgo</h3>
-          <p>Score de dependencia operativa por máquina. Sabes exactamente dónde está el riesgo. Prioriza documentación donde más importa.</p>
-        </div>
-
-        <div class="solution-cell">
-          <div class="cell-number">4</div>
-          <h3>Vinculación con SOP</h3>
-          <p>Cada procedimiento documentado vinculado a la competencia requerida. "Este SOP enseña a operar la línea de envasado".</p>
-        </div>
-
-        <div class="solution-cell">
-          <div class="cell-number">5</div>
-          <h3>Capacitación planificada</h3>
-          <p>Sabe exactamente a quién entrenar. Cuando alguien completa un SOP, actualiza su competencia automáticamente.</p>
-        </div>
-
-        <div class="solution-cell">
-          <div class="cell-number">6</div>
-          <h3>Trazabilidad</h3>
-          <p>Historial de quién completó cada capacitación, cuándo, con qué resultado. Registro verificable compatible con revisiones internas y auditorías ISO.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- BENEFICIOS ESPECÍFICOS PARA RRHH -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Para el departamento de RRHH</div>
-        <h2 class="section-title">Lo que ganas con REELEVO</h2>
-      </div>
-
-      <div class="benefits-grid fade-up delay-1">
-        <div class="benefit-box">
-          <h3>Visibilidad real</h3>
-          <p>Sabes exactamente quién está listo para cada puesto. No es intuición, son datos.</p>
-        </div>
-
-        <div class="benefit-box">
-          <h3>Planificación de sucesión</h3>
-          <p>Cuando alguien se jubila, ya tienes a 2-3 personas entrenadas en su competencia.</p>
-        </div>
-
-        <div class="benefit-box">
-          <h3>Cobertura de bajas sin estrés</h3>
-          <p>Cuando alguien falta, consultas la matriz: "Juan puede cubrir. Aquí está el SOP. Listo."</p>
-        </div>
-
-        <div class="benefit-box">
-          <h3>Inversión en capacitación eficiente</h3>
-          <p>Sabes dónde invertir el presupuesto de formación. Entrenar a alguien en la máquina crítica que solo domina el experto.</p>
-        </div>
-
-        <div class="benefit-box">
-          <h3>Reducción de riesgo legal</h3>
-          <p>Trazabilidad completa de quién tiene qué competencia. Registro verificable compatible con revisiones internas y auditorías ISO, IATF, etc.</p>
-        </div>
-
-        <div class="benefit-box">
-          <h3>Rotación de personal sin pánico</h3>
-          <p>Personal ETT entra entrenado siguiendo el procedimiento. Personal rotante sabe dónde consultar su competencia.</p>
-        </div>
-      </div>
-
-      <div class="fade-up delay-2" style="margin-top:48px;border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:6px;padding:32px 28px;background:var(--surface);">
-        <h3 style="font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:14px;">¿Y cuánto tarda en aprenderlo el que todavía no sabe?</h3>
-        <p style="font-size:.9rem;color:var(--gray);line-height:1.7;margin-bottom:16px;">
-          La matriz responde quién sabe hacer qué. La otra mitad de la pregunta —cuánto le queda al que está aprendiendo—
-          sale de las rutas de aprendizaje: en qué paso va, cuántas ejecuciones lleva y cuánto tarda comparado con el titular
-          del puesto. Deja de ser «yo creo que en dos semanas está» y pasa a ser algo que se mira.
-        </p>
-        <a href="/casos-de-uso/onboarding-operarios/#cuanto-tarda" class="perfil-card-link">Ver cómo se mide el tiempo de aprendizaje →</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- MATRIZ VISUAL -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <h2 class="section-title">¿Cómo se ve en REELEVO?</h2>
+        <div class="eyebrow">Cómo se ve en REELEVO</div>
+        <h2 class="section-title">Personas por procesos, y el riesgo a la vista</h2>
+        <p class="section-sub">La matriz cruza quién sabe hacer qué y en qué nivel. Se alimenta sola de la ejecución real: cuando un operario completa un proceso, su nivel se actualiza sin que nadie toque un Excel.</p>
       </div>
 
       <div class="matrix-example fade-up delay-1">
-        <p class="matrix-title">Matriz de competencias - Línea de envasado alimentaria</p>
-        <table class="matrix-table">
-          <thead>
-            <tr>
-              <th>Operario</th>
-              <th>Configuraciónlínea</th>
-              <th>Atasco material</th>
-              <th>Parámetros velocidad</th>
-              <th>Etiquetado</th>
-              <th>Limpieza GMP</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Antonio</td>
-              <td class="level-3">✓ Experto</td>
-              <td class="level-3">✓ Experto</td>
-              <td class="level-3">✓ Experto</td>
-              <td class="level-2">Apto</td>
-              <td class="level-1">Entrenando</td>
-            </tr>
-            <tr>
-              <td>María</td>
-              <td class="level-2">Apto</td>
-              <td class="level-2">Apto</td>
-              <td class="level-1">Entrenando</td>
-              <td class="level-3">✓ Experta</td>
-              <td class="level-3">✓ Experta</td>
-            </tr>
-            <tr>
-              <td>Pedro</td>
-              <td class="level-1">Entrenando</td>
-              <td class="level-2">Apto</td>
-              <td class="level-1">Entrenando</td>
-              <td class="level-2">Apto</td>
-              <td class="level-2">Apto</td>
-            </tr>
-            <tr>
-              <td>Carmen</td>
-              <td class="level-2">Apto</td>
-              <td class="level-1">Entrenando</td>
-              <td class="level-2">Apto</td>
-              <td class="level-1">Entrenando</td>
-              <td class="level-3">✓ Experta</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="matrix-analysis">
-          <p><strong>RRHH ve:</strong> "Configuración línea tiene riesgo (solo Antonio): PRIORIDAD entrenar a María. Limpieza GMP está bien distribuida."</p>
+        <p class="matrix-title">Matriz de competencias — Línea de envasado alimentaria</p>
+        <div class="matrix-scroll">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Operario</th>
+                <th>Configuración línea</th>
+                <th>Atasco material</th>
+                <th>Parámetros velocidad</th>
+                <th>Etiquetado</th>
+                <th>Limpieza GMP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Antonio</td>
+                <td class="level-3">Experto</td>
+                <td class="level-3">Experto</td>
+                <td class="level-3">Experto</td>
+                <td class="level-2">Apto</td>
+                <td class="level-1">Entrenando</td>
+              </tr>
+              <tr>
+                <td>María</td>
+                <td class="level-2">Apto</td>
+                <td class="level-2">Apto</td>
+                <td class="level-1">Entrenando</td>
+                <td class="level-3">Experta</td>
+                <td class="level-3">Experta</td>
+              </tr>
+              <tr>
+                <td>Pedro</td>
+                <td class="level-1">Entrenando</td>
+                <td class="level-2">Apto</td>
+                <td class="level-1">Entrenando</td>
+                <td class="level-2">Apto</td>
+                <td class="level-2">Apto</td>
+              </tr>
+              <tr>
+                <td>Carmen</td>
+                <td class="level-2">Apto</td>
+                <td class="level-1">Entrenando</td>
+                <td class="level-2">Apto</td>
+                <td class="level-1">Entrenando</td>
+                <td class="level-3">Experta</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="matrix-analysis">
+          <strong>Lo que se lee de un vistazo:</strong> «Configuración línea» depende solo de Antonio —ahí está el riesgo,
+          y la prioridad es formar a María—. «Limpieza GMP» está bien cubierta. Eso es un plan de formación en treinta segundos,
+          en vez de una intuición.
+        </p>
+      </div>
+
+      <h3 class="sub-head fade-up delay-2">Lo que se saca de ella</h3>
+
+      <div class="solution-grid fade-up delay-2">
+        <div class="solution-cell">
+          <h3>Mapeo y brechas</h3>
+          <p>Quién opera cada máquina y en qué nivel, con las brechas señaladas: si solo una persona domina la CNC, se ve.</p>
+        </div>
+
+        <div class="solution-cell">
+          <h3>Score de dependencia</h3>
+          <p>Riesgo operativo por máquina, para priorizar dónde documentar y a quién formar primero.</p>
+        </div>
+
+        <div class="solution-cell">
+          <h3>Vinculada al SOP</h3>
+          <p>Cada procedimiento enseña una competencia concreta, y al completarlo el nivel del operario se actualiza solo, con su historial trazable.</p>
         </div>
       </div>
 
-      <div class="screenshot-pair fade-up delay-2">
+      <p class="roles-line fade-up delay-3">Lo que gana cada uno: <a href="/para-quien/responsable-rrhh/">RRHH</a> · <a href="/cobertura-turnos/">cobertura de turnos</a> · <a href="/casos-de-uso/onboarding-operarios/#faq">tiempo de aprendizaje</a>.</p>
+
+      <div class="screenshot-pair fade-up delay-3">
         <figure class="screenshot-fig">
-          <Screenshot name="equipo-operaciones" alt="Panel de equipo de operaciones en REELEVO: procesos completados, minutos acumulados y última actividad por operario" class="screenshot-img" layout="pair" />
+          <Screenshot name="equipo-operaciones" alt="Panel de equipo de operaciones en REELEVO: procesos completados, minutos acumulados y actividad por operario" class="screenshot-img" layout="pair" />
           <figcaption class="screenshot-caption">Panel de equipo — actividad y procesos completados por operario</figcaption>
         </figure>
         <figure class="screenshot-fig">
-          <Screenshot name="competencias-operario" alt="Detalle de competencias de un operario en REELEVO: certificaciones activas, en proceso y caducadas" class="screenshot-img" layout="pair" />
+          <Screenshot name="competencias-operario" alt="Detalle de competencias de un operario en REELEVO: certificaciones activas, en curso y fecha de expiración" class="screenshot-img" layout="pair" />
           <figcaption class="screenshot-caption">Detalle de competencias — certificaciones activas con fecha de expiración</figcaption>
         </figure>
       </div>
@@ -279,52 +164,32 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Sin que nadie lo mire</div>
-        <h2 class="section-title">Una matriz que se degrada sola<br><em>no sirve de nada</em></h2>
+        <h2 class="section-title">Una matriz que se degrada sola <br><em>no sirve de nada</em></h2>
         <p class="section-sub">
-          El problema de las matrices de competencias en Excel no es construirlas: es que a los seis meses
-          ya no reflejan la realidad y nadie se fía. Estas revisiones se ejecutan a diario sin que nadie
-          las lance.
+          El problema de las matrices en Excel no es construirlas: es que a los seis meses ya no reflejan
+          la realidad. Estas cuatro revisiones se ejecutan a diario sin que nadie las lance.
         </p>
       </div>
 
       <div class="auto-grid fade-up delay-1">
         <article class="auto-card">
-          <div class="auto-tag">Diario</div>
           <h3 class="auto-title">Competencias que se oxidan</h3>
-          <p class="auto-desc">
-            Si alguien lleva mucho sin ejecutar un proceso, su capacitación deja de ser real aunque
-            siga marcada en la matriz. REELEVO lo detecta por hitos de <strong>60, 90 y 180 días</strong>
-            sin práctica, configurables.
-          </p>
+          <p class="auto-desc">Quien lleva mucho sin ejecutar un proceso deja de estar realmente capacitado. Se detecta por hitos de <strong>60, 90 y 180 días</strong> sin práctica, configurables.</p>
         </article>
 
         <article class="auto-card">
-          <div class="auto-tag">Diario</div>
-          <h3 class="auto-title">Certificaciones a punto de vencer</h3>
-          <p class="auto-desc">
-            Aviso automático de las certificaciones que caducan en los <strong>próximos 7 días</strong>,
-            para que la renovación se planifique en vez de descubrirse el día que hace falta la persona.
-          </p>
+          <h3 class="auto-title">Certificaciones por vencer</h3>
+          <p class="auto-desc">Aviso de las que caducan en los <strong>próximos 7 días</strong>, para renovar con margen en vez de descubrirlo el día que hace falta la persona.</p>
         </article>
 
         <article class="auto-card">
-          <div class="auto-tag">Diario</div>
           <h3 class="auto-title">Conocimiento en riesgo</h3>
-          <p class="auto-desc">
-            Señala los procesos que <strong>dependen de una sola persona</strong>, los que llevan
-            demasiado tiempo sin revisarse y los que muestran una variación anómala entre quienes
-            los ejecutan.
-          </p>
+          <p class="auto-desc">Procesos que <strong>dependen de una sola persona</strong>, que llevan demasiado sin revisarse o que muestran variación anómala entre quienes los ejecutan.</p>
         </article>
 
         <article class="auto-card">
-          <div class="auto-tag">Diario</div>
           <h3 class="auto-title">Turnos sin quien cubra</h3>
-          <p class="auto-desc">
-            Cruza el turno planificado con las certificaciones activas y avisa de los procesos críticos
-            que se quedan sin nadie capacitado, mientras aún se puede reorganizar.
-            <a href="/cobertura-turnos/">Ver cobertura de turnos →</a>
-          </p>
+          <p class="auto-desc">Cruza el turno planificado con las certificaciones activas y avisa de los procesos críticos que se quedan sin nadie, mientras aún se puede reorganizar.</p>
         </article>
       </div>
     </div>
@@ -332,341 +197,195 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <div class="divider"></div>
 
-  <!-- CTA -->
   <FaqSection items={faqs} />
 
   <div class="divider"></div>
 
+  <!-- SIGUIENTE PASO -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <div class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       Construye tu matriz de <em>competencias hoy</em>
-    </div>
+    </h3>
     <p class="cta-sub fade-up delay-2">
-      Visualiza el riesgo operativo real. Identifica dónde invertir capacitación. Reduce la dependencia de personas clave.
+      Empieza por una línea. En cuanto veas qué proceso depende de una sola persona, ya sabes por dónde seguir.
     </p>
     <div class="cta-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="05" data-cta-label="Registrarme en REELEVO">
         Registrarme en REELEVO
       </a>
-    </div>
-    <div class="cta-note fade-up delay-4" style="margin-top:18px;">
-      Relacionado:
-      <a href="/cobertura-turnos/">cobertura de turnos</a> ·
-      <a href="/para-quien/responsable-rrhh/">para RRHH</a>
+      <a href="/documentacion-procesos/" class="btn-ghost">
+        Ver documentación de procesos →
+      </a>
     </div>
   </section>
 
 </BaseLayout>
 
 <style>
-  /* LO QUE DETECTA SOLO */
-  .auto-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
-    margin-top: 40px;
-  }
-
-  .auto-card {
+  /* MATRIZ — bloque dominante */
+  .matrix-example {
+    margin-top: 44px;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 24px 22px;
+    border-radius: 8px;
+    padding: 26px;
   }
 
-  .auto-tag {
+  .matrix-title {
     font-family: 'DM Mono', monospace;
-    font-size: .6rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);
-    margin-bottom: 12px;
+    margin: 0 0 20px;
   }
 
-  .auto-title {
+  .matrix-scroll { overflow-x: auto; }
+
+  .matrix-table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    font-size: .9rem;
+  }
+
+  .matrix-table th {
     font-family: 'Oswald', sans-serif;
-    font-size: .96rem;
+    font-size: .85rem;
     font-weight: 600;
-    letter-spacing: .02em;
-    margin-bottom: 10px;
-  }
-
-  .auto-desc {
-    font-size: .84rem;
-    color: var(--gray);
-    line-height: 1.7;
-  }
-
-  .auto-desc strong { color: var(--white); font-weight: 500; }
-
-  .auto-desc a {
-    color: var(--orange);
-    text-decoration: none;
+    text-align: left;
+    padding: 10px 14px;
+    color: var(--white);
+    border-bottom: 1px solid var(--border-hover);
     white-space: nowrap;
   }
 
-  .auto-desc a:hover { text-decoration: underline; }
-
-  @media (max-width: 1100px) {
-    .auto-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-
-  @media (max-width: 640px) {
-    .auto-grid { grid-template-columns: 1fr; }
-  }
-
-  .challenge-content {
-    max-width: 700px;
-    margin-top: 40px;
-  }
-
-  .challenge-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 24px 0;
-  }
-
-  .challenge-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    padding: 12px;
-    background: var(--surface);
-    border-left: 3px solid rgba(255, 100, 0, 0.3);
-    border-radius: 4px;
-  }
-
-  .challenge-item .icon {
-    font-size: 1.3rem;
-    flex-shrink: 0;
-  }
-
-  .challenge-item span:last-child {
+  .matrix-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
     color: var(--gray);
-    font-size: 0.95rem;
-    line-height: 1.5;
   }
 
-  .risk-box {
-    background: rgba(255, 100, 0, 0.1);
-    border: 1px solid rgba(255, 150, 0, 0.3);
-    border-radius: 6px;
-    padding: 28px;
-    margin-top: 32px;
-  }
+  .matrix-table tbody tr:last-child td { border-bottom: none; }
 
-  .risk-box h3 {
+  .matrix-table td:first-child {
     font-family: 'Oswald', sans-serif;
-    margin-bottom: 12px;
-    color: var(--text);
+    font-weight: 600;
+    color: var(--white);
   }
 
-  .risk-box p {
+  .level-3 { color: var(--green) !important; font-weight: 500; }
+  .level-2 { color: var(--gray) !important; }
+  .level-1 { color: var(--orange) !important; }
+
+  .matrix-analysis {
+    margin: 22px 0 0;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: .95rem;
+    line-height: 1.7;
     color: var(--gray);
-    line-height: 1.6;
   }
 
+  .matrix-analysis strong { color: var(--white); font-weight: 500; }
+
+  .sub-head {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+    margin: 48px 0 0;
+  }
+
+  /* QUÉ INCLUYE */
   .solution-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-top: 40px;
+  }
+
+  @media (max-width: 860px) {
+    .solution-grid { grid-template-columns: 1fr; }
   }
 
   .solution-cell {
     background: var(--surface);
     border: 1px solid var(--border);
+    border-top: 2px solid var(--orange);
     border-radius: 6px;
     padding: 24px;
-  }
-
-  .cell-number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: var(--orange);
-    color: white;
-    border-radius: 50%;
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 16px;
   }
 
   .solution-cell h3 {
     font-family: 'Oswald', sans-serif;
     font-size: 1rem;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    color: var(--white);
   }
 
   .solution-cell p {
-    font-size: 0.9rem;
+    font-size: .95rem;
     color: var(--gray);
-    line-height: 1.6;
+    line-height: 1.65;
+    margin: 0;
   }
 
-  .benefits-grid {
+  /* REVISIONES AUTOMÁTICAS */
+  .auto-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
     margin-top: 40px;
   }
 
-  .benefit-box {
+  @media (max-width: 1000px) {
+    .auto-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 620px) {
+    .auto-grid { grid-template-columns: 1fr; }
+  }
+
+  .auto-card {
     background: var(--surface);
     border: 1px solid var(--border);
+    border-top: 2px solid var(--orange);
     border-radius: 6px;
-    padding: 24px;
+    padding: 22px 20px;
   }
 
-  .benefit-box h3 {
+  .auto-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    margin-bottom: 12px;
-    color: var(--text);
+    font-size: .98rem;
+    margin-bottom: 10px;
+    color: var(--white);
   }
 
-  .benefit-box p {
-    font-size: 0.9rem;
-    color: var(--gray);
+  .auto-desc {
+    font-size: .95rem;
     line-height: 1.6;
-  }
-
-  .case-story {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1.2fr;
-    gap: 24px;
-    margin-top: 40px;
-  }
-
-  .story-section {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 24px;
-  }
-
-  .story-section.highlight {
-    border-color: var(--orange);
-    background: rgba(255, 150, 0, 0.02);
-  }
-
-  .story-section h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    margin-bottom: 16px;
-  }
-
-  .story-section p {
-    font-size: 0.9rem;
     color: var(--gray);
-    line-height: 1.6;
-    margin-bottom: 12px;
+    margin: 0;
   }
 
-  .story-section ul {
-    list-style: none;
-    padding: 0;
-  }
+  .auto-desc strong { color: var(--white); font-weight: 500; }
 
-  .story-section li {
-    padding: 8px 0;
-    font-size: 0.9rem;
+  .roles-line {
+    margin-top: 28px;
+    font-size: .95rem;
     color: var(--gray);
-    line-height: 1.5;
   }
 
-  .story-section li:before {
-    content: "✓ ";
+  .roles-line a {
     color: var(--orange);
-    font-weight: 600;
-    margin-right: 8px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(244, 82, 30, .35);
   }
 
-  .matrix-example {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 32px;
-    margin-top: 40px;
-  }
-
-  .matrix-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-
-  .matrix-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-
-  .matrix-table th,
-  .matrix-table td {
-    padding: 12px 8px;
-    text-align: left;
-    border: 1px solid var(--border);
-    font-size: 0.85rem;
-  }
-
-  .matrix-table th {
-    background: var(--surface2);
-    font-weight: 600;
-  }
-
-  .matrix-table td:first-child {
-    font-weight: 500;
-  }
-
-  .level-1 {
-    background: rgba(200, 100, 100, 0.15);
-    color: #c86464;
-  }
-
-  .level-2 {
-    background: rgba(255, 180, 100, 0.15);
-    color: #d4991a;
-  }
-
-  .level-3 {
-    background: rgba(100, 200, 100, 0.15);
-    color: #64c864;
-  }
-
-  .matrix-analysis {
-    background: rgba(255, 150, 0, 0.1);
-    padding: 16px;
-    border-radius: 4px;
-    border-left: 3px solid var(--orange);
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-
-  @media (max-width: 900px) {
-    .solution-grid,
-    .benefits-grid,
-    .case-story {
-      grid-template-columns: 1fr;
-    }
-
-    .case-story {
-      grid-template-columns: 1fr;
-    }
-
-    .matrix-table {
-      font-size: 0.75rem;
-    }
-
-    .matrix-table th,
-    .matrix-table td {
-      padding: 8px 4px;
-    }
+  .roles-line a:hover {
+    border-bottom-color: var(--orange);
   }
 </style>

@@ -9,6 +9,11 @@ const description = "Flujos de trabajo multi-paso y multi-operario con editor vi
 const canonical = "https://www.gmvsolutions.es/workflows/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+//
+// La quinta pregunta recoge el limite honesto sobre el editor, que antes era
+// media seccion de "Enfoque prudente". La otra mitad (cuando basta un SOP) ya
+// estaba en la primera pregunta, asi que la seccion se elimina en vez de
+// repetirse (tarea C2 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
 const faqs: FaqItem[] = [
   {
     q: '¿Qué diferencia hay entre un workflow y un SOP?',
@@ -16,7 +21,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: '¿Qué procesos merecen un workflow?',
-    a: 'Los que pasan por varias manos y se atascan en las transiciones: liberación de producto con validación de calidad, altas de referencia, gestión de una no conformidad, aprobaciones antes de expedir. Es decir, donde el problema no es ejecutar sino coordinar.',
+    a: 'Los que pasan por varias manos y se atascan en las transiciones. Un cambio de utillaje o de formato: parar, desmontar, ajustar, probar y validar, con un operario distinto en cada fase. Una puesta en marcha de línea donde dos equipos preparan en paralelo y el arranque espera a que ambos terminen. Una auditoría interna de ocho fases en tres días, cada una con su responsable y su checkpoint. También liberación de producto con validación de calidad, no conformidades y aprobaciones antes de expedir. Es decir, donde el problema no es ejecutar sino coordinar.',
   },
   {
     q: '¿Hace falta saber programar para diseñarlos?',
@@ -26,195 +31,64 @@ const faqs: FaqItem[] = [
     q: '¿Se puede ver por dónde va cada proceso en curso?',
     a: 'Sí, con el estado de cada instancia y en qué paso está parada. Es lo que responde a la pregunta habitual de qué falta para poder expedir, sin ir preguntando de departamento en departamento.',
   },
+  {
+    q: '¿Cualquiera puede diseñar un workflow que funcione?',
+    a: 'El editor es visual, pero no lo llamaríamos trivial: diseñar un flujo bien estructurado exige que quien lo monte conozca de verdad el proceso y sus excepciones. Nuestra recomendación es empezar por un proceso que ya se hace bien y estructurarlo, en vez de intentar arreglar con un workflow un proceso que todavía no está claro.',
+  },
 ];
 
 const pageSchema = softwareApplicationSchema();
 
 const schema = [pageSchema, faqPageSchema(faqs)];
+
+// Los 17 tipos verificados en reelevo-app: start, end, process, operation,
+// machine, manual_task, measurement, supervisor_approval, decision, checkpoint,
+// incident, rework, blocked_wait, delay, parallel_split, parallel_join, note.
+// Si se toca esta lista hay que volver a contar: la cifra del titulo debe
+// cuadrar con los elementos.
+const nodos = [
+  { i: '●', n: 'Inicio', d: 'por dónde arranca' },
+  { i: '▶', n: 'Operación', d: 'tarea con SOP' },
+  { i: '⚙', n: 'Proceso', d: 'proceso ya documentado, embebido' },
+  { i: '🏭', n: 'Máquina', d: 'paso en una máquina concreta' },
+  { i: '✓', n: 'Tarea manual', d: 'sin SOP, descripción libre' },
+  { i: '📏', n: 'Medición', d: 'registra un valor' },
+  { i: '◆', n: 'Decisión', d: 'bifurca según resultado' },
+  { i: '👁', n: 'Aprobación', d: 'bloquea hasta visto bueno del supervisor' },
+  { i: '🏁', n: 'Checkpoint', d: 'validación explícita' },
+  { i: '⚠', n: 'Incidencia', d: 'rama para cuando algo falla' },
+  { i: '↺', n: 'Retrabajo', d: 'devuelve a un paso anterior' },
+  { i: '⏸', n: 'Espera bloqueada', d: 'no avanza hasta cumplirse una condición' },
+  { i: '⏱', n: 'Retardo', d: 'curado, enfriado, secado' },
+  { i: '⇥', n: 'Split paralelo', d: 'abre varias ramas a la vez' },
+  { i: '⇤', n: 'Join paralelo', d: 'espera a que todas terminen' },
+  { i: '📝', n: 'Nota', d: 'anotación sin efecto' },
+  { i: '◉', n: 'Fin', d: 'dónde se cierra' },
+];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
 
-  <!-- PAGE HERO -->
+  <!-- HERO + PROBLEMA -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Workflows operativos industriales</div>
-    <h1 class="fade-up delay-1">Algunos procesos necesitan<br><em>más de un operario y más de un paso</em></h1>
-    <p class="fade-up delay-2">Diseña flujos de trabajo complejos con el editor visual de REELEVO. Asigna cada paso al operario correcto, añade puntos de aprobación, divide en ramas paralelas y haz seguimiento en tiempo real desde el panel de supervisión.</p>
-    <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+    <h1 class="fade-up delay-1">Algunos procesos necesitan <br><em>más de un operario y más de un paso</em></h1>
+    <p class="fade-up delay-2">Un cambio de utillaje pasa por cuatro manos en secuencia; una auditoría interna tiene seis fases con responsables distintos. Sin nada que los estructure, esos procesos se coordinan por WhatsApp y de viva voz: pasos saltados, aprobaciones que llegan tarde y nadie sabe quién bloquea qué.</p>
+    <div class="hero-cta fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/video-demo/" class="btn-ghost"
-         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- EL PROBLEMA -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">El problema</div>
-        <h2 class="section-title">Hay procesos que no caben en un SOP lineal de un solo operario</h2>
-      </div>
-
-      <div class="challenge-content fade-up delay-1">
-        <p>Un SOP es perfecto para una tarea repetitiva que hace un solo operario. Pero en planta hay procesos más complejos:</p>
-        <div class="challenge-list">
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>El proceso de cambio de utillaje implica 4 operarios en secuencia — si uno no termina, el siguiente no puede empezar</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>Hay pasos que requieren aprobación del supervisor antes de continuar, pero el supervisor se entera cuando ya se pasó al siguiente</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>En una puesta en marcha de línea, dos equipos trabajan en paralelo y el siguiente paso no puede empezar hasta que los dos terminen</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>El proceso de auditoría interna tiene 6 fases con responsables distintos — nadie sabe en qué fase está ni quién está bloqueado</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>Procesos que se repiten cada semana (limpieza de instalaciones, control de calidad periódico) se lanzan siempre de forma manual y a menudo se olvidan</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="risk-box fade-up delay-2">
-        <h3>Los procesos complejos se coordinan en WhatsApp o de viva voz</h3>
-        <p>Sin un sistema que los estructure, los procesos multi-operario se coordinan informalmente. El resultado es pasos saltados, aprobaciones que no llegan y tiempo perdido esperando.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- QUÉ ES UN WORKFLOW EN REELEVO -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Qué es un workflow en REELEVO</div>
-        <h2 class="section-title">Una secuencia de pasos, con responsables, condiciones y seguimiento</h2>
-        <p class="section-sub">Un workflow de REELEVO es un proceso estructurado que puede tener múltiples pasos, múltiples operarios, condiciones de avance, puntos de aprobación y ramas paralelas. Se monta arrastrando <strong>17 tipos de nodo</strong> distintos, y se lanza a mano o solo.</p>
-      </div>
-
-      <!-- Los 17 tipos verificados en reelevo-app: start, end, process,
-           operation, machine, manual_task, measurement, supervisor_approval,
-           decision, checkpoint, incident, rework, blocked_wait, delay,
-           parallel_split, parallel_join, note. Si se toca esta lista hay que
-           volver a contar: la cifra del titulo debe cuadrar con las tarjetas. -->
-      <div class="node-types fade-up delay-1">
-        <div class="eyebrow-small">Los 17 tipos de nodo del editor</div>
-        <div class="nodes-grid">
-          <div class="node-card">
-            <div class="node-icon">▶</div>
-            <div class="node-name">Operación</div>
-            <div class="node-desc">Tarea ejecutada por un operario siguiendo un SOP</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">⚙</div>
-            <div class="node-name">Proceso</div>
-            <div class="node-desc">Un proceso completo ya documentado, embebido en el flujo</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">🏭</div>
-            <div class="node-name">Máquina</div>
-            <div class="node-desc">Paso asociado a una máquina concreta del taller</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">✓</div>
-            <div class="node-name">Tarea manual</div>
-            <div class="node-desc">Paso sin SOP asociado, con descripción libre</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">📏</div>
-            <div class="node-name">Medición</div>
-            <div class="node-desc">El operario registra un valor numérico o texto</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">◆</div>
-            <div class="node-name">Decisión</div>
-            <div class="node-desc">Bifurcación condicional según resultado del paso anterior</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">👁</div>
-            <div class="node-name">Aprobación supervisor</div>
-            <div class="node-desc">El workflow se bloquea hasta que el supervisor aprueba</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">🏁</div>
-            <div class="node-name">Checkpoint</div>
-            <div class="node-desc">Punto de control que requiere validación explícita</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">⚠</div>
-            <div class="node-name">Incidencia</div>
-            <div class="node-desc">Rama para cuando algo no sale como debería</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">↺</div>
-            <div class="node-name">Retrabajo</div>
-            <div class="node-desc">Devuelve la pieza a un paso anterior para corregirla</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">⏸</div>
-            <div class="node-name">Espera bloqueada</div>
-            <div class="node-desc">El flujo no avanza hasta que se cumpla una condición</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">⏱</div>
-            <div class="node-name">Retardo</div>
-            <div class="node-desc">Pausa por tiempo: curado, enfriado, secado</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">⇥</div>
-            <div class="node-name">Split paralelo</div>
-            <div class="node-desc">Abre varias ramas que se ejecutan a la vez</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">⇤</div>
-            <div class="node-name">Join paralelo</div>
-            <div class="node-desc">Espera a que todas las ramas terminen para seguir</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">📝</div>
-            <div class="node-name">Nota</div>
-            <div class="node-desc">Anotación en el diagrama, sin efecto en la ejecución</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">●</div>
-            <div class="node-name">Inicio</div>
-            <div class="node-desc">Por dónde arranca el flujo</div>
-          </div>
-          <div class="node-card">
-            <div class="node-icon">◉</div>
-            <div class="node-name">Fin</div>
-            <div class="node-desc">Dónde se da por cerrado</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="screenshot-single fade-up delay-2">
-        <figure class="screenshot-fig">
-          <Screenshot name="kaizen-panel" alt="Editor visual de workflows en REELEVO con paleta de nodos" class="screenshot-img" layout="single" />
-          <figcaption class="screenshot-caption">Editor visual de workflows — paleta de nodos: operación, decisión, aprobación, bifurcación, demora, validación</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- CÓMO FUNCIONA -->
+  <!-- CÓMO FUNCIONA — bloque dominante -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Cómo funciona</div>
         <h2 class="section-title">Diseñas una vez — el workflow se ejecuta solo</h2>
+        <p class="section-sub">Un workflow es una secuencia de pasos con responsables, condiciones y validaciones entre ellos. Lo que un SOP no cubre porque un SOP lo ejecuta una sola persona.</p>
       </div>
 
       <div class="kaizen-flow fade-up delay-1">
@@ -222,7 +96,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           <div class="flow-num">1</div>
           <div class="flow-content">
             <h3>Diseñas el workflow en el editor visual</h3>
-            <p>Arrastra y conecta los nodos que necesitas. Define qué operario es responsable de cada paso, qué condiciones debe cumplir cada transición y dónde necesitas la aprobación del supervisor. Sin código, sin formularios complejos.</p>
+            <p>Arrastras y conectas los nodos que necesitas, y defines quién responde de cada paso y qué condiciones debe cumplir cada transición para poder avanzar.</p>
           </div>
         </div>
 
@@ -231,8 +105,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <div class="flow-step">
           <div class="flow-num">2</div>
           <div class="flow-content">
-            <h3>Lanzas el workflow cuando lo necesitas — o se lanza solo</h3>
-            <p>Puedes lanzarlo manualmente asociado a una obra o de forma independiente. O programarlo para que se lance automáticamente (diario, semanal, mensual). O vincularlo a una obra para que se active cuando se abre un nuevo proyecto.</p>
+            <h3>Lo lanzas cuando lo necesitas — o se lanza solo</h3>
+            <p>Manualmente, asociado a una obra o de forma independiente. O programado para que arranque solo cada día, cada semana o cada mes: el control de calidad periódico deja de depender de que alguien se acuerde.</p>
           </div>
         </div>
 
@@ -242,7 +116,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           <div class="flow-num">3</div>
           <div class="flow-content">
             <h3>Cada operario ve sus pasos en su agenda</h3>
-            <p>El workflow materializa automáticamente los pasos en la agenda de cada operario asignado. Cuando toca su turno, el paso aparece en su agenda como cualquier otra tarea. Sin que nadie tenga que coordinarlo.</p>
+            <p>El workflow materializa los pasos en la agenda de cada responsable. Cuando le toca su turno, el paso le aparece: nadie tiene que avisarle de que ya puede empezar.</p>
           </div>
         </div>
 
@@ -251,208 +125,75 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <div class="flow-step">
           <div class="flow-num">4</div>
           <div class="flow-content">
-            <h3>El supervisor ve el avance en tiempo real y desbloquea cuando hace falta</h3>
-            <p>El dashboard de runs activos muestra qué workflows están en curso, en qué paso están y si hay algún bloqueo. Cuando hay una aprobación pendiente, el supervisor recibe notificación y puede aprobar desde el panel en segundos.</p>
+            <h3>El supervisor ve el avance y desbloquea</h3>
+            <p>El panel de flujos activos muestra cuáles están en curso, en qué paso y si hay bloqueo. Cuando un paso exige aprobación, le llega y el proceso no sigue hasta que responde — que es justo el control que se busca.</p>
           </div>
         </div>
       </div>
+
+      <div class="screenshot-single fade-up delay-2">
+        <figure class="screenshot-fig">
+          <Screenshot name="kaizen-panel" alt="Editor visual de workflows en REELEVO con paleta de nodos" class="screenshot-img" layout="single" />
+          <figcaption class="screenshot-caption">Editor visual de workflows — paleta de nodos: operación, decisión, aprobación, bifurcación paralela</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- PARA QUÉ SE USA -->
+  <!-- QUÉ INCLUYE -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
-        <div class="eyebrow">Casos de uso habituales</div>
-        <h2 class="section-title">Qué procesos se estructuran con workflows en planta industrial</h2>
+        <div class="eyebrow">Qué incluye</div>
+        <h2 class="section-title">Los 17 tipos de nodo del editor</h2>
+        <p class="section-sub">Con estas piezas se monta desde una liberación de producto con validación de calidad hasta una puesta en marcha en paralelo.</p>
       </div>
 
-      <div class="use-cases-grid fade-up delay-1">
-        <div class="use-case">
-          <h3>Cambio de utillaje o formato</h3>
-          <p>El cambio implica parar la máquina, desmontar, ajustar, probar y validar — con operarios distintos en cada fase. El workflow asegura que ningún paso se salta y que la validación del supervisor llega antes del arranque.</p>
-        </div>
-
-        <div class="use-case">
-          <h3>Puesta en marcha de línea</h3>
-          <p>Dos equipos trabajan en paralelo en la preparación. El arranque no puede comenzar hasta que los dos equipos han terminado sus fases. Las ramas paralelas + join gestionan esta sincronización sin coordinación verbal.</p>
-        </div>
-
-        <div class="use-case">
-          <h3>Control de calidad periódico</h3>
-          <p>El control de calidad semanal tiene 6 fases con responsables distintos. Se programa en REELEVO para que se lance automáticamente cada lunes. El responsable de calidad ve el avance en tiempo real.</p>
-        </div>
-
-        <div class="use-case">
-          <h3>Proceso de incorporación a obra</h3>
-          <p>Cuando se abre una nueva obra, se activa automáticamente el workflow de incorporación: briefing del proyecto, asignación de equipos, revisión de SOP específicos y validación del responsable antes del arranque.</p>
-        </div>
-
-        <div class="use-case">
-          <h3>Auditoría interna</h3>
-          <p>La auditoría interna tiene 8 fases distribuidas en 3 días. Cada fase tiene su responsable y su checkpoint. El workflow mantiene el control de quién está en qué fase sin que el responsable de calidad tenga que perseguir a nadie.</p>
-        </div>
-
-        <div class="use-case">
-          <h3>Limpieza y saneamiento</h3>
-          <p>El protocolo de limpieza implica al operario, al encargado de turno y al responsable de calidad en fases distintas. Con aprobación del encargado antes de reanudar la producción. El workflow lo gestiona sin instrucciones verbales.</p>
-        </div>
-      </div>
+      <ul class="nodes-list fade-up delay-1">
+        {nodos.map((x) => (
+          <li>
+            <span class="node-i" aria-hidden="true">{x.i}</span>
+            <span class="node-n">{x.n}</span>
+            <span class="node-d">{x.d}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- NOTA HONESTA -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Enfoque prudente</div>
-        <h2 class="section-title">Para qué sirven los workflows — y cuándo usar un SOP simple</h2>
-      </div>
-
-      <div class="honest-note fade-up delay-1">
-        <p><strong>Los workflows son para procesos que van más allá de un solo operario o un solo paso lineal.</strong> Si tienes un proceso repetitivo que hace siempre el mismo perfil de operario siguiendo los mismos pasos, un SOP con QR es suficiente y más simple. Los workflows aportan valor cuando hay coordinación entre operarios, puntos de aprobación formales, ramas condicionales o ejecución periódica automática.</p>
-      </div>
-
-      <div class="honest-note fade-up delay-2" style="margin-top:16px;">
-        <p><strong>El editor visual es potente pero no trivial.</strong> Diseñar un workflow bien estructurado requiere que alguien con conocimiento del proceso lo configure. No es algo que se hace en 2 minutos como crear un SOP. La recomendación es empezar por los 2-3 procesos donde la coordinación falla con más frecuencia y añadir complejidad gradualmente.</p>
-      </div>
-    </div>
-  </section>
+  <p class="roles-line roles-line--solo fade-up">Relacionado: <a href="/documentacion-procesos/">documentación de procesos</a> · <a href="/calidad-y-conformidad/">calidad y conformidad</a> · <a href="/obras-trazabilidad/">obras y trazabilidad</a>.</p>
 
   <div class="divider"></div>
 
-  <!-- CTA -->
-  <FaqSection items={faqs} />
-
-  <div class="divider"></div>
-
+  <!-- SIGUIENTE PASO -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
     <h3 class="cta-title fade-up delay-1">
-      Estructura los procesos complejos<br><em>una vez — y que funcionen solos</em>
+      Empieza por el proceso <br><em>que siempre se atasca en la misma transición</em>
     </h3>
     <p class="cta-sub fade-up delay-2">
-      Empieza con REELEVO. Cuando tengas los SOPs básicos en marcha, los workflows son el siguiente nivel de digitalización operativa.
+      Coge uno que ya se hace bien y estructúralo.
     </p>
     <div class="cta-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO
+        Registrarse gratis
       </a>
       <a href="/portal-operario/" class="btn-ghost">
         Ver el portal del operario →
       </a>
     </div>
-    <div class="cta-trust fade-up delay-4">Te acompañamos en la puesta en marcha · Sin compromiso</div>
+    <div class="cta-trust fade-up delay-4">Te acompañamos en la puesta en marcha · Sin compromiso y con foco práctico</div>
   </section>
 
 </BaseLayout>
 
 <style>
-  .challenge-content {
-    max-width: 700px;
-    margin-top: 40px;
-  }
-
-  .challenge-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 24px 0;
-  }
-
-  .challenge-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    padding: 12px 16px;
-    background: var(--surface);
-    border-left: 3px solid rgba(255, 100, 0, 0.3);
-    border-radius: 4px;
-  }
-
-  .challenge-item .icon { font-size: 1.2rem; flex-shrink: 0; }
-
-  .challenge-item span:last-child {
-    color: var(--gray);
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .risk-box {
-    background: rgba(255, 100, 0, 0.08);
-    border: 1px solid rgba(255, 150, 0, 0.25);
-    border-radius: 6px;
-    padding: 28px;
-    margin-top: 32px;
-    max-width: 700px;
-  }
-
-  .risk-box h3 {
-    font-family: 'Oswald', sans-serif;
-    margin-bottom: 12px;
-    color: var(--text);
-  }
-
-  .risk-box p { color: var(--gray); line-height: 1.6; margin: 0; }
-
-  /* NODE TYPES */
-  .eyebrow-small {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 20px;
-  }
-
-  .nodes-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-top: 8px;
-  }
-
-  @media (max-width: 800px) {
-    .nodes-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 480px) {
-    .nodes-grid { grid-template-columns: 1fr; }
-  }
-
-  .node-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 16px;
-    text-align: center;
-  }
-
-  .node-icon {
-    font-size: 1.4rem;
-    margin-bottom: 8px;
-    color: var(--orange);
-  }
-
-  .node-name {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.85rem;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-
-  .node-desc {
-    font-size: 0.78rem;
-    color: var(--gray);
-    line-height: 1.4;
-  }
-
-  /* FLOW */
+  /* FLUJO — bloque dominante */
   .kaizen-flow {
     display: flex;
     flex-direction: column;
@@ -490,13 +231,13 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-family: 'Oswald', sans-serif;
     font-size: 1.05rem;
     margin-bottom: 8px;
-    color: var(--text);
+    color: var(--white);
   }
 
   .flow-content p {
     color: var(--gray);
-    font-size: 0.93rem;
-    line-height: 1.6;
+    font-size: .95rem;
+    line-height: 1.65;
     margin: 0;
   }
 
@@ -508,53 +249,75 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     margin-left: 22px;
   }
 
-  /* USE CASES */
-  .use-cases-grid {
+  /* NODOS — sustituye a la rejilla de 17 tarjetas por una lista compacta.
+     Los 17 nombres se conservan enteros; lo que se recorta es la descripcion. */
+  .nodes-list {
+    list-style: none;
+    margin: 40px 0 0;
+    padding: 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-top: 40px;
-  }
-
-  @media (max-width: 640px) {
-    .use-cases-grid { grid-template-columns: 1fr; }
-  }
-
-  .use-case {
-    background: var(--surface);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--border);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 24px;
+    overflow: hidden;
   }
 
-  .use-case h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    margin-bottom: 10px;
-    color: var(--text);
-  }
-
-  .use-case p {
-    font-size: 0.9rem;
-    color: var(--gray);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* HONEST NOTE */
-  .honest-note {
-    padding: 20px 24px;
-    border-left: 3px solid var(--orange);
+  .nodes-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
     background: var(--surface);
-    border-radius: 0 6px 6px 0;
-    max-width: 760px;
+    padding: 14px 18px;
+    font-size: .95rem;
+    line-height: 1.5;
   }
 
-  .honest-note p {
+  .node-i {
+    color: var(--orange);
+    min-width: 20px;
+    font-size: .95rem;
+  }
+
+  .node-n {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    color: var(--white);
+    white-space: nowrap;
+  }
+
+  .node-d {
     color: var(--gray);
-    font-size: 0.9rem;
-    line-height: 1.65;
-    margin: 0;
+    font-size: .88rem;
+  }
+
+  @media (max-width: 760px) {
+    .nodes-list { grid-template-columns: 1fr; }
+    .nodes-list li { flex-wrap: wrap; gap: 8px; }
+  }
+
+  .roles-line--solo {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 32px 96px;
+  }
+
+  .roles-line {
+    margin-top: 28px;
+    font-size: .95rem;
+    color: var(--gray);
+  }
+
+  .roles-line a {
+    color: var(--orange);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(244, 82, 30, .35);
+  }
+
+  .roles-line a:hover {
+    border-bottom-color: var(--orange);
   }
 
   .cta-trust {

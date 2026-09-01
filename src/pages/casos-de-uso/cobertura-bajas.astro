@@ -1,14 +1,38 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../../lib/seo';
 
-const schema = {
+// Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y sirve ademas de
+// destino para la seccion "Tres pasos", que competia con el bloque principal
+// (tarea D3 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Cuánto se tarda en documentar el proceso de un experto?',
+    a: 'Un proceso completo suele salir en menos de 30 minutos, y lo captura el propio experto mientras ejecuta, no alguien desde un despacho. Esa es la diferencia con un proyecto de documentación: no hay que parar la planta ni bloquear a nadie un día entero.',
+  },
+  {
+    q: '¿Y si el sustituto se encuentra un problema que no está en el proceso?',
+    a: 'Cada paso puede llevar sus variantes de incidencia —qué hacer si la presión baja, si el material se atasca— así que lo habitual ya está previsto. Lo que no lo está se escala al supervisor desde el mismo puesto, y queda registrado para incorporarlo al procedimiento.',
+  },
+  {
+    q: '¿Esto sustituye al experto?',
+    a: 'No. Sustituye la llamada al experto para resolver lo básico del puesto. Su criterio para lo excepcional sigue haciendo falta; lo que deja de hacer falta es sacarle de la cama un lunes a las 7:15 para recordar el orden de doce pasos.',
+  },
+  {
+    q: '¿Por dónde empiezo si tengo varios procesos críticos?',
+    a: 'Por el que hoy depende de una sola persona y más te tensiona si falta. Con ese proceso documentado y disponible en la máquina ya se ve si el planteamiento te sirve, sin haber ordenado la planta entera.',
+  },
+];
+
+const schema = [faqPageSchema(faqs), {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "REELEVO — Cobertura de bajas en producción",
   "description": "Cómo REELEVO ayuda a cubrir bajas en planta con procesos accesibles en el puesto y menos dependencia del experto.",
   "url": "https://www.gmvsolutions.es/casos-de-uso/cobertura-bajas/",
   "isPartOf": { "@id": "https://www.gmvsolutions.es/#organization" }
-};
+}];
 ---
 
 <BaseLayout
@@ -25,7 +49,7 @@ const schema = {
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="eyebrow fade-up">Cobertura de bajas en planta</div>
-  <h1 class="fade-up delay-1">Cuando Martínez está de baja,<br><em>la línea no puede esperar</em></h1>
+  <h1 class="fade-up delay-1">Cuando Martínez está de baja, <br><em>la línea no puede esperar</em></h1>
   <p class="fade-up delay-2">Martínez lleva 20 años en esa máquina. Sabe exactamente qué hacer cuando falla, en qué orden van los pasos, qué nunca hay que saltarse. Hoy está en urgencias. ¿Qué pasa ahora?</p>
   <div class="hero-cta-group fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
@@ -42,7 +66,7 @@ const schema = {
   <div class="stat-band-inner">
     <div class="stat-item fade-up">
       <div class="stat-num">40%</div>
-      <div class="stat-label">de los responsables llaman directamente al experto cuando alguien falta<br><span style="color:var(--gray2);font-size:.78rem;">Encuesta REELEVO, 2025</span></div>
+      <div class="stat-label">de los responsables llaman directamente al experto cuando alguien falta <br><span style="color:var(--gray2);font-size:.78rem;">Encuesta REELEVO, 2025</span></div>
     </div>
     <div class="stat-item fade-up delay-1">
       <div class="stat-num">7,2%</div>
@@ -69,7 +93,6 @@ const schema = {
       <div class="scenario-card">
         <div class="scenario-card-tag">Lunes 7:30</div>
         <div class="scenario-card-title">La baja médica inesperada</div>
-        <p>Martínez avisa a las 7:15. Su sustituto lleva 6 meses sin tocar esa máquina. El proceso de arranque tiene 12 pasos y 3 de ellos son críticos. Sin notas. Sin manual. Sin nadie que sepa exactamente qué hacer.</p>
         <div class="scenario-before"><strong>Sin REELEVO:</strong> El encargado llama a Martínez. Le saca de la cama. Le pone en speaker 40 minutos.</div>
         <div class="scenario-after"><strong>Con REELEVO:</strong> El sustituto encuentra una referencia clara. <strong>Tiene el paso a paso del puesto disponible donde lo necesita.</strong></div>
       </div>
@@ -77,7 +100,6 @@ const schema = {
       <div class="scenario-card">
         <div class="scenario-card-tag">Baja larga</div>
         <div class="scenario-card-title">La baja de larga duración</div>
-        <p>Martínez lleva 3 semanas de baja. Los primeros días llamabas. Ahora ya no puedes. El sustituto ha aprendido "más o menos" pero sigue cometiendo errores en los pasos críticos.</p>
         <div class="scenario-before"><strong>Sin REELEVO:</strong> 3 semanas después, nadie sabe con certeza si el proceso se está haciendo bien.</div>
         <div class="scenario-after"><strong>Con REELEVO:</strong> El proceso de Martínez está documentado. El sustituto lo sigue con una referencia clara y menos dependencia del recuerdo.</div>
       </div>
@@ -85,7 +107,6 @@ const schema = {
       <div class="scenario-card">
         <div class="scenario-card-tag">Jubilación prevista</div>
         <div class="scenario-card-title">El experto que se va en 6 meses</div>
-        <p>Sabes que Martínez se jubila. Llevas meses diciéndote que hay que documentar sus procesos. El tiempo pasa. Y un día se va.</p>
         <div class="scenario-before"><strong>Sin REELEVO:</strong> El día que se va, se lleva 20 años de conocimiento. Y no vuelve.</div>
         <div class="scenario-after"><strong>Con REELEVO:</strong> En 30 minutos por proceso, el conocimiento de Martínez queda capturado <strong>antes de que se marche.</strong></div>
       </div>
@@ -111,10 +132,6 @@ const schema = {
           <div class="benefit-title">Nadie llama al que está de baja</div>
           <div class="benefit-desc">El proceso está disponible en la máquina. El conocimiento de Martínez es tuyo, no suyo. Independientemente de si está de baja, de vacaciones o ya se ha jubilado.</div>
         </div>
-        <div class="benefit-result">
-          <div class="benefit-result-label">El resultado</div>
-          <p>Menos necesidad de llamar al experto para resolver lo básico del puesto.</p>
-        </div>
       </div>
 
       <div class="benefit-row">
@@ -122,10 +139,6 @@ const schema = {
         <div>
           <div class="benefit-title">El sustituto arranca con una referencia clara</div>
           <div class="benefit-desc">Encuentra qué hacer en el puesto, sigue las instrucciones del experto y gana autonomía sin depender de tutorías largas ni esperas innecesarias.</div>
-        </div>
-        <div class="benefit-result">
-          <div class="benefit-result-label">El resultado</div>
-          <p>Menos tiempo hasta arrancar con el estándar correcto del puesto.</p>
         </div>
       </div>
 
@@ -135,10 +148,6 @@ const schema = {
           <div class="benefit-title">Si surge un problema, hay guía de incidencias paso a paso</div>
           <div class="benefit-desc">Cada paso puede incluir variantes de incidencias: qué hacer si la presión es baja, si el material está húmedo o cuándo avisar al supervisor. El sustituto tiene más información útil para actuar sin improvisar.</div>
         </div>
-        <div class="benefit-result">
-          <div class="benefit-result-label">El resultado</div>
-          <p>Las incidencias habituales quedan mejor documentadas y escalan al supervisor solo cuando hace falta.</p>
-        </div>
       </div>
 
       <div class="benefit-row">
@@ -146,10 +155,6 @@ const schema = {
         <div>
           <div class="benefit-title">Todos los pasos en el orden correcto</div>
           <div class="benefit-desc">El proceso que documentó Martínez se ejecuta igual cada vez. Sin los 3 pasos que "todo el mundo sabe" pero que los nuevos se saltan. Sin variaciones por quién esté ese día.</div>
-        </div>
-        <div class="benefit-result">
-          <div class="benefit-result-label">El resultado</div>
-          <p>Menos errores y más consistencia cuando toca cubrir una ausencia.</p>
         </div>
       </div>
 
@@ -159,52 +164,21 @@ const schema = {
 
 <div class="divider"></div>
 
-<!-- CÓMO FUNCIONA -->
-<section class="section section-center" id="como-funciona">
-  <div class="section-inner" style="max-width:760px;">
-    <div class="eyebrow fade-up">Tres pasos</div>
-    <h2 class="section-title fade-up delay-1">Cómo se activa la <em>cobertura</em></h2>
-    <p class="section-sub fade-up delay-2" style="margin-bottom:48px;">No necesitas un proyecto pesado para empezar. Puedes documentar procesos críticos y dejar la cobertura mejor preparada.</p>
-
-    <div class="steps-grid fade-up delay-3">
-      <div class="step-card" style="text-align:left;">
-        <div class="step-card-number">01</div>
-        <h3 class="step-card-title">El experto captura su conocimiento</h3>
-        <p class="step-card-desc">Martínez captura cada paso del proceso. Un proceso completo en menos de 30 minutos. Puede hacerlo en cualquier momento tranquilo.</p>
-      </div>
-      <div class="step-card" style="text-align:left;">
-        <div class="step-card-number">02</div>
-        <h3 class="step-card-title">Listo en el puesto</h3>
-        <p class="step-card-desc">El conocimiento queda disponible justo donde hace falta. Nadie tiene que recordar dónde estaba el manual ni a quién había que llamar.</p>
-      </div>
-      <div class="step-card" style="text-align:left;">
-        <div class="step-card-number">03</div>
-        <h3 class="step-card-title">El sustituto trabaja con más seguridad</h3>
-        <p class="step-card-desc">Sigue la referencia del puesto, usa la guía de incidencias si lo necesita y el arranque deja de depender de improvisar.</p>
-      </div>
-    </div>
-
-    <div class="fade-up delay-3" style="margin-top:32px;">
-      <a href="/como-funciona/" class="perfil-card-link">Ver el flujo completo →</a>
-    </div>
-  </div>
-</section>
+<FaqSection items={faqs} />
 
 <div class="divider-full"></div>
 
 <!-- CTA FINAL -->
 <section class="cta-section">
   <div class="cta-eyebrow fade-up">¿Lo ves para tu planta?</div>
-  <h3 class="cta-title fade-up delay-1">Empieza antes de<br><em>la próxima baja del lunes</em></h3>
+  <h3 class="cta-title fade-up delay-1">Empieza antes de <br><em>la próxima baja del lunes</em></h3>
   <p class="cta-sub fade-up delay-2">Documenta los primeros procesos críticos hoy. Cuando llegue la próxima baja, tu plan de contingencia ante bajas ya está listo.</p>
   <div class="cta-actions fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
        data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
   </div>
   <div class="cta-note fade-up delay-4" style="margin-top:18px;">
-    Relacionado:
-    <a href="/cobertura-turnos/">cobertura de turnos</a> ·
-    <a href="/para-quien/jefe-de-produccion/">para jefe de producción</a>
+    Relacionado: <a href="/cobertura-turnos/">cobertura de turnos</a> · <a href="/para-quien/jefe-de-produccion/">para jefe de producción</a>
   </div>
 </section>
 

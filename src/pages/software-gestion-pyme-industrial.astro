@@ -1,55 +1,65 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Software de gestión para pyme industrial | REELEVO";
-const description = "Software de gestión para pymes industriales: producción, competencias, mantenimiento y procesos de planta. No es un ERP contable: gestiona el taller.";
+const description = "Software de gestión para pymes industriales: producción, competencias, mantenimiento y procesos de planta. No es un ERP contable.";
 const canonical = "https://www.gmvsolutions.es/software-gestion-pyme-industrial/";
 
-const faqs = [
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+//
+// Esta pagina montaba su propio bloque <details> y su propio FAQPage inline en
+// vez de usar FaqSection + faqPageSchema(). Migrada al componente compartido
+// para que no haya dos implementaciones del mismo bloque.
+//
+// La seccion "Que tipo de software es" (rejilla SI/NO) se elimino: tres de las
+// cinco preguntas ya respondian lo mismo, y lo esencial pasa al hero
+// (tarea C4 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
+const faqs: FaqItem[] = [
   {
-    q: "¿REELEVO es un software de gestión para pymes?",
-    a: "Sí, pero acotado: es un software de gestión para pymes industriales enfocado en las operaciones de planta (producción, competencias, procesos y mantenimiento). No es un software de gestión administrativa ni un ERP de contabilidad o facturación.",
+    q: '¿REELEVO es un software de gestión para pymes?',
+    a: 'Sí, pero acotado: es un software de gestión para pymes industriales enfocado en las operaciones de planta (producción, competencias, procesos y mantenimiento). No es un software de gestión administrativa ni un ERP de contabilidad o facturación.',
   },
   {
-    q: "¿Sirve como software de empresa o necesito un ERP?",
-    a: "Depende de lo que busques. Si necesitas contabilidad, nóminas o facturación, eso es un ERP y REELEVO no lo sustituye. Si lo que quieres es un software de empresa para gestionar lo que pasa en el taller —quién produce qué, con qué procedimiento y con qué formación—, REELEVO lo cubre y se integra con tu ERP por API.",
+    q: '¿Sirve como software de empresa o necesito un ERP?',
+    a: 'Depende de lo que busques. Si necesitas contabilidad, nóminas o facturación, eso es un ERP y REELEVO no lo sustituye. Si lo que quieres es un software de empresa para gestionar lo que pasa en el taller —quién produce qué, con qué procedimiento y con qué formación—, REELEVO lo cubre y se integra con tu ERP por API.',
   },
   {
-    q: "¿Qué incluye la gestión de pymes industriales con REELEVO?",
-    a: "Control de producción en tiempo real, matriz de competencias y polivalencia, documentación de procesos (SOP) en el puesto, planes de mantenimiento preventivo y planificación semanal de turnos. Todo conectado y sin papel.",
+    q: '¿Qué incluye la gestión de pymes industriales con REELEVO?',
+    a: 'Control de producción en tiempo real, matriz de competencias y polivalencia, documentación de procesos (SOP) en el puesto, planes de mantenimiento preventivo y planificación semanal de turnos. Todo conectado y sin papel. Lo que no cubre: contabilidad, facturación, nóminas ni gestión administrativa, y tampoco te obliga a un proyecto MES de meses.',
   },
   {
-    q: "¿Es un software para una empresa de cualquier sector?",
-    a: "Está diseñado para la pyme industrial: talleres, fabricación, mecanizado, alimentación y producción en general. No es un software genérico para una empresa de servicios u oficina; su valor está en la planta.",
+    q: '¿Es un software para una empresa de cualquier sector?',
+    a: 'Está diseñado para la pyme industrial: talleres, fabricación, mecanizado, alimentación y producción en general. No es un software genérico para una empresa de servicios u oficina; su valor está en la planta.',
   },
   {
-    q: "Busco «software de empresa» genérico, ¿es esto?",
-    a: "Si tu búsqueda fue «software empresa» o «empresa software» y lo que necesitas es administración, contabilidad o finanzas, eso es un ERP horizontal y REELEVO no lo es. REELEVO es el software que gestiona las operaciones de planta de tu empresa industrial, y se integra con el ERP que ya uses.",
+    q: 'Busco «software de empresa» genérico, ¿es esto?',
+    a: 'Si tu búsqueda fue «software empresa» o «empresa software» y lo que necesitas es administración, contabilidad o finanzas, eso es un ERP horizontal y REELEVO no lo es. REELEVO es el software que gestiona las operaciones de planta de tu empresa industrial, y se integra con el ERP que ya uses.',
   },
 ];
 
-const schema = [
-  softwareApplicationSchema(),
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map((f) => ({
-      "@type": "Question",
-      "name": f.q,
-      "acceptedAnswer": { "@type": "Answer", "text": f.a },
-    })),
-  },
+const schema = [softwareApplicationSchema(), faqPageSchema(faqs)];
+
+const modulos = [
+  ['/control-produccion/', 'Control de producción', 'Registro en tiempo real, paradas con causa y KPIs del día sin partes en papel.'],
+  ['/gestion-competencias/', 'Gestión de competencias', 'Matriz de polivalencia, certificaciones y alertas de cobertura por proceso.'],
+  ['/documentacion-procesos/', 'Documentación de procesos', 'SOP paso a paso en máquina que el operario realmente consulta.'],
+  ['/mantenimiento/', 'Mantenimiento preventivo', 'Planes por máquina y órdenes automáticas en la agenda del operario.'],
+  ['/cobertura-turnos/', 'Planificación y turnos', 'Planificación semanal con alerta antes de que un turno se quede corto.'],
+  ['/api-integraciones/', 'Integraciones', 'Conecta con tu ERP, Power BI y Teams. El dato de planta donde lo necesitas.'],
+  ['/oee/', 'OEE y análisis Lean', 'Disponibilidad, rendimiento y calidad por máquina, con TIMWOODS, VSM y takt.'],
+  ['/seguridad/', 'Seguridad y RGPD', 'Aislamiento por empresa, permisos por rol, auditoría y datos en la UE.'],
 ];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
 
-  <!-- PAGE HERO -->
+  <!-- HERO + POSICIONAMIENTO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Software de gestión para pyme industrial</div>
-    <h1 class="fade-up delay-1">El software de gestión<br><em>que vive en la planta, no en la oficina</em></h1>
-    <p class="fade-up delay-2">REELEVO es el software de gestión para pymes industriales que reúne producción, competencias, procesos y mantenimiento en una sola herramienta. No sustituye a tu ERP de contabilidad: gestiona lo que tu ERP no ve — lo que de verdad pasa en el taller.</p>
+    <h1 class="fade-up delay-1">El software de gestión <br><em>que vive en la planta, no en la oficina</em></h1>
+    <p class="fade-up delay-2">Cuando una pyme industrial busca «software de gestión» encuentra ERPs horizontales pensados para administración. REELEVO gestiona lo otro: quién produce qué, con qué procedimiento y con qué formación. No es contabilidad ni facturación —eso es un ERP, y se conecta con él por API— y no te obliga a un proyecto MES de meses.</p>
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
@@ -60,91 +70,29 @@ const schema = [
 
   <div class="divider"></div>
 
-  <!-- POSICIONAMIENTO -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Qué tipo de software es</div>
-        <h2 class="section-title">Un software de gestión para pymes, no un ERP genérico</h2>
-        <p class="section-sub">Cuando una pyme industrial busca «software de gestión» o «software de empresa», suele encontrar ERPs horizontales pensados para administración y finanzas. REELEVO ataca el otro lado: la gestión de las operaciones de planta.</p>
-      </div>
-
-      <div class="split-grid fade-up delay-1">
-        <div class="split-cell">
-          <h3>Lo que SÍ gestiona REELEVO</h3>
-          <ul>
-            <li>Producción por operario, proceso y máquina, en tiempo real</li>
-            <li>Competencias y polivalencia de la plantilla</li>
-            <li>Procedimientos de trabajo (SOP) en el puesto, con QR</li>
-            <li>Mantenimiento preventivo y órdenes de trabajo</li>
-            <li>Planificación semanal de turnos y cobertura</li>
-          </ul>
-        </div>
-        <div class="split-cell muted">
-          <h3>Lo que NO es</h3>
-          <ul>
-            <li>No es contabilidad, facturación ni nóminas</li>
-            <li>No es un ERP horizontal de gestión administrativa</li>
-            <li>No es un software para una empresa de oficina o servicios</li>
-            <li>No te obliga a un proyecto MES de meses</li>
-          </ul>
-          <p class="muted-note">¿Ya tienes ERP? REELEVO se conecta por API y le aporta el dato de planta que hoy le falta.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- MÓDULOS / ENLACES INTERNOS -->
+  <!-- MÓDULOS — bloque dominante -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Todo en una herramienta</div>
         <h2 class="section-title">La gestión de la pyme industrial, módulo a módulo</h2>
-        <p class="section-sub">Empieza por lo que más te aprieta y añade el resto cuando quieras. Cada módulo funciona solo y mejor en conjunto.</p>
+        <p class="section-sub">Empieza por lo que más te aprieta y añade el resto cuando quieras. Cada módulo funciona solo, y mejor en conjunto.</p>
       </div>
 
       <div class="module-grid fade-up delay-1">
-        <a class="module-cell" href="/control-produccion/">
-          <h3>Control de producción</h3>
-          <p>Registro en tiempo real, paradas con causa y KPIs del día sin partes en papel.</p>
-        </a>
-        <a class="module-cell" href="/gestion-competencias/">
-          <h3>Gestión de competencias</h3>
-          <p>Matriz de polivalencia, certificaciones y alertas de cobertura por proceso.</p>
-        </a>
-        <a class="module-cell" href="/documentacion-procesos/">
-          <h3>Documentación de procesos</h3>
-          <p>SOP paso a paso en máquina que el operario realmente consulta.</p>
-        </a>
-        <a class="module-cell" href="/mantenimiento/">
-          <h3>Mantenimiento preventivo</h3>
-          <p>Planes por máquina y órdenes automáticas en la agenda del operario.</p>
-        </a>
-        <a class="module-cell" href="/cobertura-turnos/">
-          <h3>Planificación y turnos</h3>
-          <p>Planificación semanal con alerta antes de que un turno se quede corto.</p>
-        </a>
-        <a class="module-cell" href="/api-integraciones/">
-          <h3>Integraciones</h3>
-          <p>Conecta con tu ERP, Power BI y Teams. El dato de planta donde lo necesitas.</p>
-        </a>
-        <a class="module-cell" href="/oee/">
-          <h3>OEE y análisis Lean</h3>
-          <p>Disponibilidad, rendimiento y calidad por máquina, con TIMWOODS, VSM y takt.</p>
-        </a>
-        <a class="module-cell" href="/seguridad/">
-          <h3>Seguridad y RGPD</h3>
-          <p>Aislamiento por empresa, permisos por rol, auditoría y datos en la UE.</p>
-        </a>
+        {modulos.map(([href, titulo, desc]) => (
+          <a class="module-cell" href={href}>
+            <h3>{titulo}</h3>
+            <p>{desc}</p>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- CRECER SIN CAMBIAR DE HERRAMIENTA -->
+  <!-- CUANDO LA EMPRESA CRECE -->
   <!-- Verificado en reelevo-app: app/empresa/plantas (+ /comparar), rol
        plant_manager en lib/company-permissions.ts, i18n es/en/pt,
        app/empresa/operarios/horas y cron hour-deviation-alerts (>10%,
@@ -153,10 +101,9 @@ const schema = [
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Cuando la empresa crece</div>
-        <h2 class="section-title">Lo que suele obligar a cambiar de herramienta<br><em>aquí ya está</em></h2>
+        <h2 class="section-title">Lo que suele obligar a cambiar de herramienta <br><em>aquí ya está</em></h2>
         <p class="section-sub">
-          Son las tres cosas que aparecen cuando una pyme industrial deja de ser una nave con un turno,
-          y las que normalmente obligan a migrar a un sistema más caro.
+Lo que aparece cuando dejas de ser una nave con un turno, y suele obligar a migrar a un sistema más caro.
         </p>
       </div>
 
@@ -165,9 +112,7 @@ const schema = [
           <div class="grow-tag">Varias plantas</div>
           <h3 class="grow-title">Multi-planta, sin coste por centro</h3>
           <p class="grow-desc">
-            Puedes dar de alta las plantas y áreas que necesites —no hay límite por plan— y comparar
-            resultados entre centros del grupo. El rol <strong>jefe de planta</strong> ve y gestiona
-            solo la suya, así que un responsable de Burgos no navega los datos de Valencia.
+Plantas y áreas sin límite por plan, con comparativa entre centros. El rol <strong>jefe de planta</strong> gestiona solo la suya.
           </p>
         </article>
 
@@ -175,9 +120,7 @@ const schema = [
           <div class="grow-tag">Plantilla multinacional</div>
           <h3 class="grow-title">Español, inglés y portugués</h3>
           <p class="grow-desc">
-            La interfaz está en los tres idiomas y cada operario trabaja en el suyo. Además cada proceso
-            puede tener su propia traducción, de modo que el mismo procedimiento se lee en el idioma de
-            quien lo ejecuta sin duplicar el proceso.
+Cada operario trabaja en su idioma, y cada proceso puede tener su traducción sin duplicarlo.
           </p>
         </article>
 
@@ -185,9 +128,7 @@ const schema = [
           <div class="grow-tag">Control de horas</div>
           <h3 class="grow-title">Horas que salen del trabajo real</h3>
           <p class="grow-desc">
-            Las sesiones de QR se consolidan a diario en horas por operario y categoría. Cada semana
-            avisa de quien se desvía <strong>más de un 10%</strong> respecto a su objetivo — sin que
-            nadie tenga que fichar dos veces.
+Las sesiones de QR se consolidan en horas por operario, con aviso semanal de quien se desvía <strong>más de un 10 %</strong>. Sin fichar dos veces.
           </p>
         </article>
       </div>
@@ -196,35 +137,18 @@ const schema = [
 
   <div class="divider"></div>
 
-  <!-- FAQ -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Preguntas frecuentes</div>
-        <h2 class="section-title">Software de gestión para pymes industriales: dudas habituales</h2>
-      </div>
-
-      <div class="faq-list fade-up delay-1">
-        {faqs.map((f) => (
-          <details class="faq-item">
-            <summary>{f.q}</summary>
-            <p>{f.a}</p>
-          </details>
-        ))}
-      </div>
-    </div>
-  </section>
+  <FaqSection items={faqs} heading="Software de gestión para pymes industriales: dudas habituales" />
 
   <div class="divider"></div>
 
-  <!-- CTA -->
+  <!-- SIGUIENTE PASO -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Gestión de planta, sin papel</div>
-    <div class="cta-title fade-up delay-1">
-      El software de gestión<br><em>que tu taller sí va a usar</em>
-    </div>
+    <h3 class="cta-title fade-up delay-1">
+      El software de gestión <br><em>que tu taller sí va a usar</em>
+    </h3>
     <p class="cta-sub fade-up delay-2">
-      Prueba REELEVO y empieza a gestionar producción, competencias y procesos desde un único sitio — sin montar un ERP ni un proyecto de meses.
+      Empieza por producción, competencias o procesos — sin montar un ERP ni un proyecto de meses.
     </p>
     <div class="cta-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
@@ -241,93 +165,73 @@ const schema = [
 </BaseLayout>
 
 <style>
-  .split-grid {
+  /* MÓDULOS — bloque dominante, y router de la plataforma */
+  .module-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 44px;
+  }
+
+  @media (max-width: 1100px) {
+    .module-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 620px) {
+    .module-grid { grid-template-columns: 1fr; }
+  }
+
+  .module-cell {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 22px 20px;
+    text-decoration: none;
+    transition: border-color .25s, transform .25s;
+  }
+
+  .module-cell:hover {
+    border-color: var(--orange);
+    transform: translateY(-2px);
+  }
+
+  .module-cell h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: .98rem;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+
+  .module-cell p {
+    font-size: .95rem;
+    line-height: 1.6;
+    color: var(--gray);
+    margin: 0;
+  }
+
+  /* CUANDO LA EMPRESA CRECE */
+  .grow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
     margin-top: 40px;
   }
 
-  @media (max-width: 640px) {
-    .split-grid { grid-template-columns: 1fr; }
-  }
-
-  .split-cell {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 24px 28px;
-  }
-
-  .split-cell.muted { background: rgba(255, 255, 255, 0.02); }
-
-  .split-cell h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    margin-bottom: 14px;
-    color: var(--text);
-  }
-
-  .split-cell ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .split-cell ul li {
-    font-size: 0.9rem;
-    color: var(--gray);
-    line-height: 1.5;
-    padding-left: 16px;
-    position: relative;
-  }
-
-  .split-cell ul li::before {
-    content: '·';
-    position: absolute;
-    left: 0;
-    color: var(--orange);
-  }
-
-  .muted-note {
-    margin-top: 16px;
-    font-size: 0.85rem;
-    color: var(--gray);
-    line-height: 1.55;
-  }
-
-  /* MODULE GRID */
-  .module-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 40px;
-  }
-
-  @media (max-width: 860px) { .module-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 560px) { .module-grid { grid-template-columns: 1fr; } }
-
-  /* CRECER SIN CAMBIAR DE HERRAMIENTA */
-  .grow-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-    margin-top: 40px;
+  @media (max-width: 900px) {
+    .grow-grid { grid-template-columns: 1fr; }
   }
 
   .grow-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 26px 24px;
+    padding: 24px;
   }
 
   .grow-tag {
     font-family: 'DM Mono', monospace;
-    font-size: .6rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);
@@ -337,80 +241,23 @@ const schema = [
   .grow-title {
     font-family: 'Oswald', sans-serif;
     font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: .02em;
     margin-bottom: 10px;
+    color: var(--white);
   }
 
   .grow-desc {
-    font-size: .86rem;
+    font-size: .95rem;
+    line-height: 1.65;
     color: var(--gray);
-    line-height: 1.7;
+    margin: 0;
   }
 
   .grow-desc strong { color: var(--white); font-weight: 500; }
 
-  @media (max-width: 900px) { .grow-grid { grid-template-columns: 1fr; } }
-
-  .module-cell {
-    display: block;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 22px 24px;
-    text-decoration: none;
-    transition: border-color .2s, transform .2s;
-  }
-
-  .module-cell:hover { border-color: var(--orange); transform: translateY(-2px); }
-
-  .module-cell h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.98rem;
-    margin-bottom: 8px;
-    color: var(--text);
-  }
-
-  .module-cell p {
-    font-size: 0.88rem;
-    color: var(--gray);
-    line-height: 1.55;
-    margin: 0;
-  }
-
-  /* FAQ */
-  .faq-list {
-    margin-top: 36px;
-    max-width: 760px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .faq-item {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 4px 20px;
-  }
-
-  .faq-item summary {
-    cursor: pointer;
-    padding: 16px 0;
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.98rem;
-    color: var(--text);
-    list-style: none;
-  }
-
-  .faq-item summary::-webkit-details-marker { display: none; }
-
-  .faq-item[open] summary { color: var(--orange); }
-
-  .faq-item p {
-    margin: 0 0 16px;
-    font-size: 0.92rem;
-    color: var(--gray);
-    line-height: 1.65;
+  .cta-trust {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: .04em;
   }
 </style>

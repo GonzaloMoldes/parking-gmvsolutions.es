@@ -77,7 +77,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Precio por empresa</div>
-    <h1 class="fade-up delay-1">Pagas por la planta.<br><em>No por cada operario.</em></h1>
+    <h1 class="fade-up delay-1">Pagas por la planta. <br><em>No por cada operario.</em></h1>
     <p class="fade-up delay-2">Empiezas con <strong>60 días del plan Pro completo, sin tarjeta</strong>. Al terminar, tu cuenta pasa al plan gratuito y sigues trabajando. Los planes de pago van desde 49€/mes por empresa, con precio visible y sin licencia por usuario.</p>
     <div class="hero-actions fade-up delay-3" style="justify-content:center; margin-top:24px;">
       <a href={primaryCtaHref} class="btn-primary"
@@ -89,51 +89,6 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <!-- CAPAS DE VALOR -->
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Qué compras realmente</div>
-        <h2 class="section-title">Primero el <em>core operativo</em>, luego el resto</h2>
-        <p class="section-sub">
-          REELEVO no se plantea como una suite gigante desde el día 1. Primero resuelve continuidad,
-          orden y claridad operativa. Después amplías formación, polivalencia e integración.
-        </p>
-      </div>
-
-      <div class="pricing-layers fade-up delay-1">
-        <article class="pricing-layer">
-          <div class="pricing-layer-label">Core operativo</div>
-          <h3 class="pricing-layer-title">Menos trabajo a ciegas en el turno</h3>
-          <p class="pricing-layer-desc">
-            El trabajo aparece donde hace falta y el equipo tiene una referencia clara en el puesto,
-            sin depender constantemente del titular para resolver cada duda.
-          </p>
-        </article>
-
-        <article class="pricing-layer">
-          <div class="pricing-layer-label">Expansión</div>
-          <h3 class="pricing-layer-title">Más claridad y aprendizaje útil</h3>
-          <p class="pricing-layer-desc">
-            Más visibilidad para producción y una base más útil para ordenar
-            formación, polivalencia y seguimiento interno.
-          </p>
-        </article>
-
-        <article class="pricing-layer">
-          <div class="pricing-layer-label">Enterprise</div>
-          <h3 class="pricing-layer-title">Enterprise y requisitos avanzados</h3>
-          <p class="pricing-layer-desc">
-            Cuando necesitas más escala, seguridad, compliance o integración, se trabaja
-            como capa avanzada según alcance y caso de uso.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-
   <!-- PLANES -->
   <section class="section" id="planes">
     <div class="section-inner">
@@ -339,7 +294,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Decisión final</div>
     <h2 class="cta-title fade-up delay-1">
-      Revisa la plataforma por dentro<br><em>y decide con criterio</em>
+      Revisa la plataforma por dentro <br><em>y decide con criterio</em>
     </h2>
     <p class="cta-sub fade-up delay-2">
       El botón te lleva al registro. En pocos minutos podrás ver cómo se trabaja en el puesto
@@ -358,43 +313,6 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 </BaseLayout>
 
 <style>
-  .pricing-layers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-  }
-
-  .pricing-layer {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 28px 24px;
-    border-radius: 6px;
-    text-align: left;
-  }
-
-  .pricing-layer-label {
-    font-family: 'DM Mono', monospace;
-    font-size: .62rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 12px;
-  }
-
-  .pricing-layer-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 600;
-    letter-spacing: .02em;
-    margin-bottom: 12px;
-  }
-
-  .pricing-layer-desc {
-    font-size: .9rem;
-    line-height: 1.65;
-    color: var(--gray);
-  }
 
   .package-grid {
     display: grid;
@@ -413,7 +331,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .package-label {
     font-family: 'DM Mono', monospace;
-    font-size: .62rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);
@@ -435,7 +353,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .package-list li {
-    font-size: .86rem;
+    font-size: .95rem;
     color: var(--gray);
     line-height: 1.65;
     padding: 10px 0;
@@ -494,7 +412,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .plan-scope {
     font-family: 'DM Mono', monospace;
-    font-size: .62rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);
@@ -818,7 +736,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .plan-badge-roadmap {
     font-family: 'DM Mono', monospace;
-    font-size: .58rem;
+    font-size: .7rem;
     letter-spacing: .1em;
     text-transform: uppercase;
     color: var(--gray2);
@@ -853,10 +771,6 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   @media (max-width: 900px) {
-    .pricing-layers {
-      grid-template-columns: 1fr;
-    }
-
     .package-grid {
       grid-template-columns: 1fr;
     }

@@ -3,6 +3,70 @@ export interface Props {
   activeNav?: string; // e.g. 'como-funciona', 'precios', 'recursos'
 }
 const { activeNav } = Astro.props;
+
+// Un solo origen para el mega-menu de escritorio y el menu movil. Antes cada
+// uno tenia su propio marcado con los mismos 34 enlaces escritos dos veces, y
+// nada impedia que se separaran al tocar uno solo (tarea E2 de
+// PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
+const PLATAFORMA = [
+  {
+    titulo: 'Gestión y operaciones',
+    items: [
+      { href: '/software-gestion-pyme-industrial/', label: 'Software de gestión industrial', sub: 'Toda la planta en una herramienta' },
+      { href: '/gestion-competencias/', label: 'Gestión de competencias', sub: 'Skill matrix y certificaciones' },
+      { href: '/documentacion-procesos/', label: 'Documentación de procesos', sub: 'SOPs, checklists y versionado' },
+      { href: '/control-produccion/', label: 'Control de producción', sub: 'KPIs en tiempo real, sin papel' },
+      { href: '/oee/', label: 'OEE y análisis Lean', sub: 'Disponibilidad × rendimiento × calidad' },
+      { href: '/mantenimiento/', label: 'Mantenimiento preventivo', sub: 'Planes, órdenes y registro automático' },
+      { href: '/obras-trazabilidad/', label: 'Obras y trazabilidad', sub: 'QR por pieza, historial por proyecto' },
+      { href: '/kaizen/', label: 'Kaizen y mejora continua', sub: 'Del QR al estándar' },
+    ],
+  },
+  {
+    titulo: 'Herramientas avanzadas',
+    items: [
+      { href: '/workflows/', label: 'Workflows automatizados', sub: 'Procesos multi-operario con aprobaciones' },
+      { href: '/portal-operario/', label: 'Portal del operario', sub: 'Agenda, progreso y reconocimiento' },
+      { href: '/firma-digital/', label: 'Firma digital', sub: 'Evidencia trazable para auditorías' },
+      { href: '/modo-offline/', label: 'Modo offline y PWA', sub: 'Funciona aunque falle la wifi de planta' },
+      { href: '/api-integraciones/', label: 'API e integraciones', sub: 'ERP, Power BI, Teams y webhooks' },
+      { href: '/integracion-m365/', label: 'Integración Microsoft 365', sub: 'Power BI, Power Automate y Teams' },
+      { href: '/cobertura-turnos/', label: 'Cobertura de turnos', sub: 'Alerta automática antes de que falle el turno' },
+      { href: '/calidad-y-conformidad/', label: 'Calidad y conformidad', sub: 'Lo que sí es y sus límites reales' },
+      { href: '/seguridad/', label: 'Seguridad y RGPD', sub: 'RLS, roles, auditoría y datos en la UE' },
+    ],
+  },
+];
+
+const SOLUCIONES = [
+  {
+    titulo: 'Por caso de uso',
+    items: [
+      { href: '/casos-de-uso/cobertura-bajas/', label: 'Cobertura de bajas', sub: 'Cuando el experto falta' },
+      { href: '/casos-de-uso/onboarding-operarios/', label: 'Onboarding operarios', sub: 'Incorporaciones más ordenadas' },
+      { href: '/casos-de-uso/personal-ett/', label: 'Personal ETT', sub: 'Temporal con proceso accesible' },
+      { href: '/casos-de-uso/transferencia-conocimiento/', label: 'Transferencia de conocimiento', sub: 'Captura antes de que se vayan' },
+      { href: '/consistencia-entre-turnos/', label: 'Consistencia entre turnos', sub: 'Que no cada uno lo haga a su manera' },
+      { href: '/errores-en-planta/', label: 'Errores que se repiten', sub: 'El fallo que vuelve cada dos semanas' },
+      { href: '/portal-operario/', label: 'Menos interrupciones al encargado', sub: 'El operario resuelve en el puesto' },
+    ],
+  },
+  {
+    titulo: 'Por rol',
+    items: [
+      { href: '/para-quien/jefe-de-produccion/', label: 'Jefe de producción', sub: 'La línea no puede parar' },
+      { href: '/para-quien/responsable-rrhh/', label: 'Responsable de RRHH', sub: 'Onboarding y competencias' },
+      { href: '/para-quien/responsable-calidad/', label: 'Responsable de calidad', sub: 'Revisión interna y conformidad' },
+      { href: '/para-quien/gerente-propietario/', label: 'Gerente / Propietario', sub: 'Continuidad y decisión clara' },
+    ],
+  },
+];
+
+const RECURSOS = [
+  { href: '/recursos/', label: 'Recursos', sub: 'Guías y materiales descargables' },
+  { href: '/blog/', label: 'Blog', sub: 'Artículos sobre operaciones industriales' },
+  { href: '/faqs/', label: 'Preguntas frecuentes', sub: 'Dudas sobre implementación y uso' },
+];
 ---
 
 <header class="header">
@@ -27,81 +91,18 @@ const { activeNav } = Astro.props;
         Plataforma
         <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
       </button>
-      <div class="nav-dropdown-menu nav-mega-menu">
-        <div class="mega-col">
-          <div class="mega-col-title">Gestión y operaciones</div>
-          <a href="/software-gestion-pyme-industrial/">
-            Software de gestión industrial
-            <span class="nav-sub-label">Toda la planta en una herramienta</span>
-          </a>
-          <a href="/gestion-competencias/">
-            Gestión de competencias
-            <span class="nav-sub-label">Skill matrix y certificaciones</span>
-          </a>
-          <a href="/documentacion-procesos/">
-            Documentación de procesos
-            <span class="nav-sub-label">SOPs, checklists y versionado</span>
-          </a>
-          <a href="/control-produccion/">
-            Control de producción
-            <span class="nav-sub-label">KPIs en tiempo real, sin papel</span>
-          </a>
-          <a href="/oee/">
-            OEE y análisis Lean
-            <span class="nav-sub-label">Disponibilidad × rendimiento × calidad</span>
-          </a>
-          <a href="/mantenimiento/">
-            Mantenimiento preventivo
-            <span class="nav-sub-label">Planes, órdenes y registro automático</span>
-          </a>
-          <a href="/obras-trazabilidad/">
-            Obras y trazabilidad
-            <span class="nav-sub-label">QR por pieza, historial por proyecto</span>
-          </a>
-          <a href="/kaizen/">
-            Kaizen y mejora continua
-            <span class="nav-sub-label">Del QR al estándar</span>
-          </a>
-        </div>
-        <div class="mega-col">
-          <div class="mega-col-title">Herramientas avanzadas</div>
-          <a href="/workflows/">
-            Workflows automatizados
-            <span class="nav-sub-label">Procesos multi-operario con aprobaciones</span>
-          </a>
-          <a href="/portal-operario/">
-            Portal del operario
-            <span class="nav-sub-label">Agenda, progreso y reconocimiento</span>
-          </a>
-          <a href="/firma-digital/">
-            Firma digital
-            <span class="nav-sub-label">Evidencia trazable para auditorías</span>
-          </a>
-          <a href="/modo-offline/">
-            Modo offline y PWA
-            <span class="nav-sub-label">Funciona aunque falle la wifi de planta</span>
-          </a>
-          <a href="/api-integraciones/">
-            API e integraciones
-            <span class="nav-sub-label">ERP, Power BI, Teams y webhooks</span>
-          </a>
-          <a href="/integracion-m365/">
-            Integración Microsoft 365
-            <span class="nav-sub-label">Power BI, Power Automate y Teams</span>
-          </a>
-          <a href="/cobertura-turnos/">
-            Cobertura de turnos
-            <span class="nav-sub-label">Alerta automática antes de que falle el turno</span>
-          </a>
-          <a href="/calidad-y-conformidad/">
-            Calidad y conformidad
-            <span class="nav-sub-label">Lo que sí es y sus límites reales</span>
-          </a>
-          <a href="/seguridad/">
-            Seguridad y RGPD
-            <span class="nav-sub-label">RLS, roles, auditoría y datos en la UE</span>
-          </a>
-        </div>
+            <div class="nav-dropdown-menu nav-mega-menu">
+        {PLATAFORMA.map((col) => (
+          <div class="mega-col">
+            <div class="mega-col-title">{col.titulo}</div>
+            {col.items.map((it) => (
+              <a href={it.href}>
+                {it.label}
+                <span class="nav-sub-label">{it.sub}</span>
+              </a>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
 
@@ -111,57 +112,18 @@ const { activeNav } = Astro.props;
         Soluciones
         <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
       </button>
-      <div class="nav-dropdown-menu nav-mega-menu">
-        <div class="mega-col">
-          <div class="mega-col-title">Por caso de uso</div>
-          <a href="/casos-de-uso/cobertura-bajas/">
-            Cobertura de bajas
-            <span class="nav-sub-label">Cuando el experto falta</span>
-          </a>
-          <a href="/casos-de-uso/onboarding-operarios/">
-            Onboarding operarios
-            <span class="nav-sub-label">Incorporaciones más ordenadas</span>
-          </a>
-          <a href="/casos-de-uso/personal-ett/">
-            Personal ETT
-            <span class="nav-sub-label">Temporal con proceso accesible</span>
-          </a>
-          <a href="/casos-de-uso/transferencia-conocimiento/">
-            Transferencia de conocimiento
-            <span class="nav-sub-label">Captura antes de que se vayan</span>
-          </a>
-          <a href="/consistencia-entre-turnos/">
-            Consistencia entre turnos
-            <span class="nav-sub-label">Que no cada uno lo haga a su manera</span>
-          </a>
-          <a href="/errores-en-planta/">
-            Errores que se repiten
-            <span class="nav-sub-label">El fallo que vuelve cada dos semanas</span>
-          </a>
-          <a href="/portal-operario/">
-            Menos interrupciones al encargado
-            <span class="nav-sub-label">El operario resuelve en el puesto</span>
-          </a>
-        </div>
-        <div class="mega-col">
-          <div class="mega-col-title">Por rol</div>
-          <a href="/para-quien/jefe-de-produccion/">
-            Jefe de producción
-            <span class="nav-sub-label">La línea no puede parar</span>
-          </a>
-          <a href="/para-quien/responsable-rrhh/">
-            Responsable de RRHH
-            <span class="nav-sub-label">Onboarding y competencias</span>
-          </a>
-          <a href="/para-quien/responsable-calidad/">
-            Responsable de calidad
-            <span class="nav-sub-label">Revisión interna y conformidad</span>
-          </a>
-          <a href="/para-quien/gerente-propietario/">
-            Gerente / Propietario
-            <span class="nav-sub-label">Continuidad y decisión clara</span>
-          </a>
-        </div>
+            <div class="nav-dropdown-menu nav-mega-menu">
+        {SOLUCIONES.map((col) => (
+          <div class="mega-col">
+            <div class="mega-col-title">{col.titulo}</div>
+            {col.items.map((it) => (
+              <a href={it.href}>
+                {it.label}
+                <span class="nav-sub-label">{it.sub}</span>
+              </a>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
 
@@ -179,18 +141,12 @@ const { activeNav } = Astro.props;
         <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
       </button>
       <div class="nav-dropdown-menu">
-        <a href="/recursos/">
-          Recursos
-          <span class="nav-sub-label">Guías y materiales descargables</span>
-        </a>
-        <a href="/blog/">
-          Blog
-          <span class="nav-sub-label">Artículos sobre operaciones industriales</span>
-        </a>
-        <a href="/faqs/">
-          Preguntas frecuentes
-          <span class="nav-sub-label">Dudas sobre implementación y uso</span>
-        </a>
+        {RECURSOS.map((it) => (
+          <a href={it.href}>
+            {it.label}
+            <span class="nav-sub-label">{it.sub}</span>
+          </a>
+        ))}
       </div>
     </div>
   </nav>
@@ -222,43 +178,26 @@ const { activeNav } = Astro.props;
 <div class="mobile-menu" id="mobileMenu">
   <a href="/por-que-usar-reelevo/">Qué resuelve</a>
   <a href="/como-funciona/">Cómo funciona</a>
-  <div class="mobile-section-title">Plataforma — Gestión y operaciones</div>
-  <a href="/software-gestion-pyme-industrial/">Software de gestión industrial</a>
-  <a href="/gestion-competencias/">Gestión de competencias</a>
-  <a href="/documentacion-procesos/">Documentación de procesos</a>
-  <a href="/control-produccion/">Control de producción</a>
-  <a href="/oee/">OEE y análisis Lean</a>
-  <a href="/mantenimiento/">Mantenimiento preventivo</a>
-  <a href="/obras-trazabilidad/">Obras y trazabilidad</a>
-  <a href="/kaizen/">Kaizen y mejora continua</a>
-  <div class="mobile-section-title">Plataforma — Herramientas avanzadas</div>
-  <a href="/workflows/">Workflows automatizados</a>
-  <a href="/portal-operario/">Portal del operario</a>
-  <a href="/firma-digital/">Firma digital</a>
-  <a href="/modo-offline/">Modo offline y PWA</a>
-  <a href="/api-integraciones/">API e integraciones</a>
-  <a href="/integracion-m365/">Integración Microsoft 365</a>
-  <a href="/cobertura-turnos/">Cobertura de turnos</a>
-  <a href="/calidad-y-conformidad/">Calidad y conformidad</a>
-  <a href="/seguridad/">Seguridad y RGPD</a>
-  <div class="mobile-section-title">Soluciones — Por caso de uso</div>
-  <a href="/casos-de-uso/cobertura-bajas/">Cobertura de bajas</a>
-  <a href="/casos-de-uso/onboarding-operarios/">Onboarding operarios</a>
-  <a href="/casos-de-uso/personal-ett/">Personal ETT</a>
-  <a href="/casos-de-uso/transferencia-conocimiento/">Transferencia de conocimiento</a>
-  <a href="/consistencia-entre-turnos/">Consistencia entre turnos</a>
-  <a href="/errores-en-planta/">Errores que se repiten</a>
-  <a href="/portal-operario/">Menos interrupciones al encargado</a>
-  <div class="mobile-section-title">Soluciones — Por rol</div>
-  <a href="/para-quien/jefe-de-produccion/">Jefe de producción</a>
-  <a href="/para-quien/responsable-rrhh/">Responsable de RRHH</a>
-  <a href="/para-quien/responsable-calidad/">Responsable de calidad</a>
-  <a href="/para-quien/gerente-propietario/">Gerente / Propietario</a>
+
+  {PLATAFORMA.map((col) => (
+    <>
+      <div class="mobile-section-title">Plataforma — {col.titulo}</div>
+      {col.items.map((it) => <a href={it.href}>{it.label}</a>)}
+    </>
+  ))}
+
+  {SOLUCIONES.map((col) => (
+    <>
+      <div class="mobile-section-title">Soluciones — {col.titulo}</div>
+      {col.items.map((it) => <a href={it.href}>{it.label}</a>)}
+    </>
+  ))}
+
   <a href="/precios/">Precios</a>
+
   <div class="mobile-section-title">Recursos y Blog</div>
-  <a href="/recursos/">Recursos</a>
-  <a href="/blog/">Blog</a>
-  <a href="/faqs/">Preguntas frecuentes</a>
+  {RECURSOS.map((it) => <a href={it.href}>{it.label}</a>)}
+
   <div class="mobile-cta-group">
 
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary" style="text-align:center;font-size:.8rem;padding:14px 28px;"

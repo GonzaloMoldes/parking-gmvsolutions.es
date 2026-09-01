@@ -129,7 +129,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Autodiagnóstico · Nueve problemas de planta</div>
-    <h1 class="fade-up delay-1">¿Cuál de estos<br><em>nueve problemas tienes hoy?</em></h1>
+    <h1 class="fade-up delay-1">¿Cuál de estos <br><em>nueve problemas tienes hoy?</em></h1>
     <p class="fade-up delay-2">Casi ninguna pyme industrial los tiene los nueve. Con dos basta para que la planta vaya a trompicones. Elige el tuyo y verás qué cambia exactamente.</p>
   </section>
 
@@ -140,7 +140,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">El día a día</div>
-        <h2 class="section-title">Frases que se oyen<br><em>en una planta cualquiera</em></h2>
+        <h2 class="section-title">Frases que se oyen <br><em>en una planta cualquiera</em></h2>
         <p class="section-sub">Ninguna de las nueve es un fallo de las personas. Todas son el mismo problema visto desde un sitio distinto: el proceso no está donde se trabaja.</p>
       </div>
 
@@ -181,7 +181,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">La raíz común</div>
-        <h2 class="section-title">Los nueve salen<br><em>del mismo sitio</em></h2>
+        <h2 class="section-title">Los nueve salen <br><em>del mismo sitio</em></h2>
         <p class="section-sub">El procedimiento vive en la cabeza de alguien, o en un papel que nadie consulta. Todo lo demás —los errores, las tutorías eternas, la dependencia del titular— viene de ahí. REELEVO mueve el proceso al puesto y registra lo que se ejecuta.</p>
       </div>
 
@@ -214,7 +214,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Lo que hace fácil empezar</div>
-        <h2 class="section-title">Un proyecto asumible para<br><em>una pyme industrial</em></h2>
+        <h2 class="section-title">Un proyecto asumible para <br><em>una pyme industrial</em></h2>
       </div>
 
       <div class="stats-grid fade-up delay-1">
@@ -239,23 +239,6 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <div class="divider"></div>
 
-  <!-- TRIAL BAND -->
-  <div class="trial-band">
-    <div class="trial-title fade-up">¿Cuánto te costaría mañana que<br><em>tu operario clave no viniera?</em></div>
-    <div class="trial-bullets fade-up delay-1">
-      <div class="trial-bullet"><span>✓</span>Lo pruebas con tu operativa real</div>
-      <div class="trial-bullet"><span>✓</span>Precio fijo por empresa</div>
-      <div class="trial-bullet"><span>✓</span>Sin tarjeta y sin llamada comercial</div>
-    </div>
-    <div class="cta-actions fade-up delay-2">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/precios/" class="btn-ghost">Ver planes →</a>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
   <!-- FINAL CTA -->
   <FaqSection items={faqs} />
 
@@ -264,7 +247,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Empieza por lo crítico</div>
     <h3 class="cta-title fade-up delay-1">
-      Empieza por el problema<br><em>que has reconocido primero</em>
+      Empieza por el problema <br><em>que has reconocido primero</em>
     </h3>
     <p class="cta-sub fade-up delay-2">
       No hace falta ordenar la planta entera para notar la diferencia. Coge el proceso que hoy depende de una sola persona
@@ -310,7 +293,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .problema-num {
     font-family: 'DM Mono', monospace;
-    font-size: .65rem;
+    font-size: .7rem;
     letter-spacing: .14em;
     color: var(--orange);
     margin-bottom: 16px;
@@ -336,7 +319,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .problema-ancla {
     font-family: 'DM Mono', monospace;
-    font-size: .68rem;
+    font-size: .7rem;
     letter-spacing: .06em;
     text-transform: uppercase;
     color: var(--orange);
@@ -359,7 +342,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     display: block;
     margin-top: 14px;
     font-family: 'DM Mono', monospace;
-    font-size: .68rem;
+    font-size: .7rem;
     letter-spacing: .08em;
     text-transform: uppercase;
     color: var(--gray2);
@@ -428,7 +411,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .stat-label-top {
     font-family: 'DM Mono', monospace;
-    font-size: .65rem;
+    font-size: .7rem;
     letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--orange);
@@ -450,51 +433,9 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .stat-desc {
-    font-size: .85rem;
+    font-size: .95rem;
     color: var(--gray);
     line-height: 1.65;
-  }
-
-  /* Trial band */
-  .trial-band {
-    background: var(--surface2);
-    padding: 64px 32px;
-    text-align: center;
-  }
-
-  .trial-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .02em;
-    margin-bottom: 32px;
-  }
-
-  .trial-title em {
-    color: var(--orange);
-    font-style: normal;
-  }
-
-  .trial-bullets {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-    margin-bottom: 36px;
-  }
-
-  .trial-bullet {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: .85rem;
-    color: var(--gray);
-  }
-
-  .trial-bullet span {
-    color: var(--green);
-    font-weight: 600;
   }
 
   /* Responsive */
@@ -517,11 +458,4 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     }
   }
 
-  @media (max-width: 600px) {
-    .trial-bullets {
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-  }
 </style>

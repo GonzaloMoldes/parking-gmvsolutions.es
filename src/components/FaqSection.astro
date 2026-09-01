@@ -3,6 +3,11 @@
 // faqPageSchema() usa para el JSON-LD, para que el texto renderizado y el schema
 // no puedan divergir (auditoria P6).
 //
+// Se renderiza como acordeon <details>: el texto sigue completo en el DOM (asi
+// que el schema y la indexacion no cambian), pero deja de ocupar pantalla. La
+// FAQ era el 15-22% del texto visible de la pagina y estaba siempre desplegada
+// (tarea A2 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
+//
 // Uso tipico en una pagina:
 //   const faqs = [{ q: '...', a: '...' }];
 //   const schema = [softwareApplicationSchema(), faqPageSchema(faqs)];
@@ -29,11 +34,14 @@ const { items, heading = 'Preguntas frecuentes', eyebrow = 'Dudas habituales' } 
     </div>
 
     <div class="faq-list fade-up delay-1">
-      {items.map((item) => (
-        <div class="faq-item">
-          <h3 class="faq-q">{item.q}</h3>
+      {items.map((item, i) => (
+        <details class="faq-item" open={i === 0}>
+          <summary class="faq-summary">
+            <h3 class="faq-q">{item.q}</h3>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
           <p class="faq-a">{item.a}</p>
-        </div>
+        </details>
       ))}
     </div>
   </div>
@@ -46,7 +54,7 @@ const { items, heading = 'Preguntas frecuentes', eyebrow = 'Dudas habituales' } 
 
   .faq-list {
     display: grid;
-    gap: 16px;
+    gap: 12px;
     margin-top: 40px;
   }
 
@@ -55,7 +63,36 @@ const { items, heading = 'Preguntas frecuentes', eyebrow = 'Dudas habituales' } 
     border: 1px solid var(--border);
     border-left: 3px solid var(--orange);
     border-radius: 6px;
-    padding: 24px 28px;
+    padding: 0 28px;
+    transition: border-color .25s;
+  }
+
+  .faq-item:hover {
+    border-color: var(--border-hover);
+    border-left-color: var(--orange);
+  }
+
+  /* El summary es el area clicable completa. Quitamos el marcador nativo en
+     ambas familias de motores: ::-webkit-details-marker para WebKit y
+     list-style para Firefox/Chromium moderno. */
+  .faq-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 0;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-summary:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 4px;
+    border-radius: 2px;
   }
 
   .faq-q {
@@ -64,8 +101,23 @@ const { items, heading = 'Preguntas frecuentes', eyebrow = 'Dudas habituales' } 
     font-weight: 600;
     letter-spacing: .02em;
     line-height: 1.3;
-    margin: 0 0 10px;
+    margin: 0;
     color: var(--white);
+  }
+
+  /* Chevron dibujado con bordes: no depende de ninguna fuente de iconos. */
+  .faq-icon {
+    flex: 0 0 auto;
+    width: 9px;
+    height: 9px;
+    border-right: 1.5px solid var(--orange);
+    border-bottom: 1.5px solid var(--orange);
+    transform: rotate(45deg) translate(-2px, -2px);
+    transition: transform .25s ease;
+  }
+
+  .faq-item[open] .faq-icon {
+    transform: rotate(-135deg) translate(-2px, -2px);
   }
 
   .faq-a {
@@ -73,11 +125,27 @@ const { items, heading = 'Preguntas frecuentes', eyebrow = 'Dudas habituales' } 
     line-height: 1.7;
     color: var(--gray);
     margin: 0;
+    padding: 0 0 24px;
+    max-width: 68ch;
   }
 
   @media (max-width: 700px) {
     .faq-item {
-      padding: 20px;
+      padding: 0 20px;
+    }
+
+    .faq-summary {
+      padding: 18px 0;
+    }
+
+    .faq-a {
+      padding-bottom: 20px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-icon {
+      transition: none;
     }
   }
 </style>

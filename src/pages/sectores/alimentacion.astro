@@ -1,11 +1,31 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../../lib/seo';
 
 const title = "Software SOP para industria alimentaria | REELEVO";
 const description = "Software SOP para industria alimentaria: estandariza procesos sensibles y mejora la trazabilidad en alimentación y la revisión interna en planta.";
 const canonical = "https://www.gmvsolutions.es/sectores/alimentacion/";
 
-const schema = {
+// Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe las
+// secciones "Lo que aporta" y "Limites y alcance" (tarea D4 de
+// PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué aporta REELEVO concretamente en una planta alimentaria?',
+    a: 'El puesto aguanta mejor bajas y rotación sin depender del titular; los cambios de formato y los protocolos de limpieza dejan de apoyarse en memoria; producción y calidad ganan información para reorganizar y revisar dónde hay fragilidad; y la formación en puesto deja una base útil para acompañar la autonomía, que con personal de campaña es justo lo que falta.',
+  },
+  {
+    q: '¿Encaja con los requisitos de higiene y conformidad del sector?',
+    a: 'Como capa operativa, sí: los checklists de limpieza por zona quedan ejecutados y fechados, con foto donde haga falta, y cada ejecución deja constancia de quién la hizo y con qué versión del procedimiento. Lo que no hace es sustituir tu sistema de calidad ni garantizarte por sí solo una certificación concreta.',
+  },
+  {
+    q: '¿Qué no hay que esperar de esto?',
+    a: 'No es un sustituto de todos tus sistemas de planta, ni una promesa universal para cualquier proceso complejo, ni un reemplazo del criterio de producción o calidad. Tampoco es una garantía de rendimiento sin acompañamiento operativo: lo que sí aporta es menos improvisación en cambios de formato y puestos críticos, más claridad para producción y calidad, y más continuidad cuando falta la persona clave.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "REELEVO para industria alimentaria - Onboarding software",
@@ -17,6 +37,8 @@ const schema = {
     "audienceType": "Food Industry HR and Operations"
   }
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout
@@ -29,7 +51,7 @@ const schema = {
 >
   <section class="page-hero">
     <div class="eyebrow fade-up">Software SOP para industria alimentaria</div>
-    <h1 class="fade-up delay-1">Procesos estandarizados para<br><em>industria alimentaria</em></h1>
+    <h1 class="fade-up delay-1">Procesos estandarizados para <br><em>industria alimentaria</em></h1>
     <p class="fade-up delay-2">
       En una planta alimentaria un cambio de formato, una incorporación o una revisión interna
       no pueden depender de la memoria. REELEVO deja el proceso documentado en el puesto,
@@ -48,7 +70,7 @@ const schema = {
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Dónde encaja mejor</div>
-        <h2 class="section-title">Cuando una planta alimentaria necesita<br><em>menos trabajo a ciegas</em></h2>
+        <h2 class="section-title">Cuando una planta alimentaria necesita <br><em>menos trabajo a ciegas</em></h2>
         <p class="section-sub">
           No hablamos de vender una solución universal para todo el sistema de calidad.
           Hablamos de ordenar mejor lo que ya ocurre en planta cuando el proceso es sensible,
@@ -84,7 +106,7 @@ const schema = {
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Escenarios reales</div>
-        <h2 class="section-title">Tres momentos donde esto sí puede<br><em>marcar diferencia</em></h2>
+        <h2 class="section-title">Tres momentos donde esto sí puede <br><em>marcar diferencia</em></h2>
       </div>
 
       <div class="scenario-grid fade-up delay-1">
@@ -156,92 +178,14 @@ const schema = {
 
   <div class="divider"></div>
 
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Lo que aporta</div>
-        <h2 class="section-title">Por qué este encaje tiene sentido en<br><em>alimentación</em></h2>
-      </div>
-
-      <div class="value-grid fade-up delay-1">
-        <div class="value-card">
-          <h3 class="value-title">Más consistencia en el puesto</h3>
-          <p class="value-desc">El trabajo sensible deja de depender tanto de quien mejor se lo sabe de memoria.</p>
-        </div>
-        <div class="value-card">
-          <h3 class="value-title">Más orden en campañas</h3>
-          <p class="value-desc">Incorporar refuerzos o personal temporal deja de tensionar igual a los perfiles clave.</p>
-        </div>
-        <div class="value-card">
-          <h3 class="value-title">Más claridad para revisión interna</h3>
-          <p class="value-desc">Calidad gana una base más útil para revisar proceso visible, momento y resultado del trabajo.</p>
-        </div>
-        <div class="value-card">
-          <h3 class="value-title">Más continuidad operativa</h3>
-          <p class="value-desc">La planta sostiene mejor cambios, ausencias y puestos delicados sin improvisar tanto.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Límites y alcance</div>
-        <h2 class="section-title">Lo que sí puede ayudar y lo que <em>no prometemos</em></h2>
-      </div>
-
-      <div class="boundary-grid fade-up delay-1">
-        <article class="boundary-card ok">
-          <h3 class="boundary-title">Sí puede ayudar</h3>
-          <ul class="boundary-list">
-            <li>Menos improvisación en puestos sensibles</li>
-            <li>Más claridad para revisión interna en planta</li>
-            <li>Más continuidad entre producción, calidad y formación</li>
-            <li>Más orden cuando hay cambios, campañas o refuerzos</li>
-          </ul>
-        </article>
-
-        <article class="boundary-card caution">
-          <h3 class="boundary-title">No es por sí solo</h3>
-          <ul class="boundary-list">
-            <li>Un sustituto completo de tu sistema de calidad alimentaria</li>
-            <li>Una garantía automática frente a cualquier auditoría o norma</li>
-            <li>Una promesa regulatoria universal para cualquier planta</li>
-            <li>Un reemplazo del criterio de calidad y producción</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Puente natural</div>
-        <h3 class="section-title">Si llevas calidad, también puedes ver la lectura<br><em>por buyer</em></h3>
-        <p class="section-sub">
-          Esta página aterriza el encaje sectorial. Si quieres ver el relato más ejecutivo
-          para el rol de calidad o compliance, lo tienes aquí.
-        </p>
-        <div class="hero-cta-group" style="justify-content:center;margin-top:28px;">
-          <a href="/para-quien/responsable-calidad/" class="btn-ghost">Ver página para responsable de calidad →</a>
-          <a href="/sectores/mecanizado-cnc/" class="btn-ghost">Ver el sector mecanizado y CNC →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <FaqSection items={faqs} />
 
   <div class="divider"></div>
 
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">¿Tiene sentido en tu planta?</div>
     <h3 class="cta-title fade-up delay-1">
-      Si operas en alimentación,<br><em>vemos el encaje real contigo</em>
+      Si operas en alimentación, <br><em>vemos el encaje real contigo</em>
     </h3>
     <p class="cta-sub fade-up delay-2">
       Si te encaja, regístrate en REELEVO y pruébalo en tu planta y valora si puede aportar más consistencia,
@@ -252,7 +196,7 @@ const schema = {
          data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
       <a href="/calidad-y-conformidad/" class="btn-ghost">Ver calidad y conformidad →</a>
     </div>
-    <div class="cta-note fade-up delay-4">Implementación asistida · Enfoque prudente para industria alimentaria</div>
+    <div class="cta-note fade-up delay-4"> <br />Ver también <a href="/para-quien/responsable-calidad/">responsable de calidad</a>, <a href="/calidad-y-conformidad/">calidad y conformidad</a> o el sector <a href="/sectores/mecanizado-cnc/">mecanizado CNC</a>.</div>
   </section>
 </BaseLayout>
 
@@ -305,7 +249,7 @@ const schema = {
   .fit-tag,
   .scenario-card-tag {
     font-family: 'DM Mono', monospace;
-    font-size: .62rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);
@@ -329,7 +273,7 @@ const schema = {
   .scenario-before,
   .scenario-after,
   .boundary-list li {
-    font-size: .86rem;
+    font-size: .95rem;
     color: var(--gray);
     line-height: 1.65;
   }

@@ -5,26 +5,35 @@ import { faqPageSchema, type FaqItem } from '../lib/seo';
 import Screenshot from '../components/Screenshot.astro';
 
 const title = "Trazabilidad operativa de calidad industrial | REELEVO";
-const description = "Trazabilidad operativa de calidad para auditoría interna en planta: qué proceso se siguió, cuándo y con qué resultado, sin depender de papeles ni memoria.";
+const description = "Trazabilidad operativa de calidad para auditoría interna en planta: qué proceso se siguió, cuándo y con qué resultado, sin depender de la memoria.";
 const canonical = "https://www.gmvsolutions.es/calidad-y-conformidad/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+//
+// La quinta pregunta recoge la seccion "Continuidad del dato" (exportacion,
+// historico y acompanamiento), que era un bloque de 3 tarjetas y solapaba con
+// la pregunta de exportacion que ya existia (tarea C2 de
+// PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
 const faqs: FaqItem[] = [
   {
     q: '¿Sirve REELEVO para una auditoría ISO 9001?',
-    a: 'Sirve como evidencia operativa: qué proceso se siguió, en qué versión, quién lo ejecutó y con qué resultado. Eso cubre la parte que suele costar más en auditoría, que es demostrar que lo que está documentado es lo que de verdad se hace. No sustituye al sistema de gestión de calidad ni certifica por sí mismo.',
+    a: 'Sirve como evidencia operativa: qué proceso se siguió, en qué versión, quién lo ejecutó y con qué resultado. Eso cubre la parte que suele costar más de reconstruir en una auditoría interna. Lo que no hace es sustituir tu sistema de calidad ni garantizarte una certificación: eso sigue dependiendo del criterio del responsable y del alcance de la norma que te apliquen.',
   },
   {
     q: '¿Qué evidencia queda registrada de cada ejecución?',
-    a: 'El proceso y su versión vigente en ese momento, el operario que lo ejecutó, la máquina o puesto, la fecha y hora, el resultado y las verificaciones o firmas asociadas. La diferencia con un parte en papel es que el registro ocurre durante el trabajo, no reconstruido después de memoria.',
+    a: 'El proceso y su versión vigente en ese momento, el operario que lo ejecutó, la máquina o puesto, la fecha y hora, el resultado y las verificaciones o incidencias que aparecieron por el camino. Cuando la empresa lo necesita, puede añadirse además un identificador interno de seguimiento.',
   },
   {
     q: '¿Es lo mismo que un software de gestión de calidad (QMS)?',
-    a: 'No. Un QMS cubre el sistema completo: política, auditorías, acciones correctivas, gestión documental normativa. REELEVO aporta la capa de abajo, la trazabilidad de la ejecución real en planta, que es la que alimenta a cualquier QMS y la que suele faltar cuando llega una no conformidad.',
+    a: 'No. Un QMS cubre el sistema completo: política, auditorías, acciones correctivas, gestión documental normativa. REELEVO aporta la capa de abajo, la trazabilidad operativa de lo que realmente pasó en planta, que es justo la que suele faltar cuando llega la auditoría.',
   },
   {
     q: '¿Se puede exportar el histórico?',
-    a: 'Sí. Los registros se pueden exportar para adjuntarlos a un informe de auditoría o cruzarlos con otros sistemas, y también consultarse vía API. La idea es que la evidencia no quede atrapada dentro de la herramienta el día que alguien de fuera la pida.',
+    a: 'Sí. Los procesos, las instrucciones y los registros se pueden exportar para adjuntarlos a un informe de auditoría o cruzarlos con otros sistemas, y también consultarse vía API. El conocimiento documentado sigue siendo de la empresa, sin letra pequeña.',
+  },
+  {
+    q: '¿Y si calidad necesita ver cómo encaja esto en su operativa?',
+    a: 'Lo aterrizamos contigo sin vender humo regulatorio. Preferimos decirte que una parte de tu norma no queda cubierta a que lo descubras a mitad de una auditoría.',
   },
 ];
 
@@ -51,9 +60,10 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   activeNav=""
   pageType="capacidad"
 >
+  <!-- HERO + PROBLEMA -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Calidad y conformidad</div>
-    <h1 class="fade-up delay-1">«¿Qué pasó con este lote?»<br><em>y la respuesta tarda tres días</em></h1>
+    <h1 class="fade-up delay-1">«¿Qué pasó con este lote?» <br><em>y la respuesta tarda tres días</em></h1>
     <p class="fade-up delay-2">
       Reconstruir a mano quién hizo qué, con qué versión del procedimiento y en qué máquina se lleva días,
       y acaba dependiendo de que alguien se acuerde. Cuando cada ejecución deja su registro, esa respuesta
@@ -70,80 +80,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <div class="divider"></div>
 
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Qué deja el trabajo</div>
-        <h2 class="section-title">Una base más útil que un papel firmado<br><em>o una explicación verbal</em></h2>
-        <p class="section-sub">
-          REELEVO no sustituye por sí solo un sistema de calidad ni una certificación formal.
-          Sí aporta una base mucho más útil para revisión interna, formación, seguimiento operativo y documentación de procesos de producción.
-        </p>
-      </div>
-
-      <div class="proof-grid fade-up delay-1">
-        <div class="proof-card proof-shot">
-          <div class="proof-frame">
-            <Screenshot name="admin-dashboard" alt="Panel empresa REELEVO para seguimiento operativo" layout="pair" />
-          </div>
-          <div class="proof-caption">Panel empresa: procesos, puestos y seguimiento interno en un solo lugar.</div>
-        </div>
-
-        <div class="proof-card proof-points">
-          <h3>Qué puede quedar reflejado</h3>
-          <div class="proof-point"><strong>Proceso y puesto:</strong> qué referencia se siguió y en qué contexto ocurrió.</div>
-          <div class="proof-point"><strong>Momento y versión:</strong> fecha, hora y versión visible del proceso.</div>
-          <div class="proof-point"><strong>Resultado:</strong> si el flujo quedó completado y dónde aparecieron incidencias.</div>
-          <div class="proof-point"><strong>Seguimiento asociado:</strong> cuando la empresa lo necesita, puede añadirse un identificador interno.</div>
-          <div class="proof-point"><strong>Revisión:</strong> en ciertos flujos puede incorporarse validación o sign-off interno según la operativa.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Dónde ayuda de verdad</div>
-        <h2 class="section-title">Casos donde calidad sí gana<br><em>algo práctico</em></h2>
-        <p class="section-sub">
-          No se trata de añadir burocracia. Se trata de revisar mejor lo que ya ocurre en planta.
-        </p>
-      </div>
-
-      <div class="use-grid fade-up delay-1">
-        <article class="use-card">
-          <div class="use-tag">Auditoría interna</div>
-          <h3 class="use-title">Cuando necesitas revisar qué referencia se siguió</h3>
-          <p class="use-desc">Ayuda a entender qué proceso estaba visible, cuándo se utilizó y con qué resultado terminó el flujo.</p>
-        </article>
-
-        <article class="use-card">
-          <div class="use-tag">Desviaciones</div>
-          <h3 class="use-title">Cuando toca entender por qué hubo una incidencia</h3>
-          <p class="use-desc">Da más información útil para revisar si el problema vino del proceso, del puesto o de la ejecución real del trabajo.</p>
-        </article>
-
-        <article class="use-card">
-          <div class="use-tag">Cambios de proceso</div>
-          <h3 class="use-title">Cuando una nueva versión necesita seguimiento</h3>
-          <p class="use-desc">Permite revisar con más criterio cuándo cambió la referencia visible y cómo se ha ido usando en planta.</p>
-        </article>
-
-        <article class="use-card">
-          <div class="use-tag">Puestos sensibles</div>
-          <h3 class="use-title">Cuando el onboarding necesita más evidencia útil</h3>
-          <p class="use-desc">Aporta una base más sólida para acompañar formación, autonomía progresiva y revisión interna en puestos críticos.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- RECALLS Y TRAZABILIDAD DE LOTE -->
+  <!-- CÓMO FUNCIONA — bloque dominante -->
   <!-- Verificado en reelevo-app: app/api/empresa/recalls/route.ts define
        severity informative|precautionary|mandatory y scope_type
        lot_reference|production_order|date_range|obra. El cron
@@ -154,7 +91,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Cuando algo sale mal</div>
-        <h2 class="section-title">«Un cliente reclama un lote»<br><em>y hay que reconstruirlo a mano</em></h2>
+        <h2 class="section-title">«Un cliente reclama un lote» <br><em>y hay que reconstruirlo a mano</em></h2>
         <p class="section-sub">
           Es el peor día del responsable de calidad: alguien pregunta por una entrega de hace tres meses
           y la respuesta está repartida entre partes en papel, un Excel y la memoria de quien estaba ese turno.
@@ -165,59 +102,37 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <article class="recall-card">
           <div class="recall-tag">Buscar</div>
           <h3 class="recall-title">Localizar lo afectado</h3>
-          <p class="recall-desc">
-            Búsqueda por lote sobre las ejecuciones reales. De una referencia de lote sales a las piezas,
-            las obras, los procesos que se ejecutaron y los operarios que intervinieron.
-          </p>
+          <p class="recall-desc">De una referencia de lote sales a las piezas, las obras, los procesos ejecutados y los operarios que intervinieron.</p>
         </article>
 
         <article class="recall-card">
           <div class="recall-tag">Acotar</div>
           <h3 class="recall-title">Definir el alcance</h3>
-          <p class="recall-desc">
-            Una retirada se acota por <strong>referencia de lote</strong>, por <strong>orden de producción</strong>,
-            por <strong>rango de fechas</strong> o por <strong>obra</strong>. Es lo que evita retirar de más
-            —caro— o de menos —peor—.
-          </p>
+          <p class="recall-desc">Por <strong>lote</strong>, <strong>orden de producción</strong>, <strong>rango de fechas</strong> u <strong>obra</strong>. Es lo que evita retirar de más —caro— o de menos —peor—.</p>
         </article>
 
         <article class="recall-card">
           <div class="recall-tag">Clasificar</div>
           <h3 class="recall-title">Tres niveles de severidad</h3>
-          <p class="recall-desc">
-            <strong>Obligatorio</strong>, <strong>precautorio</strong> o <strong>informativo</strong>.
-            No es lo mismo avisar de una desviación menor que retirar producto del mercado, y el registro
-            debe distinguirlo.
-          </p>
+          <p class="recall-desc"><strong>Obligatorio</strong>, <strong>precautorio</strong> o <strong>informativo</strong>: no es lo mismo avisar de una desviación menor que retirar producto del mercado.</p>
         </article>
 
         <article class="recall-card">
           <div class="recall-tag">Contener</div>
           <h3 class="recall-title">Cuarentena por pieza</h3>
-          <p class="recall-desc">
-            Cada pieza afectada lleva su estado dentro de la retirada, de modo que en cualquier momento
-            se sabe qué queda pendiente de revisar y qué está ya resuelto.
-          </p>
+          <p class="recall-desc">Cada pieza lleva su estado dentro de la retirada, así que siempre se sabe qué queda pendiente y qué está resuelto.</p>
         </article>
 
         <article class="recall-card">
           <div class="recall-tag">Demostrar</div>
           <h3 class="recall-title">Informe público por pieza</h3>
-          <p class="recall-desc">
-            Cada pieza puede llevar su QR y una página de trazabilidad —obra, producto, operarios,
-            ejecuciones y lote— con informe descargable. Si tu empresa lo activa, el cliente final
-            lo consulta él mismo.
-          </p>
+          <p class="recall-desc">QR y página de trazabilidad con obra, producto, operarios, ejecuciones y lote, con informe descargable. Si lo activas, lo consulta el cliente final.</p>
         </article>
 
         <article class="recall-card">
           <div class="recall-tag">Vigilar</div>
           <h3 class="recall-title">Huecos detectados solos</h3>
-          <p class="recall-desc">
-            Una revisión diaria avisa de las piezas producidas sin referencia de lote y de los recalls
-            con piezas aún sin revisar. El agujero de trazabilidad se detecta antes de que lo detecte
-            un cliente.
-          </p>
+          <p class="recall-desc">Una revisión diaria avisa de piezas producidas sin lote y de retiradas con piezas sin revisar, antes de que el hueco lo encuentre un cliente.</p>
         </article>
       </div>
 
@@ -232,6 +147,38 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <div class="divider"></div>
 
+  <!-- QUÉ INCLUYE -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Qué deja el trabajo</div>
+        <h2 class="section-title">Qué queda registrado de cada ejecución</h2>
+      </div>
+
+      <div class="proof-grid fade-up delay-1">
+        <div class="proof-card proof-shot">
+          <div class="proof-frame">
+            <Screenshot name="admin-dashboard" alt="Panel empresa REELEVO para seguimiento operativo" layout="pair" />
+          </div>
+          <div class="proof-caption">Panel empresa: procesos, puestos y seguimiento interno en un solo lugar.</div>
+        </div>
+
+        <div class="proof-card proof-points">
+          <div class="proof-point"><strong>Proceso y puesto:</strong> qué referencia se siguió y en qué contexto.</div>
+          <div class="proof-point"><strong>Momento y versión:</strong> fecha, hora y versión visible del proceso.</div>
+          <div class="proof-point"><strong>Resultado:</strong> si el flujo quedó completado y dónde hubo incidencias.</div>
+          <div class="proof-point"><strong>Seguimiento:</strong> identificador interno cuando la empresa lo necesita.</div>
+          <div class="proof-point"><strong>Revisión:</strong> validación o sign-off interno en los flujos que lo pidan.</div>
+        </div>
+      </div>
+
+      <p class="roles-line fade-up delay-2">Aterrízalo en tu caso: <a href="/sectores/mecanizado-cnc/">mecanizado y CNC</a> · <a href="/para-quien/responsable-calidad/">para responsable de calidad</a> · <a href="/obras-trazabilidad/">obras y trazabilidad</a>.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- LÍMITE -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
@@ -245,8 +192,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           <ul class="boundary-list">
             <li>Una base útil para revisión interna y operativa</li>
             <li>Más claridad para calidad, formación y seguimiento</li>
-            <li>Una ayuda real para revisar incidencias y cambios de proceso</li>
-            <li>Un soporte práctico para auditoría interna y conformidad operativa</li>
+            <li>Soporte práctico para auditoría interna y conformidad operativa</li>
           </ul>
         </article>
 
@@ -265,111 +211,59 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <div class="divider"></div>
 
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Continuidad del dato</div>
-        <h2 class="section-title">Exportación, histórico y soporte<br><em>sin letra pequeña</em></h2>
-      </div>
-
-      <div class="support-grid fade-up delay-1">
-        <div class="support-card">
-          <h3 class="support-title">Exportación</h3>
-          <p class="support-desc">Puedes exportar procesos e instrucciones. El conocimiento documentado sigue siendo de la empresa.</p>
-        </div>
-        <div class="support-card">
-          <h3 class="support-title">Histórico útil</h3>
-          <p class="support-desc">La revisión puede apoyarse en histórico de actividad y versiones visibles, con el alcance definido por el flujo y el plan.</p>
-        </div>
-        <div class="support-card">
-          <h3 class="support-title">Acompañamiento</h3>
-          <p class="support-desc">Si calidad necesita revisar cómo encaja esto en su operativa, lo aterrizamos contigo sin vender humo regulatorio.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Sigue explorando</div>
-        <h3 class="section-title">Aterriza este encaje por <em>sector o por rol</em></h3>
-        <p class="section-sub">
-          Ya puedes ver esta capa de evidencia aplicada a un vertical concreto como mecanizado y CNC,
-          y desde la mirada del responsable que tiene que revisar y sostener criterios internos.
-        </p>
-        <div class="hero-cta-group" style="justify-content:center;margin-top:28px;gap:14px;flex-wrap:wrap;">
-          <a href="/sectores/mecanizado-cnc/" class="btn-ghost">Mecanizado y CNC →</a>
-          <a href="/para-quien/responsable-calidad/" class="btn-ghost">Para responsable de calidad →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
   <FaqSection items={faqs} />
 
   <div class="divider"></div>
 
+  <!-- SIGUIENTE PASO -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">¿Tiene sentido para tu caso?</div>
     <h3 class="cta-title fade-up delay-1">
-      Si calidad necesita más claridad,<br><em>te enseñamos el encaje real</em>
+      Si calidad necesita más claridad, <br><em>te enseñamos el encaje real</em>
     </h3>
     <p class="cta-sub fade-up delay-2">
-      Si te encaja, regístrate en REELEVO y pruébalo en tu planta y valora si esta capa de evidencia aporta valor en tu operativa,
-      sin prometer más de lo que el producto puede sostener.
+      Sin promesas regulatorias infladas: te decimos qué parte queda cubierta y cuál no.
     </p>
     <div class="cta-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="01" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/video-demo/" class="btn-ghost"
-         data-cta data-cta-intent="navegacion" data-cta-location="footer" data-cta-label="Ver el demo">Ver el demo →</a>
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="01" data-cta-label="Registrarme en REELEVO">
+        Registrarme en REELEVO
+      </a>
+      <a href="/firma-digital/" class="btn-ghost">
+        Ver firma digital →
+      </a>
     </div>
-    <div class="cta-note fade-up delay-4">Implementación asistida · Enfoque prudente para calidad y conformidad</div>
   </section>
+
 </BaseLayout>
 
 <style>
-  .proof-grid,
-  .use-grid,
-  .boundary-grid,
-  .support-grid {
-    display: grid;
-    gap: 24px;
-  }
-
-  .proof-grid {
-    grid-template-columns: 1.05fr .95fr;
-    margin-top: 48px;
-  }
-
-  .use-grid {
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 48px;
-  }
-
-  /* RECALLS */
+  /* RECALLS — bloque dominante */
   .recall-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
-    margin-top: 40px;
+    gap: 24px;
+    margin-top: 44px;
+  }
+
+  @media (max-width: 1000px) {
+    .recall-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 680px) {
+    .recall-grid { grid-template-columns: 1fr; }
   }
 
   .recall-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 24px 22px;
+    padding: 24px;
   }
 
   .recall-tag {
     font-family: 'DM Mono', monospace;
-    font-size: .6rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);
@@ -378,165 +272,146 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .recall-title {
     font-family: 'Oswald', sans-serif;
-    font-size: .98rem;
-    font-weight: 600;
-    letter-spacing: .02em;
+    font-size: 1rem;
     margin-bottom: 10px;
+    color: var(--white);
   }
 
   .recall-desc {
-    font-size: .85rem;
+    font-size: .95rem;
+    line-height: 1.65;
     color: var(--gray);
-    line-height: 1.7;
+    margin: 0;
   }
 
   .recall-desc strong { color: var(--white); font-weight: 500; }
 
   .recall-note {
-    max-width: 860px;
-    margin: 28px auto 0;
+    max-width: 900px;
+    margin-top: 28px;
     padding: 20px 24px;
     background: rgba(255, 255, 255, .03);
     border-left: 2px solid var(--orange);
     border-radius: 0 4px 4px 0;
-    font-size: .88rem;
+    font-size: .92rem;
     line-height: 1.75;
     color: var(--gray);
   }
 
   .recall-note strong { color: var(--white); font-weight: 500; }
 
-  @media (max-width: 1000px) {
-    .recall-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-
-  @media (max-width: 700px) {
-    .recall-grid { grid-template-columns: 1fr; }
-  }
-
-  .boundary-grid {
-    grid-template-columns: repeat(2, 1fr);
+  /* QUÉ QUEDA REGISTRADO */
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
     margin-top: 40px;
+    align-items: start;
   }
 
-  .support-grid {
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 40px;
+  @media (max-width: 900px) {
+    .proof-grid { grid-template-columns: 1fr; }
   }
 
-  .proof-card,
-  .use-card,
-  .boundary-card,
-  .support-card {
+  .proof-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 6px;
+    padding: 22px;
   }
 
-  .proof-frame img {
-    width: 100%;
-    display: block;
-  }
+  .proof-frame { border-radius: 4px; overflow: hidden; }
 
   .proof-caption {
-    padding: 16px 18px;
-    font-size: .8rem;
-    color: var(--gray);
-    line-height: 1.55;
-  }
-
-  .proof-points {
-    padding: 28px 24px;
-  }
-
-  .proof-points h3,
-  .use-title,
-  .boundary-title,
-  .support-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: .03em;
-    margin-bottom: 12px;
-    color: var(--white);
+    margin-top: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .05em;
+    color: var(--gray2);
+    line-height: 1.5;
   }
 
   .proof-point {
-    font-size: .86rem;
+    font-size: .95rem;
     line-height: 1.65;
     color: var(--gray);
-    padding: 0 0 14px;
+    padding: 12px 0;
+  }
+
+  .proof-point + .proof-point { border-top: 1px solid var(--border); }
+
+  .proof-point strong { color: var(--white); font-weight: 500; }
+
+  /* LÍMITES */
+  .boundary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+    max-width: 900px;
+  }
+
+  @media (max-width: 760px) {
+    .boundary-grid { grid-template-columns: 1fr; }
+  }
+
+  .boundary-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .boundary-card.ok { border-left: 3px solid var(--green); }
+  .boundary-card.caution { border-left: 3px solid var(--orange); }
+
+  .boundary-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
     margin-bottom: 14px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .proof-point:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-  }
-
-  .proof-point strong {
     color: var(--white);
-  }
-
-  .use-card,
-  .boundary-card,
-  .support-card {
-    padding: 28px 24px;
-    text-align: left;
-  }
-
-  .use-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: .62rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 12px;
-  }
-
-  .use-desc,
-  .support-desc {
-    font-size: .86rem;
-    color: var(--gray);
-    line-height: 1.65;
-  }
-
-  .boundary-card.ok {
-    border-color: rgba(34,197,94,.2);
-  }
-
-  .boundary-card.caution {
-    border-color: rgba(244,82,30,.25);
   }
 
   .boundary-list {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 
   .boundary-list li {
-    font-size: .86rem;
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    font-size: .95rem;
+    line-height: 1.6;
     color: var(--gray);
-    line-height: 1.65;
-    padding: 10px 0;
-    border-top: 1px solid var(--border);
   }
 
-  .boundary-list li:first-child {
-    border-top: none;
-    padding-top: 0;
+  .boundary-list li:last-child { margin-bottom: 0; }
+
+  .boundary-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: .7em;
+    width: 7px;
+    height: 1px;
+    background: var(--orange);
   }
 
-  @media (max-width: 900px) {
-    .proof-grid,
-    .use-grid,
-    .boundary-grid,
-    .support-grid {
-      grid-template-columns: 1fr;
-    }
+  .roles-line {
+    margin-top: 28px;
+    font-size: .95rem;
+    color: var(--gray);
+  }
+
+  .roles-line a {
+    color: var(--orange);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(244, 82, 30, .35);
+  }
+
+  .roles-line a:hover {
+    border-bottom-color: var(--orange);
   }
 </style>
-

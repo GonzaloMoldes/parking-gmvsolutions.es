@@ -67,7 +67,13 @@ const SIZES = {
   class={className}
   loading={loading}
   decoding="async"
-  widths={[480, 960, 1440]}
+  {/* Los originales miden ~1865px. Con [480,960,1440] una captura `single`
+      -900px CSS- se quedaba en 1440px cuando una pantalla 2x pide 1800: salia
+      blanda. Y una `pair` -530px CSS- descargaba 1440px cuando le bastan 1060.
+      Estos cinco anchos cubren 1x y 2x de los dos layouts sin desperdicio.
+      Astro nunca reescala hacia arriba, asi que 1865 se recorta solo al ancho
+      real de cada original. */}
+  widths={[480, 800, 1100, 1600, 1865]}
   sizes={SIZES[layout]}
   formats={['avif', 'webp']}
   fallbackFormat="png"

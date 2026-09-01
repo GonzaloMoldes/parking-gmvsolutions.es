@@ -1,12 +1,31 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../../lib/seo';
 import Screenshot from '../../components/Screenshot.astro';
 
 const title = "Software calidad operativa industrial | REELEVO";
 const description = "Software de calidad operativa con evidencia de ejecución: revisa qué se siguió y cuándo, soporta cambios de proceso y vigila puestos sensibles en planta.";
 const canonical = "https://www.gmvsolutions.es/para-quien/responsable-calidad/";
 
-const schema = {
+// Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe las secciones "Valor ejecutivo" y "Limites y alcance"
+// (tarea D4 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué gana calidad con esto sin montar más burocracia?',
+    a: 'Revisar con menos intuición: menos dependencia de la memoria, de correos o de explicaciones posteriores para entender qué pasó. Más claridad para ver cómo aterrizan las nuevas referencias y los cambios operativos en el puesto. Una base más útil para hablar con producción sobre incidencias y puntos débiles. Y soporte real a la formación en puestos sensibles, más allá de listas de asistencia y firmas.',
+  },
+  {
+    q: '¿Sustituye a mi sistema de calidad?',
+    a: 'No, y no vamos a exagerarlo. Sí aporta más claridad para la revisión interna, más contexto ante cambios de proceso y desviaciones, más continuidad entre calidad, operación y formación, y una base más útil para puestos sensibles. No es un sustituto automático de tu sistema de calidad, ni una garantía legal universal para cualquier norma o sector, ni una certificación formal completa de competencias, ni un reemplazo del criterio del responsable de calidad.',
+  },
+  {
+    q: '¿Por dónde empiezo si llevo calidad en una pyme?',
+    a: 'Por el proceso donde más veces has tenido que reconstruir a posteriori qué se hizo. Con ese documentado y ejecutándose en el puesto ya se ve si el registro que deja te sirve para una revisión interna, sin haber cambiado tu sistema de calidad.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "REELEVO para responsables de calidad y compliance",
@@ -17,6 +36,8 @@ const schema = {
     "audienceType": "Quality Manager"
   }
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout
@@ -29,7 +50,7 @@ const schema = {
 >
   <section class="page-hero">
     <div class="eyebrow fade-up">Para calidad y compliance</div>
-    <h1 class="fade-up delay-1">Más claridad para revisar.<br><em>Menos dependencia de papeles y memoria.</em></h1>
+    <h1 class="fade-up delay-1">Más claridad para revisar. <br><em>Menos dependencia de papeles y memoria.</em></h1>
     <p class="fade-up delay-2">
       REELEVO ayuda a calidad a revisar mejor lo que pasa en planta: qué referencia estaba visible,
       cuándo ocurrió el trabajo, cómo terminó y dónde sigue haciendo falta apoyo.
@@ -154,87 +175,11 @@ const schema = {
     </div>
   </section>
 
-  <div class="divider"></div>
+  
 
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Valor ejecutivo</div>
-        <h2 class="section-title">Lo que gana calidad sin montar<br><em>más burocracia</em></h2>
-      </div>
+  
 
-      <div class="value-grid fade-up delay-1">
-        <div class="value-card">
-          <h3 class="value-title">Revisar con menos intuición</h3>
-          <p class="value-desc">Menos dependencia de memoria, correos o explicaciones posteriores para entender qué pasó.</p>
-        </div>
-        <div class="value-card">
-          <h3 class="value-title">Acompañar mejor el cambio</h3>
-          <p class="value-desc">Más claridad para revisar cómo aterrizan nuevas referencias o cambios operativos en el puesto.</p>
-        </div>
-        <div class="value-card">
-          <h3 class="value-title">Hablar mejor con producción</h3>
-          <p class="value-desc">Una base más útil para revisar incidencias, puntos débiles y necesidad de apoyo en planta.</p>
-        </div>
-        <div class="value-card">
-          <h3 class="value-title">Dar soporte a formación</h3>
-          <p class="value-desc">Calidad puede acompañar mejor puestos sensibles sin limitarse a listas de asistencia o firmas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Límites y alcance</div>
-        <h2 class="section-title">Lo que sí aporta y lo que <em>no vamos a exagerar</em></h2>
-      </div>
-
-      <div class="boundary-grid fade-up delay-1">
-        <article class="boundary-card ok">
-          <h3 class="boundary-title">Sí aporta</h3>
-          <ul class="boundary-list">
-            <li>Más claridad para revisión interna</li>
-            <li>Más contexto para cambios de proceso y desviaciones</li>
-            <li>Más continuidad entre calidad, operación y formación</li>
-            <li>Una base más útil para puestos sensibles y seguimiento operativo</li>
-          </ul>
-        </article>
-
-        <article class="boundary-card caution">
-          <h3 class="boundary-title">No es por sí solo</h3>
-          <ul class="boundary-list">
-            <li>Un sustituto automático de tu sistema de calidad</li>
-            <li>Una garantía legal universal para cualquier norma o sector</li>
-            <li>Una certificación formal completa de competencias</li>
-            <li>Un reemplazo del criterio del responsable de calidad</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Sigue explorando</div>
-        <h3 class="section-title">Profundiza por <em>sector o por enfoque de conformidad</em></h3>
-        <p class="section-sub">
-          Si tu planta opera en mecanizado o CNC tenemos una lectura sectorial; y si buscas la
-          visión transversal de conformidad operativa y evidencia, también la tienes desarrollada.
-        </p>
-        <div class="hero-cta-group" style="justify-content:center;margin-top:28px;gap:14px;flex-wrap:wrap;">
-          <a href="/sectores/mecanizado-cnc/" class="btn-ghost">Encaje en mecanizado y CNC →</a>
-          <a href="/calidad-y-conformidad/" class="btn-ghost">Calidad y conformidad →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <div class="divider"></div>
 
@@ -255,10 +200,14 @@ const schema = {
 
   <div class="divider"></div>
 
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Revisión final</div>
     <div class="cta-title fade-up delay-1">
-      Si llevas calidad o compliance,<br><em>mira el encaje con casos reales de planta</em>
+      Si llevas calidad o compliance, <br><em>mira el encaje con casos reales de planta</em>
     </div>
     <p class="cta-sub fade-up delay-2">
       Regístrate, revisa el producto con tu equipo y valora si aporta más claridad a tu revisión interna,
@@ -269,7 +218,7 @@ const schema = {
          data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
       <a href="/sobre-nosotros/#portabilidad" class="btn-ghost">Ver datos y continuidad →</a>
     </div>
-    <div class="cta-note fade-up delay-4">Implementación asistida · Enfoque prudente para calidad y compliance</div>
+    <div class="cta-note fade-up delay-4">Ver también el encaje en <a href="/sectores/mecanizado-cnc/">mecanizado y CNC</a> o <a href="/calidad-y-conformidad/">calidad y conformidad</a>. <br />Implementación asistida · Enfoque prudente para calidad y compliance</div>
   </section>
 </BaseLayout>
 
@@ -344,7 +293,7 @@ const schema = {
 
   .proof-point,
   .value-desc {
-    font-size: .86rem;
+    font-size: .95rem;
     color: var(--gray);
     line-height: 1.65;
   }
@@ -367,7 +316,7 @@ const schema = {
 
   .scenario-card-tag {
     font-family: 'DM Mono', monospace;
-    font-size: .62rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);

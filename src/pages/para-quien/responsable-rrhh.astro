@@ -1,12 +1,31 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../../lib/seo';
 import Screenshot from '../../components/Screenshot.astro';
 
 const title = "Onboarding operarios RRHH industrial | REELEVO";
 const description = "Onboarding de operarios para RRHH industrial: acorta la curva de autonomía del operario, reduce tutorías y da visibilidad de competencias por puesto.";
 const canonical = "https://www.gmvsolutions.es/para-quien/responsable-rrhh/";
 
-const schema = {
+// Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe la seccion "Trazabilidad operativa"
+// (tarea D4 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Esto certifica formalmente las competencias de mi plantilla?',
+    a: 'No sustituye una certificación formal. Lo que aporta es evidencia operativa mucho más cercana al trabajo real que una asistencia a curso: el registro tradicional —curso teórico, test, firma manual— no garantiza competencia práctica, mientras que aquí queda constancia de qué proceso ejecutó cada persona, cuántas veces, en qué máquina y con qué resultado.',
+  },
+  {
+    q: '¿Qué gana RRHH que hoy no tenga?',
+    a: 'Visibilidad de quién está realmente capacitado para qué puesto, en datos y no en la impresión del encargado. Con eso se planifica la formación por donde hay hueco de cobertura, se prepara la sucesión antes de una jubilación y se responde a una baja consultando la matriz en vez de improvisando.',
+  },
+  {
+    q: '¿Cuánto tiempo de mi equipo consume ponerlo en marcha?',
+    a: 'El experto captura el proceso una sola vez, en menos de media hora, y queda disponible para todas las incorporaciones siguientes. No hay que montar un plan de formación nuevo ni parar la planta: se empieza por el puesto con más rotación y se ve el efecto en la siguiente incorporación.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "REELEVO para Responsables de RRHH",
@@ -16,6 +35,8 @@ const schema = {
     "audienceType": "HR Manager"
   }
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout
@@ -29,7 +50,7 @@ const schema = {
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Para responsables de RRHH industrial</div>
-    <h1 class="fade-up delay-1">Onboarding de operarios<br><em>mas rapido y consistente</em>.</h1>
+    <h1 class="fade-up delay-1">Onboarding de operarios <br><em>mas rapido y consistente</em>.</h1>
     <p class="fade-up delay-2">Estandariza incorporaciones por puesto, baja la carga de tutoría repetitiva y gana una visión más clara de qué competencias tiene cada persona en planta.</p>
     <div class="hero-cta-group fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
@@ -179,106 +200,7 @@ const schema = {
   <div class="divider"></div>
 
   <!-- CERTIFICACIÓN SISTEMA -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Trazabilidad operativa</div>
-        <h2 class="section-title">Registro verificable de <em>ejecución real</em></h2>
-        <p class="section-sub">
-          No sustituye una certificación formal de competencias. Aporta evidencia
-          operativa más cercana al trabajo real que una simple asistencia a formación.
-        </p>
-      </div>
-
-      <div class="certification-comparison fade-up delay-1">
-        <div class="cert-traditional">
-          <h3>❌ Registro tradicional</h3>
-          <div class="cert-process">
-            <div class="cert-step">
-              <div class="cert-step-icon">📚</div>
-              <div class="cert-step-text">Asistencia a curso teórico</div>
-            </div>
-            <div class="cert-arrow">→</div>
-            <div class="cert-step">
-              <div class="cert-step-icon">📝</div>
-              <div class="cert-step-text">Test teórico</div>
-            </div>
-            <div class="cert-arrow">→</div>
-            <div class="cert-step">
-              <div class="cert-step-icon">✅</div>
-              <div class="cert-step-text">Firma o validación manual</div>
-            </div>
-          </div>
-          <div class="cert-problems">
-            <h4>Problemas:</h4>
-            <ul>
-              <li>No garantiza competencia práctica real</li>
-              <li>Basada en memorización, no en ejecución</li>
-              <li>Sin conexión con el puesto real de trabajo</li>
-              <li>No refleja la capacidad operativa</li>
-              <li>Válida en el momento, no actualizable</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="cert-reelevo">
-          <h3>✅ Registro REELEVO</h3>
-          <div class="cert-process">
-            <div class="cert-step">
-              <div class="cert-step-icon">📱</div>
-              <div class="cert-step-text">Acceso a instrucciones reales</div>
-            </div>
-            <div class="cert-arrow">→</div>
-            <div class="cert-step">
-              <div class="cert-step-icon">⚙️</div>
-              <div class="cert-step-text">Ejecución en máquina real</div>
-            </div>
-            <div class="cert-arrow">→</div>
-            <div class="cert-step">
-              <div class="cert-step-icon">📊</div>
-              <div class="cert-step-text">Registro por ejecución</div>
-            </div>
-          </div>
-          <div class="cert-benefits">
-            <h4>Ventajas:</h4>
-            <ul>
-              <li>Aporta evidencia operativa más cercana a la competencia práctica</li>
-              <li>Basada en ejecución real, no en teoría</li>
-              <li>Conectada directamente con el puesto</li>
-              <li>Refleja mejor la capacidad operativa real</li>
-              <li>Actualizable automáticamente</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="certification-data fade-up delay-2">
-        <div class="cert-data-card">
-          <h4>📊 Lo que registra REELEVO automáticamente:</h4>
-          <div class="cert-data-grid">
-            <div class="cert-data-item">
-              <strong>Quién:</strong> Identificación del operario
-            </div>
-            <div class="cert-data-item">
-              <strong>Qué:</strong> Proceso específico ejecutado
-            </div>
-            <div class="cert-data-item">
-              <strong>Cuándo:</strong> Fecha y hora de ejecución
-            </div>
-            <div class="cert-data-item">
-              <strong>Dónde:</strong> Máquina/puesto de trabajo
-            </div>
-            <div class="cert-data-item">
-              <strong>Cómo:</strong> Pasos completados correctamente
-            </div>
-            <div class="cert-data-item">
-              <strong>Resultado:</strong> Éxito/problema/tiempo empleado
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <div class="divider"></div>
 
@@ -329,10 +251,14 @@ const schema = {
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Para responsables de RRHH</div>
     <h3 class="cta-title fade-up delay-1">
-      Ordena el onboarding y gana<br><em>visibilidad sobre competencias</em>
+      Ordena el onboarding y gana <br><em>visibilidad sobre competencias</em>
     </h3>
     <p class="cta-sub fade-up delay-2">
       Regístrate, revisa el producto y contrástalo con tus métricas reales de onboarding.
@@ -344,7 +270,7 @@ const schema = {
         Registrarme en REELEVO →
       </a>
     </div>
-    <div class="cta-note fade-up delay-4">
+    <div class="cta-note fade-up delay-4">Ver también <a href="/gestion-competencias/">gestión de competencias</a> o <a href="/casos-de-uso/onboarding-operarios/">onboarding de operarios</a>. <br />
       Exportaciones e integraciones: caso a caso · Sin prometer lo que no esté validado
     </div>
   </section>
@@ -389,7 +315,7 @@ const schema = {
   }
 
   .proof-point {
-    font-size: .88rem;
+    font-size: .95rem;
     line-height: 1.65;
     color: var(--gray);
     padding: 0 0 14px;
@@ -487,7 +413,7 @@ const schema = {
   .problem-description h4,
   .problem-solution h4 {
     font-family: 'DM Mono', monospace;
-    font-size: .65rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     margin-bottom: 8px;
@@ -603,7 +529,7 @@ const schema = {
   .cert-problems h4,
   .cert-benefits h4 {
     font-family: 'DM Mono', monospace;
-    font-size: .65rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     margin-bottom: 8px;
@@ -725,7 +651,7 @@ const schema = {
 
   .integration-features h4 {
     font-family: 'DM Mono', monospace;
-    font-size: .65rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);
@@ -1002,7 +928,7 @@ const schema = {
   .phase-tasks h4,
   .phase-hr h4 {
     font-family: 'DM Mono', monospace;
-    font-size: .65rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);

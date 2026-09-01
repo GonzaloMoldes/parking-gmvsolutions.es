@@ -9,6 +9,12 @@ const description = "Kaizen digital para la mejora continua operativa: captura i
 const canonical = "https://www.gmvsolutions.es/kaizen/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+//
+// La quinta pregunta recoge el limite honesto que antes era una seccion propia
+// ("Lo que REELEVO hace y lo que no prometemos", 169 palabras con tabla
+// comparativa). El argumento se mantiene, la seccion no: la plantilla admite
+// prueba O limite, no los dos (tarea B3 de
+// PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
 const faqs: FaqItem[] = [
   {
     q: '¿Qué es el Kaizen aplicado a una planta industrial?',
@@ -26,6 +32,10 @@ const faqs: FaqItem[] = [
     q: '¿Cómo se evita que las ideas se pierdan entre turnos?',
     a: 'Porque quedan registradas donde se generan y no dependen de que alguien se acuerde de trasladarlas al turno siguiente. El ciclo completo —propuesta, evaluación, implantación y estandarización— vive en el mismo sitio que el proceso al que afecta.',
   },
+  {
+    q: '¿Esto crea por sí solo una cultura de mejora continua?',
+    a: 'No, y no vamos a prometerlo: eso requiere liderazgo. Lo que sí hace REELEVO es eliminar la fricción para que las ideas lleguen, para que se gestionen con visibilidad y para que las buenas terminen incorporadas al proceso. Si el equipo tiene ideas y la empresa quiere escucharlas, REELEVO es el canal que faltaba.',
+  },
 ];
 
 const pageSchema = softwareApplicationSchema();
@@ -35,11 +45,11 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
 
-  <!-- PAGE HERO -->
+  <!-- HERO + PROBLEMA -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Kaizen · Mejora Continua en Planta</div>
-    <h1 class="fade-up delay-1">Las mejoras nacen<br><em>donde ocurre el trabajo</em></h1>
-    <p class="fade-up delay-2">El operario que ejecuta el proceso cada día ve lo que puede mejorar. REELEVO convierte esa mejora continua en un flujo: le da un canal para registrarla en el momento, y a ti un sistema para gestionarla hasta que se convierte en estándar.</p>
+    <h1 class="fade-up delay-1">Las mejoras nacen <br><em>donde ocurre el trabajo</em></h1>
+    <p class="fade-up delay-2">El operario que ejecuta el proceso cada día ve lo que puede mejorar, pero la idea aparece a media mañana y se pierde antes de que alguien tenga tiempo de escucharla. REELEVO le da un canal para registrarla en el momento, y a ti un sistema para gestionarla hasta que se convierte en estándar.</p>
     <div class="hero-cta fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="07" data-cta-label="Registrarse gratis">Registrarse gratis</a>
@@ -48,50 +58,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <div class="divider"></div>
 
-  <!-- EL PROBLEMA -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">El problema</div>
-        <h2 class="section-title">Las ideas de mejora se pierden entre turno y turno</h2>
-      </div>
-
-      <div class="challenge-content fade-up delay-1">
-        <p>En la mayoría de pymes industriales, la mejora continua existe en teoría pero no en práctica:</p>
-        <div class="challenge-list">
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>El operario detecta una ineficiencia pero no tiene dónde reportarla — la olvida al final del turno</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>Las ideas que llegan se apuntan en un cuaderno, en un grupo de WhatsApp o se dicen en una reunión y nadie hace seguimiento</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>El responsable no tiene visibilidad de cuántas propuestas hay, en qué estado están ni cuál impacta más</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>Las mejoras implementadas no se estandarizan: se hacen una vez y el SOP sigue siendo el antiguo</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>El operario que propuso la mejora nunca sabe si se tuvo en cuenta — deja de proponer</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="risk-box fade-up delay-2">
-        <h3>Resultado: Kaizen que solo vive en los carteles de la pared</h3>
-        <p>Tu equipo sabe cómo mejorar la operación. No tiene un sistema para hacerlo visible. La mejora continua se convierte en una declaración de intenciones, no en una práctica real.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- SOLUCIÓN -->
+  <!-- CÓMO FUNCIONA — bloque dominante -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
@@ -115,7 +82,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           <div class="flow-num">2</div>
           <div class="flow-content">
             <h3>El responsable la gestiona en el panel Kaizen</h3>
-            <p>Vista Kanban con todas las propuestas por estado: <strong>Capturada → Revisada → En implementación → Estandarizada</strong>. Priorización por impacto, asignación de responsable y registro de acciones.</p>
+            <p>Vista Kanban con todas las propuestas por estado: <strong>Capturada → Revisada → En implementación → Estandarizada</strong>. Priorización por impacto, asignación de responsable y registro de acciones. El propio panel lleva los KPIs del ciclo: cuántas propuestas entran, cuántas acaban implementadas y cuánto tardan en llegar al proceso.</p>
           </div>
         </div>
 
@@ -139,72 +106,6 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- CTA intermedio (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M6b): esta
-       pagina solo ofrecia registrarse en el hero y en el cierre. Quien llega por
-       busqueda a media pagina no tenia salida sin hacer scroll hasta el final. -->
-  <div class="divider"></div>
-
-  <section class="section section-center">
-    <div class="section-inner" style="max-width:680px;">
-      <p class="section-sub fade-up" style="margin-bottom:24px;">La idea del operario acaba siendo el estándar que ejecutan los tres turnos. Puedes montar ese circuito con un solo proceso.</p>
-      <div class="fade-up delay-1">
-        <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-           data-cta data-cta-intent="registro" data-cta-location="mitad" data-cta-trigger="07" data-cta-label="Empezar por un proceso">Empezar por un proceso</a>
-      </div>
-      <p class="cta-note fade-up delay-2" style="margin-top:16px;">60 días del plan Pro, sin tarjeta</p>
-    </div>
-  </section>
-
-
-  <div class="divider"></div>
-
-  <!-- FUNCIONALIDADES -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Funcionalidades</div>
-        <h2 class="section-title">Todo el ciclo Kaizen en una sola herramienta</h2>
-      </div>
-
-      <div class="solution-grid fade-up delay-1">
-        <div class="solution-cell">
-          <div class="cell-number">1</div>
-          <h3>Captura desde el QR de planta</h3>
-          <p>El operario propone mejoras sin salir del flujo de producción. Selecciona el tipo de impacto: seguridad, calidad, tiempo, ergonomía, material o mantenimiento.</p>
-        </div>
-
-        <div class="solution-cell">
-          <div class="cell-number">2</div>
-          <h3>Panel Kanban de gestión</h3>
-          <p>Vista completa del estado de todas las propuestas. Filtros por tipo de impacto, responsable y período. Sin hojas de cálculo ni cuadernos perdidos.</p>
-        </div>
-
-        <div class="solution-cell">
-          <div class="cell-number">3</div>
-          <h3>Automatizaciones de estado</h3>
-          <p>Reglas configurables para cambiar el estado de una propuesta automáticamente según condiciones. El flujo avanza sin intervención manual en cada paso.</p>
-        </div>
-
-        <div class="solution-cell">
-          <div class="cell-number">4</div>
-          <h3>Sistema de recompensas</h3>
-          <p>Puntos y recompensa económica opcional por propuesta implementada. Baremo configurable por empresa y tipo de impacto. El operario ve su historial de contribuciones.</p>
-        </div>
-
-        <div class="solution-cell">
-          <div class="cell-number">5</div>
-          <h3>Métricas y KPIs Kaizen</h3>
-          <p>Propuestas por mes, tasa de implementación, tiempo medio de ciclo, impacto estimado. Dashboard con evolución temporal y exportación a CSV.</p>
-        </div>
-
-        <div class="solution-cell">
-          <div class="cell-number">6</div>
-          <h3>Plantillas reutilizables</h3>
-          <p>Plantillas de acción para tipos de mejora recurrentes. El responsable no empieza de cero cada vez que llega una propuesta del mismo tipo.</p>
-        </div>
-      </div>
 
       <div class="screenshot-single fade-up delay-2">
         <figure class="screenshot-fig">
@@ -217,142 +118,67 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <div class="divider"></div>
 
-  <!-- BENEFICIOS POR PERFIL -->
+  <!-- QUÉ INCLUYE -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
-        <div class="eyebrow">Por qué importa a cada perfil</div>
-        <h2 class="section-title">Lo que cambia para cada persona del equipo</h2>
+        <div class="eyebrow">Qué incluye</div>
+        <h2 class="section-title">Todo el ciclo Kaizen en una sola herramienta</h2>
       </div>
 
-      <div class="benefits-grid fade-up delay-1">
-        <div class="benefit-box">
-          <h3>Para el gerente o director de operaciones</h3>
-          <p>Visibilidad real de la mejora continua: cuántas propuestas genera el equipo, cuántas se implementan, qué impacto tienen. Datos para justificar la cultura de mejora.</p>
+      <div class="solution-grid fade-up delay-1">
+        <div class="solution-cell">
+          <h3>Captura desde el QR de planta</h3>
+          <p>La propuesta se deja en el puesto, en el momento, sin cambiar de aplicación ni esperar a una reunión.</p>
         </div>
 
-        <div class="benefit-box">
-          <h3>Para el jefe de producción</h3>
-          <p>Bandeja de propuestas priorizada por impacto. Sin reuniones para recoger ideas. Sin perder el hilo de qué propuesta está en qué estado. Todo en un panel.</p>
+        <div class="solution-cell">
+          <h3>Panel Kanban de gestión</h3>
+          <p>Todas las propuestas por estado, con responsable y prioridad.</p>
         </div>
 
-        <div class="benefit-box">
-          <h3>Para el responsable de calidad</h3>
-          <p>Las mejoras de proceso quedan trazadas: quién las propuso, cuándo se implementaron, qué SOP actualizaron. Base documental para auditorías de mejora continua.</p>
-        </div>
-
-        <div class="benefit-box">
-          <h3>Para el operario</h3>
-          <p>Por primera vez, su conocimiento tiene un canal. Propone desde el QR de la máquina, sabe si su propuesta se tuvo en cuenta y recibe reconocimiento cuando se implementa.</p>
-        </div>
-
-        <div class="benefit-box">
-          <h3>Para el supervisor de turno</h3>
-          <p>Puede resolver propuestas sencillas directamente desde su portal. Las que requieren más recursos las escala con contexto ya registrado, sin tener que reconstruir la historia.</p>
-        </div>
-
-        <div class="benefit-box">
-          <h3>Para la empresa</h3>
-          <p>El conocimiento de mejora no se queda en la cabeza de los operarios ni en grupos de WhatsApp. Se captura, se gestiona y termina en el SOP. La planta mejora sola.</p>
+        <div class="solution-cell">
+          <h3>Reconocimiento al que propone</h3>
+          <p>Puntos o recompensa configurable, y aviso a quien propuso cuando su idea entra en el proceso. Sin respuesta, las propuestas dejan de llegar.</p>
         </div>
       </div>
+
+      <p class="roles-line fade-up delay-2">Lo que cambia según tu papel: <a href="/para-quien/jefe-de-produccion/">jefe de producción</a>, <a href="/para-quien/responsable-calidad/">responsable de calidad</a>, <a href="/para-quien/gerente-propietario/">gerente</a>.</p>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- CASO DE USO -->
+  <!-- PRUEBA -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
-        <h2 class="section-title">Caso real: de la idea al estándar en una semana</h2>
+        <div class="eyebrow">Cómo se ve en una semana</div>
+        <h2 class="section-title">De la idea al estándar en cuatro días</h2>
       </div>
 
-      <div class="case-story fade-up delay-1">
-        <div class="story-section">
-          <h3>La situación</h3>
-          <p>Pedro, operario de turno de tarde en una línea de envasado, detecta que el paso de sellado tarda 40 segundos de más porque hay que esperar a que el cabezal baje la temperatura antes de continuar. Lleva 3 meses haciéndolo así sin decir nada porque «no hay dónde decirlo».</p>
-        </div>
+      <ol class="timeline fade-up delay-1">
+        <li><strong>Lunes 14:20</strong> — Pedro, de turno de tarde, propone desde el puesto acortar una espera de 40 segundos en el sellado.</li>
+        <li><strong>Lunes 15:00</strong> — El jefe de producción la ve en el panel, la pasa a «Revisada» y la asigna a mantenimiento.</li>
+        <li><strong>Miércoles</strong> — Hay un ajuste de parámetros posible; se prueba en turno de noche.</li>
+        <li><strong>Jueves</strong> — Funciona: 35 segundos menos por ciclo. Pasa a «Estandarizada», el SOP se actualiza solo y Pedro recibe sus puntos y el aviso.</li>
+      </ol>
 
-        <div class="story-section">
-          <h3>Sin REELEVO</h3>
-          <p>La ineficiencia sigue 3 meses más. Pedro lo comenta en el vestuario. Alguien lo menciona en una reunión mensual. El responsable toma nota en un papel. No pasa nada.</p>
-        </div>
-
-        <div class="story-section highlight">
-          <h3>Con REELEVO</h3>
-          <ul>
-            <li><strong>Lunes 14:20h</strong> — Pedro pulsa «💡 Proponer mejora» al terminar el proceso. Describe la espera, selecciona impacto "tiempo" y adjunta una foto del cabezal.</li>
-            <li><strong>Lunes 15:00h</strong> — El jefe de producción ve la propuesta en el panel Kaizen. La mueve a "Revisada" y asigna a mantenimiento para verificar si hay solución técnica.</li>
-            <li><strong>Miércoles</strong> — Mantenimiento confirma que hay un ajuste de parámetros posible. Se prueba en turno de noche.</li>
-            <li><strong>Jueves</strong> — La mejora funciona: 35 segundos menos por ciclo. La propuesta pasa a "Estandarizada". El SOP se actualiza.</li>
-            <li><strong>Viernes</strong> — Pedro recibe 50 puntos y un aviso de que su propuesta ya está en el proceso. La próxima vez que alguien escanee el QR de esa máquina, verá la instrucción actualizada.</li>
-          </ul>
-        </div>
-
-        <div class="story-result">
-          <div class="result-num">35 seg</div>
-          <div class="result-label">ahorrados por ciclo · capturados y estandarizados en 4 días</div>
-          <p class="story-disclaimer">Escenario ilustrativo del recorrido de una propuesta dentro de la herramienta, no un caso medido en un cliente.</p>
-        </div>
-      </div>
+      <p class="timeline-note fade-up delay-2">Escenario ilustrativo del recorrido de una propuesta dentro de la herramienta, no un caso medido en un cliente.</p>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- COMPARATIVA CON EL ENFOQUE TRADICIONAL -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Enfoque prudente</div>
-        <h3 class="section-title">Lo que REELEVO hace — y lo que no prometemos</h3>
-      </div>
-
-      <div class="comparison-table fade-up delay-1">
-        <div class="comp-row comp-header">
-          <div class="comp-col">Sin REELEVO</div>
-          <div class="comp-col">Con REELEVO</div>
-        </div>
-        <div class="comp-row">
-          <div class="comp-col comp-bad">Las ideas de mejora se pierden entre turno y turno</div>
-          <div class="comp-col comp-good">Cada idea queda registrada en el momento y vinculada al proceso</div>
-        </div>
-        <div class="comp-row">
-          <div class="comp-col comp-bad">El responsable no sabe cuántas propuestas hay ni en qué estado</div>
-          <div class="comp-col comp-good">Panel Kanban con visibilidad completa de todo el ciclo</div>
-        </div>
-        <div class="comp-row">
-          <div class="comp-col comp-bad">Las mejoras implementadas no actualizan el SOP</div>
-          <div class="comp-col comp-good">La mejora estandarizada entra directamente en el proceso</div>
-        </div>
-        <div class="comp-row">
-          <div class="comp-col comp-bad">El operario no sabe si su propuesta se tuvo en cuenta</div>
-          <div class="comp-col comp-good">Seguimiento visible + reconocimiento cuando se implementa</div>
-        </div>
-        <div class="comp-row">
-          <div class="comp-col comp-bad">Las métricas de mejora son subjetivas o no existen</div>
-          <div class="comp-col comp-good">KPIs reales: propuestas, implementaciones, impacto, tiempo de ciclo</div>
-        </div>
-      </div>
-
-      <div class="honest-note fade-up delay-2">
-        <p><strong>Lo que no vamos a prometer:</strong> REELEVO no crea por sí solo una cultura de mejora continua. Eso requiere liderazgo. Lo que sí hace es eliminar la fricción para que las ideas lleguen, para que se gestionen y para que las buenas terminen en el proceso. Si el equipo tiene ideas y la empresa quiere escucharlas, REELEVO es el canal que faltaba.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- CTA -->
   <FaqSection items={faqs} />
 
   <div class="divider"></div>
 
+  <!-- SIGUIENTE PASO -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Mejora continua</div>
     <h3 class="cta-title fade-up delay-1">
-      Dale a tu equipo un canal<br><em>para que las ideas no se pierdan</em>
+      Dale a tu equipo un canal <br><em>para que las ideas no se pierdan</em>
     </h3>
     <p class="cta-sub fade-up delay-2">
       Las ideas están ahí. Solo necesitan un sitio donde aterrizar y un proceso para que lleguen a ser estándares.
@@ -363,7 +189,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         Empezar gratis · Sin compromiso
       </a>
       <a href="/documentacion-procesos/" class="btn-ghost">
-        Ver cómo funciona la documentación de procesos →
+        Ver documentación de procesos →
       </a>
     </div>
     <div class="cta-trust fade-up delay-4">Te acompañamos en la puesta en marcha · Sin compromiso y sin reuniones de más</div>
@@ -372,62 +198,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 </BaseLayout>
 
 <style>
-  /* CHALLENGE */
-  .challenge-content {
-    max-width: 700px;
-    margin-top: 40px;
-  }
-
-  .challenge-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 24px 0;
-  }
-
-  .challenge-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    padding: 12px 16px;
-    background: var(--surface);
-    border-left: 3px solid rgba(255, 100, 0, 0.3);
-    border-radius: 4px;
-  }
-
-  .challenge-item .icon {
-    font-size: 1.2rem;
-    flex-shrink: 0;
-  }
-
-  .challenge-item span:last-child {
-    color: var(--gray);
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .risk-box {
-    background: rgba(255, 100, 0, 0.08);
-    border: 1px solid rgba(255, 150, 0, 0.25);
-    border-radius: 6px;
-    padding: 28px;
-    margin-top: 32px;
-    max-width: 700px;
-  }
-
-  .risk-box h3 {
-    font-family: 'Oswald', sans-serif;
-    margin-bottom: 12px;
-    color: var(--text);
-  }
-
-  .risk-box p {
-    color: var(--gray);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* KAIZEN FLOW */
+  /* FLUJO — bloque dominante de la pagina */
   .kaizen-flow {
     display: flex;
     flex-direction: column;
@@ -465,13 +236,13 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-family: 'Oswald', sans-serif;
     font-size: 1.05rem;
     margin-bottom: 8px;
-    color: var(--text);
+    color: var(--white);
   }
 
   .flow-content p {
     color: var(--gray);
-    font-size: 0.93rem;
-    line-height: 1.6;
+    font-size: .95rem;
+    line-height: 1.65;
     margin: 0;
   }
 
@@ -483,260 +254,106 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     margin-left: 22px;
   }
 
-  /* SOLUTION GRID */
+  /* QUE INCLUYE — 3 tarjetas */
   .solution-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-top: 40px;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 860px) {
     .solution-grid { grid-template-columns: 1fr; }
   }
 
   .solution-cell {
     background: var(--surface);
     border: 1px solid var(--border);
+    border-top: 2px solid var(--orange);
     border-radius: 6px;
     padding: 24px;
-  }
-
-  .cell-number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    background: var(--orange);
-    color: #fff;
-    border-radius: 50%;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 14px;
   }
 
   .solution-cell h3 {
     font-family: 'Oswald', sans-serif;
     font-size: 1rem;
     margin-bottom: 10px;
-    color: var(--text);
+    color: var(--white);
   }
 
   .solution-cell p {
-    font-size: 0.9rem;
-    color: var(--gray);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* BENEFITS GRID */
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-top: 40px;
-  }
-
-  @media (max-width: 640px) {
-    .benefits-grid { grid-template-columns: 1fr; }
-  }
-
-  .benefit-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 24px;
-  }
-
-  .benefit-box h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.95rem;
-    margin-bottom: 10px;
-    color: var(--text);
-  }
-
-  .benefit-box p {
-    font-size: 0.9rem;
-    color: var(--gray);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* CASE STORY */
-  .case-story {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    margin-top: 40px;
-    max-width: 760px;
-  }
-
-  .story-section {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 24px 28px;
-  }
-
-  .story-section h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    margin-bottom: 10px;
-    color: var(--gray);
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    font-size: .8rem;
-  }
-
-  .story-section p {
+    font-size: .95rem;
     color: var(--gray);
     line-height: 1.65;
     margin: 0;
-    font-size: 0.93rem;
   }
 
-  .story-section.highlight {
-    border-color: var(--orange);
-    background: rgba(255, 100, 0, 0.05);
+  /* Sustituye a la seccion "Lo que cambia para cada persona del equipo"
+     (6 subtitulos, 199 palabras). Conserva el enlazado interno a /para-quien/. */
+  .roles-line {
+    margin-top: 28px;
+    font-size: .95rem;
+    color: var(--gray);
   }
 
-  .story-section.highlight h3 {
+  .roles-line a {
     color: var(--orange);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(244, 82, 30, .35);
   }
 
-  .story-section ul {
-    list-style: none;
+  .roles-line a:hover {
+    border-bottom-color: var(--orange);
+  }
+
+  /* PRUEBA — sustituye al bloque "Caso real" de 330 palabras */
+  .timeline {
+    margin: 40px 0 0;
     padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    list-style: none;
+    max-width: 720px;
+    border-left: 2px solid var(--border);
   }
 
-  .story-section ul li {
-    color: var(--gray);
-    font-size: 0.93rem;
-    line-height: 1.5;
-    padding-left: 0;
-  }
-
-  .story-result {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 24px 28px;
-    background: rgba(255, 100, 0, 0.08);
-    border: 1px solid rgba(255, 150, 0, 0.25);
-    border-radius: 6px;
-  }
-
-  /* flex-basis 100% para que caiga a su propia linea bajo la cifra, en vez de
-     competir con ella dentro de la misma fila. */
-  .story-disclaimer {
-    flex-basis: 100%;
-    margin: 0;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255, 150, 0, 0.2);
-    font-size: 0.78rem;
-    line-height: 1.55;
-    color: var(--gray2);
-  }
-
-  .result-num {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--orange);
-    white-space: nowrap;
-  }
-
-  .result-label {
-    color: var(--gray);
-    font-size: 0.93rem;
-    line-height: 1.5;
-  }
-
-  /* COMPARISON TABLE */
-  .comparison-table {
-    margin-top: 40px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .comp-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .comp-row + .comp-row {
-    border-top: 1px solid var(--border);
-  }
-
-  .comp-header .comp-col {
-    padding: 14px 20px;
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.9rem;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    background: var(--surface);
-    color: var(--gray);
-  }
-
-  .comp-col {
-    padding: 16px 20px;
-    font-size: 0.9rem;
-    line-height: 1.55;
-  }
-
-  .comp-col + .comp-col {
-    border-left: 1px solid var(--border);
-  }
-
-  .comp-bad {
-    color: var(--gray);
-  }
-
-  .comp-good {
-    color: var(--text);
-    background: rgba(255, 100, 0, 0.04);
-  }
-
-  @media (max-width: 600px) {
-    .comp-row { grid-template-columns: 1fr; }
-    .comp-col + .comp-col { border-left: none; border-top: 1px solid var(--border); }
-    .comp-header { display: none; }
-  }
-
-  /* HONEST NOTE */
-  .honest-note {
-    margin-top: 32px;
-    padding: 20px 24px;
-    border-left: 3px solid var(--orange);
-    background: var(--surface);
-    border-radius: 0 6px 6px 0;
-  }
-
-  .honest-note p {
-    color: var(--gray);
-    font-size: 0.9rem;
+  .timeline li {
+    position: relative;
+    padding: 0 0 20px 26px;
+    font-size: .95rem;
     line-height: 1.65;
-    margin: 0;
+    color: var(--gray);
   }
 
-  /* CTA */
+  .timeline li:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: .6em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+  }
+
+  .timeline li strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .timeline-note {
+    margin-top: 24px;
+    font-size: .82rem;
+    color: var(--gray2);
+    max-width: 720px;
+  }
+
   .cta-trust {
     margin-top: 16px;
     font-size: 0.82rem;
     color: rgba(255, 255, 255, 0.45);
     letter-spacing: .04em;
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 720px) {
-    .kaizen-flow { max-width: 100%; }
-    .case-story { max-width: 100%; }
   }
 </style>

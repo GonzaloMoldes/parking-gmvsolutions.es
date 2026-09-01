@@ -1,7 +1,31 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../../lib/seo';
 
-const schema = {
+// Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y sirve ademas de
+// destino para la seccion "Situaciones habituales" (tarea D3 de
+// PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
+const faqs: FaqItem[] = [
+  {
+    q: '¿En qué situaciones se nota más con personal de ETT?',
+    a: 'En campañas y picos, cuando la ETT manda refuerzo en cuestión de días y no hay margen de tutoría. En puestos con alta rotación, donde el mismo puesto lo pasan tres temporales en un mes y el coste de tutor se multiplica. Y con operarios polivalentes que tienen experiencia industrial pero no conocen tu proceso concreto.',
+  },
+  {
+    q: '¿Esto compite con mi ETT?',
+    a: 'No, es complementario. La empresa de trabajo temporal selecciona y aporta la persona; lo que REELEVO resuelve es que esa persona encuentre el proceso en el puesto y arranque con menos dependencia de que alguien de tu plantilla la acompañe.',
+  },
+  {
+    q: '¿Cómo accede un temporal que no tiene cuenta ni conoce la planta?',
+    a: 'Escaneando el QR del puesto desde su móvil, sin instalar nada, sin crear cuenta y sin contraseña que recordar. Es justo donde se cae la adopción con personal temporal, y por eso el acceso está diseñado así.',
+  },
+  {
+    q: '¿Y si el temporal se va y vuelve otro distinto?',
+    a: 'El proceso sigue donde estaba. Lo que se documenta una vez sirve para todas las incorporaciones siguientes, que es lo que cambia la ecuación cuando la rotación es alta.',
+  },
+];
+
+const schema = [faqPageSchema(faqs), {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "REELEVO — Onboarding software para personal ETT",
@@ -9,7 +33,7 @@ const schema = {
   "url": "https://www.gmvsolutions.es/casos-de-uso/personal-ett/",
   "keywords": "onboarding software ETT, gestión de competencias temporal, HR software manufacturing",
   "isPartOf": { "@id": "https://www.gmvsolutions.es/#organization" }
-};
+}];
 ---
 
 <BaseLayout
@@ -26,7 +50,7 @@ const schema = {
 <style>
   .cost-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 36px 40px; margin-top: 40px; margin-bottom: 2px; position: relative; overflow: hidden; }
   .cost-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--orange); }
-  .cost-card-label { font-family: 'DM Mono', monospace; font-size: .58rem; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
+  .cost-card-label { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
   .cost-line { font-family: 'DM Sans', sans-serif; font-size: .95rem; color: var(--gray); line-height: 2; }
   .cost-line strong { color: var(--white); font-weight: 500; }
   .cost-line .cost-total { display: block; font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--orange); margin-top: 12px; letter-spacing: .02em; }
@@ -39,7 +63,7 @@ const schema = {
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="eyebrow fade-up">Onboarding de personal ETT industrial</div>
-  <h1 class="fade-up delay-1">El temporal ETT aprende<br><em>sin consumir a tus tutores.</em></h1>
+  <h1 class="fade-up delay-1">El temporal ETT aprende <br><em>sin consumir a tus tutores.</em></h1>
   <p class="fade-up delay-2">El personal ETT llega sin conocer tu maquinaria ni procesos. Con el proceso disponible en el puesto aprende rápido y la matriz de competencias deja claro qué domina, sin que el experto pierda días haciendo tutoría.</p>
   <div class="hero-cta-group fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
@@ -91,7 +115,6 @@ const schema = {
       <div class="scenario-card">
         <div class="scenario-card-tag">Sin REELEVO</div>
         <div class="scenario-card-title">El ciclo que se repite cada temporada</div>
-        <p>La ETT manda a alguien competente pero sin conocimiento de tus máquinas. El experto para 2 días. El ETT aprende "suficiente". Comete errores los primeros días. Al mes siguiente llega otro. El ciclo se repite.</p>
         <div class="scenario-before"><strong>El coste invisible:</strong> Cada ETT nuevo = el mismo coste de tutor + errores + ramp-up. Multiplicado por 5 al mes.</div>
         <div class="scenario-after"><strong>Con REELEVO:</strong> Cada ETT accede al proceso directamente en la máquina. <strong>Misma referencia operativa para cada incorporación.</strong></div>
       </div>
@@ -99,7 +122,6 @@ const schema = {
       <div class="scenario-card">
         <div class="scenario-card-tag">La barrera que no ves</div>
         <div class="scenario-card-title">Muchas herramientas requieren cuenta o app</div>
-        <p>Cuando una herramienta obliga a crear usuarios o instalar una app, gestionar personal temporal que entra y sale cada semana se vuelve más complejo de la cuenta.</p>
         <div class="scenario-before"><strong>El problema:</strong> Gestionar usuarios para personal ETT que rota cada semana es inviable operativamente.</div>
         <div class="scenario-after"><strong>Con REELEVO:</strong> El ETT encuentra el trabajo del puesto sin fricción administrativa. <strong>Puede empezar antes y depender menos del tutor.</strong></div>
       </div>
@@ -114,7 +136,7 @@ const schema = {
 <section class="section" id="solucion">
   <div class="section-inner">
     <div class="eyebrow fade-up">Lo que cambia</div>
-    <h2 class="section-title fade-up delay-1">Acceso simple para<br><em>personal temporal</em></h2>
+    <h2 class="section-title fade-up delay-1">Acceso simple para <br><em>personal temporal</em></h2>
     <p class="section-sub fade-up delay-2">El ETT encuentra el proceso en el puesto y el experto puede seguir centrado en producir. Menos coste oculto de tutoría.</p>
 
     <div class="benefit-list fade-up delay-3">
@@ -125,10 +147,6 @@ const schema = {
           <div class="benefit-title">El ETT arranca sin fricción administrativa</div>
           <div class="benefit-desc">No hace falta montar una gestión pesada cada vez que entra alguien temporal. El ETT encuentra el trabajo del puesto y puede empezar sin bloquear al equipo.</div>
         </div>
-        <div class="benefit-result">
-          <div class="benefit-result-label">El resultado</div>
-          <p>Menos gestión de usuarios para personal temporal y menos fricción en cada incorporación.</p>
-        </div>
       </div>
 
       <div class="benefit-row">
@@ -136,10 +154,6 @@ const schema = {
         <div>
           <div class="benefit-title">El experto no para de producir</div>
           <div class="benefit-desc">El ETT aprende solo directamente en la máquina. El experto sigue a pleno rendimiento. No tienes dos personas a media velocidad: tienes una aprendiendo a su ritmo y otra produciendo al 100%.</div>
-        </div>
-        <div class="benefit-result">
-          <div class="benefit-result-label">El resultado</div>
-          <p>Menos coste oculto de tutoría y más foco del experto en producir.</p>
         </div>
       </div>
 
@@ -149,10 +163,6 @@ const schema = {
           <div class="benefit-title">Todos los ETT aprenden el mismo proceso</div>
           <div class="benefit-desc">Da igual si llegaron el lunes o el viernes. El proceso que siguen es el del experto, con el mismo orden y los mismos criterios para cada incorporación.</div>
         </div>
-        <div class="benefit-result">
-          <div class="benefit-result-label">El resultado</div>
-          <p>Menos errores en los primeros días. Menos rechazos. Menos supervisión reactiva del encargado.</p>
-        </div>
       </div>
 
       <div class="benefit-row">
@@ -161,23 +171,11 @@ const schema = {
           <div class="benefit-title">Registro de qué ha hecho cada temporal</div>
           <div class="benefit-desc">REELEVO registra qué procesos ha completado cada ETT y cuándo. Si el mismo temporal vuelve en la próxima campaña, el historial sigue ahí.</div>
         </div>
-        <div class="benefit-result">
-          <div class="benefit-result-label">El resultado</div>
-          <p>Evidencia de competencia para el personal temporal. Útil para RRHH y para repetir incorporaciones conocidas.</p>
-        </div>
       </div>
 
     </div>
-  </div>
-</section>
 
-<div class="divider"></div>
-
-<!-- CÓMO FUNCIONA PARA EL ETT -->
-<section class="section section-center" id="como-funciona">
-  <div class="section-inner" style="max-width:760px;">
-    <div class="eyebrow fade-up">Cómo funciona para el ETT</div>
-    <h2 class="section-title fade-up delay-1">Tres pasos para arrancar<br><em>con menos dependencia del tutor</em></h2>
+    <h3 class="sub-head fade-up delay-1">Tres pasos para arrancar <br><em>con menos dependencia del tutor</em></h3>
     <p class="section-sub fade-up delay-2" style="margin-bottom:48px;">Sin proyecto pesado y sin gestión extra de usuarios. El ETT llega al puesto y encuentra el proceso que tiene que seguir.</p>
 
     <div class="steps-grid fade-up delay-3">
@@ -204,56 +202,27 @@ const schema = {
   </div>
 </section>
 
+<div class="divider"></div>
+
+
+
 <div class="divider-full"></div>
 
-<!-- CUÁNDO APLICA ETT -->
-<section class="section" id="cuando-aplica">
-  <div class="section-inner">
-    <div class="eyebrow fade-up">Situaciones habituales</div>
-    <h2 class="section-title fade-up delay-1">Cuándo REELEVO marca la diferencia<br><em>con personal de ETT</em></h2>
-    <p class="section-sub fade-up delay-2">Las empresas usuarias que trabajan con empresas de trabajo temporal se enfrentan a los mismos problemas de forma repetida. REELEVO los resuelve con los procedimientos del puesto, no con tutores.</p>
-
-    <div class="how-steps fade-up delay-3">
-      <div class="step-card" style="text-align:left;">
-        <div class="step-card-icon">📈</div>
-        <h3 class="step-card-title">Campañas y picos de producción</h3>
-        <p class="step-card-desc">En temporada alta, la ETT envía refuerzo de plantilla en cuestión de días. Con REELEVO, el trabajador cedido encuentra una referencia clara desde el primer turno, sin paralizar a un experto como tutor.</p>
-      </div>
-      <div class="step-card" style="text-align:left;">
-        <div class="step-card-icon">🔄</div>
-        <h3 class="step-card-title">Alta rotación de personal temporal</h3>
-        <p class="step-card-desc">Si el mismo puesto lo rotan tres trabajadores temporales en un mes, el coste de tutor se multiplica. Con REELEVO, el proceso de incorporación mantiene el mismo estándar, sin coste recurrente de tutor, sea quien sea el nuevo en el puesto.</p>
-      </div>
-      <div class="step-card" style="text-align:left;">
-        <div class="step-card-icon">🏭</div>
-        <h3 class="step-card-title">Operarios polivalentes de ETT</h3>
-        <p class="step-card-desc">Las ETTs envían operarios de manipulado, línea de producción o almacén que tienen experiencia industrial pero no conocen tus máquinas. REELEVO cierra esa brecha poniendo una referencia clara del puesto al alcance del trabajador cedido desde el arranque.</p>
-      </div>
-    </div>
-
-    <div class="fade-up delay-3" style="margin-top:48px;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:32px 36px;">
-      <p style="font-size:.88rem;color:var(--gray);line-height:1.75;margin:0;">
-        <strong style="color:var(--white);">REELEVO es complementario a tu ETT</strong> — no compite con ella. La empresa de trabajo temporal aporta el capital humano; REELEVO aporta el conocimiento operativo del puesto. El trabajador cedido llega con competencias generales y REELEVO le da las instrucciones específicas de tu máquina. Juntos ayudan a reducir el tiempo de adaptación y el coste recurrente de tutoría en cada incorporación.
-      </p>
-    </div>
-  </div>
-</section>
+<FaqSection items={faqs} />
 
 <div class="divider-full"></div>
 
 <!-- CTA FINAL -->
 <section class="cta-section">
   <div class="cta-eyebrow fade-up">¿Lo ves para tu planta?</div>
-  <h3 class="cta-title fade-up delay-1">Prepara mejor la próxima<br><em>incorporación ETT</em></h3>
+  <h3 class="cta-title fade-up delay-1">Prepara mejor la próxima <br><em>incorporación ETT</em></h3>
   <p class="cta-sub fade-up delay-2">Documenta los procesos de tus puestos ETT antes de la próxima incorporación.</p>
   <div class="cta-actions fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
        data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
   </div>
   <div class="cta-note fade-up delay-4" style="margin-top:18px;">
-    Relacionado:
-    <a href="/casos-de-uso/onboarding-operarios/">onboarding de operarios</a> ·
-    <a href="/para-quien/responsable-rrhh/">para RRHH</a>
+    Relacionado: <a href="/casos-de-uso/onboarding-operarios/">onboarding de operarios</a> · <a href="/para-quien/responsable-rrhh/">para RRHH</a>
   </div>
 </section>
 

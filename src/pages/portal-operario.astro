@@ -8,6 +8,10 @@ const description = "El operario ve su agenda del día, accede a sus procesos y 
 const canonical = "https://www.gmvsolutions.es/portal-operario/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+//
+// La quinta pregunta recoge el portal del jefe de turno, que antes era una
+// seccion de 4 tarjetas (193 palabras) al final de la pagina (tarea C1 de
+// PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
 const faqs: FaqItem[] = [
   {
     q: '¿Qué ve el operario en su portal?',
@@ -25,6 +29,10 @@ const faqs: FaqItem[] = [
     q: '¿Y si el operario no tiene soltura con la tecnología?',
     a: 'Por eso el acceso es escanear un código y ver fotos y vídeo del paso, no navegar por menús. La prueba de si una herramienta de planta está bien diseñada es si alguien puede usarla en su primer turno sin que nadie le enseñe.',
   },
+  {
+    q: '¿El jefe de turno usa el mismo portal que el operario?',
+    a: 'No, tiene el suyo, y tampoco es el panel de dirección: un jefe de línea necesita despachar lo suyo en cinco minutos desde donde esté. En su bandeja le caen las ejecuciones pendientes de firma, los pasos que exigen visto bueno —el operario no sigue hasta que alguien responde—, las rutas de aprendizaje en curso y los avisos automáticos de procesos con anomalías o piezas sin lote.',
+  },
 ];
 
 const pageSchema = softwareApplicationSchema();
@@ -34,11 +42,11 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="casos-de-uso" pageType="capacidad">
 
-  <!-- PAGE HERO -->
+  <!-- HERO + PROBLEMA -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Portal del operario industrial</div>
-    <h1 class="fade-up delay-1">El operario no necesita<br><em>que nadie le diga qué toca hoy</em></h1>
-    <p class="fade-up delay-2">Su agenda está en el móvil. Sus procesos están en el QR. Su progreso de formación es visible. Sus contribuciones tienen reconocimiento. El portal del operario de REELEVO — sin formación previa, sin contraseñas complicadas.</p>
+    <h1 class="fade-up delay-1">El operario no necesita <br><em>que nadie le diga qué toca hoy</em></h1>
+    <p class="fade-up delay-2">Un operario sin contexto depende siempre del encargado: pregunta qué toca, espera a que alguien tenga un rato y trabaja sin saber si va bien. Con REELEVO su agenda está en el móvil, sus procesos en el QR y su progreso a la vista. Sin formación previa y sin contraseñas complicadas.</p>
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="09" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
@@ -49,65 +57,21 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <div class="divider"></div>
 
-  <!-- EL PROBLEMA -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">El problema</div>
-        <h2 class="section-title">El operario trabaja sin contexto — y eso tiene un coste real</h2>
-      </div>
-
-      <div class="challenge-content fade-up delay-1">
-        <p>En la mayoría de plantas, el operario empieza el turno sin información propia:</p>
-        <div class="challenge-list">
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>Sabe qué tiene que hacer porque el encargado se lo dijo al entrar — o porque le toca siempre lo mismo</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>No sabe en qué procesos está certificado ni cuántas ejecuciones le faltan para el siguiente nivel</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>Cuando propone una mejora, no sabe si se tuvo en cuenta — y deja de proponer</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>No tiene ninguna visibilidad de su propio rendimiento ni de su evolución como operario</span>
-          </div>
-          <div class="challenge-item">
-            <span class="icon">❌</span>
-            <span>Cuando tiene dudas sobre un proceso, pregunta al encargado — que tampoco siempre está disponible</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="risk-box fade-up delay-2">
-        <h3>Un operario sin contexto depende siempre del encargado</h3>
-        <p>Cada pregunta que el operario hace al encargado es tiempo perdido para los dos, y las que llegan cuando el encargado no está se resuelven improvisando. Cuando el operario tiene delante su agenda, sus procesos y una vía para pedir lo que falta, la mayoría de esas interrupciones dejan de ocurrir: no porque nadie pregunte, sino porque la respuesta ya está en el puesto.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- LAS SECCIONES DEL PORTAL -->
+  <!-- EL PORTAL — bloque dominante -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">El portal del operario</div>
         <h2 class="section-title">Todo lo que el operario necesita — en su móvil</h2>
-        <p class="section-sub">El portal del operario es la vista personal de REELEVO. Accesible desde el móvil, sin necesidad de ir al ordenador del encargado ni al panel de empresa.</p>
+        <p class="section-sub">Es su vista personal de REELEVO: se abre desde el móvil, en el puesto, sin ir al ordenador de oficina ni pedirle nada a nadie.</p>
       </div>
 
       <div class="portal-sections fade-up delay-1">
-
         <div class="portal-card">
           <div class="portal-num">1</div>
           <div class="portal-content">
             <h3>Agenda del día</h3>
-            <p>El operario ve todas las tareas asignadas para hoy: qué proceso, en qué máquina, a qué hora. Tareas de producción y de mantenimiento en un mismo sitio. Sin preguntar al encargado, sin revisar el parte.</p>
+            <p>Todas las tareas asignadas para hoy: qué proceso, en qué máquina y a qué hora. Producción y mantenimiento en la misma lista, no en dos sistemas.</p>
             <div class="portal-route">/operario/agenda</div>
           </div>
         </div>
@@ -115,99 +79,45 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <div class="portal-card">
           <div class="portal-num">2</div>
           <div class="portal-content">
-            <h3>Mi semana</h3>
-            <p>Resumen semanal de actividad: horas trabajadas, unidades producidas, procesos ejecutados. El operario tiene visibilidad de su propio rendimiento sin necesitar a nadie que se lo explique.</p>
-            <div class="portal-route">/operario/mi-semana</div>
+            <h3>Mis procesos y mi nivel</h3>
+            <p>Los procesos disponibles con su nivel de competencia en cada uno: en qué está certificado, en qué está formándose y qué le falta. Con sus certificaciones y su fecha.</p>
+            <div class="portal-route">/operario/procesos · /operario/perfil</div>
           </div>
         </div>
 
         <div class="portal-card">
           <div class="portal-num">3</div>
           <div class="portal-content">
-            <h3>Mis procesos</h3>
-            <p>Lista de todos los procesos disponibles con el nivel de competencia actual del operario en cada uno. Sabe en qué está certificado, en qué está aprendiendo y qué ejecuciones le faltan para el siguiente nivel.</p>
-            <div class="portal-route">/operario/procesos</div>
+            <h3>Mi semana</h3>
+            <p>Horas trabajadas, unidades producidas y procesos ejecutados. El operario ve su propio rendimiento sin depender de que alguien se lo cuente.</p>
+            <div class="portal-route">/operario/mi-semana</div>
           </div>
         </div>
 
-        <div class="portal-card">
+        <div class="portal-card highlight-card">
           <div class="portal-num">4</div>
           <div class="portal-content">
-            <h3>Mi perfil</h3>
-            <p>Datos personales, turno asignado y nivel de competencia en cada proceso de forma consolidada. Certificaciones obtenidas con fecha. Historial de formación completado.</p>
-            <div class="portal-route">/operario/perfil</div>
+            <h3>Contribuciones y recompensas</h3>
+            <p>Propone una mejora desde el móvil y ve qué pasa con ella: implementada, en revisión o descartada. Gana puntos por propuesta Kaizen implementada, contribución validada o nota votada como útil por sus compañeros, y la empresa puede asociar una recompensa económica configurable.</p>
+            <div class="portal-route">/operario/mis-contribuciones · /operario/recompensas</div>
           </div>
         </div>
 
         <div class="portal-card highlight-card">
           <div class="portal-num">5</div>
           <div class="portal-content">
-            <h3>Mis contribuciones y recompensas</h3>
-            <p>El operario ve el historial de todas sus propuestas de mejora: cuáles se implementaron, cuáles están en revisión y cuáles no prosperaron — con la razón. Y ve los puntos acumulados y las recompensas económicas asociadas a sus contribuciones implementadas.</p>
-            <div class="portal-route">/operario/mis-contribuciones · /operario/recompensas</div>
-          </div>
-        </div>
-
-        <div class="portal-card highlight-card">
-          <div class="portal-num">6</div>
-          <div class="portal-content">
             <h3>Pedir el procedimiento que falta</h3>
-            <p>Cuando el operario se encuentra con una tarea que no tiene proceso documentado, en lugar de llamar al encargado puede solicitarlo desde su portal. La petición llega a quien gestiona la documentación con el contexto de quién la pide y para qué máquina. La lista de lo que hay que documentar deja de salir de una reunión y pasa a escribirla quien lo echa en falta.</p>
+            <p>Cuando se encuentra una tarea sin proceso documentado, en vez de llamar al encargado la solicita desde su propio portal y queda registrada.</p>
             <div class="portal-route">/empresa/solicitudes</div>
           </div>
         </div>
-
-        <div class="portal-card">
-          <div class="portal-num">7</div>
-          <div class="portal-content">
-            <h3>Nueva contribución</h3>
-            <p>El operario puede proponer una mejora de proceso directamente desde su móvil. La propuesta entra en el flujo Kaizen. Sin papel, sin esperar a la reunión de turno, sin que se pierda en el camino.</p>
-            <div class="portal-route">/operario/nueva-contribucion</div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- GAMIFICACIÓN -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Reconocimiento y motivación</div>
-        <h2 class="section-title">El operario que mejora el proceso — lo sabe</h2>
-        <p class="section-sub">REELEVO incluye un sistema de reconocimiento por contribuciones. No es solo un contador de puntos: es la visibilidad de que el trabajo del operario tiene impacto.</p>
-      </div>
-
-      <div class="gamif-grid fade-up delay-1">
-        <div class="gamif-card">
-          <div class="gamif-label">Gana puntos por</div>
-          <ul>
-            <li>Propuesta Kaizen implementada</li>
-            <li>Contribución de proceso validada</li>
-            <li>Solución de troubleshooting aprobada</li>
-            <li>Nota votada como útil por compañeros</li>
-          </ul>
-        </div>
-
-        <div class="gamif-card gamif-highlight">
-          <div class="gamif-label">Recompensa económica opcional</div>
-          <p>La empresa puede asociar una recompensa económica a las propuestas Kaizen implementadas. Configurable por empresa y por tipo de impacto. El operario lo ve en su portal de recompensas.</p>
-        </div>
-
-        <div class="gamif-card">
-          <div class="gamif-label">Votación entre compañeros</div>
-          <p>Los operarios pueden marcar las notas y soluciones de sus compañeros como "útil". Las más votadas suben en visibilidad y entran primero en el flujo de curación de conocimiento.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ACCESO SIN FRICCIÓN -->
+  <!-- CÓMO SE ACCEDE -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
@@ -218,105 +128,41 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="access-grid fade-up delay-1">
         <div class="access-card">
           <div class="access-icon">📱</div>
-          <h3>Funciona en cualquier móvil</h3>
-          <p>No hace falta aplicación. El portal del operario es una web progresiva (PWA) que funciona en el navegador de cualquier smartphone, antiguo o nuevo.</p>
-        </div>
-
-        <div class="access-card">
-          <div class="access-icon">⬇️</div>
-          <h3>Instalable en pantalla de inicio</h3>
-          <p>El operario puede instalar REELEVO en su pantalla de inicio como si fuera una app — sin pasar por la App Store ni Google Play. Con un solo toque en el prompt de instalación.</p>
+          <h3>Cualquier móvil, sin aplicación</h3>
+          <p>Es una web progresiva (PWA) que corre en el navegador de cualquier smartphone, también de los antiguos. Instalable en la pantalla de inicio sin pasar por App Store ni Google Play.</p>
         </div>
 
         <div class="access-card">
           <div class="access-icon">📶</div>
           <h3>Aguanta los cortes de wifi</h3>
-          <p>Si la señal cae a mitad de un proceso, el operario puede seguir con lo que ya tenía abierto. Lo que registra se guarda en el dispositivo y se envía solo cuando vuelve la conexión.</p>
+          <p>Si la señal cae a mitad de un proceso, el operario sigue con lo que tenía abierto. Lo que registra se guarda en el dispositivo y se sincroniza al volver la cobertura.</p>
         </div>
 
         <div class="access-card">
           <div class="access-icon">🔑</div>
           <h3>Sin contraseñas complicadas</h3>
-          <p>El operario accede con sus credenciales simples o desde el QR de su puesto. La experiencia está diseñada para gente que no usa ordenadores habitualmente.</p>
+          <p>Se entra desde el QR del puesto o con credenciales simples. Es donde se cae la adopción con personal temporal, así que es donde menos fricción hemos dejado.</p>
         </div>
       </div>
+
+      <p class="roles-line fade-up delay-2">Relacionado: <a href="/modo-offline/">modo offline y PWA</a> · <a href="/gestion-competencias/">gestión de competencias</a> · <a href="/kaizen/">ciclo Kaizen</a>.</p>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- PORTAL DEL SUPERVISOR -->
-  <!-- Verificado en reelevo-app/app/supervisor/: validar, aprobaciones, rutas,
-       proceso, y dashboard con supervisor_inbox alimentado por los crons de
-       anomalias y de completitud de trazabilidad. -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">El otro lado</div>
-        <h2 class="section-title">El jefe de turno tiene su propio portal<br><em>y no es el panel de dirección</em></h2>
-        <p class="section-sub">
-          Un jefe de línea no necesita el panel completo de la empresa: necesita despachar lo que le
-          corresponde en cinco minutos, desde donde esté. Por eso tiene su propio espacio, separado
-          del portal del operario y del panel de dirección.
-        </p>
-      </div>
-
-      <div class="sup-grid fade-up delay-1">
-        <article class="sup-card">
-          <div class="sup-tag">Validar</div>
-          <h3 class="sup-title">Ejecuciones pendientes de firma</h3>
-          <p class="sup-desc">
-            Las sesiones que requieren validación llegan a una bandeja: se revisan y quedan validadas
-            o rechazadas. El operario sabe si su trabajo quedó conforme.
-          </p>
-        </article>
-
-        <article class="sup-card">
-          <div class="sup-tag">Aprobar</div>
-          <h3 class="sup-title">Pasos que exigen un visto bueno</h3>
-          <p class="sup-desc">
-            Cuando un proceso incluye un paso de aprobación de supervisor, la petición aparece aquí.
-            El operario no sigue hasta que alguien responde — que es justo el punto de control que se
-            busca en los pasos críticos.
-          </p>
-        </article>
-
-        <article class="sup-card">
-          <div class="sup-tag">Formar</div>
-          <h3 class="sup-title">Rutas de aprendizaje en curso</h3>
-          <p class="sup-desc">
-            Seguimiento de quién está formándose en qué y por dónde va, para que la formación no
-            dependa de acordarse de preguntar.
-          </p>
-        </article>
-
-        <article class="sup-card">
-          <div class="sup-tag">Atender</div>
-          <h3 class="sup-title">Una bandeja que se llena sola</h3>
-          <p class="sup-desc">
-            Los avisos automáticos —procesos con anomalías, piezas sin lote, retiradas con piezas
-            pendientes— caen en la bandeja del supervisor, en lugar de esperar a que alguien los
-            descubra.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- CTA -->
   <FaqSection items={faqs} />
 
   <div class="divider"></div>
 
+  <!-- SIGUIENTE PASO -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">El operario gana contexto</div>
     <h3 class="cta-title fade-up delay-1">
-      Dale al operario su propio espacio<br><em>y la coordinación deja de ir a trompicones</em>
+      Dale al operario su propio espacio <br><em>y la coordinación deja de ir a trompicones</em>
     </h3>
     <p class="cta-sub fade-up delay-2">
-      Si el operario encuentra instrucciones, avisos y contexto en un mismo sitio, pregunta menos y resuelve más por su cuenta.
+      Empieza por un puesto y un proceso. Si el operario llega y sabe qué hacer sin preguntar, ya has notado la diferencia.
     </p>
     <div class="cta-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
@@ -327,106 +173,13 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         Ver gestión de competencias →
       </a>
     </div>
-    <div class="cta-trust fade-up delay-4">Sin tarjeta de crédito · Está incluido en todos los planes</div>
+    <div class="cta-trust fade-up delay-4">Te acompañamos en la puesta en marcha · Sin compromiso y con foco práctico</div>
   </section>
 
 </BaseLayout>
 
 <style>
-  /* PORTAL DEL SUPERVISOR */
-  .sup-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
-    margin-top: 40px;
-  }
-
-  .sup-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 24px 22px;
-  }
-
-  .sup-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: .6rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 12px;
-  }
-
-  .sup-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: .96rem;
-    font-weight: 600;
-    letter-spacing: .02em;
-    margin-bottom: 10px;
-  }
-
-  .sup-desc {
-    font-size: .84rem;
-    color: var(--gray);
-    line-height: 1.7;
-  }
-
-  @media (max-width: 1100px) {
-    .sup-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-
-  @media (max-width: 640px) {
-    .sup-grid { grid-template-columns: 1fr; }
-  }
-
-  .challenge-content {
-    max-width: 700px;
-    margin-top: 40px;
-  }
-
-  .challenge-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 24px 0;
-  }
-
-  .challenge-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    padding: 12px 16px;
-    background: var(--surface);
-    border-left: 3px solid rgba(255, 100, 0, 0.3);
-    border-radius: 4px;
-  }
-
-  .challenge-item .icon { font-size: 1.2rem; flex-shrink: 0; }
-
-  .challenge-item span:last-child {
-    color: var(--gray);
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .risk-box {
-    background: rgba(255, 100, 0, 0.08);
-    border: 1px solid rgba(255, 150, 0, 0.25);
-    border-radius: 6px;
-    padding: 28px;
-    margin-top: 32px;
-    max-width: 700px;
-  }
-
-  .risk-box h3 {
-    font-family: 'Oswald', sans-serif;
-    margin-bottom: 12px;
-    color: var(--text);
-  }
-
-  .risk-box p { color: var(--gray); line-height: 1.6; margin: 0; }
-
-  /* PORTAL SECTIONS */
+  /* EL PORTAL — bloque dominante */
   .portal-sections {
     display: flex;
     flex-direction: column;
@@ -469,18 +222,18 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-family: 'Oswald', sans-serif;
     font-size: 1rem;
     margin-bottom: 8px;
-    color: var(--text);
+    color: var(--white);
   }
 
   .portal-content p {
     color: var(--gray);
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: .95rem;
+    line-height: 1.65;
     margin: 0 0 10px;
   }
 
   .portal-route {
-    font-family: monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 0.78rem;
     color: rgba(255, 100, 0, 0.7);
     background: rgba(255, 100, 0, 0.07);
@@ -490,79 +243,15 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     display: inline-block;
   }
 
-  /* GAMIFICATION */
-  .gamif-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 40px;
-  }
-
-  @media (max-width: 700px) {
-    .gamif-grid { grid-template-columns: 1fr; }
-  }
-
-  .gamif-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 24px;
-  }
-
-  .gamif-card.gamif-highlight {
-    border-color: var(--orange);
-    background: rgba(255, 100, 0, 0.05);
-  }
-
-  .gamif-label {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    color: var(--orange);
-    margin-bottom: 14px;
-  }
-
-  .gamif-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .gamif-card ul li {
-    font-size: 0.88rem;
-    color: var(--gray);
-    line-height: 1.5;
-    padding-left: 14px;
-    position: relative;
-  }
-
-  .gamif-card ul li::before {
-    content: '·';
-    position: absolute;
-    left: 0;
-    color: var(--orange);
-  }
-
-  .gamif-card p {
-    font-size: 0.88rem;
-    color: var(--gray);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* ACCESS */
+  /* ACCESO */
   .access-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
     margin-top: 40px;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 860px) {
     .access-grid { grid-template-columns: 1fr; }
   }
 
@@ -579,14 +268,30 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-family: 'Oswald', sans-serif;
     font-size: 1rem;
     margin-bottom: 10px;
-    color: var(--text);
+    color: var(--white);
   }
 
   .access-card p {
-    font-size: 0.9rem;
+    font-size: .95rem;
     color: var(--gray);
-    line-height: 1.6;
+    line-height: 1.65;
     margin: 0;
+  }
+
+  .roles-line {
+    margin-top: 28px;
+    font-size: .95rem;
+    color: var(--gray);
+  }
+
+  .roles-line a {
+    color: var(--orange);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(244, 82, 30, .35);
+  }
+
+  .roles-line a:hover {
+    border-bottom-color: var(--orange);
   }
 
   .cta-trust {

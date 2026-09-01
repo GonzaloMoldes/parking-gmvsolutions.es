@@ -1,14 +1,39 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../../lib/seo';
 
-const schema = {
+// Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe las dos
+// secciones secundarias que competian con el bloque principal: "El momento
+// correcto" y "Si ya es tarde" (tarea D3 de
+// PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Cuándo hay que capturar el conocimiento de alguien que se va?',
+    a: 'Antes de que se vaya, y con margen. Si sabes que alguien se jubila en seis meses, el momento es ahora: documentar con la persona delante y en la máquina es incomparablemente más barato que reconstruirlo después. Lo que nunca funciona es la sesión maratoniana de despedida la última semana.',
+  },
+  {
+    q: 'Ya se ha ido. ¿Se puede recuperar lo que sabía?',
+    a: 'En parte. Se reconstruye desde lo que queda: lo que recuerdan los que trabajaron con él, lo que hay escrito aunque esté disperso, y sobre todo lo que va apareciendo al trabajar — los primeros meses son los que más enseñan, porque muestran dónde se atasca la gente, qué falla y qué se pregunta. No vas a recuperarlo todo, y quien te diga lo contrario no ha estado en una planta. Vas a recuperar lo suficiente para que el puesto arranque sin buscar el teléfono de un jubilado.',
+  },
+  {
+    q: '¿Cuánto se tarda en documentar un proceso?',
+    a: 'Menos de lo que parece, porque no es una sesión de documentación de dos días: lo captura el propio experto mientras ejecuta, paso a paso, con foto o vídeo donde hace falta. Un proceso completo suele salir en menos de media hora.',
+  },
+  {
+    q: '¿Por dónde empiezo si el experto domina veinte procesos?',
+    a: 'Por los que solo domina él y más caros salen si falla: el arranque que nadie más sabe hacer, el ajuste que no está escrito en ningún sitio. Dos o tres procesos críticos capturados valen más que un plan de documentación integral que no se termina.',
+  },
+];
+
+const schema = [faqPageSchema(faqs), {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "REELEVO — Transferencia de conocimiento operativo",
   "description": "Cómo REELEVO ayuda a capturar el conocimiento operativo del experto antes de que se pierda en planta.",
   "url": "https://www.gmvsolutions.es/casos-de-uso/transferencia-conocimiento/",
   "isPartOf": { "@id": "https://www.gmvsolutions.es/#organization" }
-};
+}];
 ---
 
 <BaseLayout
@@ -38,10 +63,10 @@ const schema = {
   .timeline-item { display: flex; gap: 32px; padding: 0 0 40px; position: relative; }
   .timeline-item:last-child { padding-bottom: 0; }
   .timeline-dot { width: 56px; height: 56px; background: var(--surface); border: 1px solid var(--border); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; z-index: 1; }
-  .timeline-dot-label { font-family: 'DM Mono', monospace; font-size: .56rem; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); text-align: center; line-height: 1.3; }
+  .timeline-dot-label { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); text-align: center; line-height: 1.3; }
   .timeline-content { padding-top: 12px; }
   .timeline-heading { font-family: 'Oswald', sans-serif; font-size: .95rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; color: var(--white); }
-  .timeline-desc { font-size: .85rem; color: var(--gray); line-height: 1.6; }
+  .timeline-desc { font-size: .95rem; color: var(--gray); line-height: 1.6; }
   .step-card-number { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: var(--orange); margin-bottom: 16px; }
   @media(max-width:960px) { .risk-grid { grid-template-columns: 1fr; } }
   @media(max-width:600px) {
@@ -54,7 +79,7 @@ const schema = {
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="eyebrow fade-up">Transferencia de conocimiento industrial</div>
-  <h1 class="fade-up delay-1">Tu mejor técnico se jubila<br>en 6 meses. <em>¿Qué pasará<br>cuando se vaya?</em></h1>
+  <h1 class="fade-up delay-1">Tu mejor técnico se jubila <br>en 6 meses. <em>¿Qué pasará <br>cuando se vaya?</em></h1>
   <p class="fade-up delay-2">Lleva 20 años en esa planta. Sabe cómo arrancar la línea en invierno, qué hacer cuando el sensor de presión da falsos positivos, qué pasos nunca hay que seguir en ese orden. Ese conocimiento no está en ningún manual: está en su cabeza. Documentar esos procesos es clave para que ese saber hacer no se pierda.</p>
   <div class="hero-cta-group fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
@@ -90,35 +115,31 @@ const schema = {
 <section class="section" id="problema">
   <div class="section-inner">
     <div class="eyebrow fade-up">El problema</div>
-    <h2 class="section-title fade-up delay-1">Nunca parece urgente documentar.<br><em>Hasta que lo es.</em></h2>
+    <h2 class="section-title fade-up delay-1">Nunca parece urgente documentar. <br><em>Hasta que lo es.</em></h2>
     <p class="section-sub fade-up delay-2">Cuatro situaciones en las que el conocimiento que no se capturó se convierte en un problema irreversible.</p>
 
     <div class="risk-grid fade-up delay-3">
 
       <div class="risk-card">
         <div class="risk-card-title">Jubilaciones previstas que nadie prepara</div>
-        <p>Sabes exactamente cuándo se jubila tu técnico más experto. Llevas meses diciéndote que hay que documentar sus procesos. Y los meses pasan.</p>
         <div class="scenario-before"><strong>Sin REELEVO:</strong> Cuando se va, se lleva el conocimiento.</div>
         <div class="scenario-after"><strong>Con REELEVO:</strong> 30 minutos por proceso. <strong>Empieza hoy.</strong></div>
       </div>
 
       <div class="risk-card">
         <div class="risk-card-title">Dimisiones inesperadas</div>
-        <p>El técnico experto decide irse a la competencia con 15 días de preaviso. No hay tiempo para un traspaso ordenado.</p>
         <div class="scenario-before"><strong>Sin REELEVO:</strong> 15 días para documentar lo que tardó 15 años en aprender.</div>
         <div class="scenario-after"><strong>Con REELEVO:</strong> Si ya está documentado, su salida se gestiona con más margen y menos dependencia.</div>
       </div>
 
       <div class="risk-card">
         <div class="risk-card-title">Dependencia de personas clave</div>
-        <p>Hay máquinas que solo sabe arrancar una persona. Procesos que solo conoce un operario. Si esa persona falta, la producción se resiente.</p>
         <div class="scenario-before"><strong>Sin REELEVO:</strong> Un empleado clave de baja = un problema operativo. Un empleado clave de vacaciones = un problema operativo.</div>
         <div class="scenario-after"><strong>Con REELEVO:</strong> El conocimiento es de la empresa, <strong>no del empleado.</strong></div>
       </div>
 
       <div class="risk-card">
         <div class="risk-card-title">El conocimiento informal que no está en ningún manual</div>
-        <p>No solo los procedimientos formales. El saber cuándo hay que reprocesar, cuándo se puede saltarse un paso, cuándo ese ruido no indica nada y cuándo sí.</p>
         <div class="scenario-before"><strong>Sin REELEVO:</strong> Ese conocimiento tácito no está en ningún manual de calidad ni ISO.</div>
         <div class="scenario-after"><strong>Con REELEVO:</strong> El experto captura su conocimiento, con sus propias palabras, <strong>en sus propios pasos.</strong></div>
       </div>
@@ -133,7 +154,7 @@ const schema = {
 <section class="section" id="solucion">
   <div class="section-inner">
     <div class="eyebrow fade-up">La solución</div>
-    <h2 class="section-title fade-up delay-1">El conocimiento se captura <em>una vez</em><br>y queda accesible para la empresa.</h2>
+    <h2 class="section-title fade-up delay-1">El conocimiento se captura <em>una vez</em> <br>y queda accesible para la empresa.</h2>
     <p class="section-sub fade-up delay-2">Sin sesiones de documentación de dos días. Sin consultores. El experto captura mientras trabaja.</p>
 
     <div class="benefit-list fade-up delay-3">
@@ -144,10 +165,6 @@ const schema = {
           <div class="benefit-title">El experto captura con el móvil, sin parar de trabajar</div>
           <div class="benefit-desc">No hay consultor. No hay sesión de documentación de dos días. El experto captura cada paso del proceso mientras trabaja o al final del turno. En menos de una hora, un proceso completo documentado.</div>
         </div>
-        <div class="benefit-result">
-          <div class="benefit-result-label">El resultado</div>
-          <p>Documentar el conocimiento de un experto no interrumpe la producción. Encaja en la jornada normal.</p>
-        </div>
       </div>
 
       <div class="benefit-row">
@@ -155,10 +172,6 @@ const schema = {
         <div>
           <div class="benefit-title">En su voz, en su proceso, con sus trucos</div>
           <div class="benefit-desc">El experto no sigue un guion corporativo. Captura como hablaría a un colega: explica el razonamiento, advierte de lo que puede salir mal, muestra cómo él lo haría. Ese conocimiento tácito es imposible de capturar en un texto.</div>
-        </div>
-        <div class="benefit-result">
-          <div class="benefit-result-label">El resultado</div>
-          <p>REELEVO captura lo que ningún manual de calidad puede: el porqué detrás de cada paso.</p>
         </div>
       </div>
 
@@ -168,10 +181,6 @@ const schema = {
           <div class="benefit-title">El conocimiento es de la empresa, no del empleado</div>
           <div class="benefit-desc">Una vez documentado en REELEVO, el proceso existe independientemente de si el experto está, se va o se jubila. Cualquier sustituto puede acceder directamente en la máquina.</div>
         </div>
-        <div class="benefit-result">
-          <div class="benefit-result-label">El resultado</div>
-          <p>Fin de la dependencia de personas clave. El conocimiento operativo es un activo de la empresa.</p>
-        </div>
       </div>
 
       <div class="benefit-row">
@@ -180,10 +189,6 @@ const schema = {
           <div class="benefit-title">Se actualiza cuando el proceso cambia</div>
           <div class="benefit-desc">Cuando el proceso evoluciona, el experto captura los nuevos pasos. La versión anterior queda archivada y la máquina mantiene disponible la versión vigente.</div>
         </div>
-        <div class="benefit-result">
-          <div class="benefit-result-label">El resultado</div>
-          <p>No hay manuales desactualizados. No hay versiones en papel que nadie actualiza.</p>
-        </div>
       </div>
 
     </div>
@@ -192,118 +197,21 @@ const schema = {
 
 <div class="divider"></div>
 
-<!-- TIMELINE DE URGENCIA -->
-<section class="section" id="momento">
-  <div class="section-inner" style="max-width:680px;margin:0 auto;">
-    <div class="eyebrow fade-up">El momento correcto</div>
-    <h2 class="section-title fade-up delay-1">El mejor momento para capturar<br>el conocimiento es <em>antes de que se vaya</em></h2>
-    <p class="section-sub fade-up delay-2" style="margin-bottom:0;">Cada mes que pasa sin documentar es un mes menos de margen.</p>
-
-    <div class="timeline fade-up delay-3">
-
-      <div class="timeline-item">
-        <div class="timeline-dot">
-          <div class="timeline-dot-label">6<br>meses<br>antes</div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-heading">Empieza a documentar los procesos críticos</div>
-          <div class="timeline-desc">El experto captura sus procesos más críticos. 30 minutos por proceso. Sin prisa. Sin presión. El conocimiento se captura de forma ordenada mientras todavía hay tiempo.</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot">
-          <div class="timeline-dot-label">3<br>meses<br>antes</div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-heading">Los procesos críticos están documentados</div>
-          <div class="timeline-desc">El experto puede irse con tranquilidad. Lo importante ya está capturado. El sustituto puede acceder a los procesos directamente en cada máquina desde el arranque.</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot" style="border-color:rgba(244,82,30,.3);">
-          <div class="timeline-dot-label" style="color:var(--gray2);">El día<br>que se<br>va</div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-heading">Un inconveniente, no una crisis</div>
-          <div class="timeline-desc">El sustituto tiene todo directamente en la máquina. La planta sigue funcionando. Se pierde la persona, pero no el conocimiento.</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot" style="border-color:rgba(34,197,94,.2);">
-          <div class="timeline-dot-label" style="color:var(--green);">1 año<br>después</div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-heading">El conocimiento sigue disponible. De forma sostenida.</div>
-          <div class="timeline-desc">Sin llamadas al jubilado. Sin reconstruir procesos de cero. Sin depender de que alguien recuerde cómo se hacía. El conocimiento es un activo permanente de la empresa.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- YA SE FUE — el angulo curativo del disparador 8.
-     Toda la pagina, y la linea de tiempo de arriba en particular, esta escrita en
-     clave preventiva ("capturalo antes de que se vaya"). Pero el que compra suele
-     llegar tarde: ya perdio a la persona. Ese visitante se iba de la pagina sin
-     respuesta justo despues de leer que deberia haber empezado hace seis meses.
-     (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M4c) -->
-<section class="section" id="ya-se-fue">
-  <div class="section-inner" style="max-width:900px;margin:0 auto;">
-    <div class="eyebrow fade-up">Si ya es tarde</div>
-    <h2 class="section-title fade-up delay-1">Ya se ha ido. <em>¿Se puede recuperar<br>lo que sabía?</em></h2>
-    <p class="section-sub fade-up delay-2">En parte sí, y antes de lo que parece. No vas a recuperar su cabeza: vas a recuperar el procedimiento, que es lo que necesitas para que ese puesto deje de depender de una llamada.</p>
-
-    <div class="steps-grid fade-up delay-3" style="margin-top:48px;">
-      <div class="step-card" style="text-align:left;">
-        <div class="step-card-number">01</div>
-        <h3 class="step-card-title">Lo que sí dejó escrito</h3>
-        <p class="step-card-desc">Los Word, los PDF y las hojas de instrucciones que están sueltos por carpetas y correos. Se suben y la importación asistida propone un proceso paso a paso que tú revisas y apruebas. Casi nunca está todo, pero rara vez no hay nada.</p>
-      </div>
-      <div class="step-card" style="text-align:left;">
-        <div class="step-card-number">02</div>
-        <h3 class="step-card-title">Lo que sabe el que se quedó</h3>
-        <p class="step-card-desc">Alguien sigue haciendo ese trabajo, aunque sea peor que el que se fue. Se le graba en vídeo mientras lo hace y de ahí sale un borrador de proceso. Corregir un borrador es mucho más rápido que escribir desde una hoja en blanco.</p>
-      </div>
-      <div class="step-card" style="text-align:left;">
-        <div class="step-card-number">03</div>
-        <h3 class="step-card-title">Lo que va apareciendo al trabajar</h3>
-        <p class="step-card-desc">Los primeros meses son los que más enseñan: dónde se atasca la gente, qué falla y qué se pregunta. Desde su portal, el operario puede pedir el procedimiento que le falta, así que la lista de lo que hay que documentar la escribe quien lo echa en falta.</p>
-      </div>
-    </div>
-
-    <p class="section-sub fade-up delay-3" style="margin-top:40px;text-align:center;">
-      No vas a recuperarlo todo, y quien te diga lo contrario no ha estado en una planta.
-      Vas a recuperar lo suficiente para que el puesto arranque sin buscar el teléfono de un jubilado.
-    </p>
-
-    <div class="fade-up delay-3" style="text-align:center;margin-top:28px;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="ya-se-fue" data-cta-trigger="08" data-cta-label="Empezar por lo que quedó">Empezar por lo que quedó</a>
-    </div>
-  </div>
-</section>
+<FaqSection items={faqs} />
 
 <div class="divider-full"></div>
 
 <!-- CTA FINAL -->
 <section class="cta-section">
   <div class="cta-eyebrow fade-up">¿Lo ves para tu planta?</div>
-  <h3 class="cta-title fade-up delay-1">Empieza a capturar el conocimiento<br><em>de tu equipo hoy</em></h3>
+  <h3 class="cta-title fade-up delay-1">Empieza a capturar el conocimiento <br><em>de tu equipo hoy</em></h3>
   <p class="cta-sub fade-up delay-2">El experto documenta los primeros procesos críticos antes de que sea tarde.</p>
   <div class="cta-actions fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
        data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="04" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
   </div>
   <div class="cta-note fade-up delay-4" style="margin-top:18px;">
-    Relacionado:
-    <a href="/documentacion-procesos/">documentación de procesos</a> ·
-    <a href="/para-quien/gerente-propietario/">para gerencia</a>
+    Relacionado: <a href="/documentacion-procesos/">documentación de procesos</a> · <a href="/para-quien/gerente-propietario/">para gerencia</a>
   </div>
 </section>
 

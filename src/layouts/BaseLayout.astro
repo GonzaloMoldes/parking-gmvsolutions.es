@@ -1,7 +1,6 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import GaliciaSeal from '../components/GaliciaSeal.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import NewsletterModal from '../components/NewsletterModal.astro';
 import { organizationSchema, buildBreadcrumb, BASE_URL } from '../lib/seo';
@@ -107,6 +106,10 @@ const entrySplashLogo = await getImage({
     (() => {
       const root = document.documentElement;
       const splashKey = 'reelevo-entry-splash-seen';
+
+      // Marca que hay JavaScript. De ella cuelga el estado oculto de .fade-up
+      // en global.css, para que sin JS la pagina se vea entera (tarea R1).
+      root.classList.add('js');
 
       root.classList.add('entry-splash-booting');
 
@@ -293,7 +296,6 @@ const entrySplashLogo = await getImage({
   <div class="site-shell">
     <div class="hero-bg"></div>
     <Header activeNav={activeNav} />
-    <GaliciaSeal />
 
     <main style="position:relative;">
       <Breadcrumbs />
@@ -402,6 +404,36 @@ const entrySplashLogo = await getImage({
 
       // Backstop absoluto por si algun setTimeout intermedio no se ejecuta.
       window.setTimeout(clearSplash, totalDuration + 800);
+    })();
+  </script>
+  <!-- Aparicion al entrar en pantalla (tarea R1 de
+       PLAN_EFECTOS_Y_RITMO_VISUAL_2026-09.md). Revela cada .fade-up cuando
+       entra en el viewport y deja de observarlo: no se repite al subir. -->
+  <script>
+    (() => {
+      const els = document.querySelectorAll('.fade-up');
+      if (!els.length) return;
+
+      // Sin soporte de IntersectionObserver se muestra todo, sin animar.
+      if (!('IntersectionObserver' in window)) {
+        els.forEach((el) => el.classList.add('is-visible'));
+        return;
+      }
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (!e.isIntersecting) continue;
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        },
+        // El margen negativo hace que arranque cuando el bloque ya ha entrado
+        // un poco, no al asomar el primer pixel.
+        { rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
+      );
+
+      els.forEach((el) => io.observe(el));
     })();
   </script>
 </body>

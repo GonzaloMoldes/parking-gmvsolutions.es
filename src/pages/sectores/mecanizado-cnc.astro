@@ -1,11 +1,31 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../../lib/seo';
 
 const title = "Software de operaciones para mecanizado CNC | REELEVO";
 const description = "Software de operaciones para mecanizado CNC: continuidad en puestos críticos, procesos en el puesto y competencias visibles, sin la complejidad de un MES.";
 const canonical = "https://www.gmvsolutions.es/sectores/mecanizado-cnc/";
 
-const schema = {
+// Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe las
+// secciones "Lo que aporta" y "Limites y alcance" (tarea D4 de
+// PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué aporta REELEVO concretamente en un taller de mecanizado?',
+    a: 'Cuatro cosas medibles en el día a día: el puesto aguanta mejor bajas, cambios de turno y sustituciones sin depender tanto del titular; los arranques y cambios de utillaje delicados dejan de apoyarse solo en memoria o en una llamada; producción gana información para reorganizar y ver dónde sigue habiendo fragilidad; y el onboarding en puesto crítico deja una base útil para acompañar la autonomía del que aprende.',
+  },
+  {
+    q: '¿Sirve si cada pieza que hacemos es distinta?',
+    a: 'Sí, es el caso habitual en mecanizado por encargo. Lo que se documenta no es la pieza sino el proceso —el arranque de la máquina, el cambio de utillaje, el criterio de control— que se repite aunque la referencia cambie. Y cada unidad puede llevar su trazabilidad individual si el cliente la exige.',
+  },
+  {
+    q: '¿Qué no hay que esperar de esto?',
+    a: 'No es un sustituto de todos tus sistemas de planta, ni una promesa universal para cualquier proceso complejo, ni un reemplazo del criterio de producción o calidad. Tampoco es una garantía de rendimiento sin acompañamiento operativo: lo que sí aporta es menos improvisación en arranques y puestos críticos, más claridad para producción y calidad, y más continuidad cuando falta la persona clave.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "REELEVO para mecanizado y CNC - Onboarding software",
@@ -17,6 +37,8 @@ const schema = {
     "audienceType": "CNC Machining Operations and HR"
   }
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout
@@ -29,7 +51,7 @@ const schema = {
 >
   <section class="page-hero">
     <div class="eyebrow fade-up">Software de operaciones para mecanizado CNC</div>
-    <h1 class="fade-up delay-1">Continuidad operativa en<br><em>mecanizado y CNC</em></h1>
+    <h1 class="fade-up delay-1">Continuidad operativa en <br><em>mecanizado y CNC</em></h1>
     <p class="fade-up delay-2">
       En talleres y plantas CNC, los arranques, los cambios de referencia y las ausencias en puestos
       críticos no deberían parar la operación. REELEVO deja el proceso en el puesto y la competencia
@@ -48,7 +70,7 @@ const schema = {
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Dónde encaja mejor</div>
-        <h2 class="section-title">Cuando un taller necesita<br><em>menos trabajo a ciegas</em></h2>
+        <h2 class="section-title">Cuando un taller necesita <br><em>menos trabajo a ciegas</em></h2>
         <p class="section-sub">
           No hablamos de vender un MES ni una capa enterprise pesada.
           Hablamos de sostener mejor la operación cuando el saber hacer está demasiado concentrado
@@ -84,7 +106,7 @@ const schema = {
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Escenarios reales</div>
-        <h2 class="section-title">Tres momentos donde esto sí puede<br><em>marcar diferencia</em></h2>
+        <h2 class="section-title">Tres momentos donde esto sí puede <br><em>marcar diferencia</em></h2>
       </div>
 
       <div class="scenario-grid fade-up delay-1">
@@ -156,93 +178,14 @@ const schema = {
 
   <div class="divider"></div>
 
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Lo que aporta</div>
-        <h2 class="section-title">Por qué este encaje tiene sentido en<br><em>mecanizado y CNC</em></h2>
-      </div>
-
-      <div class="value-grid fade-up delay-1">
-        <div class="value-card">
-          <h3 class="value-title">Más continuidad por máquina</h3>
-          <p class="value-desc">El puesto aguanta mejor bajas, cambios de turno y sustituciones sin depender tanto del titular.</p>
-        </div>
-        <div class="value-card">
-          <h3 class="value-title">Más orden en arranques y cambios</h3>
-          <p class="value-desc">Los cambios delicados dejan de apoyarse solo en memoria, llamadas o reconstrucción verbal.</p>
-        </div>
-        <div class="value-card">
-          <h3 class="value-title">Más claridad para producción</h3>
-          <p class="value-desc">Producción gana más información útil para reorganizar, acompañar y revisar dónde sigue habiendo fragilidad.</p>
-        </div>
-        <div class="value-card">
-          <h3 class="value-title">Más base útil para formación</h3>
-          <p class="value-desc">Onboarding, cobertura y aprendizaje en puesto crítico dejan una base más útil para acompañar autonomía.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Límites y alcance</div>
-        <h2 class="section-title">Lo que sí puede ayudar y lo que <em>no prometemos</em></h2>
-      </div>
-
-      <div class="boundary-grid fade-up delay-1">
-        <article class="boundary-card ok">
-          <h3 class="boundary-title">Sí puede ayudar</h3>
-          <ul class="boundary-list">
-            <li>Menos improvisación en arranques y puestos críticos</li>
-            <li>Más claridad para producción, calidad y formación</li>
-            <li>Más continuidad cuando falta la persona clave</li>
-            <li>Más orden en onboarding y cobertura de bajas</li>
-          </ul>
-        </article>
-
-        <article class="boundary-card caution">
-          <h3 class="boundary-title">No es por sí solo</h3>
-          <ul class="boundary-list">
-            <li>Un sustituto de todos tus sistemas de planta</li>
-            <li>Una promesa universal para cualquier proceso complejo</li>
-            <li>Un reemplazo del criterio de producción o calidad</li>
-            <li>Una garantía de rendimiento sin acompañamiento operativo</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Puente natural</div>
-        <h3 class="section-title">Si llevas producción o calidad,<br><em>también tienes una lectura por rol</em></h3>
-        <p class="section-sub">
-          Esta página aterriza el encaje sectorial. Si quieres ver el enfoque más ejecutivo
-          por buyer, puedes entrar desde producción o desde calidad.
-        </p>
-        <div class="hero-cta-group" style="justify-content:center;margin-top:28px;">
-          <a href="/para-quien/jefe-de-produccion/" class="btn-ghost">Ver página para jefe de producción →</a>
-          <a href="/para-quien/responsable-calidad/" class="btn-ghost">Ver página para responsable de calidad →</a>
-          <a href="/sectores/alimentacion/" class="btn-ghost">Ver el sector alimentación →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <FaqSection items={faqs} />
 
   <div class="divider"></div>
 
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">¿Tiene sentido en tu taller?</div>
     <h3 class="cta-title fade-up delay-1">
-      Si trabajas en mecanizado o CNC,<br><em>vemos el encaje real contigo</em>
+      Si trabajas en mecanizado o CNC, <br><em>vemos el encaje real contigo</em>
     </h3>
     <p class="cta-sub fade-up delay-2">
       Si te encaja, regístrate en REELEVO y pruébalo en tu planta y valora si puede aportar más continuidad,
@@ -253,7 +196,7 @@ const schema = {
          data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
       <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
     </div>
-    <div class="cta-note fade-up delay-4">Implementación asistida · Enfoque prudente para mecanizado y CNC</div>
+    <div class="cta-note fade-up delay-4"> <br />Ver también <a href="/para-quien/jefe-de-produccion/">jefe de producción</a>, <a href="/para-quien/responsable-calidad/">responsable de calidad</a> o el sector <a href="/sectores/alimentacion/">alimentación</a>.</div>
   </section>
 </BaseLayout>
 
@@ -306,7 +249,7 @@ const schema = {
   .fit-tag,
   .scenario-card-tag {
     font-family: 'DM Mono', monospace;
-    font-size: .62rem;
+    font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);
@@ -330,7 +273,7 @@ const schema = {
   .scenario-before,
   .scenario-after,
   .boundary-list li {
-    font-size: .86rem;
+    font-size: .95rem;
     color: var(--gray);
     line-height: 1.65;
   }
