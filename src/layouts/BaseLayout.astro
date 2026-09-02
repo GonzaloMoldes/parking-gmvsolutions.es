@@ -446,6 +446,34 @@ const entrySplashLogo = await getImage({
 
       els.forEach((el) => io.observe(el));
 
+      // El observador solo revela lo que ve entrar. Con un salto instantaneo
+      // -llegar por un ancla, pulsar Fin, o que el navegador restaure la
+      // posicion al volver atras- los bloques que quedan por encima de la
+      // vista nunca llegan a entrar, y se quedarian en opacity 0 para
+      // siempre. Este barrido revela lo que ya ha pasado de largo.
+      const barrer = () => {
+        for (const el of els) {
+          if (el.classList.contains('is-visible')) continue;
+          if (el.getBoundingClientRect().bottom >= 0) continue;
+          stagger(el);
+          el.classList.add('is-visible');
+          io.unobserve(el);
+        }
+      };
+
+      let encolado = false;
+      addEventListener(
+        'scroll',
+        () => {
+          if (encolado) return;
+          encolado = true;
+          requestAnimationFrame(() => { encolado = false; barrer(); });
+        },
+        { passive: true }
+      );
+
+      // Y una pasada al cargar, por si la pagina abre ya desplazada.
+      barrer();
     })();
   </script>
 </body>
