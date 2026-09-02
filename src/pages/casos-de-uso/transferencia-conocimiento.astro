@@ -1,4 +1,5 @@
 ---
+import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../../lib/seo';
@@ -160,7 +161,7 @@ const schema = [faqPageSchema(faqs), {
     <div class="benefit-list fade-up delay-3">
 
       <div class="benefit-row">
-        <div class="benefit-icon">📱</div>
+        <Icon name="movil" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">El experto captura con el móvil, sin parar de trabajar</div>
           <div class="benefit-desc">No hay consultor. No hay sesión de documentación de dos días. El experto captura cada paso del proceso mientras trabaja o al final del turno. En menos de una hora, un proceso completo documentado.</div>
@@ -168,7 +169,7 @@ const schema = [faqPageSchema(faqs), {
       </div>
 
       <div class="benefit-row">
-        <div class="benefit-icon">🎥</div>
+        <Icon name="video" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">En su voz, en su proceso, con sus trucos</div>
           <div class="benefit-desc">El experto no sigue un guion corporativo. Captura como hablaría a un colega: explica el razonamiento, advierte de lo que puede salir mal, muestra cómo él lo haría. Ese conocimiento tácito es imposible de capturar en un texto.</div>
@@ -176,7 +177,7 @@ const schema = [faqPageSchema(faqs), {
       </div>
 
       <div class="benefit-row">
-        <div class="benefit-icon">🏢</div>
+        <Icon name="fabrica" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">El conocimiento es de la empresa, no del empleado</div>
           <div class="benefit-desc">Una vez documentado en REELEVO, el proceso existe independientemente de si el experto está, se va o se jubila. Cualquier sustituto puede acceder directamente en la máquina.</div>
@@ -184,7 +185,7 @@ const schema = [faqPageSchema(faqs), {
       </div>
 
       <div class="benefit-row">
-        <div class="benefit-icon">🔄</div>
+        <Icon name="ciclo" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">Se actualiza cuando el proceso cambia</div>
           <div class="benefit-desc">Cuando el proceso evoluciona, el experto captura los nuevos pasos. La versión anterior queda archivada y la máquina mantiene disponible la versión vigente.</div>

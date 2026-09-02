@@ -1,4 +1,5 @@
 ---
+import Icon from "../../components/Icon.astro";
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../../lib/seo';
@@ -67,8 +68,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="fade-up">
         <div class="eyebrow">Prueba visual</div>
         <h2 class="section-title">Por qué no parece un proyecto <em>pesado</em></h2>
-        <p class="section-sub">
-          Lo que compra gerencia no es un catálogo infinito de features. Es una forma más simple de
+        <p class="section-sub">Lo que compra gerencia no es un catálogo infinito de features. Es una forma más simple de
           dar continuidad a la operación y ganar visibilidad sin pagar por cada operario.
         </p>
       </div>
@@ -125,8 +125,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="fade-up">
         <div class="eyebrow">Dónde se nota</div>
         <h2 class="section-title">Tres impactos que sí importan a gerencia</h2>
-        <p class="section-sub">
-          Mensajes simples para valorar si tiene sentido mover esto ahora
+        <p class="section-sub">Mensajes simples para valorar si tiene sentido mover esto ahora
           o seguir conviviendo con la improvisación.
         </p>
       </div>
@@ -144,8 +143,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="risk-mitigation">
             <strong>Con REELEVO:</strong>
             <ul>
-              <li>✅ Proceso documentado y accesible en el puesto</li>
-              <li>✅ Guía de incidencias ligada al trabajo real</li></ul>
+              <li>Proceso documentado y accesible en el puesto</li>
+              <li>Guía de incidencias ligada al trabajo real</li></ul>
           </div>
           <div class="risk-probability">Resultado: <strong>menos fragilidad operativa</strong></div>
         </div>
@@ -162,8 +161,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           <div class="risk-mitigation">
             <strong>Con REELEVO:</strong>
             <ul>
-              <li>✅ El proceso se enseña igual en cada incorporación</li>
-              <li>✅ Se reduce la necesidad de tutoría continua</li></ul>
+              <li>El proceso se enseña igual en cada incorporación</li>
+              <li>Se reduce la necesidad de tutoría continua</li></ul>
           </div>
           <div class="risk-probability">Resultado: <strong>menos tiempo improductivo de los expertos</strong></div>
         </div>
@@ -180,8 +179,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           <div class="risk-mitigation">
             <strong>Con REELEVO:</strong>
             <ul>
-              <li>✅ Precio fijo por empresa</li>
-              <li>✅ Empezar por pocos procesos críticos y ampliar después</li></ul>
+              <li>Precio fijo por empresa</li>
+              <li>Empezar por pocos procesos críticos y ampliar después</li></ul>
           </div>
           <div class="risk-probability">Resultado: <strong>más orden sin complicar la decisión</strong></div>
         </div>
@@ -189,15 +188,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     
       <div class="fade-up" style="text-align:center;margin-bottom:64px;">
         <h3 class="sub-head">Qué compra realmente la empresa</h3>
-        <p class="section-sub">
-          No compras una herramienta más para "tener todo escrito".
-          Compras continuidad operativa y menos dependencia de perfiles difíciles de sustituir.
+        <p class="section-sub">No compras una herramienta más para "tener todo escrito".
+ Compras continuidad operativa y menos dependencia de perfiles difíciles de sustituir.
         </p>
       </div>
 
       <div class="executive-grid fade-up delay-1">
         <div class="exec-card problem">
-          <div class="exec-icon">❌</div>
+          <Icon name="alerta" class="exec-icon icon--draw" />
           <h3 class="exec-title">Lo que duele hoy</h3>
           <div class="exec-stats">
             <div class="exec-stat">
@@ -220,7 +218,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         </div>
 
         <div class="exec-card solution">
-          <div class="exec-icon">✅</div>
+          <Icon name="diana" class="exec-icon icon--draw" />
           <h3 class="exec-title">Lo que aporta REELEVO</h3>
           <div class="exec-stats">
             <div class="exec-stat">
@@ -244,7 +242,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       </div>
 
       <div class="executive-conclusion fade-up delay-2">
-        <h3>💼 Lectura rápida</h3>
+        <h3>Lectura rápida</h3>
         <p>
           <strong>REELEVO encaja cuando quieres reducir riesgo operativo</strong>
           sin entrar en un proyecto caro, largo o difícil de justificar.
@@ -265,9 +263,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="section-inner">
       <div class="micro-case fade-up">
         <div class="micro-case-tag">Escenario típico en planta</div>
-        <p class="micro-case-text">
-          Un taller de 35 personas con dos operarios que concentran el arranque de las líneas críticas.
-          Cuando uno falta, el turno se desordena. Al documentar esos procesos en el puesto y medir
+        <p class="micro-case-text">Un taller de 35 personas con dos operarios que concentran el arranque de las líneas críticas.
+ Cuando uno falta, el turno se desordena. Al documentar esos procesos en el puesto y medir
           qué queda cubierto, la dirección deja de depender de una llamada para que la línea arranque.
         </p>
         <div class="micro-case-note">Ejemplo ilustrativo del tipo de problema que aborda REELEVO, no un caso de cliente.</div>
@@ -284,21 +281,17 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Para decisores</div>
-    <h3 class="cta-title fade-up delay-1">
-      Reduce el riesgo operativo <em>de forma sostenida</em>
+    <h3 class="cta-title fade-up delay-1">Reduce el riesgo operativo <em>de forma sostenida</em>
     </h3>
-    <p class="cta-sub fade-up delay-2">
-      Regístrate, revisa el producto por dentro y valora si encaja con tu planta.
-      Empezamos por procesos críticos y medimos impacto con tu realidad operativa.
+    <p class="cta-sub fade-up delay-2">Regístrate, revisa el producto por dentro y valora si encaja con tu planta.
+ Empezamos por procesos críticos y medimos impacto con tu realidad operativa.
     </p>
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO →
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →
       </a>
     </div>
-    <div class="cta-note fade-up delay-4">Ver también <a href="/precios/">precios</a> o <a href="/por-que-usar-reelevo/">qué resuelve</a>. <br />
-      Precio publicado · Implantación ligera · Evaluación guiada con foco en riesgo operativo
+    <div class="cta-note fade-up delay-4">Ver también <a href="/precios/">precios</a> o <a href="/por-que-usar-reelevo/">qué resuelve</a>. <br />Precio publicado · Implantación ligera · Evaluación guiada con foco en riesgo operativo
     </div>
     </section>
 </BaseLayout>
@@ -395,7 +388,6 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .exec-icon {
-    font-size: 3rem;
     margin-bottom: 20px;
     text-align: center;
   }
@@ -806,7 +798,6 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .benefit-card-icon {
-    font-size: 2.2rem;
     margin-bottom: 16px;
   }
 

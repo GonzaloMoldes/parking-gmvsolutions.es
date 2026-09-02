@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import Screenshot from '../components/Screenshot.astro';
@@ -146,7 +147,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="benefit-list fade-up delay-3">
 
       <div class="benefit-row">
-        <div class="benefit-icon">📄</div>
+        <Icon name="documento" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">Una sola versión vigente, y se nota cuando cambia</div>
           <div class="benefit-desc">Al publicar una versión nueva, los operarios certificados en ese proceso reciben el aviso y confirman la lectura. Se acabó el «yo tenía la de antes» y el papel de la máquina que nadie recuerda cuándo se imprimió.</div>
@@ -154,7 +155,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       </div>
 
       <div class="benefit-row">
-        <div class="benefit-icon">📱</div>
+        <Icon name="movil" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">El mismo proceso en los tres turnos</div>
           <div class="benefit-desc">Se abre desde el QR de la máquina, con las mismas fotos, el mismo orden y los mismos avisos. Sin cuenta ni contraseña, así que el gesto es idéntico para el titular, para el sustituto y para el que entró ayer.</div>
@@ -162,7 +163,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       </div>
 
       <div class="benefit-row">
-        <div class="benefit-icon">🔍</div>
+        <Icon name="lupa" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">Ves dónde está la variación, no solo que existe</div>
           <div class="benefit-desc">El mapa de riesgo de conocimiento marca los procesos que dependen de una sola persona, los que llevan tiempo sin revisar y los que presentan más variación. En estadísticas quedan la duración y las anomalías por proceso y por máquina, y las horas avisan de desviaciones por encima del 10 %.</div>
@@ -170,7 +171,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       </div>
 
       <div class="benefit-row">
-        <div class="benefit-icon">💡</div>
+        <Icon name="idea" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">Si el atajo es bueno, se convierte en el estándar</div>
           <div class="benefit-desc">El operario propone la mejora desde el móvil, el supervisor la revisa y, si vale, se publica como versión nueva. El conocimiento del que más sabe deja de ser un truco personal y pasa a ser el procedimiento de la empresa.</div>

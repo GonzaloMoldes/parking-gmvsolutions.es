@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
@@ -131,25 +132,25 @@ const mapa = [
 
       <div class="hours-grid fade-up delay-1">
         <div class="hours-cat">
-          <div class="hc-icon">🔩</div>
+          <Icon name="maquina" class="hc-icon" />
           <h3>Producción</h3>
           <p>Por operario, proceso y máquina, contra el objetivo semanal configurado.</p>
         </div>
 
         <div class="hours-cat">
-          <div class="hc-icon">🎓</div>
+          <Icon name="formacion" class="hc-icon" />
           <h3>Aprendizaje</h3>
           <p>El tiempo real que dedica el equipo a formarse en el puesto.</p>
         </div>
 
         <div class="hours-cat">
-          <div class="hc-icon">🔧</div>
+          <Icon name="herramienta" class="hc-icon" />
           <h3>Resolución de problemas</h3>
           <p>Qué procesos y máquinas se llevan el tiempo de incidencias.</p>
         </div>
 
         <div class="hours-cat">
-          <div class="hc-icon">💡</div>
+          <Icon name="idea" class="hc-icon" />
           <h3>Contribuciones</h3>
           <p>Propuestas de mejora y documentación de soluciones.</p>
         </div>
@@ -344,7 +345,7 @@ const mapa = [
     padding: 22px 20px;
   }
 
-  .hc-icon { font-size: 1.5rem; margin-bottom: 12px; }
+  .hc-icon { margin-bottom: 12px; }
 
   .hours-cat h3 {
     font-family: 'Oswald', sans-serif;

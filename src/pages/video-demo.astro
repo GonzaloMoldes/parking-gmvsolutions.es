@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import StorylaneDemo from '../components/StorylaneDemo.astro';
@@ -50,12 +51,10 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 <section class="demo-hero">
   <div class="demo-header fade-up">
     <div class="header-eyebrow">Demo interactivo • Sin registro</div>
-    <h1 class="fade-up delay-1">
-      REELEVO en acción: <br>
+    <h1 class="fade-up delay-1">REELEVO en acción: <br>
       <em>Onboarding software + gestión de competencias</em>
     </h1>
-    <p class="header-subtitle fade-up delay-2">
-      Recorre el producto a tu ritmo, haciendo clic tú mismo: planificación,
+    <p class="header-subtitle fade-up delay-2">Recorre el producto a tu ritmo, haciendo clic tú mismo: planificación,
       matriz de competencias, análisis de producción y trazabilidad.
     </p>
   </div>
@@ -80,9 +79,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="fade-up">
       <div class="eyebrow">Lo que verás en el demo</div>
       <h2 class="section-title">Qué recorre el demo</h2>
-      <p class="section-sub">
-        Cuatro bloques, en el orden en que los verás al hacer clic.
-        Puedes saltarte los que no te interesen.
+      <p class="section-sub">Cuatro bloques, en el orden en que los verás al hacer clic.
+ Puedes saltarte los que no te interesen.
       </p>
     </div>
 
@@ -90,9 +88,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="see-item see-item-1">
         <div class="see-num">1</div>
         <h3>Planificación de la producción</h3>
-        <p>
-          Crear una tarea desde cero: producto, cantidad objetivo, turno, obra y fecha.
-          El punto donde se decide qué se fabrica y quién lo hace.
+        <p>Crear una tarea desde cero: producto, cantidad objetivo, turno, obra y fecha.
+ El punto donde se decide qué se fabrica y quién lo hace.
         </p>
         <span class="see-time">Operaciones</span>
       </div>
@@ -100,9 +97,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="see-item see-item-2">
         <div class="see-num">2</div>
         <h3>Equipo y matriz de competencias</h3>
-        <p>
-          Quién está capacitado para qué, con su actividad, horas trabajadas y perfil.
-          Incluye la skill matrix completa de la planta.
+        <p>Quién está capacitado para qué, con su actividad, horas trabajadas y perfil.
+ Incluye la skill matrix completa de la planta.
         </p>
         <span class="see-time">Equipo</span>
       </div>
@@ -110,8 +106,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="see-item see-item-3">
         <div class="see-num">3</div>
         <h3>Análisis de producción</h3>
-        <p>
-          Estadísticas de rendimiento, indicadores de calidad, seguimiento por supervisor
+        <p>Estadísticas de rendimiento, indicadores de calidad, seguimiento por supervisor
           y tiempos de parada. El dato real de lo que pasó en el turno.
         </p>
         <span class="see-time">Análisis</span>
@@ -120,8 +115,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="see-item see-item-4">
         <div class="see-num">4</div>
         <h3>Trazabilidad y mejora continua</h3>
-        <p>
-          QRs de seguimiento, equipamientos y las propuestas de mejora que aporta
+        <p>QRs de seguimiento, equipamientos y las propuestas de mejora que aporta
           el propio equipo desde el puesto.
         </p>
         <span class="see-time">Producción y contenido</span>
@@ -142,34 +136,30 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
     <div class="testimonials fade-up delay-1">
       <div class="testimonial">
-        <p class="testimonial-text">
-          En un taller de mecanizado, el tutor se pasa un par de horas al día explicando lo mismo.
-          Si el proceso ya está en el puesto, el tutor deja de dictar y solo acompaña. Menos horas de
+        <p class="testimonial-text">En un taller de mecanizado, el tutor se pasa un par de horas al día explicando lo mismo.
+ Si el proceso ya está en el puesto, el tutor deja de dictar y solo acompaña. Menos horas de
           su máquina paradas y menos errores por una explicación a medias.
         </p>
         <p class="testimonial-author"><strong>Escenario</strong> · Jefe de producción en taller CNC</p>
       </div>
 
       <div class="testimonial">
-        <p class="testimonial-text">
-          La «gestión de competencias» de muchas plantas cabe en una frase: «Jorge sabe de la línea 2».
-          Con una matriz real ves quién domina cada proceso y dónde falta refuerzo, y la formación
+        <p class="testimonial-text">La «gestión de competencias» de muchas plantas cabe en una frase: «Jorge sabe de la línea 2».
+ Con una matriz real ves quién domina cada proceso y dónde falta refuerzo, y la formación
           se planifica con eso delante en vez de a ojo.
         </p>
         <p class="testimonial-author"><strong>Escenario</strong> · Responsable de RRHH en planta alimentaria</p>
       </div>
 
       <div class="testimonial">
-        <p class="testimonial-text">
-          Cuando rota mucho personal, el primer día de un ETT se va en preguntar «¿qué hago?».
-          Con las instrucciones en el puesto empieza a rendir en días, no en dos semanas.
+        <p class="testimonial-text">Cuando rota mucho personal, el primer día de un ETT se va en preguntar «¿qué hago?».
+ Con las instrucciones en el puesto empieza a rendir en días, no en dos semanas.
         </p>
         <p class="testimonial-author"><strong>Escenario</strong> · Gerente de empresa con rotación alta</p>
       </div>
     </div>
 
-    <p class="testimonials-note fade-up delay-2">
-      Escenarios ilustrativos por rol, no testimonios de clientes. REELEVO está en fase inicial.
+    <p class="testimonials-note fade-up delay-2">Escenarios ilustrativos por rol, no testimonios de clientes. REELEVO está en fase inicial.
     </p>
   </div>
 </section>
@@ -182,28 +172,27 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="fade-up">
       <div class="eyebrow">Después del video</div>
       <h2 class="section-title">Recursos gratuitos para descargar</h2>
-      <p class="section-sub">
-        Guías, plantillas, casos de uso. Todo lo que necesitas para empezar.
+      <p class="section-sub">Guías, plantillas, casos de uso. Todo lo que necesitas para empezar.
       </p>
     </div>
 
     <div class="recursos fade-up delay-1">
       <div class="recurso-card">
-        <div class="recurso-icon">📋</div>
+        <Icon name="documento" class="recurso-icon" />
         <h3>Guía onboarding software</h3>
         <p>Checklist: cómo implementar onboarding software en tu pyme en 30 días.</p>
         <a href="#" class="recurso-link">Descargar PDF →</a>
       </div>
 
       <div class="recurso-card">
-        <div class="recurso-icon">📊</div>
+        <Icon name="grafica" class="recurso-icon" />
         <h3>Plantilla gestión de competencias</h3>
         <p>Excel listo: mapea competencias, define niveles, actualiza automáticamente.</p>
         <a href="#" class="recurso-link">Descargar XLSX →</a>
       </div>
 
       <div class="recurso-card">
-        <div class="recurso-icon">💰</div>
+        <Icon name="dinero" class="recurso-icon" />
         <h3>Calculadora ROI</h3>
         <p>¿Cuánto ahorraría tu empresa con onboarding software? Calcula en 2 minutos.</p>
         <a href="/precios/#roi" class="recurso-link">Abrir calculadora →</a>
@@ -235,25 +224,21 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <section class="cta-section">
   <div class="cta-eyebrow fade-up">¿Listo para ver REELEVO?</div>
-  <h3 class="cta-title fade-up delay-1">
-    Empieza con onboarding software. <br>
+  <h3 class="cta-title fade-up delay-1">Empieza con onboarding software. <br>
     <em>Gestión de competencias desde el primer día.</em>
   </h3>
   <p class="cta-sub fade-up delay-2">
     49€/mes. Sin compromiso. Implementación asistida.
-    El video te mostrará exactamente qué esperar.
+ El video te mostrará exactamente qué esperar.
   </p>
   <div class="cta-actions fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="02" data-cta-label="Registrarme en REELEVO">
-      Registrarme en REELEVO
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="02" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO
     </a>
-    <a href="/precios/#roi" class="btn-ghost">
-      Evaluar ahorro potencial →
+    <a href="/precios/#roi" class="btn-ghost">Evaluar ahorro potencial →
     </a>
   </div>
-  <div class="cta-note fade-up delay-4">
-    Precio publicado · Sin sorpresas · Soporte en español
+  <div class="cta-note fade-up delay-4">Precio publicado · Sin sorpresas · Soporte en español
   </div>
 </section>
 
@@ -267,25 +252,25 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px;">
       <a href="/blog/onboarding-software-pymes/" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 28px; text-decoration: none; transition: transform .2s; display: block;">
-        <h3 style="color: var(--white); margin-top: 0;">📖 Guía: Onboarding software para pymes</h3>
+        <h3 style="color: var(--white); margin-top: 0;">Guía: Onboarding software para pymes</h3>
         <p style="color: var(--gray); margin: 12px 0;">Qué cambia cuando la incorporación deja de depender de que el tutor esté libre, y cómo queda registrado lo que ya sabe hacer cada persona.</p>
         <p style="color: var(--orange); font-weight: 600; margin: 0;">Leer guía →</p>
       </a>
 
       <a href="/blog/gestion-competencias-industria/" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 28px; text-decoration: none; transition: transform .2s; display: block;">
-        <h3 style="color: var(--white); margin-top: 0;">📊 Guía: Gestión de competencias en industria</h3>
+        <h3 style="color: var(--white); margin-top: 0;">Guía: Gestión de competencias en industria</h3>
         <p style="color: var(--gray); margin: 12px 0;">Guía práctica: cómo documentar competencias reales y usarlas para onboarding y retención.</p>
         <p style="color: var(--orange); font-weight: 600; margin: 0;">Leer guía →</p>
       </a>
 
       <a href="/blog/onboarding-vs-tradicional/" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 28px; text-decoration: none; transition: transform .2s; display: block;">
-        <h3 style="color: var(--white); margin-top: 0;">⚖️ Comparativa: Onboarding software vs tradicional</h3>
+        <h3 style="color: var(--white); margin-top: 0;">Comparativa: Onboarding software vs tradicional</h3>
         <p style="color: var(--gray); margin: 12px 0;">Análisis completo con datos reales: costo, tiempo, gestión de competencias, ROI.</p>
         <p style="color: var(--orange); font-weight: 600; margin: 0;">Leer comparativa →</p>
       </a>
 
       <a href="/casos-de-uso/onboarding-operarios/" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 28px; text-decoration: none; transition: transform .2s; display: block;">
-        <h3 style="color: var(--white); margin-top: 0;">🎯 Caso de uso: Onboarding de operarios</h3>
+        <h3 style="color: var(--white); margin-top: 0;">Caso de uso: Onboarding de operarios</h3>
         <p style="color: var(--gray); margin: 12px 0;">Caso real: cómo REELEVO ordena el primer día sin depender del tutor.</p>
         <p style="color: var(--orange); font-weight: 600; margin: 0;">Ver caso →</p>
       </a>
@@ -476,7 +461,6 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .recurso-icon {
-    font-size: 2.5rem;
     margin-bottom: 16px;
   }
 

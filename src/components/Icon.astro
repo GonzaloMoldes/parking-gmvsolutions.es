@@ -1,0 +1,155 @@
+---
+// Set de iconos del sitio (tareas I1 e I2 de PLAN_SISTEMA_DE_ICONOS_2026-09.md).
+//
+// Sustituye a los 113 emoji que se usaban como icono. Un emoji se dibuja
+// distinto en cada sistema operativo -📊 no es el mismo en Mac, Windows y
+// Android-, asi que la web se veia diferente segun quien la abriera, y su
+// estilo multicolor chocaba con la identidad de linea del resto.
+//
+// Especificacion, la misma que ya usaba PlatformMap:
+//   viewBox 0 0 32 32 · stroke currentColor · fill none · grosor 1.5
+//   linecap y linejoin round · aria-hidden (son decorativos)
+//
+// Los cuatro primeros -documento, portal, grafica y ciclo- estan copiados tal
+// cual del mapa de la home para que el mapa y el resto del sitio no diverjan.
+//
+// Un nombre desconocido lanza en build, igual que hace Screenshot.astro: es
+// preferible romper la compilacion a publicar un hueco en silencio.
+
+export interface Props {
+  /** Nombre del set. Si no existe, el build falla. */
+  name: string;
+  /** 24 en filas y listas, 32 en tarjetas. */
+  size?: 24 | 32;
+  class?: string;
+}
+
+const { name, size = 32, class: className } = Astro.props;
+
+const ICONS: Record<string, string> = {
+  // ── Los cuatro del mapa de plataforma, sin tocar ──────────────────
+  documento: `
+    <path d="M8 4h11l5 5v19H8z" stroke-linejoin="round" />
+    <path d="M19 4v5h5" stroke-linejoin="round" />
+    <path d="M12 14h8M12 18h8M12 22h5" stroke-linecap="round" />`,
+
+  portal: `
+    <rect x="5" y="6" width="22" height="15" rx="1.5" />
+    <path d="M13 26h6M16 21v5" stroke-linecap="round" />
+    <path d="M10 11h4v4h-4zM18 11h4M18 15h4" stroke-linecap="round" stroke-linejoin="round" />`,
+
+  grafica: `
+    <path d="M5 26h22" stroke-linecap="round" />
+    <rect x="8" y="16" width="4" height="8" />
+    <rect x="14" y="11" width="4" height="13" />
+    <rect x="20" y="19" width="4" height="5" />
+    <path d="M6 8l4-3 5 3 6-4" stroke-linecap="round" stroke-linejoin="round" />`,
+
+  ciclo: `
+    <path d="M16 6a10 10 0 1 1-9.5 6.9" stroke-linecap="round" />
+    <path d="M6 6v7h7" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M12 16.5l3 3 5.5-6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />`,
+
+  // ── Nuevos, mismo trazo ───────────────────────────────────────────
+  movil: `
+    <rect x="10" y="3" width="12" height="26" rx="2.5" />
+    <path d="M14 6.5h4" stroke-linecap="round" />
+    <path d="M16 25.5h.01" stroke-linecap="round" stroke-width="2" />`,
+
+  diana: `
+    <circle cx="16" cy="16" r="11" />
+    <circle cx="16" cy="16" r="6" />
+    <circle cx="16" cy="16" r="1.6" stroke-width="2" />`,
+
+  persona: `
+    <circle cx="16" cy="11" r="5" />
+    <path d="M6.5 27a9.5 9.5 0 0 1 19 0" stroke-linecap="round" />`,
+
+  equipo: `
+    <circle cx="12" cy="12" r="4.5" />
+    <path d="M4 26a8 8 0 0 1 16 0" stroke-linecap="round" />
+    <path d="M21 8.5a4.5 4.5 0 0 1 0 9" stroke-linecap="round" />
+    <path d="M23 19.5a8 8 0 0 1 5 6.5" stroke-linecap="round" />`,
+
+  fabrica: `
+    <path d="M4 27V14l8 5V14l8 5V9l8 5v13z" stroke-linejoin="round" />
+    <path d="M4 27h24" stroke-linecap="round" />
+    <path d="M11 27v-5h4v5" stroke-linejoin="round" />`,
+
+  idea: `
+    <path d="M16 4a8 8 0 0 1 5 14.2V21h-10v-2.8A8 8 0 0 1 16 4z" stroke-linejoin="round" />
+    <path d="M13 25h6M14 28h4" stroke-linecap="round" />`,
+
+  herramienta: `
+    <path d="M20.5 4.5a6 6 0 0 0-7.7 7.7L4.6 20.4a2.2 2.2 0 0 0 3.1 3.1l8.2-8.2a6 6 0 0 0 7.7-7.7l-3.8 3.8-3.1-3.1z" stroke-linejoin="round" />
+    <path d="M18 18l7.5 7.5" stroke-linecap="round" />`,
+
+  dinero: `
+    <rect x="3" y="8" width="26" height="16" rx="2" />
+    <circle cx="16" cy="16" r="4" />
+    <path d="M7 12.5v7M25 12.5v7" stroke-linecap="round" />`,
+
+  candado: `
+    <rect x="6" y="14" width="20" height="14" rx="2" />
+    <path d="M11 14V9.5a5 5 0 0 1 10 0V14" stroke-linecap="round" />
+    <path d="M16 19.5v3.5" stroke-linecap="round" />`,
+
+  llave: `
+    <circle cx="10" cy="10" r="5.5" />
+    <path d="M14 14l13 13" stroke-linecap="round" />
+    <path d="M21 21l3-3M24.5 24.5l3-3" stroke-linecap="round" />`,
+
+  formacion: `
+    <path d="M16 6l12 5.5-12 5.5-12-5.5z" stroke-linejoin="round" />
+    <path d="M9 14v7c0 2 3.1 3.5 7 3.5s7-1.5 7-3.5v-7" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M28 11.5v7" stroke-linecap="round" />`,
+
+  conexion: `
+    <path d="M3.5 12.5a18 18 0 0 1 25 0" stroke-linecap="round" />
+    <path d="M8 17.5a11 11 0 0 1 16 0" stroke-linecap="round" />
+    <path d="M12.5 22.5a5 5 0 0 1 7 0" stroke-linecap="round" />
+    <path d="M16 27h.01" stroke-linecap="round" stroke-width="2" />`,
+
+  lupa: `
+    <circle cx="14" cy="14" r="9" />
+    <path d="M20.5 20.5L28 28" stroke-linecap="round" />`,
+
+  maquina: `
+    <rect x="4" y="10" width="24" height="14" rx="2" />
+    <path d="M9 10V6.5h6V10" stroke-linejoin="round" />
+    <path d="M9 17h6M20 15h4M20 19h4" stroke-linecap="round" />
+    <path d="M11 24v4M21 24v4" stroke-linecap="round" />`,
+
+  video: `
+    <rect x="3" y="8" width="17" height="16" rx="2" />
+    <path d="M20 14l8-4v12l-8-4z" stroke-linejoin="round" />`,
+
+  telefono: `
+    <path d="M11 4.5l3 5.5-3 2.5a14 14 0 0 0 8 8l2.5-3 5.5 3v5a2 2 0 0 1-2.2 2C13 26.5 5.5 19 4.5 6.7A2 2 0 0 1 6.5 4.5z" stroke-linejoin="round" />`,
+
+  alerta: `
+    <path d="M16 5L29 27H3z" stroke-linejoin="round" />
+    <path d="M16 13v6" stroke-linecap="round" />
+    <path d="M16 23h.01" stroke-linecap="round" stroke-width="2" />`,
+};
+
+const paths = ICONS[name];
+if (!paths) {
+  throw new Error(
+    `<Icon name="${name}"> no existe. Disponibles: ${Object.keys(ICONS).join(', ')}`,
+  );
+}
+---
+
+<svg
+  class:list={['icon', className]}
+  width={size}
+  height={size}
+  viewBox="0 0 32 32"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  aria-hidden="true"
+  focusable="false"
+  set:html={paths}
+/>

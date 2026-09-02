@@ -317,7 +317,7 @@ a:hover{color:var(--orange-hover);}
 .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
 .benefit-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:32px 28px;text-align:left;transition:border-color .25s;}
 .benefit-card:hover{border-color:var(--border-hover);}
-.benefit-card-icon{color:var(--orange);font-size:1.8rem;margin-bottom:16px;}
+.benefit-card-icon{color:var(--orange);margin-bottom:16px;}
 .benefit-card-title{font-family:'Oswald',sans-serif;font-size:.95rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;}
 .benefit-card-desc{font-size:.95rem;color:var(--gray);line-height:1.6;}
 
@@ -331,7 +331,7 @@ a:hover{color:var(--orange-hover);}
 /* ── BENEFIT LIST (rows) ── */
 .benefit-list{display:flex;flex-direction:column;gap:16px;margin-top:48px;}
 .benefit-row{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:32px 36px;display:grid;grid-template-columns:48px 1fr 1fr;gap:32px;align-items:start;}
-.benefit-icon{font-size:1.6rem;line-height:1;}
+.benefit-icon{line-height:1;}
 .benefit-title{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;}
 .benefit-desc{font-size:.88rem;color:var(--gray);line-height:1.65;}
 .benefit-result{background:var(--orange-dim);border:1px solid rgba(244,82,30,.15);border-radius:4px;padding:18px 20px;}
@@ -394,6 +394,46 @@ a:hover{color:var(--orange-hover);}
 .footer-linkedin:hover{color:var(--white);}
 .footer-linkedin svg{fill:currentColor;}
 
+/* ── ICONOS ──
+   Una sola clase en lugar de las 23 que habia (.benefit-icon, .feature-icon,
+   .os-icon, .hc-icon...) con 7 tamanos distintos para lo mismo. El color lo
+   hereda del bloque con currentColor (tareas I3 e I4 de
+   PLAN_SISTEMA_DE_ICONOS_2026-09.md). */
+.icon{display:block;color:var(--orange);flex:0 0 auto;}
+.icon--24{width:24px;height:24px;}
+
+/* Animacion de entrada, solo en el bloque dominante de cada pagina.
+   El icono se dibuja solo: es el gesto propio de un icono de trazo, no un
+   efecto pegado encima. Se dispara con la clase .is-visible que ya coloca el
+   IntersectionObserver de la tarea R1, asi que no hay mecanismo nuevo.
+
+   Ambiente frente a entrada: el anillo giratorio del mapa de la home gira
+   siempre y funciona porque solo aparece cuatro veces. Esto ocurre una vez y
+   para, que es lo que permite repetirlo en ~60 iconos sin que la pagina deje
+   de estar quieta. */
+.icon--draw path,.icon--draw rect,.icon--draw circle{
+  stroke-dasharray:120;stroke-dashoffset:120;
+}
+.js .is-visible .icon--draw path,
+.js .is-visible .icon--draw rect,
+.js .is-visible .icon--draw circle{
+  animation:iconDraw .75s cubic-bezier(.65,0,.35,1) var(--icon-delay,0s) forwards;
+}
+/* Escalonado entre los iconos de un mismo bloque: sin el, los tres o cuatro
+   trazan a la vez y se lee como un parpadeo en vez de como una secuencia.
+   El indice no se puede sacar en CSS -los iconos cuelgan de tarjetas a
+   profundidades distintas, asi que nth-child no vale-, lo pone el mismo
+   observador que revela el bloque (BaseLayout). Si el JS no llega, el
+   valor por defecto es 0s y trazan a la vez: se pierde el escalonado,
+   no el icono. */
+@keyframes iconDraw{to{stroke-dashoffset:0;}}
+
+/* Sin JavaScript no hay .is-visible que dispare nada, asi que el trazo debe
+   verse entero de partida. */
+html:not(.js) .icon--draw path,
+html:not(.js) .icon--draw rect,
+html:not(.js) .icon--draw circle{stroke-dasharray:none;stroke-dashoffset:0;}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 @keyframes entryBreath{
@@ -453,6 +493,11 @@ a:hover{color:var(--orange-hover);}
   /* Tarea R2: quien pide menos movimiento seguia recibiendo 866 apariciones. */
   .js .fade-up,
   .js .fade-up.is-visible{opacity:1;animation:none;transform:none;}
+  /* Tarea I4: el trazado de iconos tampoco. */
+  .icon--draw path,.icon--draw rect,.icon--draw circle,
+  .js .is-visible .icon--draw path,
+  .js .is-visible .icon--draw rect,
+  .js .is-visible .icon--draw circle{stroke-dasharray:none;stroke-dashoffset:0;animation:none;}
 }
 
 /* ── E-goi: formulario embebido ──

@@ -1,4 +1,5 @@
 ---
+import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = "Onboarding software para pymes: resumen | REELEVO";
@@ -103,7 +104,7 @@ const schema = {
 
         <div class="solution-grid">
           <div class="solution-card">
-            <div class="solution-icon">📱</div>
+            <Icon name="movil" class="solution-icon icon--draw" />
             <h3>Onboarding en el puesto</h3>
             <p>
               El nuevo operario encuentra instrucciones claras en la máquina desde el primer día.
@@ -112,7 +113,7 @@ const schema = {
           </div>
 
           <div class="solution-card">
-            <div class="solution-icon">⏱️</div>
+            <Icon name="persona" class="solution-icon icon--draw" />
             <h3>Menos tutoría, más productividad</h3>
             <p>
               El tutor deja de dictar los pasos y pasa a verificar el resultado. Sigue haciendo falta, pero no durante toda la jornada.
@@ -120,7 +121,7 @@ const schema = {
           </div>
 
           <div class="solution-card">
-            <div class="solution-icon">📊</div>
+            <Icon name="grafica" class="solution-icon icon--draw" />
             <h3>Gestión de competencias documentada</h3>
             <p>
               Registro automático de cada ejecución. Visualizas qué procesos domina cada operario.
@@ -129,7 +130,7 @@ const schema = {
           </div>
 
           <div class="solution-card">
-            <div class="solution-icon">✅</div>
+            <Icon name="ciclo" class="solution-icon icon--draw" />
             <h3>Onboarding consistente</h3>
             <p>
               Todos reciben el mismo onboarding. Sin variaciones según quién enseña.
@@ -204,7 +205,7 @@ const schema = {
 
         <div class="competencias-comparison">
           <div class="comp-card comp-old">
-            <h4>❌ Sin gestión de competencias</h4>
+            <h4>Sin gestión de competencias</h4>
             <ul>
               <li>18/03 - Juan asistió a formación máquina A</li>
               <li>Firma de asistencia</li>
@@ -214,7 +215,7 @@ const schema = {
           </div>
 
           <div class="comp-card comp-new">
-            <h4>✅ Con gestión de competencias</h4>
+            <h4>Con gestión de competencias</h4>
             <ul>
               <li>18/03 - Juan ejecuta proceso máquina A (guiado)</li>
               <li>19/03 - Juan ejecuta proceso máquina A (semi-autónomo)</li>
@@ -437,7 +438,6 @@ const schema = {
   }
 
   .solution-icon {
-    font-size: 2rem;
     margin-bottom: 12px;
   }
 

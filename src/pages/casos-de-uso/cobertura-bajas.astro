@@ -1,4 +1,5 @@
 ---
+import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../../lib/seo';
@@ -127,7 +128,7 @@ const schema = [faqPageSchema(faqs), {
     <div class="benefit-list fade-up delay-3">
 
       <div class="benefit-row">
-        <div class="benefit-icon">📵</div>
+        <Icon name="conexion" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">Nadie llama al que está de baja</div>
           <div class="benefit-desc">El proceso está disponible en la máquina. El conocimiento de Martínez es tuyo, no suyo. Independientemente de si está de baja, de vacaciones o ya se ha jubilado.</div>
@@ -135,7 +136,7 @@ const schema = [faqPageSchema(faqs), {
       </div>
 
       <div class="benefit-row">
-        <div class="benefit-icon">⚡</div>
+        <Icon name="formacion" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">El sustituto arranca con una referencia clara</div>
           <div class="benefit-desc">Encuentra qué hacer en el puesto, sigue las instrucciones del experto y gana autonomía sin depender de tutorías largas ni esperas innecesarias.</div>
@@ -143,7 +144,7 @@ const schema = [faqPageSchema(faqs), {
       </div>
 
       <div class="benefit-row">
-        <div class="benefit-icon">🛠</div>
+        <Icon name="herramienta" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">Si surge un problema, hay guía de incidencias paso a paso</div>
           <div class="benefit-desc">Cada paso puede incluir variantes de incidencias: qué hacer si la presión es baja, si el material está húmedo o cuándo avisar al supervisor. El sustituto tiene más información útil para actuar sin improvisar.</div>
@@ -151,7 +152,7 @@ const schema = [faqPageSchema(faqs), {
       </div>
 
       <div class="benefit-row">
-        <div class="benefit-icon">✅</div>
+        <Icon name="ciclo" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">Todos los pasos en el orden correcto</div>
           <div class="benefit-desc">El proceso que documentó Martínez se ejecuta igual cada vez. Sin los 3 pasos que "todo el mundo sabe" pero que los nuevos se saltan. Sin variaciones por quién esté ese día.</div>

@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "Recursos de documentación operativa industrial | REELEVO";
@@ -168,7 +169,7 @@ const schema = {
           <div class="article-card-meta">
             <span>7 abr. 2026</span>
             <span>·</span>
-            <span>⏱️ 12 min.</span>
+            <span>12 min.</span>
           </div>
           <div class="article-card-link">Leer guía →</div>
         </a>
@@ -180,7 +181,7 @@ const schema = {
           <div class="article-card-meta">
             <span>7 abr. 2026</span>
             <span>·</span>
-            <span>⏱️ 15 min.</span>
+            <span>15 min.</span>
           </div>
           <div class="article-card-link">Leer guía →</div>
         </a>
@@ -192,7 +193,7 @@ const schema = {
           <div class="article-card-meta">
             <span>7 abr. 2026</span>
             <span>·</span>
-            <span>⏱️ 14 min.</span>
+            <span>14 min.</span>
           </div>
           <div class="article-card-link">Leer guía →</div>
         </a>
@@ -217,7 +218,7 @@ const schema = {
       <div class="tools-grid fade-up delay-1">
         <div class="tool-card featured">
           <div class="tool-tag">Más usada</div>
-          <div class="tool-icon">📊</div>
+          <Icon name="grafica" class="tool-icon" />
           <h3 class="tool-title">Calculadora de riesgo operativo</h3>
           <p class="tool-desc">
             16 preguntas sobre tu planta. Resultado inmediato con tu nivel de riesgo
@@ -234,7 +235,7 @@ const schema = {
         </div>
 
         <div class="tool-card">
-          <div class="tool-icon">💰</div>
+          <Icon name="dinero" class="tool-icon" />
           <h3 class="tool-title">Calculadora de ROI</h3>
           <p class="tool-desc">
             Calcula cuánto te ahorrarías con REELEVO en función
@@ -404,7 +405,6 @@ const schema = {
   }
 
   .tool-icon {
-    font-size: 2.5rem;
     margin-bottom: 20px;
   }
 

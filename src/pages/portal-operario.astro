@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
@@ -127,19 +128,19 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
       <div class="access-grid fade-up delay-1">
         <div class="access-card">
-          <div class="access-icon">📱</div>
+          <Icon name="movil" class="access-icon" />
           <h3>Cualquier móvil, sin aplicación</h3>
           <p>Es una web progresiva (PWA) que corre en el navegador de cualquier smartphone, también de los antiguos. Instalable en la pantalla de inicio sin pasar por App Store ni Google Play.</p>
         </div>
 
         <div class="access-card">
-          <div class="access-icon">📶</div>
+          <Icon name="conexion" class="access-icon" />
           <h3>Aguanta los cortes de wifi</h3>
           <p>Si la señal cae a mitad de un proceso, el operario sigue con lo que tenía abierto. Lo que registra se guarda en el dispositivo y se sincroniza al volver la cobertura.</p>
         </div>
 
         <div class="access-card">
-          <div class="access-icon">🔑</div>
+          <Icon name="llave" class="access-icon" />
           <h3>Sin contraseñas complicadas</h3>
           <p>Se entra desde el QR del puesto o con credenciales simples. Es donde se cae la adopción con personal temporal, así que es donde menos fricción hemos dejado.</p>
         </div>
@@ -262,7 +263,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     padding: 24px;
   }
 
-  .access-icon { font-size: 1.6rem; margin-bottom: 12px; }
+  .access-icon { margin-bottom: 12px; }
 
   .access-card h3 {
     font-family: 'Oswald', sans-serif;

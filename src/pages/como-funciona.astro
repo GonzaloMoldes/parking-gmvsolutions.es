@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StorylaneDemo from '../components/StorylaneDemo.astro';
 
@@ -216,8 +217,7 @@ const schema = [howToSchema, faqSchema];
       <div class="fade-up">
         <div class="eyebrow">Pruébalo tú</div>
         <h2 class="section-title">Míralo por dentro <em>antes de seguir leyendo</em></h2>
-        <p class="section-sub">
-          Recorre el producto a tu ritmo, haciendo clic tú mismo. Sin registro y sin instalar nada.
+        <p class="section-sub">Recorre el producto a tu ritmo, haciendo clic tú mismo. Sin registro y sin instalar nada.
         </p>
       </div>
       <div class="demo-slot fade-up delay-1">
@@ -235,11 +235,10 @@ const schema = [howToSchema, faqSchema];
       <div class="step-section fade-up">
         <div class="step-number">1</div>
         <div class="step-content">
-          <div class="step-role">👨‍🔧 El operario experto</div>
+          <div class="step-role">El operario experto</div>
           <h2 class="section-title">Convierte la experiencia del experto en una <em>referencia útil</em></h2>
-          <p class="section-sub">
-            El operario que sabe deja el proceso explicado con sus propias palabras.
-            Sin guión y sin procesos pesados. El conocimiento tácito de fábrica deja de vivir solo en su cabeza.
+          <p class="section-sub">El operario que sabe deja el proceso explicado con sus propias palabras.
+ Sin guión y sin procesos pesados. El conocimiento tácito de fábrica deja de vivir solo en su cabeza.
           </p>
 
           <div class="scenarios-grid">
@@ -263,8 +262,8 @@ const schema = [howToSchema, faqSchema];
           </div>
 
           <p class="step-aside">
-            <strong>Y si ya lo tienes escrito, no hay que teclearlo otra vez.</strong> Subes el Word o el
-            PDF y la IA propone el proceso troceado en pasos; para lo que nunca se documentó, puedes
+            <strong>Y si ya lo tienes escrito, no hay que teclearlo otra vez.</strong>Subes el Word o el
+ PDF y la IA propone el proceso troceado en pasos; para lo que nunca se documentó, puedes
             grabar al operario en vídeo y proponer los pasos a partir de lo que se ve. En los dos casos
             lo revisas y lo apruebas antes de que llegue al puesto. <a href="/documentacion-procesos/#importar">Cómo funciona la importación →</a>
           </p>
@@ -281,16 +280,15 @@ const schema = [howToSchema, faqSchema];
       <div class="step-section fade-up delay-1">
         <div class="step-number">2</div>
         <div class="step-content">
-          <div class="step-role">⚙️ El responsable / supervisor</div>
+          <div class="step-role">El responsable / supervisor</div>
           <h2 class="section-title">Deja el trabajo listo para <em>quien lo necesite</em></h2>
-          <p class="section-sub">
-            El responsable organiza los procesos en el panel y los deja disponibles donde se necesitan.
-            Así el puesto deja de depender de la memoria del titular o de encontrar a alguien libre para explicarlo.
+          <p class="section-sub">El responsable organiza los procesos en el panel y los deja disponibles donde se necesitan.
+ Así el puesto deja de depender de la memoria del titular o de encontrar a alguien libre para explicarlo.
           </p>
 
           <div class="benefit-list">
             <div class="benefit-row">
-              <div class="benefit-icon">📋</div>
+              <Icon name="documento" class="benefit-icon icon--draw" />
               <div>
                 <h3 class="benefit-title">Organización automática</h3>
                 <p class="benefit-desc">Los procesos se clasifican por máquina y tipo. Sin complicaciones técnicas, sin IT para arrancar.</p>
@@ -302,7 +300,7 @@ const schema = [howToSchema, faqSchema];
             </div>
 
             <div class="benefit-row">
-              <div class="benefit-icon">🔓</div>
+              <Icon name="candado" class="benefit-icon icon--draw" />
               <div>
                 <h3 class="benefit-title">Acceso sin fricción</h3>
                 <p class="benefit-desc">Los operarios acceden con un código de empresa. Sin crear cuentas, sin contraseñas, sin gestión de usuarios.</p>
@@ -314,7 +312,7 @@ const schema = [howToSchema, faqSchema];
             </div>
 
             <div class="benefit-row">
-              <div class="benefit-icon">📊</div>
+              <Icon name="grafica" class="benefit-icon icon--draw" />
               <div>
                 <h3 class="benefit-title">Visibilidad total</h3>
                 <p class="benefit-desc">Dashboard que muestra quién está operando qué máquina, cuándo y con qué resultado.</p>
@@ -338,11 +336,10 @@ const schema = [howToSchema, faqSchema];
       <div class="step-section fade-up delay-2">
         <div class="step-number">3</div>
         <div class="step-content">
-          <div class="step-role">👤 El sustituto / nuevo operario</div>
+          <div class="step-role">El sustituto / nuevo operario</div>
           <h2 class="section-title">El nuevo arranca con <em>menos espera</em></h2>
-          <p class="section-sub">
-            El sustituto encuentra qué hacer en el puesto y sigue una referencia clara.
-            Sin frenar al equipo, sin depender de esperar a que alguien tenga un rato para enseñarle.
+          <p class="section-sub">El sustituto encuentra qué hacer en el puesto y sigue una referencia clara.
+ Sin frenar al equipo, sin depender de esperar a que alguien tenga un rato para enseñarle.
           </p>
 
           <div class="scenario-grid">
@@ -380,46 +377,41 @@ const schema = [howToSchema, faqSchema];
       <div class="fade-up">
         <div class="eyebrow">Lo que cambia</div>
         <h2 class="section-title">Menos improvisación, <em>resultados reales</em></h2>
-        <p class="section-sub">
-          REELEVO está pensado para notarse en la operación diaria, no para generar más documentación.
-          Empiezas por lo crítico y amplías cuando ya has visto resultado en planta.
+        <p class="section-sub">REELEVO está pensado para notarse en la operación diaria, no para generar más documentación.
+ Empiezas por lo crítico y amplías cuando ya has visto resultado en planta.
         </p>
       </div>
 
       <div class="benefits-grid fade-up delay-1">
         <div class="benefit-card">
-          <div class="benefit-card-icon">⚡</div>
+          <Icon name="persona" class="benefit-card-icon" />
           <h3 class="benefit-card-title">Autonomía más ordenada</h3>
-          <p class="benefit-card-desc">
-            El sustituto encuentra el proceso cuando lo necesita.
-            Menos dependencia del tutor, menos esperas, menos trabajo a ciegas.
+          <p class="benefit-card-desc">El sustituto encuentra el proceso cuando lo necesita.
+ Menos dependencia del tutor, menos esperas, menos trabajo a ciegas.
           </p>
         </div>
 
         <div class="benefit-card">
-          <div class="benefit-card-icon">🔒</div>
+          <Icon name="candado" class="benefit-card-icon" />
           <h3 class="benefit-card-title">Conocimiento protegido</h3>
-          <p class="benefit-card-desc">
-            Lo que sabe tu experto ya no vive solo en su cabeza.
-            Está documentado, accesible y no se pierde cuando se va.
+          <p class="benefit-card-desc">Lo que sabe tu experto ya no vive solo en su cabeza.
+ Está documentado, accesible y no se pierde cuando se va.
           </p>
         </div>
 
         <div class="benefit-card">
-          <div class="benefit-card-icon">📊</div>
+          <Icon name="grafica" class="benefit-card-icon" />
           <h3 class="benefit-card-title">Datos, no intuiciones</h3>
-          <p class="benefit-card-desc">
-            Sabes qué procesos se consultan, cuáles generan incidencias
+          <p class="benefit-card-desc">Sabes qué procesos se consultan, cuáles generan incidencias
             y qué operarios necesitan más apoyo.
           </p>
         </div>
 
         <div class="benefit-card">
-          <div class="benefit-card-icon">🛡️</div>
+          <Icon name="diana" class="benefit-card-icon" />
           <h3 class="benefit-card-title">Menos errores</h3>
-          <p class="benefit-card-desc">
-            El proceso se ejecuta con el mismo orden y los mismos criterios.
-            Menos reprocesos, menos riesgo.
+          <p class="benefit-card-desc">El proceso se ejecuta con el mismo orden y los mismos criterios.
+ Menos reprocesos, menos riesgo.
           </p>
         </div>
       </div>
@@ -437,8 +429,7 @@ const schema = [howToSchema, faqSchema];
       <div class="fade-up">
         <div class="eyebrow">Mientras tanto</div>
         <h2 class="section-title">Y hay una cuarta parte <br><em>que ocurre sin que entres</em></h2>
-        <p class="section-sub">
-          La mayoría de herramientas esperan a que alguien abra el panel. En REELEVO hay
+        <p class="section-sub">La mayoría de herramientas esperan a que alguien abra el panel. En REELEVO hay
           <strong>32 procesos automáticos</strong> ejecutándose por su cuenta. Estos son los que más
           se notan en planta.
         </p>
@@ -482,8 +473,7 @@ const schema = [howToSchema, faqSchema];
         </div>
       </div>
 
-      <p class="autom-note fade-up delay-2">
-        Ninguno de estos depende de que alguien se acuerde. Es la diferencia entre una herramienta que
+      <p class="autom-note fade-up delay-2">Ninguno de estos depende de que alguien se acuerde. Es la diferencia entre una herramienta que
         guarda datos y una que te avisa: el turno sin cubrir aparece <em>antes</em> del turno, no en la
         reunión del lunes siguiente.
       </p>
@@ -498,8 +488,7 @@ const schema = [howToSchema, faqSchema];
       <div class="fade-up">
         <div class="eyebrow">Explora por necesidad</div>
         <h3 class="section-title">Empieza por el escenario que mas te duele en planta</h3>
-        <p class="section-sub">
-          REELEVO conecta el mismo núcleo de producto con problemas distintos:
+        <p class="section-sub">REELEVO conecta el mismo núcleo de producto con problemas distintos:
           cobertura de bajas, onboarding, transferencia de conocimiento, calidad operativa, matriz de habilidades y evaluación de alternativas.
         </p>
       </div>
@@ -552,8 +541,7 @@ const schema = [howToSchema, faqSchema];
       <div class="fade-up" style="text-align:center;">
         <div class="eyebrow">Preguntas frecuentes</div>
         <h3 class="section-title">Tienes alguna duda?</h3>
-        <p class="section-sub">
-          Hemos reunido las preguntas más habituales sobre implementación, acceso en planta y seguridad en una página dedicada.
+        <p class="section-sub">Hemos reunido las preguntas más habituales sobre implementación, acceso en planta y seguridad en una página dedicada.
         </p>
         <div style="margin-top:32px;">
           <a href="/faqs/" class="btn-primary">Ver preguntas frecuentes →</a>
@@ -567,19 +555,16 @@ const schema = [howToSchema, faqSchema];
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Última comprobación</div>
-    <div class="cta-title fade-up delay-1">
-      Elige un proceso crítico <br><em>y pruébalo en contexto real</em>
+    <div class="cta-title fade-up delay-1">Elige un proceso crítico <br><em>y pruébalo en contexto real</em>
     </div>
-    <p class="cta-sub fade-up delay-2">
-      Entra, revisa cómo se trabaja en el puesto y valida si encaja con tu realidad operativa.
+    <p class="cta-sub fade-up delay-2">Entra, revisa cómo se trabaja en el puesto y valida si encaja con tu realidad operativa.
     </p>
     <div class="cta-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a>
       <a href="/precios/" class="btn-ghost">Ver precios</a>
     </div>
-    <div class="cta-note fade-up delay-4">
-      Sin letra pequeña · Acompañamiento en marcha · Resultado visible desde el primer bloque
+    <div class="cta-note fade-up delay-4">Sin letra pequeña · Acompañamiento en marcha · Resultado visible desde el primer bloque
     </div>
   </section>
 </BaseLayout>

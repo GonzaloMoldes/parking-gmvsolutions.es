@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
@@ -69,25 +70,25 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
       <div class="solution-approach fade-up delay-1">
         <div class="feature">
-          <div class="feature-icon">📱</div>
+          <Icon name="movil" class="feature-icon icon--draw" />
           <h3>Accesible en tres segundos</h3>
           <p>QR en la máquina y el SOP se abre directo desde el móvil, sin instalar nada, sin cuenta y sin contraseña que recordar. Si la wifi cae con el proceso ya abierto, sigue ahí.</p>
         </div>
 
         <div class="feature">
-          <div class="feature-icon">👷</div>
+          <Icon name="persona" class="feature-icon icon--draw" />
           <h3>Escrito por quien lo domina</h3>
           <p>El operario experto lo documenta mientras trabaja, así que incluye los puntos críticos y el troubleshooting que solo él conoce: «si la presión sube, espera 30 segundos».</p>
         </div>
 
         <div class="feature">
-          <div class="feature-icon">✓</div>
+          <Icon name="ciclo" class="feature-icon icon--draw" />
           <h3>Paso a paso, con confirmación</h3>
           <p>No es «lee esto y adivina el siguiente paso»: es paso 1, check, paso 2, check. Con foto y vídeo en cada uno.</p>
         </div>
 
         <div class="feature">
-          <div class="feature-icon">📊</div>
+          <Icon name="grafica" class="feature-icon icon--draw" />
           <h3>Una sola versión vigente</h3>
           <p>Cambia un parámetro, se actualiza una vez y llega a todos los puestos a la vez. Y cuando el tutor anota algo que no estaba claro, el turno siguiente ya lo ve.</p>
         </div>
@@ -212,7 +213,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     padding: 24px;
   }
 
-  .feature-icon { font-size: 1.6rem; margin-bottom: 12px; }
+  .feature-icon { margin-bottom: 12px; }
 
   .feature h3 {
     font-family: 'Oswald', sans-serif;

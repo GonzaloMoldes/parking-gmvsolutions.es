@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
@@ -74,25 +75,25 @@ const flujos = [
 
       <div class="pbi-views fade-up delay-1">
         <div class="pbi-view">
-          <div class="pbi-icon">📊</div>
+          <Icon name="grafica" class="pbi-icon icon--draw" />
           <h3>Operaciones</h3>
           <p>Producción diaria y semanal por operario, proceso y máquina. Cumplimiento de objetivos, paradas con su causa y tendencia frente al periodo anterior.</p>
         </div>
 
         <div class="pbi-view">
-          <div class="pbi-icon">✅</div>
+          <Icon name="diana" class="pbi-icon icon--draw" />
           <h3>Calidad</h3>
           <p>Tasa de completado de SOPs por proceso, incidencias registradas, sesiones con variaciones y evolución del índice de conformidad.</p>
         </div>
 
         <div class="pbi-view">
-          <div class="pbi-icon">🎓</div>
+          <Icon name="formacion" class="pbi-icon icon--draw" />
           <h3>Formación y compliance</h3>
           <p>Estado de certificaciones del equipo, las que están próximas a caducar y las rutas de aprendizaje activas con su progreso.</p>
         </div>
 
         <div class="pbi-view">
-          <div class="pbi-icon">🗂️</div>
+          <Icon name="documento" class="pbi-icon icon--draw" />
           <h3>Skill Matrix</h3>
           <p>Distribución de competencias por turno, procesos con riesgo de cobertura y evolución del índice de riesgo de conocimiento.</p>
         </div>
@@ -192,7 +193,7 @@ const flujos = [
     padding: 24px;
   }
 
-  .pbi-icon { font-size: 1.6rem; margin-bottom: 12px; }
+  .pbi-icon { margin-bottom: 12px; }
 
   .pbi-view h3 {
     font-family: 'Oswald', sans-serif;

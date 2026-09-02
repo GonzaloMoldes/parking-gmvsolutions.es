@@ -414,6 +414,16 @@ const entrySplashLogo = await getImage({
       const els = document.querySelectorAll('.fade-up');
       if (!els.length) return;
 
+      // Escalonado del trazado de iconos (tarea I4). 70 ms entre uno y otro:
+      // por debajo de ~60 se lee como un parpadeo simultaneo y por encima de
+      // ~80 el ultimo icono llega tarde respecto al texto de su tarjeta.
+      const stagger = (el) => {
+        const icons = el.querySelectorAll('.icon--draw');
+        for (let i = 0; i < icons.length; i++) {
+          icons[i].style.setProperty('--icon-delay', i * 70 + 'ms');
+        }
+      };
+
       // Sin soporte de IntersectionObserver se muestra todo, sin animar.
       if (!('IntersectionObserver' in window)) {
         els.forEach((el) => el.classList.add('is-visible'));
@@ -424,6 +434,7 @@ const entrySplashLogo = await getImage({
         (entries) => {
           for (const e of entries) {
             if (!e.isIntersecting) continue;
+            stagger(e.target);
             e.target.classList.add('is-visible');
             io.unobserve(e.target);
           }
@@ -434,6 +445,7 @@ const entrySplashLogo = await getImage({
       );
 
       els.forEach((el) => io.observe(el));
+
     })();
   </script>
 </body>

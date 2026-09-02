@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "Sobre REELEVO — software para pyme industrial española";
@@ -127,17 +128,17 @@ const schema = [aboutPageSchema, faqSchema];
         </div>
         <div class="about-values">
           <div class="value-card">
-            <div class="value-icon">🎯</div>
+            <Icon name="diana" class="value-icon icon--draw" />
             <h3 class="value-title">Problema real, solución real</h3>
             <p class="value-desc">No construimos funcionalidades porque queden bien en una demo. Construimos lo que resuelve el problema en planta, el lunes por la mañana.</p>
           </div>
           <div class="value-card">
-            <div class="value-icon">🤝</div>
+            <Icon name="equipo" class="value-icon icon--draw" />
             <h3 class="value-title">Cercanía sin letra pequeña</h3>
             <p class="value-desc">Precio publicado, sin sorpresas. Funcionalidades que existen, no prometidas. Si algo no está construido, lo decimos.</p>
           </div>
           <div class="value-card">
-            <div class="value-icon">🏭</div>
+            <Icon name="fabrica" class="value-icon icon--draw" />
             <h3 class="value-title">Hecho para la industria española</h3>
             <p class="value-desc">No somos una startup americana adaptada al español. Entendemos la realidad de la pyme industrial española: sus recursos, sus tiempos y su cultura.</p>
           </div>
@@ -197,22 +198,22 @@ const schema = [aboutPageSchema, faqSchema];
 
       <div class="security-grid fade-up delay-1">
         <div class="security-card">
-          <div class="security-icon">🔒</div>
+          <Icon name="candado" class="security-icon" />
           <h3 class="security-title">Almacenamiento seguro</h3>
           <p class="security-desc">Los datos se almacenan en infraestructura cloud gestionada (UE), con cifrado en reposo y en tránsito. Aislamiento completo entre empresas mediante Row-Level Security.</p>
         </div>
         <div class="security-card">
-          <div class="security-icon">💾</div>
+          <Icon name="maquina" class="security-icon" />
           <h3 class="security-title">Continuidad y recuperación</h3>
           <p class="security-desc">La infraestructura gestionada incorpora mecanismos de copia y recuperación. Si tu caso requiere más detalle, te explicamos el alcance real antes de contratar.</p>
         </div>
         <div class="security-card">
-          <div class="security-icon">🇪🇺</div>
+          <Icon name="documento" class="security-icon" />
           <h3 class="security-title">Cumplimiento GDPR</h3>
           <p class="security-desc">La infraestructura principal del producto se apoya en la Unión Europea y el tratamiento se ajusta al RGPD. Cuando intervienen proveedores internacionales auxiliares, aplicamos las garantías contractuales correspondientes.</p>
         </div>
         <div class="security-card">
-          <div class="security-icon">👤</div>
+          <Icon name="persona" class="security-icon" />
           <h3 class="security-title">Mínimo dato de operario</h3>
           <p class="security-desc">Los operarios acceden con código de empresa, sin cuenta personal. Buscamos minimizar el dato personal y limitarlo a la identificación operativa básica necesaria para registrar la ejecución cuando aplique.</p>
         </div>
@@ -426,7 +427,6 @@ const schema = [aboutPageSchema, faqSchema];
   }
 
   .value-icon {
-    font-size: 1.5rem;
     flex-shrink: 0;
   }
 
@@ -490,7 +490,6 @@ const schema = [aboutPageSchema, faqSchema];
   }
 
   .security-icon {
-    font-size: 2rem;
     margin-bottom: 16px;
   }
 

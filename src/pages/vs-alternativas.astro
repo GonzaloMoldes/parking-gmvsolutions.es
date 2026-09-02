@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
@@ -85,8 +86,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="fade-up section-center" style="margin-bottom:48px;">
         <div class="eyebrow">Software especializado</div>
         <h2 class="section-title">REELEVO vs competencia internacional</h2>
-        <p class="section-sub">
-          Esta pagina prioriza una sola pregunta: que opcion encaja mejor en una pyme industrial espanola que necesita arrancar rapido.
+        <p class="section-sub">Esta pagina prioriza una sola pregunta: que opcion encaja mejor en una pyme industrial espanola que necesita arrancar rapido.
         </p>
       </div>
 
@@ -108,48 +108,48 @@ const schema = [pageSchema, faqPageSchema(faqs)];
                 <td class="feature-name">1. Precio y transparencia</td>
                 <td class="reelevo-cell"><span class="check">✓</span> 49€/mes</td>
                 <td class="competitor-cell"><span class="cross">×</span> ~$850/mes*</td>
-                <td class="competitor-cell"><span class="cross">×</span> Oculto**</td>
-                <td class="competitor-cell"><span class="cross">×</span> Oculto**</td>
-                <td class="competitor-cell"><span class="cross">×</span> Oculto**</td>
+                <td class="competitor-cell"><span class="cross">×</span>Oculto**</td>
+                <td class="competitor-cell"><span class="cross">×</span>Oculto**</td>
+                <td class="competitor-cell"><span class="cross">×</span>Oculto**</td>
               </tr>
               <tr>
                 <td class="feature-name">2. Arranque e implantacion</td>
-                <td class="reelevo-cell"><span class="check">✓</span> Ligero y asistido</td>
+                <td class="reelevo-cell"><span class="check">✓</span>Ligero y asistido</td>
                 <td class="competitor-cell"><span class="cross">×</span> 2-6 semanas</td>
                 <td class="competitor-cell"><span class="cross">×</span> 3-6 meses</td>
-                <td class="competitor-cell"><span class="partial">⚪</span> 1-2 semanas</td>
-                <td class="competitor-cell"><span class="partial">⚪</span> 3-5 dias</td>
+                <td class="competitor-cell"><span class="partial">○</span> 1-2 semanas</td>
+                <td class="competitor-cell"><span class="partial">○</span> 3-5 dias</td>
               </tr>
               <tr>
                 <td class="feature-name">3. Adopcion operaria</td>
-                <td class="reelevo-cell"><span class="check">✓</span> Acceso directo sin usuario</td>
-                <td class="competitor-cell"><span class="cross">×</span> Usuario obligatorio</td>
-                <td class="competitor-cell"><span class="cross">×</span> Usuario obligatorio</td>
-                <td class="competitor-cell"><span class="cross">×</span> Usuario obligatorio</td>
-                <td class="competitor-cell"><span class="cross">×</span> Usuario obligatorio</td>
+                <td class="reelevo-cell"><span class="check">✓</span>Acceso directo sin usuario</td>
+                <td class="competitor-cell"><span class="cross">×</span>Usuario obligatorio</td>
+                <td class="competitor-cell"><span class="cross">×</span>Usuario obligatorio</td>
+                <td class="competitor-cell"><span class="cross">×</span>Usuario obligatorio</td>
+                <td class="competitor-cell"><span class="cross">×</span>Usuario obligatorio</td>
               </tr>
               <tr>
                 <td class="feature-name">4. Localizacion en espanol</td>
-                <td class="reelevo-cell"><span class="check">✓</span> Diseñado en español</td>
-                <td class="competitor-cell"><span class="cross">×</span> Traducción automática</td>
-                <td class="competitor-cell"><span class="partial">⚪</span> Parcial</td>
-                <td class="competitor-cell"><span class="cross">×</span> Solo inglés</td>
-                <td class="competitor-cell"><span class="cross">×</span> Solo inglés</td>
+                <td class="reelevo-cell"><span class="check">✓</span>Diseñado en español</td>
+                <td class="competitor-cell"><span class="cross">×</span>Traducción automática</td>
+                <td class="competitor-cell"><span class="partial">○</span>Parcial</td>
+                <td class="competitor-cell"><span class="cross">×</span>Solo inglés</td>
+                <td class="competitor-cell"><span class="cross">×</span>Solo inglés</td>
               </tr>
               <tr>
                 <td class="feature-name">5. Encaje pyme industrial espanola</td>
-                <td class="reelevo-cell"><span class="check">✓</span> Específico</td>
-                <td class="competitor-cell"><span class="cross">×</span> Fortune 500</td>
-                <td class="competitor-cell"><span class="cross">×</span> Enterprise</td>
-                <td class="competitor-cell"><span class="partial">⚪</span> Genérico</td>
-                <td class="competitor-cell"><span class="cross">×</span> Startups tech</td>
+                <td class="reelevo-cell"><span class="check">✓</span>Específico</td>
+                <td class="competitor-cell"><span class="cross">×</span>Fortune 500</td>
+                <td class="competitor-cell"><span class="cross">×</span>Enterprise</td>
+                <td class="competitor-cell"><span class="partial">○</span>Genérico</td>
+                <td class="competitor-cell"><span class="cross">×</span>Startups tech</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="comp-footnotes">
-          <p><strong>*</strong> Precio estimado basado en configuraciones típicas obtenidas por partners.</p>
-          <p><strong>**</strong> Precio disponible solo bajo petición tras proceso comercial.</p>
+          <p><strong>*</strong>Precio estimado basado en configuraciones típicas obtenidas por partners.</p>
+          <p><strong>**</strong>Precio disponible solo bajo petición tras proceso comercial.</p>
         </div>
       </div>
 
@@ -198,15 +198,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="fade-up">
         <div class="eyebrow">Métodos tradicionales</div>
         <h2 class="section-title">REELEVO vs «lo de siempre»</h2>
-        <p class="section-sub">
-          Comparación con los métodos que utilizan actualmente la mayoría
+        <p class="section-sub">Comparación con los métodos que utilizan actualmente la mayoría
           de pymes industriales españolas.
         </p>
       </div>
 
       <div class="traditional-grid fade-up delay-1">
         <div class="traditional-card">
-          <div class="traditional-icon">📄</div>
+          <Icon name="documento" class="traditional-icon" />
           <h3 class="traditional-title">Documentos en papel</h3>
           <div class="traditional-before">
             <h4>Sin REELEVO</h4>
@@ -231,7 +230,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         </div>
 
         <div class="traditional-card">
-          <div class="traditional-icon">👨‍🏫</div>
+          <Icon name="persona" class="traditional-icon" />
           <h3 class="traditional-title">Formación con tutor</h3>
           <div class="traditional-before">
             <h4>Sin REELEVO</h4>
@@ -256,7 +255,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         </div>
 
         <div class="traditional-card">
-          <div class="traditional-icon">📞</div>
+          <Icon name="telefono" class="traditional-icon" />
           <h3 class="traditional-title">«Llamar al experto»</h3>
           <div class="traditional-before">
             <h4>Sin REELEVO</h4>
@@ -281,7 +280,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         </div>
 
         <div class="traditional-card">
-          <div class="traditional-icon">💻</div>
+          <Icon name="maquina" class="traditional-icon" />
           <h3 class="traditional-title">Word + carpetas compartidas</h3>
           <div class="traditional-before">
             <h4>Sin REELEVO</h4>
@@ -316,8 +315,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="fade-up section-center" style="margin-bottom:48px;">
         <div class="eyebrow">Análisis económico</div>
         <h2 class="section-title">¿Cuál es el coste real?</h2>
-        <p class="section-sub">
-          Comparación honesta de costes totales de propiedad:
+        <p class="section-sub">Comparación honesta de costes totales de propiedad:
           licencias, implementación, mantenimiento y tiempo.
         </p>
       </div>
@@ -376,15 +374,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
       <div class="cost-insight fade-up delay-2">
         <div class="cost-insight-content">
-          <h3>💡 La conclusión</h3>
+          <h3>La conclusión</h3>
           <p>
             <strong>Para una pyme industrial, REELEVO arranca por mucho menos dinero</strong>
             y sin meterte en un proyecto de meses ni una implantación pesada.
           </p>
-          <p>
-            Las herramientas enterprise están pensadas para otra liga. Y los métodos de siempre
+          <p>Las herramientas enterprise están pensadas para otra liga. Y los métodos de siempre
             —papel, Word, llamar al experto— salen «gratis» hasta que cuentas las horas que se pierden.
-            Aquí el precio está a la vista y el operario entra al proceso sin pelearse con un login.
+ Aquí el precio está a la vista y el operario entra al proceso sin pelearse con un login.
           </p>
         </div>
       </div>
@@ -399,9 +396,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="fade-up">
         <div class="eyebrow">Compara por intención</div>
         <h2 class="section-title">Si estás evaluando software, empieza por tu caso real</h2>
-        <p class="section-sub">
-          La comparativa sirve mejor cuando la aterrizas en el problema operativo concreto:
-          SOPs, onboarding, cobertura de bajas, transferencia de conocimiento o matriz de habilidades.
+        <p class="section-sub">La comparativa sirve mejor cuando la aterrizas en el problema operativo concreto:
+ SOPs, onboarding, cobertura de bajas, transferencia de conocimiento o matriz de habilidades.
         </p>
       </div>
 
@@ -448,23 +444,18 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Si ya lo has comparado</div>
-    <h2 class="cta-title fade-up delay-1">
-      Si quieres verlo por dentro, <br><em>pruébalo en tu propio contexto</em>
+    <h2 class="cta-title fade-up delay-1">Si quieres verlo por dentro, <br><em>pruébalo en tu propio contexto</em>
     </h2>
-    <p class="cta-sub fade-up delay-2">
-      Abre la plataforma, revisa cómo se estructura y compárala con lo que hoy te está funcionando de verdad.
+    <p class="cta-sub fade-up delay-2">Abre la plataforma, revisa cómo se estructura y compárala con lo que hoy te está funcionando de verdad.
     </p>
     <div class="cta-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Entrar a REELEVO →
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Entrar a REELEVO →
       </a>
-      <a href="/precios/" class="btn-ghost">
-        Ver precios completos
+      <a href="/precios/" class="btn-ghost">Ver precios completos
       </a>
     </div>
-    <div class="cta-note fade-up delay-4">
-      Implementación asistida incluida · Soporte en español · Sin letra pequeña
+    <div class="cta-note fade-up delay-4">Implementación asistida incluida · Soporte en español · Sin letra pequeña
     </div>
   </section>
 </BaseLayout>
@@ -672,7 +663,6 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .traditional-icon {
-    font-size: 3rem;
     margin-bottom: 20px;
   }
 

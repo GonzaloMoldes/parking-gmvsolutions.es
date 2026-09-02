@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import Screenshot from '../components/Screenshot.astro';
@@ -144,7 +145,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="benefit-list fade-up delay-3">
 
       <div class="benefit-row">
-        <div class="benefit-icon">📱</div>
+        <Icon name="movil" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">El criterio llega cuando hay que decidir</div>
           <div class="benefit-desc">Se escanea el QR de la máquina y aparece el proceso en su versión vigente, con texto, fotos y vídeo. Sin cuenta ni contraseña, sin buscar la carpeta del servidor y sin el plastificado de hace tres años que sigue colgado al lado.</div>
@@ -152,7 +153,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       </div>
 
       <div class="benefit-row">
-        <div class="benefit-icon">📸</div>
+        <Icon name="lupa" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">Los pasos críticos no se despachan de memoria</div>
           <div class="benefit-desc">Un paso puede exigir foto de evidencia, una medición que hay que introducir, una espera que tiene que cumplirse o el visto bueno del supervisor. El siguiente no se abre hasta cerrar el anterior, así que el ajuste que «todo el mundo sabe» deja de poder saltarse sin querer.</div>
@@ -160,7 +161,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       </div>
 
       <div class="benefit-row">
-        <div class="benefit-icon">🔎</div>
+        <Icon name="lupa" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">El fallo queda con su causa, no como «una incidencia»</div>
           <div class="benefit-desc">Las paradas de máquina se registran con motivo, las unidades rechazadas se cuentan aparte de las buenas y los campos de captura recogen los valores que os importan. Cuando alguien pregunta por qué se repite, hay algo concreto que mirar.</div>
@@ -168,7 +169,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       </div>
 
       <div class="benefit-row">
-        <div class="benefit-icon">🔁</div>
+        <Icon name="ciclo" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">El error se cierra cambiando el proceso</div>
           <div class="benefit-desc">Quien detecta el problema lo reporta desde el mismo puesto y puede proponer la corrección. El supervisor la revisa y, si vale, se publica como versión nueva del proceso; los operarios certificados reciben el aviso y confirman que la han leído.</div>
